@@ -1,0 +1,1430 @@
+// CaesarIA 2025 - Religion & Mythology System
+// Deep Roman religious simulation with gods, temples, and divine intervention
+
+religion_mythology : {
+  // ==========================================
+  // PANTHEON OF GODS
+  // ==========================================
+  pantheon : {
+    major_gods : {
+      jupiter : {
+        title : "King of Gods"
+        domain : ["sky", "thunder", "justice", "authority"]
+        symbol : "thunderbolt"
+        sacred_animal : "eagle"
+
+        temple_requirements : {
+          size : "grand"
+          materials : ["marble", "gold"]
+          priests : 20
+          maintenance : "very_high"
+        }
+
+        blessings : {
+          divine_favor : {
+            effect : "all_city_benefits"
+            duration : "30_days"
+            triggers : ["excellent_temple", "major_festival", "great_sacrifice"]
+          }
+
+          thunderstorm : {
+            effect : "fills_reservoirs_waters_crops"
+            chance : "10_percent_when_favored"
+          }
+
+          divine_protection : {
+            effect : "enemy_retreats_without_battle"
+            chance : "5_percent_in_war"
+          }
+        }
+
+        wrath : {
+          lightning_strike : {
+            effect : "building_destroyed_by_lightning"
+            triggers : ["neglected_temple", "impiety", "broken_vow"]
+          }
+
+          drought : {
+            effect : "no_rain_for_months"
+            severity : "catastrophic"
+          }
+        }
+
+        festivals : ["Ludi_Romani", "Ludi_Plebeii"]
+        favored_offerings : ["white_bulls", "wine", "incense"]
+      }
+
+      juno : {
+        title : "Queen of Gods"
+        domain : ["marriage", "childbirth", "women", "family"]
+        symbol : "peacock"
+        sacred_animal : "peacock"
+
+        blessings : {
+          fertility_boom : {
+            effect : "increased_birth_rate_50_percent"
+            duration : "1_year"
+          }
+
+          marital_harmony : {
+            effect : "citizen_happiness_plus_20"
+            affects : "married_couples"
+          }
+
+          safe_childbirth : {
+            effect : "zero_maternal_mortality"
+            duration : "3_months"
+          }
+        }
+
+        wrath : {
+          infertility : {
+            effect : "no_births_in_city"
+            duration : "6_months"
+          }
+
+          marital_strife : {
+            effect : "increased_divorce_rate"
+          }
+        }
+
+        festivals : ["Matronalia"]
+        favored_offerings : ["flowers", "jewelry", "honey_cakes"]
+      }
+
+      mars : {
+        title : "God of War"
+        domain : ["war", "military", "courage", "agriculture"]
+        symbol : "spear_and_shield"
+        sacred_animal : "wolf"
+
+        blessings : {
+          war_frenzy : {
+            effect : "troops_attack_plus_50_defense_plus_30"
+            duration : "1_battle"
+          }
+
+          recruitment_surge : {
+            effect : "volunteers_flock_to_military"
+            bonus_recruits : 500
+          }
+
+          tactical_insight : {
+            effect : "reveals_enemy_plans"
+            in_war : true
+          }
+        }
+
+        wrath : {
+          military_disaster : {
+            effect : "entire_legion_lost_in_ambush"
+          }
+
+          desertion : {
+            effect : "soldiers_flee_50_percent"
+          }
+        }
+
+        festivals : ["Armilustrium", "Equirria"]
+        favored_offerings : ["weapons", "armor", "war_captives"]
+      }
+
+      venus : {
+        title : "Goddess of Love"
+        domain : ["love", "beauty", "desire", "prosperity"]
+        symbol : "shell_and_dove"
+        sacred_animal : "dove"
+
+        blessings : {
+          city_beautification : {
+            effect : "all_buildings_prettier_tourism_boost"
+            duration : "permanent_until_next_upgrade"
+          }
+
+          love_in_the_air : {
+            effect : "increased_marriages_happiness"
+            matchmaking : "automatic"
+          }
+
+          trade_charm : {
+            effect : "better_trade_deals_20_percent_profit"
+            duration : "season"
+          }
+        }
+
+        wrath : {
+          uglification : {
+            effect : "city_becomes_dreary"
+            morale_penalty : -30
+          }
+
+          heartbreak_plague : {
+            effect : "marriages_fail_unhappiness_spreads"
+          }
+        }
+
+        festivals : ["Veneralia", "Vinalia"]
+        favored_offerings : ["roses", "perfumes", "doves"]
+      }
+
+      neptune : {
+        title : "God of the Sea"
+        domain : ["sea", "earthquakes", "horses", "storms"]
+        symbol : "trident"
+        sacred_animal : "horse"
+
+        blessings : {
+          calm_seas : {
+            effect : "perfect_trading_conditions"
+            trade_income_bonus : "100_percent"
+            duration : "2_months"
+          }
+
+          bountiful_catch : {
+            effect : "fishing_yields_triple"
+            duration : "season"
+          }
+
+          earthquake_protection : {
+            effect : "immune_to_earthquakes"
+            duration : "1_year"
+          }
+        }
+
+        wrath : {
+          tsunami : {
+            effect : "massive_wave_destroys_coastal_areas"
+            devastation : "catastrophic"
+          }
+
+          earthquake : {
+            effect : "city_shakes_buildings_collapse"
+            magnitude : "7_to_9"
+          }
+
+          storm : {
+            effect : "trading_ships_lost"
+          }
+        }
+
+        festivals : ["Neptunalia"]
+        favored_offerings : ["fish", "pearls", "model_ships"]
+      }
+
+      minerva : {
+        title : "Goddess of Wisdom"
+        domain : ["wisdom", "crafts", "strategy", "education"]
+        symbol : "owl_and_olive"
+        sacred_animal : "owl"
+
+        blessings : {
+          enlightenment : {
+            effect : "research_speed_doubled"
+            innovation_rate : "200_percent"
+            duration : "6_months"
+          }
+
+          craftsmanship : {
+            effect : "workshop_quality_plus_50"
+            production_efficiency : "plus_30_percent"
+          }
+
+          strategic_genius : {
+            effect : "perfect_city_planning_suggestions"
+            ai_assistance : "maximum"
+          }
+        }
+
+        wrath : {
+          stupidity_curse : {
+            effect : "citizens_make_poor_decisions"
+            productivity : "minus_50_percent"
+          }
+
+          tool_breaking : {
+            effect : "workshops_constantly_break"
+          }
+        }
+
+        festivals : ["Quinquatria"]
+        favored_offerings : ["scrolls", "tools", "olive_oil"]
+      }
+
+      apollo : {
+        title : "God of Sun"
+        domain : ["sun", "music", "prophecy", "healing", "archery"]
+        symbol : "lyre_and_bow"
+        sacred_animal : "swan"
+
+        blessings : {
+          plague_cure : {
+            effect : "all_diseases_healed_instantly"
+          }
+
+          prophetic_vision : {
+            effect : "see_3_future_events"
+            advance_warning : true
+          }
+
+          golden_age : {
+            effect : "arts_flourish_happiness_soars"
+            cultural_output : "triple"
+            duration : "1_year"
+          }
+        }
+
+        wrath : {
+          plague : {
+            effect : "disease_spreads_rapidly"
+            mortality : "high"
+          }
+
+          darkness : {
+            effect : "permanent_clouds_no_sun"
+            crops_fail : true
+          }
+        }
+
+        festivals : ["Ludi_Apollinares"]
+        favored_offerings : ["music_performances", "healing_herbs", "gold"]
+      }
+
+      diana : {
+        title : "Goddess of the Hunt"
+        domain : ["hunting", "wilderness", "moon", "childbirth"]
+        symbol : "bow_and_crescent"
+        sacred_animal : "deer"
+
+        blessings : {
+          abundant_game : {
+            effect : "hunting_yields_quintuple"
+            food_supply : "surplus"
+          }
+
+          moonlight_protection : {
+            effect : "safe_nights_no_crime"
+            duration : "full_moon_cycle"
+          }
+
+          forest_bounty : {
+            effect : "lumber_berries_herbs_plentiful"
+          }
+        }
+
+        wrath : {
+          wild_animals_attack : {
+            effect : "wolves_bears_invade_city"
+            casualties : "moderate"
+          }
+
+          hunt_curse : {
+            effect : "no_animals_can_be_found"
+            starvation_risk : true
+          }
+        }
+
+        festivals : ["Nemoralia"]
+        favored_offerings : ["game_meat", "animal_pelts", "moon_cakes"]
+      }
+
+      mercury : {
+        title : "Messenger of Gods"
+        domain : ["commerce", "travelers", "thieves", "messages"]
+        symbol : "caduceus"
+        sacred_animal : "ram"
+
+        blessings : {
+          trade_routes_open : {
+            effect : "new_trade_partners_appear"
+            profit_multiplier : "3x"
+          }
+
+          swift_messengers : {
+            effect : "instant_communication"
+            diplomacy_bonus : true
+          }
+
+          merchant_luck : {
+            effect : "deals_always_profitable"
+            duration : "season"
+          }
+        }
+
+        wrath : {
+          trade_collapse : {
+            effect : "all_trade_routes_severed"
+            economic_crisis : true
+          }
+
+          thief_plague : {
+            effect : "organized_crime_rampant"
+            theft_rate : "extreme"
+          }
+        }
+
+        festivals : ["Mercuralia"]
+        favored_offerings : ["coins", "honey", "travelers_tales"]
+      }
+
+      vulcan : {
+        title : "God of Fire"
+        domain : ["fire", "forge", "craftsmanship", "volcanoes"]
+        symbol : "hammer_and_anvil"
+        sacred_animal : "donkey"
+
+        blessings : {
+          forge_mastery : {
+            effect : "smithing_quality_legendary"
+            weapon_armor_bonus : "plus_100_percent"
+          }
+
+          volcano_dormant : {
+            effect : "volcanic_mountains_safe"
+            geothermal_energy : "available"
+          }
+
+          fire_immunity : {
+            effect : "buildings_cannot_burn"
+            duration : "6_months"
+          }
+        }
+
+        wrath : {
+          volcanic_eruption : {
+            effect : "lava_destroys_everything"
+            devastation : "total"
+          }
+
+          forge_fires : {
+            effect : "workshops_burn_constantly"
+          }
+
+          metal_brittleness : {
+            effect : "all_metal_goods_break"
+          }
+        }
+
+        festivals : ["Volcanalia"]
+        favored_offerings : ["metalwork", "fire", "labor"]
+      }
+
+      ceres : {
+        title : "Goddess of Agriculture"
+        domain : ["agriculture", "grain", "harvest", "fertility"]
+        symbol : "sheaf_of_wheat"
+        sacred_animal : "pig"
+
+        blessings : {
+          bumper_harvest : {
+            effect : "crop_yields_quintuple"
+            food_surplus : "massive"
+            duration : "harvest_season"
+          }
+
+          eternal_spring : {
+            effect : "two_growing_seasons_per_year"
+            duration : "1_year"
+          }
+
+          grain_never_spoils : {
+            effect : "food_storage_infinite"
+          }
+        }
+
+        wrath : {
+          famine : {
+            effect : "all_crops_fail"
+            starvation : "widespread"
+          }
+
+          blight : {
+            effect : "disease_destroys_fields"
+            recovery_time : "years"
+          }
+        }
+
+        festivals : ["Cerealia"]
+        favored_offerings : ["grain", "bread", "first_fruits"]
+      }
+
+      bacchus : {
+        title : "God of Wine"
+        domain : ["wine", "revelry", "theater", "ecstasy"]
+        symbol : "grapevine_and_thyrsus"
+        sacred_animal : "panther"
+
+        blessings : {
+          vintage_year : {
+            effect : "wine_quality_legendary"
+            export_value : "10x"
+          }
+
+          perpetual_party : {
+            effect : "happiness_maximum"
+            productivity : "doesnt_matter_everyone_happy"
+            duration : "festival_season"
+          }
+
+          theatrical_brilliance : {
+            effect : "performances_mesmerizing"
+            cultural_fame : "empire_wide"
+          }
+        }
+
+        wrath : {
+          madness : {
+            effect : "citizens_go_berserk"
+            chaos : "complete"
+          }
+
+          wine_rot : {
+            effect : "all_wine_turns_to_vinegar"
+            economy_crash : true
+          }
+        }
+
+        festivals : ["Bacchanalia", "Liberalia"]
+        favored_offerings : ["wine", "ivy", "theatrical_masks"]
+      }
+    }
+
+    // Minor Gods & Spirits
+    minor_deities : {
+      household_gods : {
+        lares : {
+          domain : "household_protection"
+          shrine_location : "every_home"
+          daily_offerings : "small_food_items"
+          effect : "family_safety_prosperity"
+        }
+
+        penates : {
+          domain : "pantry_storehouse"
+          shrine_location : "kitchen"
+          daily_offerings : "portion_of_meals"
+          effect : "food_never_runs_out"
+        }
+
+        vesta : {
+          domain : "hearth_home"
+          eternal_flame : "must_never_extinguish"
+          vestal_virgins : "tend_sacred_fire"
+          effect : "city_prosperity"
+        }
+      }
+
+      nature_spirits : {
+        fauns : {
+          domain : "forests_wilderness"
+          appearance : "half_goat"
+          behavior : "mischievous_helpful"
+        }
+
+        nymphs : {
+          domain : "water_trees_mountains"
+          types : ["naiads", "dryads", "oreads"]
+          interaction : "beautiful_elusive"
+        }
+
+        genius_loci : {
+          domain : "spirit_of_place"
+          every_location_has_one : true
+          respect : "builds_goodwill"
+        }
+      }
+
+      underworld : {
+        pluto : {
+          domain : "underworld_death_riches"
+          temple : "usually_outside_city"
+          feared : true
+        }
+
+        proserpina : {
+          domain : "underworld_queen_spring"
+          myth : "six_months_above_six_below"
+        }
+
+        manes : {
+          domain : "spirits_of_dead"
+          honored_at : "tombs"
+          festivals : "Parentalia_Lemuria"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // TEMPLE MANAGEMENT
+  // ==========================================
+  temples : {
+    construction : {
+      planning : {
+        site_selection : {
+          requirements : ["sacred_ground", "good_omens", "visibility"]
+          augury : "priests_divine_will_of_gods"
+          foundation_ceremony : "ritual_sacrifice"
+        }
+
+        architecture : {
+          styles : ["tetrastyle", "hexastyle", "octastyle"]
+          columns : "number_and_style_matter"
+          orientation : "east_facing_traditional"
+          decorations : ["friezes", "pediments", "statues"]
+        }
+
+        materials : {
+          basic : {
+            stone : "acceptable"
+            cost : "moderate"
+            prestige : "low"
+          }
+
+          standard : {
+            marble : "traditional"
+            cost : "high"
+            prestige : "good"
+          }
+
+          luxury : {
+            marble_with_gold : "magnificent"
+            cost : "very_high"
+            prestige : "excellent"
+          }
+
+          legendary : {
+            marble_gold_jewels : "wonder_of_world"
+            cost : "astronomical"
+            prestige : "maximum"
+            tourism : "empire_wide_pilgrimage"
+          }
+        }
+      }
+
+      construction_process : {
+        duration : "6_months_to_5_years"
+        workforce : "100_to_5000_workers"
+        divine_favor : "increases_with_progress"
+        setbacks : {
+          bad_omens : "pause_construction"
+          accidents : "worker_deaths"
+          theft : "materials_stolen"
+        }
+      }
+
+      consecration : {
+        ceremony : "grand_ritual"
+        sacrifices : "appropriate_to_god"
+        pronouncement : "official_dedication"
+        first_festival : "within_week"
+      }
+    }
+
+    operations : {
+      staff : {
+        pontifex : {
+          title : "High Priest"
+          count : 1
+          responsibilities : ["oversee_all", "interpret_omens", "advise_leader"]
+          salary : "very_high"
+          social_status : "elite"
+        }
+
+        flamines : {
+          title : "Major Priests"
+          count : "3_per_temple"
+          dedicated_to : "specific_god"
+          responsibilities : ["daily_rituals", "festivals", "prophecies"]
+          salary : "high"
+        }
+
+        augurs : {
+          title : "Omen Readers"
+          count : "2_per_temple"
+          method : ["bird_flight", "lightning", "animal_entrails"]
+          accuracy : "varies_questionable"
+          salary : "moderate"
+        }
+
+        haruspices : {
+          title : "Entrail Readers"
+          count : 1
+          method : "examine_sacrifice_organs"
+          skill : "requires_training"
+          gruesome : true
+          salary : "moderate"
+        }
+
+        vestal_virgins : {
+          only_for : "Temple_of_Vesta"
+          count : 6
+          requirements : ["virgin", "patrician_family", "age_6_to_10_at_start"]
+          term : "30_years"
+          duties : ["tend_eternal_flame", "keep_sacred_objects", "participate_rituals"]
+          punishment_for_breaking_vow : "buried_alive"
+          privileges : ["high_status", "front_row_games", "can_pardon_criminals"]
+          salary : "state_funded"
+        }
+
+        temple_slaves : {
+          count : "10_to_100"
+          duties : ["cleaning", "maintenance", "preparation"]
+          some_freed_eventually : true
+        }
+      }
+
+      daily_operations : {
+        morning_rituals : {
+          time : "dawn"
+          activities : ["open_temple", "clean_altar", "light_incense", "offerings"]
+          attended_by : "priests"
+        }
+
+        sacrifices : {
+          daily : {
+            animals : ["sheep", "goats", "chickens"]
+            frequency : "every_morning"
+            purpose : "maintain_favor"
+          }
+
+          special : {
+            animals : ["bulls", "oxen", "multiple_animals"]
+            frequency : "festivals_important_occasions"
+            purpose : "major_requests"
+          }
+
+          human_sacrifice : {
+            historically_rare : true
+            extreme_circumstances : ["dire_emergency", "appease_angry_god"]
+            usually : "criminals_or_war_captives"
+            controversy : "divides_population"
+          }
+        }
+
+        divination : {
+          methods : {
+            augury : {
+              birds : "watch_flight_patterns"
+              interpretation : {
+                flying_right : "favorable"
+                flying_left : "unfavorable"
+                circling : "gods_watching"
+                landing : "specific_meaning"
+              }
+            }
+
+            haruspicy : {
+              organs_examined : ["liver", "heart", "intestines"]
+              look_for : ["color", "shape", "abnormalities", "position"]
+              interpretation : "complex_traditional_knowledge"
+            }
+
+            sortilege : {
+              method : "draw_lots_or_dice"
+              questions : "yes_no_format"
+              god_reveals : "through_chance"
+            }
+
+            oracle : {
+              priestess_channels : "god_speaks_through_her"
+              trance_state : true
+              cryptic_messages : true
+              interpretation_required : true
+            }
+          }
+
+          accuracy : {
+            true_divine : "10_percent"
+            lucky_guess : "30_percent"
+            educated_guess : "40_percent"
+            complete_fabrication : "20_percent"
+            player_choice : "can_ignore_or_follow"
+          }
+        }
+
+        public_hours : {
+          open : "sunrise_to_sunset"
+          citizens_can : ["pray", "make_offerings", "seek_guidance"]
+          priests_available : "for_counsel"
+        }
+      }
+
+      maintenance : {
+        cleaning : {
+          frequency : "daily"
+          importance : "cleanliness_is_piety"
+          neglect_consequences : "divine_disfavor"
+        }
+
+        repairs : {
+          regular : "fix_wear_and_tear"
+          cost : "ongoing_expense"
+          emergency : "after_disasters"
+        }
+
+        upgrades : {
+          expand_temple : "add_wings_rooms"
+          improve_decor : "finer_materials"
+          add_statues : "more_gods_honored"
+          cost : "significant"
+          effect : "increased_favor_prestige"
+        }
+      }
+
+      finances : {
+        income : {
+          donations : "citizens_give_voluntarily"
+          endowments : "wealthy_patrons"
+          state_funding : "from_treasury"
+          fees : "for_special_services"
+          temple_lands : "farm_income"
+        }
+
+        expenses : {
+          staff_salaries : "largest_expense"
+          sacrificial_animals : "constant_need"
+          incense_oils : "imported_expensive"
+          maintenance : "ongoing"
+          festivals : "major_costs"
+        }
+
+        treasury : {
+          accumulation : "temples_become_wealthy"
+          storage : "sacred_vaults"
+          lending : "temples_as_banks"
+          emergency_fund : "city_can_borrow_in_crisis"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // FESTIVALS & CELEBRATIONS
+  // ==========================================
+  festivals : {
+    calendar : {
+      annual_cycle : "complex_roman_calendar"
+      total_festival_days : "135_per_year"
+      work_stops : "on_major_festivals"
+
+      major_festivals : {
+        saturnalia : {
+          date : "December_17_to_23"
+          god : "Saturn"
+          activities : {
+            role_reversal : "slaves_served_by_masters"
+            gambling_allowed : "usually_illegal"
+            gift_giving : "small_presents"
+            feasting : "elaborate_meals"
+            candles : "symbolize_returning_light"
+          }
+          significance : "winter_solstice_celebration"
+          modern_equivalent : "Christmas_influence"
+          happiness_boost : "+50"
+        }
+
+        lupercalia : {
+          date : "February_15"
+          god : "Faunus"
+          activities : {
+            ritual_sacrifice : "goats_and_dog"
+            priests_run : "nearly_naked_through_streets"
+            whipping_women : "with_goat_hide_strips"
+            purpose : "fertility_purification"
+          }
+          significance : "founding_of_rome"
+          controversial : "violent_sensual"
+        }
+
+        vestalia : {
+          date : "June_7_to_15"
+          goddess : "Vesta"
+          activities : {
+            temple_opening : "usually_closed_to_public"
+            women_barefoot : "to_temple"
+            baking_sacred_cakes : "special_recipe"
+            cleaning_temple : "thorough_purification"
+          }
+          significance : "hearth_home_protection"
+          attendance : "married_women"
+        }
+
+        ludi_romani : {
+          date : "September_5_to_19"
+          god : "Jupiter"
+          activities : {
+            games : ["chariot_races", "theatrical_performances"]
+            procession : "grand_parade"
+            sacrifices : "white_bulls"
+            feasting : "public_banquets"
+          }
+          significance : "oldest_largest_festival"
+          budget : "enormous"
+        }
+      }
+
+      minor_festivals : {
+        count : 100
+        various_gods : true
+        local_traditions : true
+        family_celebrations : true
+      }
+    }
+
+    organization : {
+      planning : {
+        months_in_advance : true
+        committees : "organize_events"
+        funding : ["state", "wealthy_donors", "temple_treasury"]
+        logistics : ["food", "animals", "venues", "security"]
+      }
+
+      events : {
+        processions : {
+          route : "through_main_streets"
+          participants : ["priests", "officials", "citizens", "musicians"]
+          displays : ["god_statues", "sacred_objects", "banners"]
+          crowd : "thousands_watching"
+        }
+
+        sacrifices : {
+          public : "on_temple_steps"
+          animals : "dozens_to_hundreds"
+          distribution : "meat_to_citizens"
+          spectacle : "impressive_ritual"
+        }
+
+        games : {
+          gladiators : "see_gladiator_system"
+          chariot_races : "see_chariot_racing"
+          theatrical : "comedies_tragedies"
+          athletic : "running_wrestling_boxing"
+          duration : "days_to_weeks"
+          free_admission : "for_citizens"
+        }
+
+        feasting : {
+          public_banquets : "city_provides_food"
+          quantities : "enormous"
+          menu : ["roasted_meats", "bread", "wine", "fruits", "pastries"]
+          seating : "by_social_class"
+          entertainment : "music_juggling"
+        }
+      }
+
+      participation : {
+        mandatory : {
+          officials : "must_attend"
+          priests : "conduct_rituals"
+          important_citizens : "expected_presence"
+        }
+
+        voluntary : {
+          citizens : "encouraged_attend"
+          benefits : ["free_food", "entertainment", "social_bonding"]
+          non_attendance : "frowned_upon"
+        }
+
+        exclusions : {
+          slaves : "some_festivals_forbidden"
+          foreigners : "restricted_access"
+          women : "certain_male_only_festivals"
+          men : "certain_female_only_festivals"
+        }
+      }
+    }
+
+    gameplay : {
+      planning_phase : {
+        player_chooses : {
+          budget : "cheap_to_extravagant"
+          events : "which_activities_include"
+          duration : "1_day_to_2_weeks"
+        }
+
+        outcomes_depend_on : {
+          spending : "more_money_better_festival"
+          planning_time : "rushed_vs_prepared"
+          city_resources : "food_animals_available"
+        }
+      }
+
+      execution : {
+        mini_events : "random_occurrences"
+        possible_disasters : ["rain", "riots", "accidents"]
+        management : "player_makes_decisions"
+        citizen_reactions : "real_time_feedback"
+      }
+
+      results : {
+        divine_favor : "increases_significantly"
+        happiness : "major_boost"
+        tourism : "visitors_from_other_cities"
+        reputation : "political_benefit"
+        costs : "temporary_economic_impact"
+      }
+    }
+  }
+
+  // ==========================================
+  // DIVINE FAVOR SYSTEM
+  // ==========================================
+  divine_favor : {
+    measurement : {
+      scale : "-100_to_100"
+      per_god : "each_tracked_separately"
+      visible : "in_temple_or_religion_screen"
+
+      ranges : {
+        enraged : "-100_to_-75"
+        angry : "-75_to_-25"
+        displeased : "-25_to_0"
+        neutral : "0"
+        pleased : "0_to_25"
+        favored : "25_to_75"
+        blessed : "75_to_100"
+      }
+    }
+
+    factors : {
+      positive : {
+        temple_quality : "+1_per_day_per_quality_level"
+        sacrifices : "+5_per_sacrifice"
+        festivals : "+20_per_festival"
+        prayers : "+1_per_100_citizens_praying"
+        victory_in_domain : "+30_for_mars_after_battle_won"
+        adherence_to_principles : "+variable"
+      }
+
+      negative : {
+        temple_neglect : "-5_per_day_if_poorly_maintained"
+        missed_festivals : "-50_per_missed_festival"
+        impious_acts : "-20_per_sacrilege"
+        defeat_in_domain : "-30_for_mars_after_battle_lost"
+        breaking_vows : "-100_major_offense"
+      }
+
+      decay : {
+        natural : "-1_per_week_toward_neutral"
+        represents : "gods_require_constant_attention"
+      }
+    }
+
+    effects : {
+      at_blessed : {
+        miracles : "10_percent_chance_per_month"
+        blessings : "active"
+        mood : "city_happiness_plus_20"
+        productivity : "plus_10_percent"
+      }
+
+      at_neutral : {
+        nothing : "gods_neither_help_nor_hinder"
+      }
+
+      at_enraged : {
+        curses : "guaranteed_within_month"
+        disasters : "50_percent_chance"
+        mood : "city_happiness_minus_30"
+        productivity : "minus_20_percent"
+      }
+    }
+  }
+
+  // ==========================================
+  // MIRACLES & DIVINE INTERVENTION
+  // ==========================================
+  divine_intervention : {
+    miracles : {
+      frequency : "rare_special_occasions"
+      trigger_conditions : ["maximum_favor", "critical_need", "after_great_sacrifice"]
+
+      types : {
+        healing : {
+          effect : "sick_instantly_cured"
+          witnessed_by : "hundreds"
+          skeptics : "say_coincidence"
+          believers : "strengthened_faith"
+        }
+
+        abundance : {
+          effect : "granaries_mysteriously_full"
+          or : "spring_appears_in_desert"
+          or : "fruit_trees_bear_out_of_season"
+        }
+
+        protection : {
+          effect : "city_walls_glow"
+          or : "enemy_army_turns_back"
+          or : "plague_stops_at_city_gates"
+        }
+
+        weather_control : {
+          effect : "rain_comes_during_drought"
+          or : "storm_ends_immediately"
+          or : "perfect_conditions"
+        }
+
+        resurrection : {
+          effect : "beloved_leader_returns_from_death"
+          extremely_rare : true
+          only_if : "truly_earned"
+        }
+      }
+    }
+
+    divine_manifestations : {
+      god_appears : {
+        visual : "shimmering_figure_in_temple"
+        audible : "voice_from_above"
+        tangible : "physical_presence"
+        message : "specific_instruction_or_warning"
+        witnesses : "priests_and_worshippers"
+        effect : "massive_faith_increase"
+      }
+
+      avatar : {
+        god_possesses_priest : true
+        speaks_through : "oracle_or_augur"
+        prophecy : "specific_prediction"
+        cryptic : "requires_interpretation"
+      }
+
+      signs : {
+        rainbow : "promise_of_favor"
+        eclipse : "warning_of_doom"
+        comet : "great_change_coming"
+        auroras : "gods_battling_in_heavens"
+        multiple_births : "blessing_of_fertility"
+      }
+    }
+
+    divine_wrath : {
+      punishments : {
+        personal : {
+          struck_by_lightning : "instant_death"
+          madness : "driven_insane"
+          transformation : "turned_into_animal"
+          curse : "family_line_doomed"
+        }
+
+        communal : {
+          plague : "disease_spreads"
+          famine : "crops_fail"
+          disaster : "earthquake_flood_fire"
+          invasion : "enemies_emboldened"
+          economic_collapse : "trade_fails"
+        }
+      }
+
+      appeasement : {
+        methods : {
+          extraordinary_sacrifice : "100_bulls"
+          public_penance : "leader_humbles_self"
+          new_temple : "grand_construction"
+          festival : "city_wide_celebration"
+          exile_offender : "remove_guilty_party"
+        }
+
+        duration : "weeks_to_months"
+        success_uncertain : "gods_may_stay_angry"
+      }
+    }
+  }
+
+  // ==========================================
+  // SUPERSTITIONS & OMENS
+  // ==========================================
+  superstitions : {
+    daily_life : {
+      auspicious_days : {
+        identified_by : "augurs"
+        activities : ["weddings", "business_deals", "travel"]
+        success_rate : "appears_higher"
+        psychological_effect : true
+      }
+
+      inauspicious_days : {
+        dies_nefasti : "unlucky_days"
+        avoid : ["important_decisions", "new_ventures"]
+        stay_home : "if_possible"
+      }
+
+      household_practices : {
+        threshold_gods : "protect_doorways"
+        evil_eye : "ward_off_with_charms"
+        salt : "purification_protection"
+        iron : "keeps_ghosts_away"
+      }
+    }
+
+    omens : {
+      good_omens : {
+        double_yolk_egg : "twins_coming"
+        bird_singing : "good_news"
+        finding_coin : "wealth_coming"
+        rainbow : "divine_favor"
+        bee_swarm : "prosperity"
+      }
+
+      bad_omens : {
+        owl_hooting : "death_approaching"
+        black_cat : "bad_luck"
+        breaking_mirror : "7_years_misfortune"
+        spilling_salt : "conflict_coming"
+        ravens_gathering : "disaster_imminent"
+      }
+
+      interpretation : {
+        vary_by_person : true
+        cultural_context : true
+        professional_augurs : "paid_for_expertise"
+        common_folk : "follow_traditions"
+      }
+    }
+  }
+
+  // ==========================================
+  // MYSTERY CULTS
+  // ==========================================
+  mystery_cults : {
+    definition : "secret_religious_societies"
+    characteristics : ["initiation_rites", "secret_knowledge", "exclusive_membership"]
+
+    major_cults : {
+      cult_of_isis : {
+        origin : "Egypt"
+        goddess : "Isis"
+        appeals_to : "women_and_lower_classes"
+        promises : "personal_salvation"
+        rituals : "elaborate_dramatic"
+        secrecy : "moderate"
+      }
+
+      cult_of_mithras : {
+        origin : "Persia"
+        god : "Mithras"
+        members : "men_only_especially_soldiers"
+        tauroctony : "bull_slaying_ritual"
+        grades : "seven_levels_of_initiation"
+        meeting_place : "underground_cave_like"
+        secrecy : "high"
+      }
+
+      eleusinian_mysteries : {
+        origin : "Greece"
+        goddesses : ["Demeter", "Persephone"]
+        promises : "better_afterlife"
+        pilgrimage : "to_Eleusis_required"
+        revelation : "unknown_to_outsiders"
+        secrecy : "absolute"
+      }
+
+      bacchic_mysteries : {
+        god : "Bacchus"
+        rituals : "ecstatic_dancing_wine"
+        reputation : "scandalous"
+        banned : "temporarily_by_Senate"
+        underground : "continues_in_secret"
+      }
+    }
+
+    gameplay : {
+      player_can : ["join_cults", "allow_or_ban", "persecute_or_tolerate"]
+
+      benefits_of_allowing : {
+        happiness : "cult_members_satisfied"
+        diversity : "cultural_richness"
+        foreign_relations : "pleases_origin_countries"
+      }
+
+      risks_of_allowing : {
+        traditional_opposition : "conservative_citizens_upset"
+        political_intrigue : "secret_meetings_suspicious"
+        religious_conflict : "between_cults"
+      }
+
+      persecution : {
+        reasons : ["maintain_tradition", "political_control", "religious_purity"]
+        methods : ["ban_meetings", "destroy_temples", "arrest_members"]
+        consequences : ["underground_activity", "unrest", "martyrs"]
+      }
+    }
+  }
+
+  // ==========================================
+  // PRIESTHOOD CAREERS
+  // ==========================================
+  priesthood : {
+    becoming_priest : {
+      requirements : {
+        citizen_status : "full_citizen"
+        social_class : "usually_patrician_or_equestrian"
+        education : "literate_knowledgeable"
+        physical : "no_major_defects"
+        moral : "good_reputation"
+      }
+
+      paths : {
+        hereditary : "some_positions_passed_down"
+        elected : "by_religious_colleges"
+        appointed : "by_state_officials"
+        called : "divine_vocation"
+      }
+
+      training : {
+        apprenticeship : "under_senior_priest"
+        duration : "1_to_5_years"
+        studies : ["theology", "rituals", "divination", "history"]
+        tests : "knowledge_and_piety"
+      }
+    }
+
+    career_progression : {
+      ranks : {
+        acolyte : {
+          entry_level : true
+          duties : "assist_senior_priests"
+          learning : "observe_and_practice"
+          salary : "small_stipend"
+        }
+
+        priest : {
+          mid_level : true
+          duties : "conduct_rituals"
+          authority : "over_temple_matters"
+          salary : "comfortable_living"
+        }
+
+        high_priest : {
+          senior_level : true
+          duties : "oversee_temple"
+          authority : "religious_and_administrative"
+          salary : "wealthy"
+        }
+
+        pontifex_maximus : {
+          highest_rank : "chief_priest_of_rome"
+          political : "often_held_by_consul"
+          authority : "supreme_religious"
+          salary : "very_wealthy"
+          influence : "massive"
+        }
+      }
+    }
+
+    religious_colleges : {
+      college_of_pontiffs : {
+        members : 16
+        role : "oversee_state_religion"
+        duties : ["advise_on_religious_law", "regulate_calendar", "supervise_priests"]
+      }
+
+      college_of_augurs : {
+        members : 16
+        role : "interpret_will_of_gods"
+        duties : "read_omens_before_important_state_actions"
+      }
+
+      college_of_quindecemviri : {
+        members : 15
+        role : "guard_sibylline_books"
+        duties : "consult_prophecies_in_crisis"
+      }
+    }
+  }
+
+  // ==========================================
+  // ATHEISM & SKEPTICISM
+  // ==========================================
+  non_belief : {
+    atheists : {
+      existence : "rare_but_present"
+      social_status : "highly_suspect"
+      public_expression : "dangerous"
+      private_belief : "tolerated_if_secret"
+      famous_skeptics : "some_philosophers"
+    }
+
+    skeptics : {
+      position : "doubt_traditional_religion"
+      arguments : ["gods_dont_care", "superstition", "priests_manipulate"]
+      influence : "intellectual_circles"
+      common_folk : "generally_reject"
+    }
+
+    persecution : {
+      charges : ["impiety", "atheism", "corrupting_youth"]
+      punishment : ["exile", "execution", "loss_of_citizenship"]
+      historical_examples : "Socrates_executed"
+    }
+
+    gameplay : {
+      citizen_trait : "skeptic"
+      percentage : "1_to_5_percent"
+      effects : {
+        immune_to_religious_happiness : true
+        may_cause_unrest : "if_too_many"
+        philosophical_contribution : "positive"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    religion_screen : {
+      overview : "all_gods_favor_levels"
+      temples : "list_and_status"
+      festivals : "calendar_and_planning"
+      priesthood : "management"
+      spending : "religious_budget"
+    }
+
+    decisions : {
+      temple_construction : "where_when_which_god"
+      festival_planning : "budget_and_events"
+      priesthood_appointments : "choose_leaders"
+      cult_policy : "allow_ban_or_ignore"
+      responding_to_omens : "heed_or_ignore"
+    }
+
+    consequences : {
+      divine_favor : "affects_everything"
+      citizen_happiness : "piety_matters"
+      political_support : "religion_and_politics_intertwined"
+      foreign_relations : "shared_gods_create_bonds"
+      economy : "temples_employ_thousands"
+    }
+
+    balance : {
+      cost_vs_benefit : "temples_expensive_but_valuable"
+      risk_vs_reward : "neglect_costs_appeasement_costs"
+      multiple_gods : "must_please_many"
+      time_management : "festivals_take_time"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    accuracy_mode : {
+      enabled : "optional"
+      effects : {
+        no_mythological_invasions : true
+        realistic_divine_intervention : "psychological_only"
+        historical_festivals : "dates_and_practices"
+        proper_pantheon : "time_period_appropriate"
+      }
+    }
+
+    educational_content : {
+      encyclopedia : "detailed_god_descriptions"
+      historical_context : "how_romans_actually_believed"
+      archaeological : "temple_reconstructions"
+      primary_sources : "ancient_texts_quoted"
+    }
+  }
+}
