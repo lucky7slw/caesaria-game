@@ -1,0 +1,593 @@
+// CaesarIA 2025 - Premium iOS Integration Features
+// This configuration enables cutting-edge iOS/iPadOS features
+
+ios_premium : {
+  // ==========================================
+  // HOME SCREEN & LOCK SCREEN WIDGETS
+  // ==========================================
+  widgets : {
+    enabled : true
+
+    // Small Widget (2x2) - City Status
+    small_widget : {
+      shows : "city_status"
+      updates : "every_30_minutes"
+      displays : {
+        city_name : true
+        population : true
+        treasury : true
+        happiness_meter : true
+        next_milestone : true
+      }
+      interactive : false  // iOS 17+ can make interactive
+      background_color : "dynamic"  // Adapts to wallpaper
+    }
+
+    // Medium Widget (4x2) - City Overview
+    medium_widget : {
+      shows : "city_overview"
+      updates : "every_15_minutes"
+      displays : {
+        mini_map : true
+        resource_bars : ["food", "water", "employment", "housing"]
+        active_threats : true  // fires, riots, invasions
+        quick_stats : true
+      }
+      tap_actions : {
+        map_region : "open_to_location"
+        threat_icon : "jump_to_threat"
+      }
+    }
+
+    // Large Widget (4x4) - Full City Dashboard
+    large_widget : {
+      shows : "full_dashboard"
+      updates : "every_10_minutes"
+      displays : {
+        large_map : true
+        all_resources : true
+        economy_graph : "last_24_hours"
+        population_breakdown : true
+        upcoming_events : 3  // Next 3 events
+        advisor_tips : true
+      }
+      interactive_elements : {
+        issue_commands : false  // Could enable in future
+        view_details : true
+      }
+    }
+
+    // iOS 16+ Lock Screen Widgets
+    lock_screen_widgets : {
+      enabled : true
+
+      // Circular (population count)
+      circular : {
+        shows : "population"
+        icon : "group.fill"
+        updates : "hourly"
+      }
+
+      // Rectangular (treasury balance)
+      rectangular : {
+        shows : "treasury"
+        icon : "denarius.circle"
+        format : "12,500 Dn"
+        updates : "hourly"
+      }
+
+      // Inline (next event)
+      inline : {
+        shows : "next_event"
+        format : "Festival in 3 days"
+        updates : "hourly"
+      }
+    }
+  }
+
+  // ==========================================
+  // LIVE ACTIVITIES (Dynamic Island)
+  // ==========================================
+  live_activities : {
+    enabled : true
+
+    // Construction Progress
+    construction_activity : {
+      shows : "building_progress"
+      triggers : "when_building_large_structure"
+      minimum_duration : "30_seconds"
+
+      compact_view : {
+        // Dynamic Island compact (left/right of notch)
+        shows : "progress_ring"
+        text : "Building %STRUCTURE_NAME%"
+      }
+
+      minimal_view : {
+        // When another activity is active
+        shows : "construction_icon"
+        progress_percent : true
+      }
+
+      expanded_view : {
+        // User long-presses Dynamic Island
+        shows : {
+          structure_preview : true
+          progress_bar : true
+          time_remaining : true
+          resources_used : true
+          workers_assigned : true
+        }
+        actions : [
+          { label: "Cancel", action: "cancel_construction" },
+          { label: "Rush (+500 Dn)", action: "rush_construction" }
+        ]
+      }
+    }
+
+    // Battle Progress
+    battle_activity : {
+      shows : "military_engagement"
+      triggers : "when_battle_starts"
+
+      expanded_view : {
+        shows : {
+          battle_map : "miniature"
+          your_forces : { count: true, health: true }
+          enemy_forces : { count: true, health: true }
+          casualties : true
+        }
+        updates : "real_time"
+        actions : [
+          { label: "Retreat", action: "retreat_forces" },
+          { label: "Reinforce", action: "send_reinforcements" }
+        ]
+      }
+    }
+
+    // Crisis Management
+    crisis_activity : {
+      shows : "active_crisis"
+      triggers : ["fire", "riot", "plague", "famine"]
+      priority : "high"  // Takes over Dynamic Island
+
+      expanded_view : {
+        crisis_type : true
+        affected_area : "mini_map"
+        spread_rate : true
+        response_status : true
+        actions : [
+          { label: "Emergency Response", action: "activate_emergency" },
+          { label: "View City", action: "jump_to_crisis" }
+        ]
+      }
+    }
+
+    // Trade Mission
+    trade_activity : {
+      shows : "caravan_journey"
+      triggers : "when_trade_mission_sent"
+      duration : "until_return"
+
+      expanded_view : {
+        destination : true
+        journey_progress : "animated_map"
+        goods_carried : true
+        estimated_profit : true
+        dangers_encountered : true
+      }
+    }
+  }
+
+  // ==========================================
+  // iCLOUD SYNC
+  // ==========================================
+  icloud_sync : {
+    enabled : true
+
+    // Save Game Sync
+    save_games : {
+      sync : true
+      conflict_resolution : "newest_wins"
+      max_cloud_saves : 50
+      auto_upload : true
+      auto_download : true
+      encryption : "end_to_end"
+    }
+
+    // Settings Sync
+    settings : {
+      sync : true
+      includes : [
+        "graphics_preferences",
+        "audio_settings",
+        "control_sensitivity",
+        "ui_theme",
+        "accessibility_options",
+        "gameplay_difficulty"
+      ]
+      excludes : [
+        "device_specific_settings",
+        "analytics_preferences"
+      ]
+    }
+
+    // Custom Content Sync
+    custom_content : {
+      sync : true
+      includes : [
+        "custom_maps",
+        "custom_scenarios",
+        "saved_blueprints",
+        "city_templates"
+      ]
+      max_size_mb : 500
+    }
+
+    // CloudKit Configuration
+    cloudkit : {
+      container : "iCloud.com.caesaria.game"
+      public_database : true  // For leaderboards, shared cities
+      private_database : true  // For user saves
+      shared_database : true  // For multiplayer
+    }
+  }
+
+  // ==========================================
+  // SHAREPLAY (Watch Together)
+  // ==========================================
+  shareplay : {
+    enabled : true
+
+    // Co-op City Building
+    coop_mode : {
+      enabled : true
+      max_players : 4
+
+      features : {
+        shared_screen : true  // All see same view
+        synchronized_time : true
+        shared_resources : true
+        individual_cursors : true  // See each player's pointer
+        voice_chat : "facetime_audio"
+
+        roles : {
+          assign_districts : true  // Each player manages area
+          specialized_roles : ["economy", "military", "culture", "infrastructure"]
+        }
+      }
+
+      actions : {
+        any_player_can : [
+          "place_buildings",
+          "upgrade_structures",
+          "manage_resources"
+        ]
+        host_only_can : [
+          "declare_war",
+          "change_difficulty",
+          "end_session"
+        ]
+      }
+    }
+
+    // Spectator Mode
+    spectator_mode : {
+      enabled : true
+      viewers_can : {
+        watch : true
+        suggest : true  // Suggestion overlay
+        vote_on_decisions : true
+        chat : true
+      }
+      host_can : {
+        hide_ui : true
+        enable_commentary_mode : true
+      }
+    }
+  }
+
+  // ==========================================
+  // SHORTCUTS APP INTEGRATION
+  // ==========================================
+  shortcuts : {
+    enabled : true
+
+    available_actions : [
+      {
+        name : "Start New Game"
+        parameters : ["difficulty", "map_name", "starting_funds"]
+        returns : "success_status"
+      },
+      {
+        name : "Load Save Game"
+        parameters : ["save_name"]
+        returns : "game_state"
+      },
+      {
+        name : "Get City Stats"
+        parameters : ["save_name"]
+        returns : {
+          population : "number"
+          treasury : "number"
+          happiness : "percentage"
+          prosperity_rating : "number"
+        }
+      },
+      {
+        name : "Export City Screenshot"
+        parameters : ["save_name", "view_type"]
+        returns : "image"
+      },
+      {
+        name : "Get Upcoming Events"
+        parameters : ["save_name", "days_ahead"]
+        returns : "event_list"
+      },
+      {
+        name : "Quick Save"
+        parameters : ["save_slot"]
+        returns : "success_status"
+      }
+    ]
+
+    // Example automations
+    example_shortcuts : {
+      morning_briefing : "Get city stats + upcoming events"
+      nightly_backup : "Quick save before bed"
+      share_progress : "Export screenshot + Get stats"
+    }
+  }
+
+  // ==========================================
+  // FOCUS MODE INTEGRATION
+  // ==========================================
+  focus_modes : {
+    enabled : true
+
+    // Work Focus - Minimal Distractions
+    work_focus : {
+      when_active : {
+        notifications : "critical_only"
+        sound_effects : "reduced_50_percent"
+        music : "ambient_only"
+        haptics : "essential_only"
+        auto_pause : false
+      }
+    }
+
+    // Gaming Focus - Full Immersion
+    gaming_focus : {
+      when_active : {
+        notifications : "off"
+        performance_mode : "maximum"
+        haptics : "full"
+        frame_rate : "120fps"
+        do_not_disturb : true
+      }
+    }
+
+    // Sleep Focus - Auto Save & Pause
+    sleep_focus : {
+      when_active : {
+        auto_save : true
+        auto_pause : true
+        reduce_blue_light : true
+      }
+    }
+  }
+
+  // ==========================================
+  // HANDOFF & CONTINUITY
+  // ==========================================
+  handoff : {
+    enabled : true
+
+    // Continue on another device
+    continuity : {
+      sync_game_state : true
+      transfer_method : "icloud_instant"
+      shows_on : ["mac", "ipad", "iphone"]
+
+      preserves : {
+        camera_position : true
+        ui_state : true
+        selected_items : true
+        active_menus : true
+      }
+    }
+
+    // Universal Clipboard
+    clipboard : {
+      can_copy : [
+        "city_stats",
+        "building_info",
+        "map_coordinates",
+        "strategy_notes"
+      ]
+    }
+  }
+
+  // ==========================================
+  // SPOTLIGHT SEARCH
+  // ==========================================
+  spotlight : {
+    enabled : true
+
+    // Index save games
+    index_saves : {
+      enabled : true
+      searchable_fields : [
+        "city_name",
+        "population",
+        "year",
+        "prosperity_level",
+        "last_played_date"
+      ]
+      quick_actions : [
+        "Resume Game",
+        "View Stats",
+        "Export Save"
+      ]
+    }
+
+    // Index strategies & tips
+    index_content : {
+      enabled : true
+      includes : [
+        "strategy_guides",
+        "building_encyclopedia",
+        "historical_facts",
+        "gameplay_tips"
+      ]
+    }
+  }
+
+  // ==========================================
+  // SIRI INTEGRATION
+  // ==========================================
+  siri : {
+    enabled : true
+
+    voice_commands : [
+      "Hey Siri, start CaesarIA",
+      "Hey Siri, load my Rome save in CaesarIA",
+      "Hey Siri, what's my population in CaesarIA?",
+      "Hey Siri, show my city stats in CaesarIA",
+      "Hey Siri, take a screenshot of my city in CaesarIA"
+    ]
+
+    suggestions : {
+      lock_screen : true  // "Continue building your city"
+      home_screen : true
+      app_library : true
+    }
+  }
+
+  // ==========================================
+  // APP CLIPS
+  // ==========================================
+  app_clips : {
+    enabled : true
+
+    // Lightweight demo version (<50MB)
+    demo_clip : {
+      size_mb : 45
+      includes : "tutorial_scenario"
+      duration_limit : "15_minutes"
+      converts_to_full_app : true
+      share_via : ["qr_code", "nfc", "messages", "link"]
+    }
+  }
+
+  // ==========================================
+  // FAMILY SHARING
+  // ==========================================
+  family_sharing : {
+    enabled : true
+
+    features : {
+      shared_purchase : true  // One purchase, whole family
+      parental_controls : {
+        time_limits : true
+        content_restrictions : true
+        purchase_approval : true
+      }
+
+      family_leaderboard : true
+      shared_achievements : false  // Individual progress
+      save_sharing : true  // Pass cities between family members
+    }
+  }
+
+  // ==========================================
+  // GAME CENTER DEEP INTEGRATION
+  // ==========================================
+  game_center : {
+    enabled : true
+
+    achievements : {
+      count : 100
+      includes : [
+        "population_milestones",
+        "economic_achievements",
+        "military_victories",
+        "cultural_achievements",
+        "construction_feats",
+        "rare_events_witnessed"
+      ]
+      show_progress : true
+      notifications : true
+    }
+
+    leaderboards : {
+      global : [
+        "highest_population",
+        "highest_prosperity",
+        "fastest_victory",
+        "longest_reign",
+        "richest_empire"
+      ]
+
+      friends_only : true
+      weekly_challenges : true
+      seasonal_competitions : true
+    }
+
+    multiplayer_matchmaking : {
+      enabled : true
+      modes : ["cooperative", "competitive", "asynchronous"]
+      max_players : 8
+      voice_chat : true
+    }
+  }
+
+  // ==========================================
+  // STAGE MANAGER (iPadOS 16+)
+  // ==========================================
+  stage_manager : {
+    enabled : true
+
+    window_management : {
+      multiple_windows : true
+      max_windows : 4
+
+      window_types : {
+        main_city : { resizable: true, default_size: "large" }
+        statistics : { resizable: true, default_size: "medium" }
+        advisor_panel : { resizable: true, default_size: "small" }
+        mini_map : { resizable: false, default_size: "small" }
+      }
+
+      layouts : {
+        save_layouts : true
+        quick_switch : true
+      }
+    }
+
+    external_display : {
+      supports : true
+      modes : ["mirror", "extend", "second_city"]
+    }
+  }
+
+  // ==========================================
+  // ACCESSIBILITY SHORTCUTS
+  // ==========================================
+  accessibility_shortcuts : {
+    enabled : true
+
+    triple_click_actions : [
+      "toggle_voiceover_hints",
+      "toggle_high_contrast",
+      "toggle_one_handed_mode",
+      "toggle_simplified_ui"
+    ]
+
+    assistive_access : {
+      simplified_interface : true
+      large_buttons : true
+      reduced_complexity : true
+    }
+  }
+}

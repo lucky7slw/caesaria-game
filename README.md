@@ -105,6 +105,68 @@ CaesarIA now runs natively on iPhone and iPad with optimized touch controls:
 - 📖 **Full Details**: See **INSTALL_IOS** for comprehensive build documentation
 - ⚡ **TL;DR**: Need Xcode + CMake, copy Caesar III resources, build, install - that's it!
 
+### 🌟 Premium Features (Spare No Expense!)
+
+**The most advanced city builder ever made for iOS!** See **PREMIUM_FEATURES.md** for the complete guide.
+
+#### Advanced iOS Integration
+- **Widgets**: Home & Lock Screen widgets (city stats, mini-map, events)
+- **Live Activities**: Dynamic Island shows construction/battles/crises in real-time
+- **iCloud Sync**: Saves, settings, and custom content across all devices
+- **SharePlay**: Build cities together over FaceTime (up to 4 players)
+- **Shortcuts**: Siri automation ("Hey Siri, show my city stats")
+- **Focus Modes**: Gaming, Work, Sleep integration
+
+#### AI-Powered Features
+- **Smart City Planner**: AI suggests optimal building placements with explanations
+- **Predictive Analytics**: 12-month economic forecasts, population predictions, disaster warnings
+- **Intelligent Advisors**: Learn your play style, provide adaptive guidance
+- **Auto-Management**: Optional AI managers for resources, infrastructure, military
+- **Procedural Generation**: Infinite unique maps, scenarios, events, quests
+
+#### Multiplayer & Social
+- **Async Multiplayer**: Turn-based mode (up to 8 players), daily challenges, tournaments
+- **City Sharing**: Share cities, visit others' cities, global gallery
+- **Leaderboards**: 8 global categories, seasonal rankings, ELO skill system
+- **Clans**: Create guilds (up to 50 members), clan wars, shared achievements
+- **Content Creation**: Replay system, streaming tools, screenshot/video export
+
+#### Next-Gen Graphics
+- **Ray Tracing**: Photorealistic lighting (iPhone 15 Pro+, M1 iPad+)
+- **Dynamic Weather**: 8 weather types with gameplay impact, seasonal patterns
+- **Day/Night Cycle**: 24-minute cycle, moon phases, 5000 stars, nighttime city lighting
+- **50,000 Particles**: GPU-accelerated fire, smoke, water, weather effects
+- **Realistic Water**: FFT-based waves, reflections, refraction, caustics, foam
+- **Seasonal Changes**: Autumn leaves, winter snow, spring flowers, dynamic vegetation
+
+#### Spatial Audio
+- **3D Positional Audio**: Every sound source positioned in 3D space
+- **Head Tracking**: With AirPods Pro/Max, sounds stay in world as you turn
+- **Dynamic Music**: Adaptive layered composition, responds to gameplay
+- **Roman Authenticity**: Period-accurate instruments, historically appropriate scales
+
+#### Advanced Accessibility
+- **VoiceOver**: 100% coverage, enhanced descriptions, audio cues
+- **Color Blind Modes**: 4 types, pattern overlays, high contrast
+- **Motor Support**: Switch control, one-handed mode, controller support, voice control
+- **Cognitive Aids**: Simplified UI, guided mode, reading assistance, memory aids
+- **WCAG 2.1 AAA Compliant**
+
+#### Apple Pencil Pro (iPadOS 18+)
+- **Squeeze Gesture**: Radial tool palette, customizable actions, haptic feedback
+- **Barrel Roll**: Rotate buildings intuitively, one-handed camera control
+- **Hover**: Preview placement 12mm above screen, hover info tooltips
+- **Precision Tools**: Terrain sculpting, freehand roads, blueprint mode
+
+#### Developer Tools & Modding
+- **In-Game Console**: Full debug commands, auto-complete, logging
+- **Visual Debuggers**: Performance profiler, pathfinding, AI, physics, audio
+- **Level Editor**: Terrain sculpting, scenario design, instant playtest, hot reload
+- **Modding API**: Lua/JavaScript scripting, custom buildings/events/UI
+- **Mod Workshop**: In-game browser, subscribe to mods, auto-updates
+
+**See PREMIUM_FEATURES.md for detailed documentation on every feature!**
+
 ### Modern Gameplay Enhancements
 - **Auto-save**: Never lose progress with configurable auto-save intervals
 - **Quick Build Mode**: Preview buildings before placement with ghost overlays

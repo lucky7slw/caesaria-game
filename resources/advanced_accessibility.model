@@ -1,0 +1,611 @@
+// CaesarIA 2025 - Advanced Accessibility Features
+// Making the game accessible to everyone
+
+accessibility : {
+  // ==========================================
+  // VOICEOVER & SCREEN READER SUPPORT
+  // ==========================================
+  voiceover : {
+    enabled : true
+    optimized_for_ios : true
+
+    // Full Game Accessible
+    coverage : {
+      menus : "100_percent"
+      gameplay : "100_percent"
+      buildings : "all_described"
+      citizens : "individual_info"
+      events : "read_aloud"
+      statistics : "detailed_narration"
+    }
+
+    // Enhanced Descriptions
+    descriptions : {
+      concise_mode : "quick_info"
+      detailed_mode : "comprehensive"
+      context_aware : true
+
+      buildings : {
+        type : "temple_forum_house"
+        status : "under_construction_operational_damaged"
+        workers : "5_of_10_employed"
+        production : "currently_producing_grain"
+        health : "excellent_good_poor"
+      }
+
+      citizens : {
+        name : "Marcus_Aurelius"
+        occupation : "farmer_soldier_merchant"
+        mood : "happy_neutral_angry"
+        location : "at_market_at_home"
+        needs : "requires_food_water"
+      }
+
+      map : {
+        terrain : "plains_hills_mountains"
+        resources : "iron_deposit_timber"
+        landmarks : "river_to_north_road_junction"
+        threats : "fire_nearby_enemy_approaching"
+      }
+    }
+
+    // Navigation
+    navigation : {
+      rotor_controls : true  // VoiceOver rotor
+      custom_actions : true
+      headings : "properly_structured"
+      landmarks : "key_ui_elements"
+
+      shortcuts : {
+        jump_to : ["treasury", "population", "military", "events"]
+        quick_actions : ["build", "trade", "diplomacy"]
+      }
+    }
+
+    // Audio Cues
+    audio_cues : {
+      ui_sounds : "distinct_sounds_for_actions"
+      directional_audio : "indicates_location"
+      priority_levels : "important_events_louder"
+      haptic_feedback : "synchronized"
+    }
+
+    // Gameplay Assistance
+    assistance : {
+      auto_pause : "on_important_events"
+      extended_time : "for_decisions"
+      simplified_controls : "optional"
+      confirm_actions : "prevent_mistakes"
+    }
+  }
+
+  // ==========================================
+  // VISUAL ACCESSIBILITY
+  // ==========================================
+  visual : {
+    // Color Blind Modes
+    color_blind : {
+      enabled : true
+
+      modes : {
+        protanopia : {
+          name : "Red_Blind"
+          affects : "8_percent_males"
+          color_shift : "red_to_blue_green"
+        }
+
+        deuteranopia : {
+          name : "Green_Blind"
+          affects : "5_percent_males"
+          color_shift : "green_to_blue_yellow"
+        }
+
+        tritanopia : {
+          name : "Blue_Blind"
+          affects : "0.003_percent"
+          color_shift : "blue_to_red_green"
+        }
+
+        achromatopsia : {
+          name : "Total_Color_Blind"
+          affects : "0.003_percent"
+          mode : "grayscale_with_brightness"
+        }
+      }
+
+      features : {
+        tested_palettes : "distinguishable_for_all"
+        pattern_overlays : "in_addition_to_color"
+        text_labels : "always_included"
+        high_contrast_outlines : true
+      }
+
+      ui_adjustments : {
+        health_bars : "patterns_instead_of_just_color"
+        resources : "icons_plus_color"
+        map_overlays : "texture_based"
+        alerts : "shape_coded"
+      }
+    }
+
+    // High Contrast Modes
+    high_contrast : {
+      enabled : true
+
+      levels : {
+        standard : "default_ui"
+        increased : "wcag_aa_compliant"
+        maximum : "wcag_aaa_compliant"
+      }
+
+      features : {
+        text : "white_on_black_or_black_on_white"
+        borders : "thick_distinct_outlines"
+        focus_indicators : "highly_visible"
+        backgrounds : "solid_colors_no_gradients"
+      }
+
+      ratios : {
+        normal_text : "7:1_minimum"
+        large_text : "4.5:1_minimum"
+        ui_components : "3:1_minimum"
+      }
+    }
+
+    // Font & Text
+    text : {
+      font_size : {
+        customizable : true
+        range : "50_to_300_percent"
+        dynamic_type : "ios_system_setting"
+        scales_entire_ui : true
+      }
+
+      font_choice : {
+        system_font : "sf_pro"
+        dyslexia_friendly : "open_dyslexic"
+        customizable : true
+      }
+
+      readability : {
+        letter_spacing : "adjustable"
+        line_spacing : "adjustable"
+        word_spacing : "adjustable"
+        text_weight : "normal_bold_extra_bold"
+      }
+
+      contrast : {
+        background : "solid_or_transparent"
+        text_shadows : "optional"
+        outline : "optional"
+      }
+    }
+
+    // Visual Aids
+    visual_aids : {
+      // Outlines & Highlighting
+      outlines : {
+        selected_building : "bright_outline"
+        hoverable_items : "glow_on_hover"
+        important_items : "pulsing_outline"
+        danger_zones : "red_flashing_border"
+      }
+
+      // Screen Magnification
+      magnification : {
+        zoom_levels : "up_to_15x"
+        smooth_zoom : true
+        follow_focus : true
+        picture_in_picture : "optional"
+      }
+
+      // Reduce Motion
+      reduce_motion : {
+        enabled : true
+        respects_system_setting : true
+
+        effects : {
+          animations : "instant_or_fade"
+          parallax : "disabled"
+          camera_movement : "linear"
+          particle_effects : "reduced"
+          transitions : "crossfade_only"
+        }
+      }
+
+      // Transparency Reduction
+      reduce_transparency : {
+        enabled : true
+        solid_backgrounds : true
+        remove_blur : true
+        increase_contrast : true
+      }
+    }
+
+    // Visual Indicators
+    indicators : {
+      // Sound Visualizer
+      sound_to_visual : {
+        enabled : true
+        shows : {
+          battle_sounds : "direction_and_intensity"
+          citizen_reactions : "speech_bubbles"
+          environmental_sounds : "icons"
+          alerts : "screen_flash"
+        }
+      }
+
+      // Screen Flash for Alerts
+      screen_flash : {
+        enabled : true
+        color : "customizable"
+        intensity : "adjustable"
+        duration : "brief"
+
+        types : {
+          critical : "red_flash"
+          warning : "yellow_flash"
+          info : "blue_flash"
+          success : "green_flash"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // MOTOR ACCESSIBILITY
+  // ==========================================
+  motor : {
+    // Touch Accommodations
+    touch : {
+      // Touch Target Size
+      target_size : {
+        minimum : "44x44_pt"  // Apple HIG
+        adjustable : "up_to_88x88_pt"
+        spacing : "8pt_minimum"
+      }
+
+      // Touch Duration
+      hold_duration : {
+        default : "0.5_seconds"
+        adjustable : "0.1_to_3_seconds"
+        visual_feedback : "filling_circle"
+      }
+
+      // Tap Assistance
+      tap_assistance : {
+        enabled : true
+
+        features : {
+          ignore_repeat : "accidental_taps_filtered"
+          delay : "brief_pause_before_activation"
+          hold_duration : "longer_press_required"
+        }
+      }
+
+      // Gesture Alternatives
+      gesture_alternatives : {
+        enabled : true
+
+        replacements : {
+          pinch_zoom : "button_controls"
+          swipe : "tap_buttons"
+          long_press : "toggle_switch"
+          two_finger_tap : "single_tap_button"
+        }
+      }
+    }
+
+    // One-Handed Mode
+    one_handed : {
+      enabled : true
+
+      layouts : {
+        left_handed : "controls_on_left"
+        right_handed : "controls_on_right"
+        adjustable : "drag_to_position"
+      }
+
+      features : {
+        ui_compacted : true
+        reach_zone : "comfortable_thumb_area"
+        floating_controls : true
+        customizable_layout : true
+      }
+    }
+
+    // Switch Control
+    switch_control : {
+      enabled : true
+      compatible_with : "ios_switch_control"
+
+      scanning : {
+        mode : "automatic_or_manual"
+        speed : "adjustable"
+        highlight : "clear_visual_feedback"
+      }
+
+      actions : {
+        select : "primary_switch"
+        navigate : "secondary_switch"
+        menu : "long_press_switch"
+      }
+
+      custom_switches : {
+        supported : true
+        mappable : "any_action"
+        profiles : "saveable"
+      }
+    }
+
+    // Assistive Touch
+    assistive_touch : {
+      enabled : true
+      custom_actions : true
+
+      menu : {
+        quick_access : ["build", "pause", "menu", "zoom"]
+        customizable : true
+        opacity : "adjustable"
+        size : "adjustable"
+      }
+    }
+
+    // Game Controller Support
+    controller : {
+      enabled : true
+
+      supported_controllers : [
+        "xbox_wireless",
+        "playstation_dualsense",
+        "mfi_controllers",
+        "keyboard_mouse_on_ipad"
+      ]
+
+      full_control : {
+        navigation : true
+        building : true
+        camera : true
+        menus : true
+      }
+
+      remappable : true
+      button_prompts : "show_controller_buttons"
+      rumble : "optional"
+    }
+
+    // Voice Control
+    voice_control : {
+      enabled : true
+      compatible_with : "ios_voice_control"
+
+      commands : [
+        "tap_[button_name]",
+        "build_[building_name]",
+        "go_to_[location]",
+        "show_[overlay]",
+        "pause_game",
+        "unpause_game"
+      ]
+
+      numbering : "all_interactive_elements"
+      grid_overlay : "for_precise_tapping"
+    }
+  }
+
+  // ==========================================
+  // COGNITIVE ACCESSIBILITY
+  // ==========================================
+  cognitive : {
+    // Simplified Interface
+    simplified_ui : {
+      enabled : true
+
+      features : {
+        reduce_clutter : true
+        larger_elements : true
+        fewer_options : "most_used_only"
+        clearer_labels : "no_jargon"
+        consistent_layout : true
+      }
+
+      modes : {
+        beginner : "maximum_simplification"
+        intermediate : "balanced"
+        expert : "full_complexity"
+      }
+    }
+
+    // Guided Mode
+    guided_mode : {
+      enabled : true
+
+      features : {
+        tutorials : "interactive_step_by_step"
+        hints : "contextual"
+        suggestions : "what_to_do_next"
+        warnings : "before_mistakes"
+        undo : "always_available"
+      }
+
+      ai_assistant : {
+        enabled : true
+        provides : "adaptive_guidance"
+        learns : "player_skill_level"
+        never_intrusive : true
+      }
+    }
+
+    // Game Speed Control
+    speed_control : {
+      range : "pause_to_5x_speed"
+      precise_control : true
+      auto_pause : "on_events"
+      slow_motion : "for_complex_situations"
+    }
+
+    // Reading Assistance
+    reading : {
+      text_to_speech : "all_text"
+      simplified_language : "optional"
+      dyslexia_font : "available"
+      reading_guide : "line_highlighting"
+      word_highlighting : "as_read"
+    }
+
+    // Memory Aids
+    memory_aids : {
+      reminders : {
+        goals : "always_visible"
+        tasks : "to_do_list"
+        events : "upcoming_calendar"
+        tips : "repeated_as_needed"
+      }
+
+      notes : {
+        player_notes : "attach_to_anything"
+        auto_notes : "important_decisions_recorded"
+        searchable : true
+      }
+
+      bookmarks : {
+        save_points : "unlimited"
+        locations : "mark_on_map"
+        buildings : "favorites"
+      }
+    }
+
+    // Focus Assistance
+    focus : {
+      highlight_important : true
+      dim_unimportant : true
+      reduce_distractions : true
+      quiet_mode : "minimal_notifications"
+    }
+  }
+
+  // ==========================================
+  // HEARING ACCESSIBILITY
+  // ==========================================
+  hearing : {
+    // Subtitles & Captions
+    subtitles : {
+      enabled : true
+
+      features : {
+        all_dialogue : true
+        sound_effects : true  // [Thunder rumbles]
+        speaker_identification : true
+        music_cues : true  // ♪ Dramatic music ♪
+      }
+
+      customization : {
+        font_size : "adjustable"
+        background : "solid_or_transparent"
+        color : "customizable"
+        position : "adjustable"
+      }
+
+      languages : "all_supported_languages"
+    }
+
+    // Visual Sound Indicators
+    visual_indicators : {
+      enabled : true
+
+      shows : {
+        directional_audio : "arrows_point_to_source"
+        volume : "size_of_indicator"
+        type : "icon_based"
+        urgency : "color_coded"
+      }
+
+      examples : {
+        battle : "⚔️ Clash of swords (North)"
+        fire : "🔥 Crackling fire (West)"
+        crowd : "👥 Crowd chatter (Market)"
+        alert : "⚠️ Alarm bell (Town center)"
+      }
+    }
+
+    // Mono Audio
+    mono_audio : {
+      enabled : true
+      respects_system_setting : true
+      combines_stereo_to_mono : true
+    }
+
+    // Haptic Feedback Enhancement
+    haptic_audio : {
+      enabled : true
+      sound_to_haptics : true
+      rhythmic_patterns : true
+      intensity_based : "on_volume"
+    }
+  }
+
+  // ==========================================
+  // PERSONALIZATION
+  // ==========================================
+  personalization : {
+    // Profiles
+    profiles : {
+      saveable : true
+      switchable : true
+      per_player : true
+      cloud_sync : true
+
+      quick_profiles : {
+        low_vision : "preset"
+        motor_impairment : "preset"
+        hearing_impairment : "preset"
+        cognitive_support : "preset"
+        fully_custom : "create_your_own"
+      }
+    }
+
+    // Adaptive Difficulty
+    adaptive : {
+      enabled : true
+      learns : "player_capabilities"
+      adjusts : "automatically_optional"
+      transparent : "shows_what_changed"
+    }
+  }
+
+  // ==========================================
+  // TESTING & COMPLIANCE
+  // ==========================================
+  compliance : {
+    standards : {
+      wcag : "2.1_level_aaa"
+      section_508 : "compliant"
+      en_301_549 : "compliant"
+      ada : "compliant"
+    }
+
+    testing : {
+      automated : "regular_testing"
+      manual : "user_testing"
+      feedback : "welcomed"
+    }
+
+    documentation : {
+      accessibility_guide : "comprehensive"
+      video_tutorials : "with_captions"
+      faq : "accessibility_specific"
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE
+  // ==========================================
+  performance : {
+    // No Performance Penalty
+    optimization : {
+      accessibility_features : "efficiently_implemented"
+      no_fps_impact : true
+      optional_features : "can_disable_if_needed"
+    }
+  }
+}

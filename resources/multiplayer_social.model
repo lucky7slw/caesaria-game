@@ -1,0 +1,784 @@
+// CaesarIA 2025 - Multiplayer & Social Features
+// Online multiplayer, asynchronous gameplay, and social integration
+
+multiplayer : {
+  // ==========================================
+  // ASYNCHRONOUS MULTIPLAYER
+  // ==========================================
+  async_multiplayer : {
+    enabled : true
+
+    // Turn-Based Mode
+    turn_based : {
+      enabled : true
+      max_players : 8
+
+      game_modes : {
+        competitive : {
+          name : "Race to Prosperity"
+          goal : "highest_prosperity_rating"
+          time_limit : "30_days_real_time"
+          turn_duration : "24_hours"
+
+          victory_conditions : [
+            "prosperity_rating_100",
+            "population_50000",
+            "treasury_1000000_denarii",
+            "cultural_dominance"
+          ]
+        }
+
+        cooperative : {
+          name : "Build Rome Together"
+          goal : "shared_prosperity"
+          max_players : 4
+
+          features : {
+            shared_map : false  // Each player has own city
+            shared_economy : false
+            trade_between_players : true
+            mutual_defense : true
+            shared_victory : true
+          }
+
+          challenges : {
+            empire_wide_goals : true
+            coordinated_defense : true
+            resource_sharing : true
+          }
+        }
+
+        competitive_campaign : {
+          name : "Rival Cities"
+          goal : "outlast_opponents"
+          eliminates_players : true
+
+          features : {
+            trade_wars : true
+            military_conflict : true
+            sabotage : true
+            diplomacy : true
+            alliances : true
+          }
+
+          win_conditions : {
+            last_city_standing : true
+            or_domination : true
+            or_peaceful_victory : true
+          }
+        }
+      }
+
+      turn_mechanics : {
+        simultaneous_turns : true  // All players plan, then execute
+        turn_notifications : {
+          push_notification : true
+          email : "optional"
+          in_app : true
+        }
+
+        turn_timer : {
+          default : "24_hours"
+          min : "4_hours"
+          max : "7_days"
+          customizable : true
+        }
+
+        auto_play : {
+          if_absent : "3_turns"
+          ai_takes_over : "conservative_strategy"
+          notification : "player_warned"
+        }
+      }
+
+      matchmaking : {
+        skill_based : true
+        quick_match : true
+        custom_games : true
+        private_lobbies : true
+        friends_only_option : true
+
+        filters : {
+          turn_speed : ["blitz", "normal", "casual"]
+          map_size : ["small", "medium", "large"]
+          difficulty : "similar_skill"
+          time_commitment : "hours_per_week"
+        }
+      }
+
+      spectator_mode : {
+        enabled : true
+        can_watch : "any_public_game"
+        can_comment : true
+        updates : "real_time_when_turns_resolve"
+      }
+    }
+
+    // Daily Challenge Mode
+    daily_challenges : {
+      enabled : true
+
+      format : {
+        new_challenge : "every_24_hours"
+        same_for_all_players : true
+        leaderboard : "global"
+        time_limit : "24_hours_to_complete"
+      }
+
+      challenge_types : {
+        speed_build : "reach_goal_fastest"
+        efficiency : "same_resources_best_result"
+        survival : "last_as_long_as_possible"
+        optimization : "highest_score_limited_time"
+      }
+
+      rewards : {
+        leaderboard_position : true
+        daily_streak : true
+        achievements : true
+        cosmetics : "unlock_special_themes"
+      }
+    }
+
+    // Weekly Tournaments
+    tournaments : {
+      enabled : true
+
+      structure : {
+        duration : "1_week"
+        phases : ["qualification", "playoffs", "finals"]
+        participants : "top_players"
+      }
+
+      prizes : {
+        leaderboard_fame : true
+        exclusive_cosmetics : true
+        bragging_rights : true
+      }
+
+      broadcast : {
+        featured_matches : true
+        replay_system : true
+        community_commentary : true
+      }
+    }
+  }
+
+  // ==========================================
+  // REAL-TIME CO-OP (SharePlay)
+  // ==========================================
+  realtime_coop : {
+    enabled : true
+    max_players : 4
+
+    // Collaborative Building
+    collaborative_mode : {
+      enabled : true
+
+      features : {
+        shared_camera : "optional"  // Can split screen
+        individual_cursors : true
+        color_coded_players : true
+        voice_chat : "facetime"
+
+        role_assignment : {
+          by_district : true
+          by_function : true  // Economy, military, culture
+          flexible : true
+        }
+
+        shared_resources : {
+          treasury : "shared"
+          materials : "shared"
+          citizens : "shared"
+          military : "shared"
+        }
+
+        permissions : {
+          all_can_build : true
+          host_can_veto : true
+          vote_on_major_decisions : true
+        }
+      }
+    }
+
+    // Helper Mode
+    helper_mode : {
+      enabled : true
+
+      scenario : "friend_helps_with_city"
+
+      helper_can : [
+        "place_buildings",
+        "manage_resources",
+        "command_military",
+        "trade_goods"
+      ]
+
+      host_retains : [
+        "save_game",
+        "end_session",
+        "major_policy_decisions"
+      ]
+
+      teaching_mode : {
+        enabled : true
+        highlights : "suggestions"
+        explains : "game_mechanics"
+        tutorials : "interactive"
+      }
+    }
+  }
+
+  // ==========================================
+  // CITY SHARING & VISITING
+  // ==========================================
+  city_sharing : {
+    enabled : true
+
+    // Share Your City
+    share_city : {
+      methods : [
+        "generate_share_code",
+        "icloud_link",
+        "airdrop",
+        "messages",
+        "social_media"
+      ]
+
+      export_formats : {
+        full_save : "editable_city"
+        snapshot : "read_only_tour"
+        blueprint : "layout_only"
+        video_tour : "automated_flythrough"
+        screenshot_grid : "overview_images"
+      }
+
+      privacy : {
+        public : "anyone_can_view"
+        friends_only : true
+        unlisted : "only_with_link"
+        private : "invitations_only"
+      }
+    }
+
+    // Visit Other Cities
+    city_browser : {
+      enabled : true
+
+      discovery : {
+        featured_cities : true
+        top_rated : true
+        most_visited : true
+        newest : true
+        search_by_tags : true
+      }
+
+      filters : {
+        population_size : true
+        prosperity_level : true
+        architectural_style : true
+        specialization : ["economic", "military", "cultural"]
+        difficulty_achieved : true
+      }
+
+      visit_mode : {
+        free_camera : true
+        guided_tour : "creator_commentary"
+        time_lapse : "see_city_growth"
+        statistics_view : true
+        interactive_elements : "learn_how_it_works"
+      }
+
+      interactions : {
+        like : true
+        comment : true
+        favorite : true
+        learn_from : "copy_techniques"
+        challenge : "try_to_beat_this"
+      }
+    }
+
+    // City Gallery
+    public_gallery : {
+      enabled : true
+
+      curated_collections : [
+        "architectural_masterpieces",
+        "efficient_economies",
+        "impregnable_fortresses",
+        "cultural_wonders",
+        "historical_accuracy",
+        "creative_layouts",
+        "beginner_friendly"
+      ]
+
+      creator_profiles : {
+        showcase_cities : true
+        follower_system : true
+        reputation_score : true
+        featured_builders : true
+      }
+    }
+  }
+
+  // ==========================================
+  // LEADERBOARDS & RANKINGS
+  // ==========================================
+  leaderboards : {
+    enabled : true
+
+    global_rankings : {
+      categories : [
+        {
+          name : "Highest Population"
+          metric : "total_citizens"
+          timeframe : "all_time"
+        },
+        {
+          name : "Greatest Prosperity"
+          metric : "prosperity_rating"
+          timeframe : "monthly"
+        },
+        {
+          name : "Wealthiest Empire"
+          metric : "net_worth"
+          timeframe : "all_time"
+        },
+        {
+          name : "Fastest Victory"
+          metric : "time_to_win"
+          timeframe : "weekly"
+        },
+        {
+          name : "Military Might"
+          metric : "victories_won"
+          timeframe : "all_time"
+        },
+        {
+          name : "Master Builder"
+          metric : "buildings_constructed"
+          timeframe : "monthly"
+        },
+        {
+          name : "Economic Genius"
+          metric : "trade_profit"
+          timeframe : "weekly"
+        },
+        {
+          name : "Cultural Icon"
+          metric : "cultural_rating"
+          timeframe : "all_time"
+        }
+      ]
+
+      filters : {
+        global : true
+        regional : true  // By geographic region
+        friends : true
+        platform : ["ios", "all_platforms"]
+      }
+
+      visibility : {
+        top_100 : "always_visible"
+        your_rank : "always_visible"
+        surrounding_ranks : "show_10_above_below"
+      }
+    }
+
+    seasonal_rankings : {
+      enabled : true
+
+      seasons : {
+        duration : "3_months"
+        reset : "every_season"
+        season_themes : true
+
+        rewards : {
+          top_percentile : {
+            top_1 : "legendary_cosmetics"
+            top_5 : "epic_cosmetics"
+            top_10 : "rare_cosmetics"
+            top_25 : "uncommon_cosmetics"
+          }
+
+          participation : {
+            play_10_games : "bronze_badge"
+            play_50_games : "silver_badge"
+            play_100_games : "gold_badge"
+          }
+        }
+      }
+    }
+
+    skill_rating : {
+      enabled : true
+      system : "elo_based"
+
+      factors : {
+        win_rate : 30
+        efficiency : 25
+        opponent_strength : 20
+        consistency : 15
+        improvement_rate : 10
+      }
+
+      tiers : [
+        { name: "Bronze", range: "0-999" },
+        { name: "Silver", range: "1000-1499" },
+        { name: "Gold", range: "1500-1999" },
+        { name: "Platinum", range: "2000-2499" },
+        { name: "Diamond", range: "2500-2999" },
+        { name: "Master", range: "3000-3499" },
+        { name: "Grandmaster", range: "3500-3999" },
+        { name: "Legend", range: "4000+" }
+      ]
+
+      display : {
+        show_rank : true
+        show_percentile : true
+        show_progress : true
+        show_tier_icon : true
+      }
+    }
+  }
+
+  // ==========================================
+  // SOCIAL FEATURES
+  // ==========================================
+  social : {
+    // Friends System
+    friends : {
+      enabled : true
+
+      features : {
+        add_friends : ["game_center", "contacts", "search"]
+        friend_list : true
+        online_status : true
+        recent_players : true
+
+        friend_activities : {
+          see_achievements : true
+          see_cities : true
+          compare_stats : true
+          send_gifts : true
+          challenge : true
+        }
+      }
+
+      privacy : {
+        control_visibility : true
+        block_players : true
+        report_inappropriate : true
+      }
+    }
+
+    // Clans/Guilds
+    clans : {
+      enabled : true
+
+      features : {
+        create_clan : true
+        clan_name : true
+        clan_tag : "[TAG]"
+        clan_emblem : "customizable"
+        max_members : 50
+
+        clan_activities : {
+          clan_chat : true
+          shared_challenges : true
+          clan_leaderboard : true
+          clan_wars : true
+          clan_achievements : true
+        }
+
+        clan_progression : {
+          clan_level : true
+          clan_perks : true
+          clan_bonuses : ["xp_boost", "resource_bonus"]
+        }
+      }
+
+      leadership : {
+        roles : ["leader", "officer", "veteran", "member"]
+        permissions : "configurable"
+        succession : "automatic_if_inactive"
+      }
+    }
+
+    // Activity Feed
+    activity_feed : {
+      enabled : true
+
+      shows : {
+        friend_achievements : true
+        new_cities : true
+        leaderboard_changes : true
+        tournament_results : true
+        personal_milestones : true
+        community_highlights : true
+      }
+
+      interactions : {
+        like : true
+        comment : true
+        congratulate : true
+        share : true
+      }
+    }
+
+    // Gifting System
+    gifts : {
+      enabled : true
+
+      can_send : [
+        "resources",
+        "cosmetic_items",
+        "city_blueprints",
+        "strategy_tips",
+        "save_game_templates"
+      ]
+
+      occasions : {
+        holidays : true
+        achievements : true
+        random_kindness : true
+      }
+
+      daily_gift : {
+        enabled : true
+        free_gift_to_friends : true
+        receive_limit : 10
+      }
+    }
+
+    // Messaging
+    messages : {
+      enabled : true
+
+      types : {
+        direct_messages : true
+        clan_chat : true
+        game_invites : true
+        trade_offers : true
+      }
+
+      features : {
+        text : true
+        emojis : true
+        stickers : "caesar_themed"
+        screenshots : true
+        city_links : true
+      }
+
+      safety : {
+        profanity_filter : true
+        report_abuse : true
+        mute_players : true
+      }
+    }
+  }
+
+  // ==========================================
+  // COMPETITIVE MODES
+  // ==========================================
+  competitive : {
+    // Ranked Mode
+    ranked : {
+      enabled : true
+
+      requirements : {
+        min_level : 10
+        tutorial_complete : true
+        min_games_played : 5
+      }
+
+      seasons : {
+        duration : "3_months"
+        placement_matches : 10
+        rank_decay : "after_2_weeks_inactive"
+      }
+
+      rewards : {
+        end_of_season : true
+        based_on_peak_rank : true
+        exclusive_cosmetics : true
+        bragging_rights : true
+      }
+    }
+
+    // Esports Mode
+    esports : {
+      enabled : true
+
+      features : {
+        tournament_mode : true
+        spectator_mode : true
+        replay_system : true
+        shoutcaster_tools : true
+      }
+
+      balancing : {
+        competitive_ruleset : true
+        banned_strategies : []  // None, all fair game
+        standardized_maps : true
+      }
+    }
+  }
+
+  // ==========================================
+  // CONTENT CREATION & SHARING
+  // ==========================================
+  content_creation : {
+    // Replay System
+    replays : {
+      enabled : true
+
+      features : {
+        auto_record : "all_games"
+        storage : "local_and_cloud"
+        max_cloud_replays : 100
+
+        playback : {
+          speed_control : true
+          free_camera : true
+          scrubbing : true
+          bookmarks : true
+          annotations : true
+        }
+
+        editing : {
+          clip_creation : true
+          highlights : "ai_detected"
+          slow_motion : true
+          different_angles : true
+        }
+
+        sharing : {
+          export_video : true
+          share_link : true
+          social_media : true
+          embed_code : true
+        }
+      }
+    }
+
+    // Screenshot & Video Tools
+    media_tools : {
+      enabled : true
+
+      screenshot : {
+        high_res : "4K"
+        hide_ui : true
+        filters : ["none", "cinematic", "vintage", "blueprint"]
+        annotations : true
+      }
+
+      video_recording : {
+        enabled : true
+        resolution : "up_to_4K"
+        frame_rate : "up_to_120fps"
+        formats : ["mp4", "mov"]
+
+        features : {
+          screen_recording : true
+          commentary : "microphone"
+          facecam : "pip"  // Picture-in-picture
+          auto_highlights : true
+        }
+      }
+
+      streaming : {
+        enabled : true
+        platforms : ["youtube", "twitch", "facebook"]
+        features : {
+          overlays : true
+          chat_integration : true
+          subscriber_alerts : true
+        }
+      }
+    }
+
+    // Custom Content
+    custom_content : {
+      enabled : true
+
+      can_create : [
+        "custom_maps",
+        "custom_scenarios",
+        "custom_campaigns",
+        "building_mods",
+        "ui_themes"
+      ]
+
+      workshop : {
+        enabled : true
+        upload : true
+        download : true
+        rate_content : true
+        comment : true
+        categories : true
+        moderation : "community_and_official"
+      }
+    }
+  }
+
+  // ==========================================
+  // SECURITY & FAIR PLAY
+  // ==========================================
+  security : {
+    anti_cheat : {
+      enabled : true
+
+      detection : {
+        client_validation : true
+        server_validation : true
+        behavior_analysis : true
+        anomaly_detection : true
+      }
+
+      penalties : {
+        first_offense : "warning"
+        second_offense : "temporary_ban"
+        third_offense : "permanent_ban"
+      }
+    }
+
+    reporting : {
+      enabled : true
+      types : ["cheating", "harassment", "inappropriate_content"]
+      investigation : "human_review"
+      feedback : "reporter_notified"
+    }
+  }
+
+  // ==========================================
+  // TECHNICAL INFRASTRUCTURE
+  // ==========================================
+  infrastructure : {
+    networking : {
+      protocol : "websocket"
+      encryption : "tls_1.3"
+      compression : "zstd"
+    }
+
+    servers : {
+      provider : "cloudkit"
+      regions : ["americas", "europe", "asia", "oceania"]
+      latency_optimization : true
+      load_balancing : true
+    }
+
+    sync : {
+      conflict_resolution : "operational_transform"
+      offline_support : true
+      resume_on_reconnect : true
+    }
+
+    performance : {
+      bandwidth_optimization : true
+      adaptive_quality : true
+      predictive_loading : true
+    }
+  }
+}

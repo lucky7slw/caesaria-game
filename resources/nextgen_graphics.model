@@ -1,0 +1,952 @@
+// CaesarIA 2025 - Next-Generation Graphics Features
+// Cutting-edge rendering technology for iOS/iPadOS
+
+nextgen_graphics : {
+  // ==========================================
+  // RAY TRACING (iPhone 15 Pro+, M1 iPad+)
+  // ==========================================
+  ray_tracing : {
+    enabled : "auto_detect"  // Only on capable devices
+
+    // Hardware Support
+    requirements : {
+      minimum_chip : "A17_Pro"  // iPhone 15 Pro
+      also_supports : ["M1", "M2", "M3"]  // iPad Pro
+      metal_version : "Metal 3.1"
+      ray_tracing_tier : 1
+    }
+
+    // Ray-Traced Features
+    features : {
+      // Ray-Traced Reflections
+      reflections : {
+        enabled : true
+        surfaces : ["water", "marble", "polished_stone", "metal", "glass"]
+
+        quality_levels : {
+          low : {
+            rays_per_pixel : 1
+            bounces : 1
+            denoising : "aggressive"
+          }
+          medium : {
+            rays_per_pixel : 2
+            bounces : 2
+            denoising : "balanced"
+          }
+          high : {
+            rays_per_pixel : 4
+            bounces : 3
+            denoising : "quality"
+          }
+          ultra : {
+            rays_per_pixel : 8
+            bounces : 4
+            denoising : "minimal"
+          }
+        }
+
+        effects : {
+          dynamic_objects : true  // Reflect moving carts, people
+          sun_reflections : true
+          building_reflections : true
+          sky_reflections : true
+        }
+      }
+
+      // Ray-Traced Shadows
+      shadows : {
+        enabled : true
+        type : "soft_shadows"
+
+        features : {
+          contact_hardening : true  // Sharper near contact
+          colored_shadows : true    // Through stained glass
+          caustics : true           // Light through water
+          dynamic : true            // Real-time updates
+        }
+
+        quality : {
+          samples : "adaptive"  // More samples where needed
+          denoising : "temporal"  // Use previous frames
+        }
+      }
+
+      // Ray-Traced Ambient Occlusion
+      ambient_occlusion : {
+        enabled : true
+        type : "ray_traced_ao"
+
+        features : {
+          multi_bounce : true
+          distance_falloff : true
+          dirt_accumulation : true  // Corners darker
+        }
+
+        performance : {
+          rays_per_sample : 2
+          cache_results : true
+          temporal_filter : true
+        }
+      }
+
+      // Ray-Traced Global Illumination
+      global_illumination : {
+        enabled : true
+        type : "path_traced_gi"
+
+        features : {
+          indirect_lighting : true
+          color_bleeding : true  // Red wall tints nearby
+          bounce_lighting : true
+          sky_lighting : true
+        }
+
+        quality : {
+          paths_per_pixel : 1  // Mobile constraint
+          bounces : 2
+          caching : "irradiance_probes"
+          update_rate : "adaptive"  // Static areas less frequent
+        }
+      }
+    }
+
+    // Fallback for non-RT devices
+    fallback : {
+      use_screen_space : true
+      use_reflection_probes : true
+      use_shadow_maps : true
+      use_ssao : true
+    }
+  }
+
+  // ==========================================
+  // DYNAMIC WEATHER SYSTEM
+  // ==========================================
+  weather : {
+    enabled : true
+
+    // Weather Types
+    conditions : {
+      clear : {
+        frequency : 40
+        visibility : "excellent"
+        lighting : "bright"
+      }
+
+      partly_cloudy : {
+        frequency : 25
+        cloud_coverage : "30_to_60_percent"
+        dynamic_clouds : true
+      }
+
+      overcast : {
+        frequency : 15
+        cloud_coverage : "90_percent"
+        lighting : "diffuse"
+        mood : "somber"
+      }
+
+      rain : {
+        frequency : 12
+        types : ["light_drizzle", "moderate_rain", "heavy_downpour"]
+
+        effects : {
+          rain_particles : 10000  // Drops visible
+          puddles : true
+          wet_surfaces : "shader_based"
+          splash_effects : true
+          sound : "3d_spatial"
+
+          gameplay_impact : {
+            reduces_movement : "5_percent"
+            affects_morale : "negative"
+            helps_farms : true
+            fire_resistance : "bonus"
+          }
+        }
+
+        visuals : {
+          particle_system : {
+            drop_velocity : "gravity_based"
+            wind_affected : true
+            collision_detection : true
+            splash_on_impact : true
+          }
+
+          shader_effects : {
+            wet_surfaces : "pbr_wetness"
+            ripples : true
+            droplets_on_camera : "optional"
+          }
+        }
+      }
+
+      thunderstorm : {
+        frequency : 4
+        intensity : ["moderate", "severe"]
+
+        effects : {
+          lightning : {
+            enabled : true
+            frequency : "random_10_to_60_seconds"
+            types : ["cloud_to_ground", "cloud_to_cloud"]
+            illuminates_scene : true
+            dynamic_shadows : true
+            thunder : "distance_based_delay"
+          }
+
+          heavy_rain : "see_rain_effects"
+
+          gameplay_impact : {
+            fire_risk : "increased"  // Lightning strikes
+            morale_penalty : "moderate"
+            trade_disruption : true
+          }
+        }
+      }
+
+      fog : {
+        frequency : 3
+        density : ["light", "moderate", "heavy"]
+
+        effects : {
+          volumetric : true
+          distance_based : true
+          height_based : true  // Fog in valleys
+
+          visuals : {
+            god_rays : true
+            light_scattering : true
+            depth_fade : true
+          }
+
+          gameplay_impact : {
+            visibility_reduced : true
+            mystery_atmosphere : true
+            enemy_detection : "harder"
+          }
+        }
+      }
+
+      snow : {
+        frequency : 1  // Rare, seasonal
+        types : ["light_snow", "snowfall", "blizzard"]
+
+        effects : {
+          snow_particles : 5000
+          accumulation : true  // Snow builds up
+          melting : true       // Over time
+          footprints : true    // In snow
+
+          visuals : {
+            snowflakes : "unique_patterns"
+            wind_blown : true
+            icicles : "on_buildings"
+            frozen_water : true
+          }
+
+          gameplay_impact : {
+            movement_penalty : "20_percent"
+            heating_required : true
+            food_production : "reduced"
+            beautiful_scenery : "morale_boost"
+          }
+        }
+      }
+
+      sandstorm : {
+        frequency : 1  // Desert maps only
+        intensity : ["moderate", "severe"]
+
+        effects : {
+          visibility : "very_low"
+          particle_density : "high"
+          wind_howling : "audio"
+
+          gameplay_impact : {
+            buildings_damaged : true
+            outdoor_work_stopped : true
+            health_hazard : true
+          }
+        }
+      }
+    }
+
+    // Weather Transitions
+    transitions : {
+      duration : "5_to_15_minutes"
+      smooth : true
+      clouds_form : "procedural"
+      wind_increases : "gradual"
+    }
+
+    // Seasonal Weather Patterns
+    seasons : {
+      spring : {
+        rain : "frequent"
+        temperature : "mild"
+        flowers_bloom : true
+      }
+
+      summer : {
+        clear : "frequent"
+        temperature : "hot"
+        thunderstorms : "occasional"
+      }
+
+      autumn : {
+        overcast : "frequent"
+        fog : "common"
+        temperature : "cooling"
+      }
+
+      winter : {
+        snow : "possible"
+        overcast : "common"
+        temperature : "cold"
+      }
+    }
+  }
+
+  // ==========================================
+  // DAY/NIGHT CYCLE
+  // ==========================================
+  day_night_cycle : {
+    enabled : true
+
+    // Time Progression
+    timing : {
+      full_cycle : "24_minutes_real_time"  // 1 real min = 1 game hour
+      customizable : true
+      can_pause : true
+      can_speed_up : true
+      time_of_day_sync : "optional"  // Match real world
+    }
+
+    // Sun & Moon
+    celestial_bodies : {
+      sun : {
+        trajectory : "realistic_arc"
+        intensity : "varies_by_time"
+        color_temperature : "dynamic"  // Warm at dawn/dusk
+
+        phases : {
+          dawn : {
+            time : "05:00_to_07:00"
+            sun_color : "warm_orange"
+            light_intensity : "increasing"
+            sky_color : "purple_orange_gradient"
+            god_rays : true
+          }
+
+          morning : {
+            time : "07:00_to_10:00"
+            sun_color : "yellow_white"
+            light_intensity : "bright"
+            sky_color : "light_blue"
+          }
+
+          midday : {
+            time : "10:00_to_14:00"
+            sun_color : "white"
+            light_intensity : "maximum"
+            sky_color : "deep_blue"
+            harsh_shadows : true
+          }
+
+          afternoon : {
+            time : "14:00_to_17:00"
+            sun_color : "warm_yellow"
+            light_intensity : "high"
+            sky_color : "blue"
+          }
+
+          dusk : {
+            time : "17:00_to_19:00"
+            sun_color : "orange_red"
+            light_intensity : "decreasing"
+            sky_color : "orange_purple_gradient"
+            golden_hour : true
+            long_shadows : true
+          }
+
+          night : {
+            time : "19:00_to_05:00"
+            sun_below_horizon : true
+            moonlight : "primary_source"
+            starfield : true
+          }
+        }
+      }
+
+      moon : {
+        enabled : true
+        phases : ["new", "crescent", "quarter", "gibbous", "full"]
+        cycle_duration : "30_days_game_time"
+
+        lighting : {
+          full_moon : "bright_silvery_light"
+          new_moon : "very_dark_nights"
+          affects_shadows : true
+          affects_mood : true
+        }
+
+        position : "realistic_arc"
+      }
+
+      stars : {
+        enabled : true
+        count : 5000
+        constellations : "roman_themed"
+        milky_way : true
+        twinkling : true
+        visibility : "weather_dependent"
+      }
+    }
+
+    // Dynamic Lighting
+    lighting : {
+      // Ambient Light
+      ambient : {
+        day : "#87CEEB"    // Sky blue
+        night : "#0A1929"  // Dark blue
+        transitions : "smooth"
+      }
+
+      // Directional Light (Sun)
+      directional : {
+        intensity : "time_of_day"
+        color : "sun_color_temperature"
+        shadows : "cascade_shadow_maps"
+        shadow_distance : "dynamic"
+      }
+
+      // Nighttime Lighting Sources
+      night_lights : {
+        torches : {
+          enabled : true
+          placement : "streets_buildings"
+          flicker : true
+          warm_glow : "#FF9329"
+          range : "5_meters"
+          intensity : "medium"
+        }
+
+        fires : {
+          cooking_fires : true
+          braziers : true
+          bonfires : true
+          dynamic_light : true
+          smoke : true
+        }
+
+        buildings : {
+          windows_lit : true
+          public_buildings : "brighter"
+          temples : "special_lighting"
+          palaces : "elaborate"
+        }
+      }
+    }
+
+    // Sky Rendering
+    sky : {
+      type : "procedural"  // Not skybox
+
+      atmosphere_scattering : {
+        enabled : true
+        rayleigh : true  // Blue sky
+        mie : true       // Haze, fog
+        ozone : true     // Sunset colors
+      }
+
+      clouds : {
+        type : "volumetric"
+        layers : ["low", "mid", "high"]
+        procedural : true
+        animated : true
+        shadows : "cast_on_ground"
+
+        rendering : {
+          ray_marching : true
+          samples : 16
+          self_shadowing : true
+          light_scattering : true
+        }
+      }
+
+      horizon : {
+        atmospheric_perspective : true
+        distance_fog : true
+        heat_haze : "on_hot_days"
+      }
+    }
+
+    // Gameplay Integration
+    gameplay : {
+      citizen_behavior : {
+        day : "work_socialize"
+        night : "sleep_rest"
+        night_workers : "guards_bakers"
+      }
+
+      building_behavior : {
+        markets : "close_at_night"
+        taverns : "busier_at_night"
+        temples : "services_dawn_dusk"
+      }
+
+      visibility : {
+        day : "see_everything"
+        night : "limited_by_lights"
+        torch_required : "exploration"
+      }
+
+      crime : {
+        day : "lower"
+        night : "higher"
+        patrols_needed : "nighttime"
+      }
+
+      atmosphere : {
+        day : "bustling_vibrant"
+        night : "peaceful_mysterious"
+        transitions : "mood_changes"
+      }
+    }
+  }
+
+  // ==========================================
+  // ADVANCED PARTICLE SYSTEMS
+  // ==========================================
+  particles : {
+    enabled : true
+    max_particles : 50000
+
+    // GPU Particles
+    gpu_accelerated : true
+    compute_shaders : true
+
+    systems : {
+      // Weather Particles
+      weather : {
+        rain_drops : 10000
+        snow_flakes : 5000
+        sand_grains : 8000
+        fog_particles : 3000
+      }
+
+      // Fire & Smoke
+      fire : {
+        flames : {
+          count : 500
+          per_fire : 50
+          behavior : "fluid_simulation"
+          emissive : true
+          heat_distortion : true
+        }
+
+        smoke : {
+          count : 1000
+          rising : true
+          wind_affected : true
+          dissipates : true
+          shadows : "cast"
+        }
+
+        embers : {
+          count : 200
+          floating : true
+          glowing : true
+          lifespan : "3_seconds"
+        }
+      }
+
+      // Water Effects
+      water : {
+        splashes : {
+          rain_impacts : true
+          fountain_spray : true
+          river_rapids : true
+        }
+
+        ripples : {
+          interactive : true
+          propagation : true
+          reflection_distortion : true
+        }
+
+        mist : {
+          fountains : true
+          waterfalls : true
+          volumetric : true
+        }
+      }
+
+      // Environmental
+      environmental : {
+        dust : {
+          air_particles : true
+          god_rays : true
+          construction_dust : true
+        }
+
+        leaves : {
+          falling : "autumn"
+          wind_blown : true
+          settling : true
+        }
+
+        insects : {
+          butterflies : "spring_summer"
+          fireflies : "summer_nights"
+          bees : "near_flowers"
+        }
+
+        birds : {
+          flying : true
+          flocking : "boids_algorithm"
+          landing : true
+        }
+      }
+
+      // Human Activity
+      activity : {
+        market_bustle : true
+        construction_debris : true
+        festival_confetti : true
+        celebration_effects : true
+      }
+
+      // Combat
+      combat : {
+        weapon_trails : true
+        blood_splatter : "optional"
+        dust_clouds : true
+        debris : true
+      }
+    }
+
+    // Particle Physics
+    physics : {
+      gravity : true
+      wind_force : true
+      collision : "simplified"
+      fluid_dynamics : "smoke_water"
+    }
+  }
+
+  // ==========================================
+  // ADVANCED WATER RENDERING
+  // ==========================================
+  water : {
+    enabled : true
+
+    rendering : {
+      type : "realistic_pbr"
+
+      // Surface
+      surface : {
+        waves : {
+          enabled : true
+          algorithm : "fft_based"  // Fast Fourier Transform
+          detail_levels : 3
+
+          large_waves : {
+            amplitude : "weather_dependent"
+            frequency : "low"
+            wind_driven : true
+          }
+
+          ripples : {
+            detail : "high"
+            interactive : true
+            boat_wakes : true
+          }
+        }
+
+        foam : {
+          enabled : true
+          where : ["wave_crests", "shores", "rapids"]
+          simulation : "particle_based"
+        }
+
+        reflections : {
+          type : "ray_traced_or_planar"
+          quality : "dynamic"
+          reflects : ["sky", "buildings", "sun", "moon"]
+        }
+
+        refraction : {
+          enabled : true
+          underwater_distortion : true
+          caustics : true  // Light patterns on seafloor
+        }
+      }
+
+      // Underwater
+      underwater : {
+        visibility : "depth_based"
+        color_grading : "blue_green_tint"
+        god_rays : "volumetric"
+        particles : "suspended_debris"
+        fish : "optional"
+      }
+
+      // Shoreline
+      shoreline : {
+        wave_interaction : true
+        sand_wetting : true
+        tidal_effects : true
+      }
+    }
+
+    // Physics
+    physics : {
+      buoyancy : true
+      fluid_simulation : "simplified"
+      flow_simulation : "rivers"
+    }
+
+    // Types
+    water_types : {
+      ocean : {
+        color : "#006994"
+        salinity : "high"
+        waves : "large"
+      }
+
+      river : {
+        color : "#3A7CA5"
+        flow : true
+        current_visible : true
+      }
+
+      lake : {
+        color : "#5FA8D3"
+        waves : "small"
+        calm : true
+      }
+
+      fountain : {
+        spray : true
+        decorative : true
+        sound : true
+      }
+
+      aqueduct : {
+        flowing : true
+        shader : "running_water"
+      }
+    }
+  }
+
+  // ==========================================
+  // SEASONAL VISUAL CHANGES
+  // ==========================================
+  seasons : {
+    enabled : true
+    duration : "30_days_game_time"
+
+    visual_changes : {
+      spring : {
+        vegetation : "lush_green"
+        flowers : "blooming"
+        trees : "budding"
+        grass : "vibrant"
+        mood : "renewal"
+      }
+
+      summer : {
+        vegetation : "deep_green"
+        flowers : "full_bloom"
+        trees : "full_foliage"
+        grass : "dry_in_heat"
+        mood : "vibrant"
+      }
+
+      autumn : {
+        vegetation : "yellowing"
+        leaves : "red_orange_yellow"
+        falling_leaves : true
+        trees : "sparse"
+        grass : "brown"
+        mood : "melancholic"
+      }
+
+      winter : {
+        vegetation : "dormant"
+        trees : "bare"
+        grass : "dead"
+        snow_coverage : "optional"
+        ice : "on_water"
+        mood : "harsh"
+      }
+    }
+
+    transitions : {
+      gradual : true
+      duration : "7_days"
+      tree_transitions : "leaf_by_leaf"
+    }
+  }
+
+  // ==========================================
+  // ADVANCED POST-PROCESSING
+  // ==========================================
+  post_processing : {
+    // HDR & Tone Mapping
+    hdr : {
+      enabled : true
+      range : "10_stops"
+      tone_mapping : "aces_filmic"
+      exposure : "auto_adaptive"
+
+      bloom : {
+        enabled : true
+        threshold : 1.0
+        intensity : "medium"
+        dirt_lens : true
+      }
+    }
+
+    // Color Grading
+    color_grading : {
+      enabled : true
+      lut_based : true
+
+      presets : {
+        natural : "minimal_grading"
+        cinematic : "film_look"
+        vibrant : "saturated"
+        desaturated : "gritty"
+        sepia : "historical"
+      }
+
+      time_of_day : {
+        dawn : "warm_hues"
+        day : "neutral"
+        dusk : "golden_hour"
+        night : "cool_blue"
+      }
+    }
+
+    // Depth of Field
+    depth_of_field : {
+      enabled : true
+      type : "bokeh"
+
+      modes : {
+        cinematic : "focus_subject"
+        tilt_shift : "miniature_effect"
+        off : "everything_sharp"
+      }
+
+      quality : {
+        samples : 16
+        bokeh_shape : "hexagonal"
+        chromatic_aberration : "subtle"
+      }
+    }
+
+    // Motion Blur
+    motion_blur : {
+      enabled : "optional"
+      type : "per_object"
+      samples : 8
+      intensity : "adjustable"
+    }
+
+    // Screen Space Reflections
+    ssr : {
+      enabled : true
+      quality : "high"
+      max_distance : 50
+      fallback_to_probes : true
+    }
+
+    // Ambient Occlusion
+    ao : {
+      enabled : true
+      type : "gtao"  // Ground Truth AO
+      radius : 0.5
+      intensity : "medium"
+    }
+
+    // Anti-Aliasing
+    anti_aliasing : {
+      method : "taa"  // Temporal AA
+      fallback : "fxaa"
+      quality : "high"
+      jitter : "halton_sequence"
+    }
+
+    // Sharpen
+    sharpen : {
+      enabled : true
+      amount : "adaptive"
+      after_taa : true
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE PROFILES
+  // ==========================================
+  performance_profiles : {
+    // Device-Specific Presets
+    presets : {
+      iphone_15_pro_max : {
+        ray_tracing : "high"
+        weather : "full"
+        day_night : "enabled"
+        particles : 50000
+        water : "ultra"
+        post_processing : "all"
+        frame_rate : 120
+        resolution : "native"
+      }
+
+      iphone_14_pro : {
+        ray_tracing : "medium"
+        weather : "full"
+        day_night : "enabled"
+        particles : 30000
+        water : "high"
+        post_processing : "most"
+        frame_rate : 120
+        resolution : "native"
+      }
+
+      iphone_13 : {
+        ray_tracing : "off"
+        weather : "medium"
+        day_night : "enabled"
+        particles : 15000
+        water : "medium"
+        post_processing : "essential"
+        frame_rate : 60
+        resolution : "90_percent"
+      }
+
+      ipad_pro_m2 : {
+        ray_tracing : "ultra"
+        weather : "full"
+        day_night : "enabled"
+        particles : 50000
+        water : "ultra"
+        post_processing : "all"
+        frame_rate : 120
+        resolution : "native"
+      }
+    }
+
+    // Adaptive Quality
+    adaptive : {
+      enabled : true
+      maintains : "target_framerate"
+      adjusts : "dynamic_resolution_and_effects"
+      thermal_management : true
+    }
+  }
+}

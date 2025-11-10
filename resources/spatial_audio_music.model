@@ -1,0 +1,720 @@
+// CaesarIA 2025 - Spatial Audio & Dynamic Music System
+// Immersive 3D audio and adaptive soundtrack
+
+spatial_audio : {
+  // ==========================================
+  // 3D SPATIAL AUDIO (iOS 14+)
+  // ==========================================
+  spatial_audio : {
+    enabled : true
+    requires : "ios_14_or_later"
+
+    // Technology
+    technology : {
+      core_audio : "spatial_audio_api"
+      head_tracking : "airpods_pro_max"  // If available
+      hrtf : "head_related_transfer_function"
+      binaural : true
+    }
+
+    // Sound Sources
+    sound_sources : {
+      // Environmental Sounds
+      environmental : {
+        water : {
+          position : "3d_rivers_fountains"
+          type : "flowing_splashing"
+          falloff : "realistic_distance"
+          occlusion : "buildings_block_sound"
+        }
+
+        wind : {
+          directional : true
+          strength : "weather_dependent"
+          through_trees : "rustling"
+          around_buildings : "whistling"
+        }
+
+        wildlife : {
+          birds : "chirping_in_trees"
+          insects : "buzzing_near_ground"
+          dogs : "barking_from_houses"
+          horses : "neighing_from_stables"
+        }
+
+        weather : {
+          rain : "patter_on_roofs_ground"
+          thunder : "direction_and_distance"
+          wind_storm : "howling"
+        }
+      }
+
+      // City Sounds
+      city : {
+        markets : {
+          position : "market_building"
+          sounds : ["vendors_calling", "haggling", "coins_clinking"]
+          radius : "25_meters"
+          busiest : "midday"
+        }
+
+        construction : {
+          position : "building_sites"
+          sounds : ["hammering", "sawing", "voices"]
+          radius : "15_meters"
+          active : "during_workday"
+        }
+
+        workshops : {
+          position : "industrial_buildings"
+          sounds : ["forging", "pottery_wheel", "weaving"]
+          radius : "10_meters"
+          type : "depends_on_workshop"
+        }
+
+        streets : {
+          foot_traffic : "crowd_murmur"
+          carts : "wheels_on_cobblestone"
+          animals : "livestock_sounds"
+          density : "population_dependent"
+        }
+
+        temples : {
+          position : "religious_buildings"
+          sounds : ["chanting", "bells", "prayers"]
+          radius : "30_meters"
+          sacred_atmosphere : true
+        }
+
+        forums : {
+          position : "public_spaces"
+          sounds : ["speeches", "debates", "crowds"]
+          radius : "40_meters"
+          political_atmosphere : true
+        }
+
+        entertainment : {
+          position : "theaters_arenas"
+          sounds : ["performances", "cheering", "music"]
+          radius : "50_meters"
+          event_dependent : true
+        }
+      }
+
+      // Citizen Sounds
+      citizens : {
+        individuals : {
+          footsteps : "surface_dependent"
+          conversations : "passing_by"
+          reactions : ["laughter", "complaints", "greetings"]
+          children : "playing_sounds"
+        }
+
+        crowds : {
+          size_based : "1_to_1000_people"
+          mood_based : ["happy_celebration", "angry_riot", "fearful_panic"]
+          spatially_distributed : true
+        }
+      }
+
+      // Military Sounds
+      military : {
+        training : {
+          position : "barracks"
+          sounds : ["marching", "weapon_practice", "commands"]
+          radius : "20_meters"
+        }
+
+        combat : {
+          position : "battle_location"
+          sounds : ["weapon_clash", "shouts", "armor_clanking"]
+          intensity : "combat_scale"
+          directional : true
+        }
+
+        alerts : {
+          horn_blasts : "warning_signals"
+          bell_tolling : "danger_alarm"
+          directional : true
+          urgent : true
+        }
+      }
+
+      // Special Events
+      events : {
+        festivals : {
+          music : "live_performance"
+          celebration : "crowds_cheering"
+          fireworks : "explosions_and_cheering"
+          radius : "100_meters"
+        }
+
+        disasters : {
+          fire : "crackling_spreading"
+          collapse : "rubble_falling"
+          flood : "rushing_water"
+          urgent_sounds : true
+        }
+
+        ceremonies : {
+          processions : "marching_music"
+          sacrifices : "ritual_sounds"
+          announcements : "herald_calls"
+          formal_atmosphere : true
+        }
+      }
+    }
+
+    // 3D Audio Processing
+    processing : {
+      // Distance Attenuation
+      distance : {
+        model : "inverse_square_law"
+        max_distance : "200_meters"
+        min_distance : "1_meter"
+        falloff_curve : "realistic"
+      }
+
+      // Occlusion
+      occlusion : {
+        enabled : true
+        buildings_block : "partial_attenuation"
+        walls : "muffle_sound"
+        terrain : "blocks_low_freq"
+        trees : "slight_dampening"
+      }
+
+      // Reverb & Reflections
+      reverb : {
+        enabled : true
+
+        environments : {
+          open_air : "minimal_reverb"
+          narrow_streets : "strong_reflections"
+          large_buildings : "cathedral_reverb"
+          underground : "echo_chamber"
+        }
+
+        dynamic : "based_on_surroundings"
+      }
+
+      // Doppler Effect
+      doppler : {
+        enabled : true
+        applies_to : "moving_objects"
+        subtle : true
+        examples : ["passing_carts", "charging_cavalry"]
+      }
+
+      // Air Absorption
+      air_absorption : {
+        enabled : true
+        high_freq_attenuation : true
+        weather_affects : true  // Fog dampens sound
+      }
+    }
+
+    // Head Tracking (AirPods Pro/Max)
+    head_tracking : {
+      enabled : "if_available"
+
+      features : {
+        sound_stays_positioned : true  // Turn head, sound stays in world
+        immersive : true
+        calibration : "automatic"
+      }
+
+      fallback : "stereo_without_tracking"
+    }
+
+    // Ambisonics
+    ambisonics : {
+      enabled : true
+      order : "third_order"  // Higher = better spatial precision
+      encoding : "b_format"
+      decoding : "binaural_for_headphones"
+    }
+  }
+
+  // ==========================================
+  // DYNAMIC MUSIC SYSTEM
+  // ==========================================
+  dynamic_music : {
+    enabled : true
+
+    // Adaptive Music
+    adaptive_system : {
+      enabled : true
+
+      // Layered Composition
+      layers : {
+        base : "always_playing"
+        harmony : "adds_during_growth"
+        percussion : "increases_with_activity"
+        brass : "military_presence"
+        strings : "emotional_moments"
+      }
+
+      // Stems
+      stems : {
+        separate_tracks : true
+        crossfade : "seamless"
+        volume_mix : "dynamic"
+        key_locked : "always_in_key"
+      }
+
+      // Transitions
+      transitions : {
+        method : "beat_matched"
+        stingers : "transition_cues"
+        smooth : "no_abrupt_changes"
+        timing : "musically_appropriate"
+      }
+    }
+
+    // Musical Themes
+    themes : {
+      // Peace & Prosperity
+      peaceful : {
+        mood : "calm_content"
+        instruments : ["lyre", "flute", "harp"]
+        tempo : "andante_70_bpm"
+        key : "major"
+
+        variations : {
+          morning : "bright_hopeful"
+          midday : "active_vibrant"
+          evening : "relaxed_warm"
+          night : "gentle_serene"
+        }
+      }
+
+      // Economic Growth
+      economic : {
+        mood : "industrious_optimistic"
+        instruments : ["rhythmic_percussion", "energetic_strings"]
+        tempo : "allegro_120_bpm"
+        key : "major"
+
+        intensity : "wealth_dependent"
+      }
+
+      // Military & Conflict
+      military : {
+        mood : "tense_dramatic"
+        instruments : ["drums", "brass", "low_strings"]
+        tempo : "varies_by_situation"
+        key : "minor"
+
+        stages : {
+          preparation : "building_tension"
+          battle : "intense_chaotic"
+          victory : "triumphant_fanfare"
+          defeat : "somber_mournful"
+        }
+      }
+
+      // Cultural & Religious
+      cultural : {
+        mood : "majestic_spiritual"
+        instruments : ["choir", "organ", "bells"]
+        tempo : "adagio_60_bpm"
+        key : "modal_scales"
+
+        contexts : {
+          temple : "sacred_reverent"
+          festival : "celebratory_joyous"
+          ceremony : "formal_dignified"
+        }
+      }
+
+      // Crisis & Danger
+      danger : {
+        mood : "urgent_threatening"
+        instruments : ["dissonant_strings", "timpani", "bass"]
+        tempo : "allegro_agitato"
+        key : "minor_diminished"
+
+        types : {
+          fire : "frantic_urgent"
+          invasion : "ominous_approaching"
+          plague : "dread_hopeless"
+          riot : "chaotic_angry"
+        }
+      }
+
+      // Exploration & Discovery
+      exploration : {
+        mood : "curious_adventurous"
+        instruments : ["woodwinds", "pizzicato_strings"]
+        tempo : "moderato_90_bpm"
+        key : "lydian_mode"
+
+        contexts : {
+          new_territory : "exciting_unknown"
+          ruins : "mysterious_ancient"
+          wonder : "awe_inspiring"
+        }
+      }
+
+      // Historical Accuracy
+      roman_themes : {
+        authentic : true
+
+        instruments : {
+          period_accurate : [
+            "tibia_double_flute",
+            "cithara_lyre",
+            "tuba_bronze_horn",
+            "cornu_curved_horn",
+            "tympanum_frame_drum",
+            "sistrum_rattle",
+            "hydraulis_water_organ"
+          ]
+
+          modern_orchestral : [
+            "strings",
+            "woodwinds",
+            "brass",
+            "percussion"
+          ]
+
+          blended : "authentic_and_modern"
+        }
+
+        scales : {
+          dorian : true
+          phrygian : true
+          lydian : true
+          mixolydian : true
+        }
+      }
+    }
+
+    // Context Awareness
+    context : {
+      // Game State
+      game_state : {
+        population : "affects_complexity"
+        prosperity : "affects_mood"
+        military_status : "affects_intensity"
+        current_crisis : "overrides_default"
+      }
+
+      // Time of Day
+      time_of_day : {
+        dawn : "awakening_theme"
+        day : "active_theme"
+        dusk : "winding_down_theme"
+        night : "peaceful_theme"
+      }
+
+      // Season
+      season : {
+        spring : "renewal_theme"
+        summer : "vibrant_theme"
+        autumn : "harvest_theme"
+        winter : "contemplative_theme"
+      }
+
+      // Location
+      location : {
+        city_center : "bustling_theme"
+        residential : "domestic_theme"
+        industrial : "working_theme"
+        countryside : "pastoral_theme"
+        military : "martial_theme"
+        temple : "sacred_theme"
+      }
+    }
+
+    // Interactive Music
+    interactive : {
+      player_actions : {
+        building : "construction_theme"
+        trading : "merchant_theme"
+        battle : "combat_theme"
+        diplomacy : "political_theme"
+      }
+
+      success_stingers : {
+        milestone_reached : "fanfare"
+        building_complete : "completion_chord"
+        victory_achieved : "triumph_theme"
+        discovery_made : "revelation_notes"
+      }
+
+      failure_stingers : {
+        building_destroyed : "catastrophe_chord"
+        defeat : "defeat_theme"
+        crisis_start : "danger_motif"
+      }
+    }
+
+    // Procedural Variation
+    procedural : {
+      enabled : true
+
+      generation : {
+        melodic_variation : "never_exactly_same"
+        harmonic_progression : "follows_rules"
+        rhythmic_variation : "subtle_changes"
+        instrumentation : "varied_each_play"
+      }
+
+      ensures : {
+        musical_quality : true
+        thematic_consistency : true
+        never_boring : true
+      }
+    }
+
+    // Volume & Mixing
+    mixing : {
+      dynamic_mixing : true
+
+      balance : {
+        music_vs_sfx : "adjustable"
+        dialogue_ducking : "automatic"
+        ambient_balance : "environmental_aware"
+      }
+
+      auto_leveling : {
+        prevents_clipping : true
+        maintains_clarity : true
+        compression : "gentle"
+      }
+    }
+  }
+
+  // ==========================================
+  // SOUND EFFECTS
+  // ==========================================
+  sound_effects : {
+    // UI Sounds
+    ui : {
+      button_click : "satisfying_click"
+      menu_open : "swoosh"
+      menu_close : "reverse_swoosh"
+      success : "pleasant_chime"
+      error : "gentle_buzz"
+      notification : "attention_tone"
+
+      haptic_sync : true
+      spatialized : false  // Always centered
+    }
+
+    // Gameplay Sounds
+    gameplay : {
+      building : {
+        placement : "construction_start"
+        progress : "hammering_sawing"
+        completion : "satisfaction_chord"
+        upgrade : "improvement_sound"
+        demolish : "destruction_crash"
+      }
+
+      resources : {
+        collect : "gathering_sound"
+        deliver : "drop_off_sound"
+        produce : "production_complete"
+        trade : "coins_exchanging"
+      }
+
+      citizens : {
+        happy : "laughter_singing"
+        unhappy : "grumbling_complaining"
+        working : "labor_sounds"
+        idle : "conversation_murmur"
+      }
+
+      military : {
+        march : "footsteps_synchronized"
+        attack : "weapon_sounds"
+        defend : "shield_block"
+        victory : "cheering"
+        retreat : "urgent_movement"
+      }
+
+      events : {
+        positive : "uplifting_sound"
+        negative : "ominous_sound"
+        neutral : "notification_tone"
+      }
+    }
+
+    // Ambient Sounds
+    ambient : {
+      soundscapes : {
+        layered : true
+        procedural : true
+        never_repetitive : true
+
+        day : {
+          city : ["distant_market", "cart_wheels", "conversation", "birdsong"]
+          countryside : ["wind", "birds", "insects", "distant_farm"]
+        }
+
+        night : {
+          city : ["crickets", "distant_guards", "occasional_dog", "wind"]
+          countryside : ["crickets", "owls", "wind", "distant_wolves"]
+        }
+      }
+
+      distance_layers : {
+        close : "detailed_precise"
+        medium : "less_distinct"
+        far : "atmospheric_ambience"
+      }
+    }
+  }
+
+  // ==========================================
+  // AUDIO TECHNOLOGY
+  // ==========================================
+  technology : {
+    // Audio Engine
+    engine : {
+      framework : "core_audio"
+      middleware : "fmod_or_wwise"  // Professional game audio
+      format : "adaptive"
+
+      features : {
+        real_time_mixing : true
+        dsp_effects : true
+        compression : "adaptive_bitrate"
+        streaming : "large_files"
+      }
+    }
+
+    // Audio Formats
+    formats : {
+      music : "aac_256kbps"
+      sfx : "caf_uncompressed"  // Low latency
+      voice : "opus_64kbps"
+      ambient : "aac_128kbps"
+    }
+
+    // Processing
+    processing : {
+      sample_rate : "48khz"
+      bit_depth : "24bit_for_master"
+      channels : "up_to_7.1_surround"
+      binaural : "for_headphones"
+
+      real_time_effects : [
+        "eq",
+        "compression",
+        "reverb",
+        "delay",
+        "distortion",
+        "chorus",
+        "doppler"
+      ]
+    }
+
+    // Optimization
+    optimization : {
+      voice_pooling : true
+      distance_culling : "sounds_too_far_not_processed"
+      priority_system : "important_sounds_first"
+      streaming : "seamless_background_loading"
+
+      memory_management : {
+        preload : "frequent_sounds"
+        stream : "music_and_long_ambient"
+        unload : "unused_sounds"
+      }
+    }
+  }
+
+  // ==========================================
+  // AUDIO SETTINGS
+  // ==========================================
+  settings : {
+    // Volume Controls
+    volume : {
+      master : "0_to_100"
+      music : "0_to_100"
+      sfx : "0_to_100"
+      ambient : "0_to_100"
+      voice : "0_to_100"
+      ui : "0_to_100"
+
+      ducking : {
+        enabled : true
+        lowers_music : "when_dialogue_playing"
+        configurable : true
+      }
+    }
+
+    // Audio Output
+    output : {
+      device : "auto_detect"
+      format : "best_for_device"
+
+      options : {
+        speakers : "stereo_or_surround"
+        headphones : "binaural"
+        airpods_pro : "spatial_audio_with_tracking"
+        hearing_aids : "optimized"
+      }
+    }
+
+    // Quality
+    quality : {
+      presets : {
+        low : "reduce_voice_count_lower_quality"
+        medium : "balanced"
+        high : "maximum_fidelity"
+      }
+
+      customizable : {
+        reverb_quality : true
+        occlusion_detail : true
+        max_voices : true
+      }
+    }
+
+    // Accessibility
+    accessibility : {
+      mono_audio : "system_setting"
+      subtitles : "see_accessibility_features"
+      visual_indicators : "see_accessibility_features"
+      haptic_audio : "sound_to_vibration"
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE
+  // ==========================================
+  performance : {
+    // CPU Usage
+    cpu_usage : {
+      target : "less_than_5_percent"
+      audio_thread : "dedicated"
+      priority : "real_time"
+    }
+
+    // Voice Limits
+    voices : {
+      simultaneous : "up_to_256"
+      prioritization : "importance_based"
+      culling : "automatic"
+    }
+
+    // Memory
+    memory : {
+      budget : "150mb"
+      streaming : "reduces_footprint"
+      compression : "when_appropriate"
+    }
+
+    // Latency
+    latency : {
+      target : "less_than_20ms"
+      touch_to_sound : "imperceptible"
+      critical_for_gameplay : true
+    }
+  }
+}

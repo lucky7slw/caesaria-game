@@ -1,0 +1,633 @@
+// CaesarIA 2025 - Apple Pencil & Apple Pencil Pro Support
+// Precision building and creative tools for iPad
+
+apple_pencil : {
+  // ==========================================
+  // APPLE PENCIL SUPPORT
+  // ==========================================
+  general_support : {
+    enabled : true
+    versions : ["apple_pencil_1", "apple_pencil_2", "apple_pencil_pro", "apple_pencil_usbc"]
+
+    // Basic Features
+    basic_features : {
+      precision_pointing : {
+        enabled : true
+        pixel_perfect : true
+        superior_to_finger : true
+        hover_preview : true
+      }
+
+      pressure_sensitivity : {
+        enabled : true
+        levels : 4096
+        uses : ["brush_size", "line_weight", "terrain_sculpting"]
+      }
+
+      tilt_detection : {
+        enabled : true
+        uses : ["shading", "directional_placement"]
+        angle_range : "0_to_90_degrees"
+      }
+
+      palm_rejection : {
+        enabled : true
+        method : "automatic"
+        accuracy : "99_percent"
+      }
+
+      low_latency : {
+        target : "9ms"
+        imperceptible_lag : true
+        direct_to_metal : true
+      }
+    }
+  }
+
+  // ==========================================
+  // APPLE PENCIL PRO FEATURES (iPadOS 18+)
+  // ==========================================
+  pencil_pro : {
+    enabled : "if_available"
+    requires : ["ipad_pro_m4", "ipados_18"]
+
+    // Squeeze Gesture
+    squeeze : {
+      enabled : true
+      haptic_feedback : true
+
+      actions : {
+        default : "bring_up_tool_palette"
+
+        customizable : {
+          options : [
+            "tool_palette",
+            "quick_menu",
+            "undo_redo",
+            "switch_tool",
+            "copy_paste",
+            "building_menu",
+            "resource_panel",
+            "custom_action"
+          ]
+        }
+
+        context_aware : {
+          while_building : "building_options"
+          while_painting_terrain : "brush_options"
+          while_selecting : "selection_tools"
+        }
+      }
+
+      tool_palette : {
+        floating_ui : true
+        radial_menu : true
+        quick_access : true
+
+        items : [
+          "building_tools",
+          "terrain_tools",
+          "selection_tools",
+          "inspection_tools",
+          "undo_redo",
+          "favorites"
+        ]
+
+        customizable : true
+        position : "near_pencil"
+      }
+    }
+
+    // Barrel Roll
+    barrel_roll : {
+      enabled : true
+
+      uses : {
+        rotate_buildings : {
+          enabled : true
+          before_placement : true
+          smooth_rotation : true
+          snap_to_angles : "optional_45_degrees"
+          visual_indicator : "rotation_arrow"
+        }
+
+        rotate_camera : {
+          enabled : true
+          intuitive : true
+          one_handed : true
+        }
+
+        specialized_tools : {
+          terrain_brush_angle : true
+          stamp_rotation : true
+          pattern_alignment : true
+        }
+      }
+
+      haptic_feedback : {
+        detents : "at_45_degree_intervals"
+        subtle_clicks : true
+      }
+
+      sensitivity : {
+        adjustable : true
+        presets : ["high", "medium", "low"]
+      }
+    }
+
+    // Hover
+    hover : {
+      enabled : true
+      detection_height : "up_to_12mm"
+
+      features : {
+        preview_placement : {
+          enabled : true
+          shows : "ghost_image_of_building"
+          real_time_feedback : true
+          snap_indicators : true
+          resource_requirements : "tooltip"
+          placement_validity : "color_coded"
+        }
+
+        hover_info : {
+          enabled : true
+          shows : "detailed_information"
+
+          over_buildings : {
+            name : true
+            status : true
+            production : true
+            workers : true
+            quick_stats : true
+          }
+
+          over_citizens : {
+            name : true
+            occupation : true
+            mood : true
+            destination : true
+          }
+
+          over_terrain : {
+            type : true
+            resources : true
+            buildability : true
+          }
+        }
+
+        hover_ui : {
+          highlights : "hoverable_items"
+          tooltips : "instant_no_delay"
+          cursor_change : "contextual_icon"
+        }
+
+        precision_targeting : {
+          smaller_targets : "easier_with_hover"
+          crowded_areas : "preview_selection"
+        }
+      }
+
+      visual_feedback : {
+        hover_cursor : "shows_pencil_position"
+        highlight_circle : "under_cursor"
+        shadow : "depth_perception"
+      }
+    }
+
+    // Haptic Feedback
+    haptics : {
+      enabled : true
+      tactile_engine : "advanced"
+
+      events : {
+        building_placed : "satisfying_click"
+        invalid_placement : "rejection_buzz"
+        rotation_detent : "subtle_click"
+        squeeze_activated : "confirmation"
+        snap_to_grid : "gentle_bump"
+        building_selected : "light_tap"
+        menu_item_hover : "ultra_light_tap"
+      }
+
+      customizable : {
+        intensity : "adjustable"
+        can_disable : true
+        per_event : true
+      }
+    }
+
+    // Find My
+    find_my : {
+      enabled : true
+      helps_locate : "lost_pencil"
+      plays_sound : true
+      shows_location : true
+      last_seen : true
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    // Building Placement
+    building : {
+      precision_mode : {
+        enabled : true
+        grid_snapping : "visible_grid"
+        freeform : "off_grid_placement"
+        alignment_guides : true
+        measurement_overlay : true
+      }
+
+      quick_placement : {
+        tap_to_place : "instant"
+        drag_to_arrange : "multiple_buildings"
+        hold_to_preview : "before_committing"
+        double_tap_to_confirm : true
+      }
+
+      advanced_tools : {
+        stamp_tool : "repeat_pattern"
+        line_tool : "walls_roads_aqueducts"
+        area_tool : "fill_with_housing"
+        symmetry_tool : "mirror_layout"
+      }
+
+      building_menu : {
+        pencil_optimized : true
+        quick_access : "squeeze_or_sidebar"
+        category_tabs : true
+        search : "handwriting_recognition"
+        favorites : "customizable"
+      }
+    }
+
+    // Terrain Sculpting
+    terrain : {
+      enabled : true
+
+      tools : {
+        raise : "increase_elevation"
+        lower : "decrease_elevation"
+        smooth : "blend_terrain"
+        flatten : "create_plateaus"
+        paint : "change_terrain_type"
+      }
+
+      brush_settings : {
+        size : "pressure_sensitive"
+        strength : "pressure_sensitive"
+        falloff : "soft_edge"
+        shape : ["circle", "square", "custom"]
+      }
+
+      pressure_mapping : {
+        light_touch : "subtle_changes"
+        firm_press : "dramatic_changes"
+        natural_feel : true
+      }
+
+      tilt_shading : {
+        angle_affects : "brush_shape"
+        directional : true
+        realistic : "like_painting"
+      }
+    }
+
+    // Road & Path Drawing
+    roads : {
+      freehand_drawing : {
+        enabled : true
+        auto_straighten : "optional"
+        auto_connect : true
+        snap_to_grid : "optional"
+      }
+
+      smart_roads : {
+        follows_terrain : true
+        auto_bridge : "over_water"
+        auto_tunnel : "through_mountains"
+        efficient_routing : true
+      }
+
+      pressure_control : {
+        light : "footpath"
+        medium : "road"
+        firm : "highway"
+      }
+    }
+
+    // Selection & Manipulation
+    selection : {
+      precise_tapping : "select_individual_buildings"
+      drag_lasso : "freeform_selection"
+      rectangular_select : "hold_shift"
+
+      multi_select : {
+        tap_multiple : "add_to_selection"
+        deselect : "tap_again"
+        select_all_type : "long_press_building"
+      }
+
+      manipulation : {
+        drag_to_move : true
+        pinch_to_rotate : "or_barrel_roll"
+        double_tap_to_edit : true
+      }
+    }
+
+    // Inspection & Analysis
+    inspection : {
+      tap_to_inspect : "detailed_info_panel"
+
+      hover_mode : {
+        quick_stats : "no_selection_needed"
+        comparison : "compare_multiple_buildings"
+        scan_area : "sweep_to_analyze"
+      }
+
+      annotation : {
+        draw_notes : "on_map"
+        highlight_areas : "circles_and_arrows"
+        measure_distances : "ruler_tool"
+        mark_locations : "pins_and_flags"
+      }
+    }
+
+    // Camera Control
+    camera : {
+      pan : "drag_with_pencil"
+      zoom : "pinch_or_scroll_gesture"
+      rotate : "barrel_roll"
+      tilt : "two_finger_drag"
+
+      quick_navigation : {
+        jump_to : "tap_minimap"
+        bookmarks : "save_locations"
+        follow : "track_unit_or_building"
+      }
+
+      pencil_optimized : {
+        one_handed : true
+        fluid : true
+        no_accidental_input : true
+      }
+    }
+  }
+
+  // ==========================================
+  // CREATIVE TOOLS
+  // ==========================================
+  creative_tools : {
+    // Blueprint Mode
+    blueprints : {
+      enabled : true
+
+      creation : {
+        draw_layout : "sketch_city_design"
+        place_buildings : "drag_from_palette"
+        annotate : "notes_and_labels"
+        save_template : "reusable_designs"
+      }
+
+      editing : {
+        move : "drag_buildings"
+        rotate : "barrel_roll"
+        delete : "scratch_out"
+        duplicate : "drag_while_holding"
+      }
+
+      export : {
+        share : "with_other_players"
+        save_library : "personal_collection"
+        screenshots : "high_res_renders"
+      }
+    }
+
+    // Scenario Editor
+    scenario_editor : {
+      enabled : true
+      pencil_optimized : true
+
+      features : {
+        terrain_painting : "brush_based"
+        resource_placement : "tap_to_add"
+        starting_conditions : "configurable"
+        event_scripting : "visual_editor"
+        victory_conditions : "drag_and_drop"
+      }
+
+      testing : {
+        play_test : "instant_preview"
+        iterate : "quick_changes"
+        debug : "visualize_logic"
+      }
+    }
+
+    // Map Customization
+    map_editor : {
+      enabled : true
+
+      terrain_sculpting : {
+        raise_lower : "pressure_sensitive"
+        smooth_blend : "natural_looking"
+        water_bodies : "paint_rivers_lakes"
+        vegetation : "scatter_brush"
+      }
+
+      decorative_elements : {
+        place_trees : "tap_or_scatter"
+        add_rocks : "natural_distribution"
+        custom_props : "drag_from_library"
+      }
+
+      lighting : {
+        sun_position : "rotate_to_adjust"
+        ambient_color : "color_picker"
+        fog : "paint_atmosphere"
+      }
+    }
+
+    // Screenshot Mode
+    screenshot : {
+      enabled : true
+
+      composition : {
+        camera_angle : "free_positioning"
+        framing : "rule_of_thirds_guide"
+        depth_of_field : "focus_adjustment"
+        filters : "cinematic_looks"
+      }
+
+      annotation : {
+        draw_on_screenshot : true
+        add_text : "handwriting_or_typed"
+        arrows_and_highlights : true
+      }
+
+      export : {
+        high_resolution : "up_to_8K"
+        formats : ["jpg", "png", "heic"]
+        share : "social_media_ready"
+      }
+    }
+  }
+
+  // ==========================================
+  // UI ENHANCEMENTS
+  // ==========================================
+  ui_enhancements : {
+    // Handwriting Recognition
+    handwriting : {
+      enabled : true
+      uses : "scribble_technology"
+
+      features : {
+        search : "write_to_find_buildings"
+        rename : "handwrite_names"
+        notes : "natural_writing"
+        commands : "gesture_shortcuts"
+      }
+
+      languages : "all_ipados_scribble_languages"
+      accuracy : "high"
+    }
+
+    // Gestures
+    gestures : {
+      scratch_to_delete : {
+        enabled : true
+        gesture : "scribble_over_building"
+        confirmation : "optional"
+      }
+
+      circle_to_select : {
+        enabled : true
+        gesture : "draw_circle_around_items"
+        selects : "everything_inside"
+      }
+
+      line_to_separate : {
+        enabled : true
+        gesture : "draw_line_through_group"
+        action : "split_selection"
+      }
+    }
+
+    // Pencil-Specific UI
+    pencil_ui : {
+      floating_palette : {
+        always_accessible : true
+        near_pencil : "not_blocked_by_hand"
+        customizable : true
+        minimal : "not_intrusive"
+      }
+
+      contextual_menus : {
+        appears_near_cursor : true
+        pencil_optimized_size : true
+        quick_access : "frequent_actions"
+      }
+
+      radial_menu : {
+        enabled : true
+        squeeze_activated : true
+        8_item_maximum : "easy_selection"
+        visual_feedback : true
+      }
+    }
+  }
+
+  // ==========================================
+  // ACCESSIBILITY
+  // ==========================================
+  accessibility : {
+    // Alternative Input
+    alternative_input : {
+      touch_still_works : true
+      pencil_optional : true
+      keyboard_shortcuts : true
+      voice_control : true
+    }
+
+    // Pencil Settings
+    pencil_settings : {
+      double_tap_action : "customizable"
+      pressure_sensitivity : "adjustable"
+      palm_rejection : "configurable"
+      preferred_hand : ["left", "right", "auto"]
+    }
+
+    // Ergonomics
+    ergonomics : {
+      adjustable_tools : true
+      comfortable_angles : true
+      reduced_strain : true
+      frequent_breaks : "suggested"
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE
+  // ==========================================
+  performance : {
+    // Low Latency
+    latency : {
+      pencil_to_pixel : "9ms_or_less"
+      prediction : "reduces_perceived_latency"
+      direct_metal : "bypasses_compositor"
+    }
+
+    // Smooth Rendering
+    rendering : {
+      pencil_strokes : "120fps_on_promotion"
+      anti_aliasing : "smooth_lines"
+      no_jitter : true
+    }
+
+    // Battery
+    battery : {
+      pencil_charging : "automatic_on_ipad"
+      low_power_warning : true
+      efficient_use : "optimized_algorithms"
+    }
+  }
+
+  // ==========================================
+  // TUTORIALS & LEARNING
+  // ==========================================
+  tutorials : {
+    // Onboarding
+    onboarding : {
+      pencil_detected : "show_tutorial"
+
+      covers : {
+        basic_controls : true
+        squeeze_gesture : true
+        barrel_roll : true
+        hover : true
+        advanced_tools : true
+      }
+
+      interactive : true
+      skippable : true
+      replayable : true
+    }
+
+    // Tips
+    tips : {
+      contextual : "shows_relevant_tips"
+      helpful : "not_annoying"
+      dismissible : true
+    }
+
+    // Showcase
+    showcase : {
+      example_cities : "built_with_pencil"
+      video_tutorials : true
+      community_creations : true
+    }
+  }
+}

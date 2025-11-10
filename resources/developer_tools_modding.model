@@ -1,0 +1,813 @@
+// CaesarIA 2025 - Developer Tools & Modding API
+// Complete modding support and development tools
+
+developer_tools : {
+  // ==========================================
+  // IN-GAME DEVELOPER CONSOLE
+  // ==========================================
+  console : {
+    enabled : "debug_builds_and_opt_in"
+    activation : "triple_tap_four_fingers"
+
+    // Console Interface
+    interface : {
+      transparent_overlay : true
+      resizable : true
+      dockable : ["top", "bottom", "left", "right"]
+      floating : true
+      always_on_top : true
+    }
+
+    // Command System
+    commands : {
+      // Game State
+      game_state : {
+        add_resources : "add [resource] [amount]"
+        set_population : "set_pop [number]"
+        set_treasury : "set_money [denarii]"
+        set_time : "set_time [hour]"
+        advance_time : "skip_days [days]"
+        pause_unpause : "pause / unpause"
+        speed_control : "speed [0.1-10.0]"
+      }
+
+      // Spawning
+      spawning : {
+        spawn_citizen : "spawn_citizen [type] [x] [y]"
+        spawn_building : "spawn_building [type] [x] [y]"
+        spawn_event : "trigger_event [event_id]"
+        spawn_army : "spawn_army [faction] [size]"
+      }
+
+      // Debugging
+      debugging : {
+        toggle_debug_view : "debug [category]"
+        show_hitboxes : "hitbox"
+        show_pathfinding : "pathfind"
+        show_ai_state : "ai_debug"
+        show_performance : "perf"
+        log_level : "log [error/warn/info/debug/trace]"
+      }
+
+      // Testing
+      testing : {
+        god_mode : "god"  // Invincibility
+        unlimited_resources : "unlimited"
+        instant_build : "instant_build"
+        reveal_map : "reveal_all"
+        teleport : "tp [x] [y]"
+      }
+
+      // Modding
+      modding : {
+        reload_mods : "reload_mods"
+        list_mods : "mods"
+        enable_mod : "enable [mod_id]"
+        disable_mod : "disable [mod_id]"
+        mod_info : "modinfo [mod_id]"
+      }
+
+      // System
+      system : {
+        screenshot : "screenshot [filename]"
+        record_video : "record [start/stop]"
+        save_game : "save [name]"
+        load_game : "load [name]"
+        quit : "quit"
+        help : "help [command]"
+      }
+    }
+
+    // Auto-Complete
+    autocomplete : {
+      enabled : true
+      suggests_commands : true
+      suggests_parameters : true
+      shows_documentation : true
+    }
+
+    // History
+    history : {
+      enabled : true
+      persistent : true
+      up_down_arrows : true
+      search : "ctrl_r"
+    }
+
+    // Logging
+    logging : {
+      displays_game_log : true
+      filters : ["all", "errors", "warnings", "info"]
+      color_coded : true
+      timestamps : true
+      exportable : true
+    }
+  }
+
+  // ==========================================
+  // VISUAL DEBUGGERS
+  // ==========================================
+  debuggers : {
+    // Performance Profiler
+    profiler : {
+      enabled : true
+      overlay : "toggle_on_off"
+
+      displays : {
+        fps : "current_average_min_max"
+        frame_time : "ms"
+        cpu_usage : "per_thread"
+        gpu_usage : "percentage"
+        memory : "allocated_used_free"
+        draw_calls : "count"
+        triangles : "count"
+        audio_voices : "active_count"
+      }
+
+      graphs : {
+        real_time : true
+        history : "last_60_seconds"
+        customizable_metrics : true
+      }
+
+      detailed_breakdown : {
+        cpu_by_system : ["rendering", "ai", "physics", "networking"]
+        memory_by_category : ["textures", "meshes", "audio", "scripts"]
+        frame_breakdown : "hierarchical_view"
+      }
+    }
+
+    // Pathfinding Visualizer
+    pathfinding : {
+      enabled : true
+
+      shows : {
+        path_calculations : "in_real_time"
+        navmesh : "walkable_areas"
+        obstacles : "blocking_geometry"
+        cost_map : "heat_map_of_difficulty"
+        planned_routes : "all_active_paths"
+        failed_paths : "red_x_marks"
+      }
+
+      filters : {
+        by_type : ["citizens", "military", "carts", "animals"]
+        by_status : ["planning", "walking", "waiting", "blocked"]
+      }
+    }
+
+    // AI Debugger
+    ai_debugger : {
+      enabled : true
+
+      citizens : {
+        current_goal : "displayed_above_head"
+        decision_tree : "visual_flowchart"
+        needs : "bar_graphs"
+        pathfinding : "line_to_destination"
+        state_machine : "current_state_highlighted"
+      }
+
+      military : {
+        strategy : "tactical_overlay"
+        target : "arrows_pointing"
+        formation : "formation_lines"
+        morale : "color_coded"
+      }
+
+      economy : {
+        supply_chains : "flow_diagrams"
+        trade_routes : "animated_lines"
+        resource_flow : "sankey_diagrams"
+      }
+    }
+
+    // Physics Debugger
+    physics : {
+      enabled : true
+
+      shows : {
+        collision_shapes : "wireframe"
+        velocities : "velocity_vectors"
+        forces : "force_arrows"
+        constraints : "connection_lines"
+      }
+
+      options : {
+        pause_physics : true
+        step_frame : true
+        slow_motion : "adjustable"
+      }
+    }
+
+    // Audio Debugger
+    audio : {
+      enabled : true
+
+      visualizes : {
+        active_sounds : "3d_position_and_radius"
+        sound_occlusion : "blocked_paths"
+        reverb_zones : "colored_areas"
+        volume_levels : "waveforms"
+      }
+
+      lists : {
+        playing_sounds : "with_priority"
+        sound_memory : "usage_breakdown"
+      }
+    }
+
+    // Network Debugger (Multiplayer)
+    network : {
+      enabled : true
+
+      shows : {
+        latency : "ping_time"
+        packet_loss : "percentage"
+        bandwidth : "up_down"
+        sync_issues : "desync_warnings"
+      }
+
+      simulation : {
+        add_latency : "test_lag"
+        drop_packets : "test_reliability"
+        bandwidth_limit : "test_slow_connection"
+      }
+    }
+  }
+
+  // ==========================================
+  // LEVEL EDITOR
+  // ==========================================
+  level_editor : {
+    enabled : true
+    accessible : "main_menu"
+
+    // Modes
+    modes : {
+      terrain_editing : {
+        sculpting : "raise_lower_smooth"
+        painting : "biome_textures"
+        water_placement : "rivers_lakes"
+        vegetation : "forests_trees"
+        resources : "mineral_deposits"
+      }
+
+      building_placement : {
+        all_buildings : "available"
+        instant_construction : true
+        custom_properties : "editable"
+        copy_paste : true
+        templates : "saveable_groups"
+      }
+
+      scenario_design : {
+        starting_conditions : {
+          population : "adjustable"
+          resources : "adjustable"
+          buildings : "preset"
+          technology : "available_techs"
+        }
+
+        victory_conditions : {
+          types : ["population", "prosperity", "military", "cultural", "time_based"]
+          multiple : "and_or_logic"
+          custom_scripting : true
+        }
+
+        events : {
+          timeline : "visual_editor"
+          triggers : "condition_based"
+          consequences : "branching_tree"
+          testing : "instant_playtest"
+        }
+
+        ai_opponents : {
+          placement : "starting_cities"
+          difficulty : "per_opponent"
+          personality : "aggressive_defensive_economic"
+          relations : "preset_diplomacy"
+        }
+      }
+
+      map_generation : {
+        procedural_tools : "configure_generators"
+        seed_control : "reproducible_maps"
+        validation : "check_playability"
+      }
+    }
+
+    // Tools
+    tools : {
+      freehand_painting : true
+      geometric_shapes : true
+      grid_snapping : true
+      symmetry_mode : ["x", "y", "radial"]
+      clone_stamp : true
+      fill_tool : true
+      selection_tools : ["box", "lasso", "magic_wand"]
+    }
+
+    // Testing
+    testing : {
+      instant_playtest : "one_button"
+      hot_reload : "changes_while_playing"
+      checkpoint_system : "test_specific_parts"
+      automated_testing : "ai_playtesting"
+    }
+
+    // Export
+    export : {
+      formats : ["caesaria_native", "json", "xml"]
+      share : "workshop_upload"
+      thumbnail : "auto_generated"
+      metadata : "tags_description_author"
+    }
+  }
+
+  // ==========================================
+  // MODDING API
+  // ==========================================
+  modding_api : {
+    enabled : true
+    documentation : "comprehensive"
+
+    // Scripting
+    scripting : {
+      languages : {
+        lua : {
+          version : "5.4"
+          sandboxed : true
+          api_bindings : "full_game_access"
+        }
+
+        javascript : {
+          engine : "quickjs"
+          modern_syntax : "es2023"
+          async_await : true
+        }
+
+        python : {
+          version : "3.11"
+          embedded : true
+          limited_to_tools : true
+        }
+      }
+
+      hot_reload : {
+        enabled : true
+        instant : "no_restart_needed"
+        error_recovery : "previous_version_fallback"
+      }
+
+      debugger : {
+        integrated : true
+        breakpoints : true
+        variable_inspection : true
+        call_stack : true
+        console_output : true
+      }
+    }
+
+    // API Modules
+    api : {
+      // Game State
+      game_state : {
+        read : {
+          current_time : true
+          population : true
+          resources : true
+          buildings : "query_system"
+          citizens : "iterator"
+          events : "history_and_upcoming"
+        }
+
+        write : {
+          spawn_entities : true
+          modify_resources : true
+          trigger_events : true
+          change_weather : true
+          control_time : true
+        }
+      }
+
+      // Buildings
+      buildings : {
+        custom_types : {
+          define : "json_or_code"
+          properties : "fully_customizable"
+          behavior : "scripted"
+          graphics : "custom_models"
+          sounds : "custom_audio"
+        }
+
+        modifications : {
+          existing_buildings : "extend_or_override"
+          new_upgrades : true
+          new_properties : true
+        }
+
+        hooks : {
+          on_built : "callback"
+          on_destroyed : "callback"
+          on_upgrade : "callback"
+          on_update_tick : "callback"
+          on_interact : "callback"
+        }
+      }
+
+      // Citizens
+      citizens : {
+        ai_modification : {
+          new_behaviors : "define_actions"
+          decision_making : "override_logic"
+          needs : "add_custom_needs"
+        }
+
+        custom_types : {
+          professions : "new_jobs"
+          social_classes : "new_tiers"
+          special_characters : "unique_npcs"
+        }
+
+        hooks : {
+          on_spawn : "callback"
+          on_death : "callback"
+          on_decision : "intercept"
+          on_state_change : "callback"
+        }
+      }
+
+      // Events
+      events : {
+        custom_events : {
+          define : "json_or_code"
+          triggers : "condition_based"
+          choices : "branching_dialogue"
+          consequences : "scripted_outcomes"
+        }
+
+        event_system : {
+          listen : "subscribe_to_game_events"
+          emit : "trigger_custom_events"
+          filter : "conditional_handling"
+        }
+      }
+
+      // UI
+      ui : {
+        custom_screens : {
+          create : "programmatic_ui"
+          layout : "flexbox_system"
+          styling : "css_like"
+          interaction : "event_handlers"
+        }
+
+        modify_existing : {
+          add_buttons : true
+          inject_panels : true
+          override_styling : true
+        }
+
+        widgets : {
+          buttons : true
+          sliders : true
+          text_input : true
+          lists : true
+          tables : true
+          charts : true
+          custom : "compose_primitives"
+        }
+      }
+
+      // Graphics
+      graphics : {
+        custom_shaders : {
+          vertex : "glsl"
+          fragment : "glsl"
+          compute : "metal_compute"
+        }
+
+        post_processing : {
+          add_effects : true
+          modify_pipeline : true
+        }
+
+        particles : {
+          custom_systems : true
+          emitters : "fully_configurable"
+        }
+
+        models : {
+          import : ["obj", "gltf", "fbx"]
+          procedural : "code_generated"
+          animation : "skeletal_and_vertex"
+        }
+      }
+
+      // Audio
+      audio : {
+        custom_sounds : {
+          import : ["wav", "mp3", "ogg"]
+          trigger : "from_code"
+          3d_positioning : true
+        }
+
+        music : {
+          adaptive_layers : "add_stems"
+          transitions : "define_rules"
+        }
+
+        synthesis : {
+          procedural_audio : true
+          dsp_effects : "apply_filters"
+        }
+      }
+
+      // Networking (Multiplayer Mods)
+      networking : {
+        custom_messages : {
+          define : "serializable_data"
+          send : "reliable_or_unreliable"
+          receive : "callback_handler"
+        }
+
+        synchronization : {
+          shared_state : "automatic_sync"
+          custom_sync : "manual_control"
+        }
+      }
+
+      // Data
+      data : {
+        persistent_storage : {
+          save_data : "per_mod"
+          read_write : "key_value_store"
+          cloud_sync : "optional"
+        }
+
+        configuration : {
+          mod_settings : "user_configurable"
+          ui : "auto_generated"
+          validation : "type_checking"
+        }
+      }
+    }
+
+    // Content Creation
+    content : {
+      // Assets
+      assets : {
+        supported_formats : {
+          images : ["png", "jpg", "tga", "dds"]
+          models : ["obj", "fbx", "gltf", "dae"]
+          audio : ["wav", "mp3", "ogg", "aac"]
+          video : ["mp4", "mov"]
+          text : ["json", "xml", "txt"]
+        }
+
+        hot_reload : "see_changes_instantly"
+        asset_pipeline : "automatic_optimization"
+      }
+
+      // Localization
+      localization : {
+        multi_language : true
+        translation_files : "json_based"
+        string_formatting : "variable_substitution"
+        plural_forms : "per_language_rules"
+      }
+    }
+
+    // Compatibility
+    compatibility : {
+      versioning : "semantic_versioning"
+      dependencies : "declare_required_mods"
+      conflicts : "incompatibility_detection"
+      load_order : "automatic_resolution"
+
+      api_stability : {
+        stable_api : "backward_compatible"
+        deprecation_warnings : true
+        migration_guides : true
+      }
+    }
+
+    // Distribution
+    distribution : {
+      packaging : {
+        format : "zip_based"
+        manifest : "mod_metadata"
+        structure : "standardized"
+      }
+
+      workshop : {
+        upload : "in_game"
+        versioning : "automatic"
+        changelogs : true
+        screenshots : "showcase"
+        tags : "categorization"
+      }
+
+      local_install : {
+        drag_and_drop : true
+        auto_detection : true
+        manual_path : true
+      }
+    }
+  }
+
+  // ==========================================
+  // MOD WORKSHOP
+  // ==========================================
+  workshop : {
+    enabled : true
+    integrated : "in_game_browser"
+
+    // Discovery
+    discovery : {
+      featured : "curated_by_team"
+      popular : "most_downloaded"
+      new : "recently_uploaded"
+      trending : "growing_fast"
+      categories : ["buildings", "scenarios", "total_conversions", "ui", "gameplay"]
+      tags : "searchable"
+      search : "full_text"
+    }
+
+    // Mod Pages
+    mod_page : {
+      description : "rich_text"
+      screenshots : "gallery"
+      videos : "embedded"
+      changelog : "version_history"
+      requirements : "dependencies_listed"
+      compatibility : "game_version"
+      ratings : "user_reviews"
+      comments : "discussion"
+      statistics : "downloads_favorites"
+    }
+
+    // User Features
+    user_features : {
+      subscribe : "auto_install_and_update"
+      favorite : "bookmark"
+      rate : "5_stars"
+      review : "written_feedback"
+      report : "inappropriate_content"
+      follow_author : "get_updates"
+    }
+
+    // For Creators
+    creator_tools : {
+      upload : "in_game_or_web"
+      update : "versioning_system"
+      analytics : "download_stats"
+      monetization : "optional_donations"
+      collaboration : "team_management"
+    }
+
+    // Collections
+    collections : {
+      create : "group_related_mods"
+      subscribe_all : "one_click_install"
+      curated : "official_and_community"
+    }
+
+    // Moderation
+    moderation : {
+      automated : "malware_scanning"
+      community : "reporting_system"
+      official : "staff_review"
+      guidelines : "clear_rules"
+    }
+  }
+
+  // ==========================================
+  // DOCUMENTATION
+  // ==========================================
+  documentation : {
+    // API Reference
+    api_reference : {
+      comprehensive : true
+      searchable : true
+      code_examples : true
+      interactive : "try_in_console"
+      up_to_date : "auto_generated"
+    }
+
+    // Tutorials
+    tutorials : {
+      beginner : "hello_world_mod"
+      intermediate : "custom_building"
+      advanced : "gameplay_system"
+      video : "walkthrough_series"
+    }
+
+    // Samples
+    samples : {
+      starter_projects : true
+      example_mods : "source_included"
+      snippets : "common_patterns"
+    }
+
+    // Community
+    community : {
+      wiki : "community_maintained"
+      forums : "discussion"
+      discord : "real_time_help"
+      showcase : "featured_mods"
+    }
+  }
+
+  // ==========================================
+  // TESTING & QA TOOLS
+  // ==========================================
+  testing_tools : {
+    // Automated Testing
+    automated : {
+      unit_tests : "lua_or_js"
+      integration_tests : "scenario_based"
+      regression_tests : "catch_bugs"
+      performance_tests : "benchmark"
+
+      ci_cd : {
+        integration : "github_actions"
+        automated_builds : true
+        test_on_commit : true
+      }
+    }
+
+    // Manual Testing
+    manual : {
+      test_scenarios : "quick_setups"
+      fast_iteration : "hot_reload"
+      debug_tools : "full_access"
+      recording : "bug_reports"
+    }
+
+    // Bug Reporting
+    bug_reporting : {
+      in_game : "report_button"
+      crash_logs : "automatic"
+      system_info : "attached"
+      reproduction_steps : "guided_form"
+      screenshots : "annotated"
+    }
+  }
+
+  // ==========================================
+  // SECURITY
+  // ==========================================
+  security : {
+    // Sandboxing
+    sandboxing : {
+      mods : "isolated_environment"
+      file_access : "whitelisted_directories"
+      network_access : "optional_permission"
+      system_calls : "restricted"
+    }
+
+    // Code Review
+    code_review : {
+      automated_scanning : "malware_detection"
+      manual_review : "popular_mods"
+      community_reports : "flagging_system"
+    }
+
+    // User Protection
+    user_protection : {
+      warnings : "unverified_mods"
+      permissions : "explicit_consent"
+      disable_easily : true
+      backups : "automatic_before_modding"
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE
+  // ==========================================
+  performance : {
+    // Optimization
+    optimization : {
+      script_jit : "fast_execution"
+      caching : "compiled_scripts"
+      lazy_loading : "on_demand"
+      profiling : "identify_bottlenecks"
+    }
+
+    // Limits
+    limits : {
+      memory_budget : "per_mod"
+      cpu_time : "per_frame_limit"
+      warnings : "performance_issues"
+    }
+
+    // Monitoring
+    monitoring : {
+      mod_impact : "visible_in_profiler"
+      bad_mods : "can_disable"
+      recommendations : "optimize_suggestions"
+    }
+  }
+}
