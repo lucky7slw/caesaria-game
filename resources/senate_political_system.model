@@ -1,0 +1,1472 @@
+// CaesarIA 2025 - Senate & Political System
+// Deep Roman political simulation with elections, corruption, and intrigue
+
+senate_politics : {
+  // ==========================================
+  // POLITICAL OFFICES
+  // ==========================================
+  magistracies : {
+    cursus_honorum : {
+      description : "traditional_career_path"
+      age_requirements : "strictly_enforced"
+      order : "must_follow_sequence"
+
+      sequence : [
+        "military_tribune",
+        "quaestor",
+        "aedile_or_tribune",
+        "praetor",
+        "consul",
+        "censor"
+      ]
+    }
+
+    offices : {
+      consul : {
+        rank : "highest"
+        number : 2
+        term : "1_year"
+        age_minimum : 42
+        responsibilities : {
+          military : "command_legions"
+          civil : "preside_senate"
+          executive : "chief_magistrate"
+          judicial : "supreme_court"
+        }
+
+        powers : {
+          imperium : "supreme_military_authority"
+          veto : "can_veto_colleague"
+          emergency : "can_declare_martial_law"
+          dictator_appointment : "in_extreme_crisis"
+        }
+
+        prestige : 1000
+        salary : "very_high"
+        post_term : "becomes_senator_for_life"
+        path_to : ["proconsul", "provincial_governor", "dictator"]
+      }
+
+      praetor : {
+        rank : "second_highest"
+        number : 8
+        term : "1_year"
+        age_minimum : 39
+        responsibilities : {
+          judicial : "chief_justice"
+          military : "command_in_consul_absence"
+          administrative : "oversee_courts"
+          games : "organize_public_games"
+        }
+
+        powers : {
+          imperium : "limited_military_authority"
+          jurisdiction : "civil_and_criminal_cases"
+          edicts : "can_issue_legal_interpretations"
+        }
+
+        types : {
+          praetor_urbanus : "handles_cases_between_citizens"
+          praetor_peregrinus : "handles_cases_with_foreigners"
+          praetor_provincialis : "governs_provinces"
+        }
+
+        prestige : 500
+        salary : "high"
+        path_to : "consul"
+      }
+
+      aedile : {
+        rank : "middle"
+        number : 4
+        term : "1_year"
+        age_minimum : 36
+        responsibilities : {
+          infrastructure : "roads_aqueducts_buildings"
+          markets : "regulate_commerce"
+          games : "organize_festivals"
+          police : "maintain_order"
+          food_supply : "grain_distribution"
+        }
+
+        types : {
+          aediles_curules : {
+            number : 2
+            from : "patrician_or_plebeian"
+            chair : "curule_chair_ivory"
+          }
+          aediles_plebeii : {
+            number : 2
+            from : "plebeian_only"
+            elected_by : "plebeian_assembly"
+          }
+        }
+
+        opportunity : {
+          games : "chance_to_impress_voters"
+          spending : "personal_wealth_on_spectacles"
+          popularity : "key_to_higher_office"
+        }
+
+        prestige : 300
+        salary : "moderate_plus_bribes"
+        path_to : "praetor"
+      }
+
+      quaestor : {
+        rank : "entry_level"
+        number : 20
+        term : "1_year"
+        age_minimum : 30
+        responsibilities : {
+          treasury : "manage_finances"
+          administration : "assist_consuls"
+          provincial : "serve_in_provinces"
+          military : "handle_military_finances"
+        }
+
+        significance : {
+          senate_entry : "becomes_senator_after_term"
+          first_step : "beginning_of_cursus_honorum"
+          experience : "learn_government"
+        }
+
+        prestige : 100
+        salary : "moderate"
+        path_to : "aedile_or_tribune"
+      }
+
+      tribune_of_plebs : {
+        rank : "special_powerful"
+        number : 10
+        term : "1_year"
+        age_minimum : 30
+        eligibility : "plebeian_only"
+
+        powers : {
+          veto : "can_veto_ANYTHING"
+          sacrosanctity : "person_is_inviolable"
+          intercession : "halt_any_magistrate_action"
+          legislation : "propose_laws_directly"
+          protection : "defend_common_citizens"
+        }
+
+        limitations : {
+          city_only : "cannot_leave_rome_during_term"
+          no_imperium : "no_military_command"
+          patricians : "cannot_hold_office"
+        }
+
+        danger : {
+          assassination_risk : "very_high"
+          political_enemies : "make_many"
+          mob_violence : "can_be_killed_by_senate_supporters"
+        }
+
+        prestige : 400
+        salary : "none_but_bribes_plentiful"
+        path_to : "praetor_if_popular"
+      }
+
+      censor : {
+        rank : "most_prestigious"
+        number : 2
+        term : "18_months_every_5_years"
+        age_minimum : "former_consul"
+
+        responsibilities : {
+          census : "count_citizens_assess_wealth"
+          senate_roll : "admit_or_expel_senators"
+          moral_authority : "regimen_morum"
+          contracts : "award_public_works"
+          taxes : "determine_tax_rates"
+        }
+
+        powers : {
+          nota : "mark_of_disgrace"
+          expulsion : "remove_from_senate"
+          downgrade : "reduce_social_class"
+          contracts : "enormous_patronage"
+        }
+
+        prestige : 2000
+        salary : "moderate_but_influence_priceless"
+        career_pinnacle : true
+      }
+
+      dictator : {
+        rank : "emergency_supreme"
+        number : 1
+        term : "6_months_maximum"
+        appointment : "by_consul_in_crisis"
+
+        powers : {
+          absolute : "supreme_authority"
+          no_veto : "cannot_be_vetoed"
+          no_appeal : "decisions_final"
+          military : "total_command"
+        }
+
+        conditions : {
+          crisis : ["war", "invasion", "civil_disorder", "disaster"]
+          temporary : "must_resign_after_crisis"
+          accountability : "can_be_prosecuted_after"
+        }
+
+        famous : {
+          cincinnatus : "saved_rome_returned_to_farm"
+          sulla : "reformed_constitution"
+          caesar : "never_gave_up_power"
+        }
+
+        prestige : 5000
+        danger : "assassination_risk_extreme"
+      }
+    }
+  }
+
+  // ==========================================
+  // ELECTIONS & CAMPAIGNS
+  // ==========================================
+  elections : {
+    timing : {
+      consular : "July_for_next_year"
+      other_magistrates : "varies_by_office"
+      advance_notice : "3_months"
+      campaign_period : "officially_limited_actually_year_round"
+    }
+
+    assemblies : {
+      comitia_centuriata : {
+        votes_for : ["consul", "praetor", "censor"]
+        structure : "centuries_based_on_wealth"
+        bias : "heavily_favors_wealthy"
+        total_centuries : 193
+        first_class : "98_centuries_majority"
+        plutocratic : true
+      }
+
+      comitia_tributa : {
+        votes_for : ["quaestor", "aedile"]
+        structure : "tribes_35_total"
+        more_democratic : "one_tribe_one_vote"
+        rural_urban_split : "31_rural_4_urban"
+      }
+
+      concilium_plebis : {
+        votes_for : ["tribune_of_plebs", "aediles_plebeii"]
+        eligibility : "plebeians_only"
+        structure : "tribes"
+        power : "plebiscites_binding_all_citizens"
+      }
+    }
+
+    candidacy : {
+      declaration : {
+        professio : "formal_declaration"
+        requirements : {
+          citizenship : "full_roman_citizen"
+          age : "meet_minimum"
+          census_class : "wealthy_enough"
+          previous_offices : "followed_cursus_honorum"
+          no_bankruptcy : "financial_solvency"
+          no_conviction : "clean_legal_record"
+        }
+
+        deposit : "large_sum_forfeit_if_bribe"
+        oath : "swear_to_uphold_laws"
+      }
+
+      campaign_team : {
+        nomenclator : {
+          role : "remembers_names_of_voters"
+          whispers : "voter_names_to_candidate"
+          essential : "personal_touch_matters"
+        }
+
+        sequentes : {
+          role : "entourage_followers"
+          appearance : "shows_support"
+          hired : "often_paid_actors"
+        }
+
+        divisores : {
+          role : "distribute_bribes"
+          illegal : "but_universal"
+          discrete : "must_not_be_caught"
+        }
+
+        speechwriters : {
+          role : "craft_messages"
+          rhetoric : "essential_skill"
+          attack_ads : "ancient_negative_campaigning"
+        }
+      }
+    }
+
+    campaigning : {
+      methods : {
+        personal_appeal : {
+          handshaking : "greet_every_voter"
+          toga_candida : "whitened_toga_signifies_candidacy"
+          forum_presence : "daily_appearance"
+          home_visits : "call_on_influential_citizens"
+          memory : "remember_names_families"
+        }
+
+        public_speaking : {
+          contio : "public_speeches_in_forum"
+          rhetoric : "persuasive_oratory"
+          attack_opponents : "character_assassination"
+          promises : "what_will_you_do"
+          debate : "face_opponents"
+        }
+
+        entertainment : {
+          games : "sponsor_gladiators"
+          feasts : "public_banquets"
+          festivals : "organize_celebrations"
+          cost : "bankrupts_many_candidates"
+          effect : "massive_popularity_boost"
+        }
+
+        patronage : {
+          clients : "mobilize_your_supporters"
+          obligations : "call_in_favors"
+          family_networks : "leverage_connections"
+          tribal_influence : "control_voting_blocs"
+        }
+
+        propaganda : {
+          graffiti : "campaign_slogans_on_walls"
+          pamphlets : "distribute_literature"
+          rumors : "spread_gossip"
+          poets : "hire_writers"
+          artists : "commission_portraits"
+        }
+      }
+
+      costs : {
+        minimal_campaign : "10000_denarii"
+        standard_campaign : "100000_denarii"
+        lavish_campaign : "1000000_denarii"
+
+        breakdown : {
+          bribes : "40_percent"
+          games : "30_percent"
+          team : "20_percent"
+          advertising : "10_percent"
+        }
+
+        financing : {
+          personal_wealth : "drain_savings"
+          loans : "borrow_heavily"
+          backers : "wealthy_sponsors_expect_favors"
+          embezzlement : "steal_from_previous_office"
+        }
+      }
+
+      dirty_tricks : {
+        bribery : {
+          direct : "cash_to_voters"
+          indirect : "gifts_favors_jobs"
+          tribal_leaders : "buy_voting_blocs"
+          detection : "illegal_but_hard_to_prove"
+        }
+
+        intimidation : {
+          gangs : "hired_thugs"
+          threats : "physical_violence"
+          disruption : "break_up_opponent_rallies"
+          riots : "orchestrated_chaos"
+        }
+
+        character_assassination : {
+          scandals : "reveal_or_invent"
+          sexual : "accusations_of_immorality"
+          financial : "expose_debts_corruption"
+          family : "attack_relatives"
+          unpatriotic : "accuse_of_treason"
+        }
+
+        fraud : {
+          fake_supporters : "pack_assemblies"
+          multiple_voting : "vote_in_wrong_tribe"
+          ballot_stuffing : "ancient_version"
+          vote_buying : "pay_for_specific_votes"
+        }
+      }
+
+      defenses : {
+        counter_propaganda : "respond_to_attacks"
+        bodyguards : "protect_candidate"
+        legal_action : "prosecute_opponents"
+        popular_support : "genuine_following"
+        virtue : "unassailable_character"
+      }
+    }
+
+    voting : {
+      procedure : {
+        convocation : "assembly_called"
+        auspices : "take_omens"
+        speeches : "final_appeals"
+        voting : "by_century_or_tribe"
+        counting : "sequential_until_majority"
+        announcement : "formal_proclamation"
+      }
+
+      mechanics : {
+        secret_ballot : "after_137_BC"
+        wooden_tablets : "marked_with_names"
+        bridges : "pontes_for_voting"
+        urns : "ballot_boxes"
+        counting : "witnessed_by_candidates"
+      }
+
+      results : {
+        winner : "takes_office"
+        loser : "try_again_next_year"
+        ties : "rare_decided_by_lot"
+        challenges : "can_contest_bribery"
+        riots : "if_disputed"
+      }
+    }
+  }
+
+  // ==========================================
+  // SENATE OPERATIONS
+  // ==========================================
+  senate : {
+    membership : {
+      size : "300_to_600_depending_on_era"
+      lifetime : "senators_serve_for_life"
+
+      entry : {
+        automatic : "after_holding_quaestorship"
+        censorial : "appointed_by_censor"
+        requirements : {
+          citizenship : "roman_citizen"
+          wealth : "minimum_400000_sesterces"
+          character : "good_reputation"
+          age : "usually_30_plus"
+        }
+      }
+
+      expulsion : {
+        by_censor : "for_moral_failings"
+        reasons : ["bankruptcy", "crime", "scandal", "cowardice"]
+        nota : "mark_of_disgrace"
+        rare : "but_devastating"
+      }
+
+      ranks : {
+        princeps_senatus : {
+          title : "first_man_of_senate"
+          selected : "most_distinguished_censor"
+          privilege : "speaks_first"
+          prestige : "enormous"
+        }
+
+        consulares : "former_consuls"
+        praetorii : "former_praetors"
+        aedilicii : "former_aediles"
+        tribunicii : "former_tribunes"
+        quaestorii : "former_quaestors"
+      }
+    }
+
+    meetings : {
+      frequency : "as_needed_often_daily"
+      location : {
+        usual : "Curia_Julia"
+        alternatives : ["temples", "public_buildings"]
+        requirement : "consecrated_ground"
+      }
+
+      procedure : {
+        convocation : {
+          by : "consul_praetor_or_tribune"
+          notice : "public_announcement"
+          time : "dawn_to_dusk"
+          days : "not_on_festival_days"
+        }
+
+        opening : {
+          auspices : "take_omens"
+          sacrifice : "to_gods"
+          bad_omens : "meeting_cancelled"
+        }
+
+        debate : {
+          relatio : "presiding_officer_states_question"
+          order_of_speaking : {
+            first : "princeps_senatus"
+            then : "by_rank_consulares_first"
+            new_senators : "speak_last_if_at_all"
+          }
+
+          speech : {
+            unlimited_time : "filibuster_possible"
+            interruptions : "allowed_if_tribune"
+            walking_around : "to_show_support"
+            rhetoric : "persuasive_oratory_crucial"
+          }
+
+          discussion : {
+            amendments : "proposed_during_debate"
+            counter_proposals : "alternative_motions"
+            divisions : "senators_physically_separate"
+            compromise : "deals_made_during_debate"
+          }
+        }
+
+        voting : {
+          method : "voice_vote_or_division"
+          division : {
+            physical : "walk_to_side_of_room"
+            count : "counted_by_magistrate"
+            public : "everyone_sees_your_vote"
+          }
+
+          results : {
+            senatus_consultum : "senate_decree"
+            binding : "on_magistrates"
+            veto : "tribune_can_block"
+            record : "written_in_acta"
+          }
+        }
+
+        closing : {
+          sunset : "must_end_by_dark"
+          adjournment : "presiding_officer_closes"
+          publication : "results_posted_publicly"
+        }
+      }
+    }
+
+    powers : {
+      advisory : "technically_only_advisory"
+      practical : "effectively_supreme"
+
+      areas : {
+        foreign_policy : {
+          war_and_peace : "declare_war_negotiate_treaties"
+          diplomacy : "receive_ambassadors"
+          alliances : "approve_agreements"
+          provinces : "govern_conquered_territories"
+        }
+
+        finance : {
+          budget : "approve_spending"
+          taxes : "set_rates"
+          contracts : "award_public_works"
+          treasury : "control_funds"
+        }
+
+        military : {
+          legions : "authorize_recruitment"
+          commands : "assign_generals"
+          triumphs : "approve_victory_parades"
+          emergencies : "appoint_dictator"
+        }
+
+        religion : {
+          temples : "authorize_construction"
+          festivals : "approve_celebrations"
+          prodigies : "respond_to_omens"
+          foreign_cults : "allow_or_ban"
+        }
+
+        legislation : {
+          review : "examine_proposed_laws"
+          advice : "senatus_consultum"
+          veto : "through_magistrates"
+          interpretation : "clarify_laws"
+        }
+
+        internal : {
+          investigations : "into_corruption"
+          trials : "of_officials"
+          honors : "award_distinctions"
+          crisis : "senatus_consultum_ultimum"
+        }
+      }
+
+      senatus_consultum_ultimum : {
+        description : "final_decree_of_senate"
+        declaration : "republic_in_danger"
+        powers : "consuls_empowered_to_do_anything"
+        martial_law : "suspension_of_rights"
+        controversial : "legality_disputed"
+        famous : "used_against_Gracchi_Catiline"
+      }
+    }
+
+    factions : {
+      optimates : {
+        philosophy : "preserve_senate_power"
+        support_base : "aristocracy"
+        policies : ["strong_senate", "limit_tribunes", "tradition"]
+        leaders : "senior_senators"
+        wealthy : true
+      }
+
+      populares : {
+        philosophy : "empower_the_people"
+        support_base : "common_citizens"
+        policies : ["land_reform", "grain_dole", "strong_tribunes"]
+        leaders : "ambitious_politicians"
+        tactics : "appeal_to_masses"
+      }
+
+      military : {
+        philosophy : "army_supremacy"
+        support_base : "legions"
+        policies : ["veteran_benefits", "expansion", "strong_generals"]
+        leaders : "successful_commanders"
+        danger : "coup_risk"
+      }
+
+      moderates : {
+        philosophy : "compromise_stability"
+        support_base : "middle_class"
+        policies : ["gradual_reform", "peace", "prosperity"]
+        leaders : "pragmatic_senators"
+        often_ignored : true
+      }
+    }
+
+    intrigue : {
+      alliances : {
+        formation : "mutual_benefit"
+        types : ["marriage", "adoption", "business", "political"]
+        duration : "until_inconvenient"
+        betrayal : "common"
+      }
+
+      conspiracies : {
+        plots : "secret_meetings"
+        goals : ["block_legislation", "ruin_opponents", "seize_power"]
+        methods : ["coordination", "bribery", "blackmail", "violence"]
+        discovery : "catastrophic"
+      }
+
+      backstabbing : {
+        betrayal : "abandon_allies"
+        timing : "critical_moment"
+        justification : "republic_demands_it"
+        consequences : "reputation_damage"
+      }
+
+      assassination : {
+        political_murder : "eliminate_threats"
+        methods : ["hired_killers", "poison", "mob_violence", "gladiators"]
+        cover_up : "blame_others"
+        investigation : "rarely_solved"
+        famous : {
+          caesar : "44_BC_senate_floor"
+          gracchi : "both_killed_by_mobs"
+          clodius : "political_gang_warfare"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // CORRUPTION
+  // ==========================================
+  corruption : {
+    types : {
+      bribery : {
+        vote_buying : {
+          direct : "cash_payment"
+          indirect : "jobs_contracts_favors"
+          scale : "individual_to_entire_tribes"
+          cost : "variable"
+          detection_chance : "low"
+        }
+
+        judicial : {
+          judges : "bribe_for_verdict"
+          juries : "buy_acquittal"
+          witnesses : "false_testimony"
+          prosecutors : "drop_charges"
+        }
+
+        administrative : {
+          contracts : "award_to_highest_bidder"
+          licenses : "sell_permissions"
+          exemptions : "from_taxes_or_duties"
+          appointments : "buy_positions"
+        }
+      }
+
+      extortion : {
+        provincial : {
+          governors : "squeeze_provinces"
+          tax_collection : "keep_excess"
+          requisitions : "demand_goods"
+          protection_money : "from_merchants"
+          scale : "fortunes_made"
+        }
+
+        military : {
+          supply_contracts : "overcharge_army"
+          soldier_pay : "skim_percentage"
+          plunder : "keep_more_than_share"
+        }
+
+        judicial : {
+          prosecutors : "threaten_false_charges"
+          lawyers : "extortionate_fees"
+          officials : "delay_unless_paid"
+        }
+      }
+
+      embezzlement : {
+        public_funds : "steal_from_treasury"
+        temple_treasuries : "sacred_money"
+        military_payroll : "ghost_soldiers"
+        construction : "inferior_materials_pocket_difference"
+
+        methods : {
+          false_accounting : "cook_the_books"
+          shell_companies : "ancient_version"
+          accomplices : "split_the_take"
+        }
+
+        detection : {
+          audit : "by_quaestors"
+          investigation : "senate_inquiry"
+          whistleblowers : "honest_officials"
+          probability : "medium"
+        }
+      }
+
+      nepotism : {
+        appointments : "give_jobs_to_relatives"
+        contracts : "award_to_family"
+        promotions : "favor_connections"
+        legal : "not_illegal_just_unfair"
+      }
+
+      patronage : {
+        client_networks : "exchange_favors_for_loyalty"
+        vote_delivery : "clients_vote_as_told"
+        jobs : "distribute_positions"
+        legal : "traditional_not_corrupt_per_se"
+        essential : "how_system_works"
+      }
+    }
+
+    consequences : {
+      if_caught : {
+        prosecution : {
+          quaestio_de_repetundis : "special_court_for_extortion"
+          accusers : "anyone_can_bring_charges"
+          juries : "senators_or_equestrians"
+          defense : "expensive_lawyers"
+        }
+
+        penalties : {
+          fine : "repay_stolen_amount_plus_extra"
+          exile : "lose_citizenship_leave_italy"
+          infamy : "social_disgrace"
+          career_end : "no_more_offices"
+          execution : "rare_for_citizens"
+        }
+
+        political : {
+          enemies_emboldened : true
+          allies_abandon : true
+          family_shamed : true
+          name_ruined : true
+        }
+      }
+
+      if_not_caught : {
+        wealth : "enormous_fortunes"
+        power : "buy_more_influence"
+        normalcy : "everyone_does_it"
+        escalation : "increasingly_brazen"
+      }
+    }
+
+    famous_cases : {
+      verres : {
+        crime : "looted_Sicily_as_governor"
+        prosecutor : "Cicero"
+        evidence : "overwhelming"
+        fled : "to_exile_before_verdict"
+        later : "executed_by_mark_antony_for_art_collection"
+      }
+
+      catiline : {
+        crime : "conspiracy_to_overthrow_republic"
+        exposed : "by_Cicero"
+        fled : "joined_rebel_army"
+        end : "killed_in_battle"
+      }
+    }
+
+    gameplay : {
+      player_choices : {
+        stay_clean : {
+          moral : "ethical_play"
+          harder : "less_money_fewer_allies"
+          rewards : "reputation_legacy"
+        }
+
+        moderate_corruption : {
+          pragmatic : "necessary_to_succeed"
+          risks : "medium"
+          rewards : "competitive_advantage"
+        }
+
+        massive_corruption : {
+          ruthless : "seize_everything"
+          risks : "high_prosecution_risk"
+          rewards : "enormous_wealth_and_power"
+        }
+      }
+
+      detection : {
+        factors : {
+          amount : "bigger_crimes_more_visible"
+          discretion : "how_careful"
+          enemies : "looking_to_destroy_you"
+          allies : "protect_you"
+          luck : "random_chance"
+        }
+
+        investigation : {
+          accusations : "anyone_can_accuse"
+          evidence_gathering : "mini_game"
+          trial : "rhetorical_battle"
+          verdict : "guilty_or_acquitted"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // LEGISLATION
+  // ==========================================
+  laws : {
+    creation : {
+      proposal : {
+        who : ["magistrates", "tribunes", "senate"]
+        rogatio : "formal_proposal"
+        publication : "posted_publicly"
+        debate_period : "minimum_24_days_trinum_nundinum"
+      }
+
+      types : {
+        lex : {
+          passed_by : "popular_assembly"
+          binding : "on_everyone"
+          named_after : "proposer_Lex_Cornelia"
+        }
+
+        senatus_consultum : {
+          passed_by : "senate"
+          advisory : "technically"
+          binding : "in_practice"
+        }
+
+        plebiscitum : {
+          passed_by : "plebeian_assembly"
+          binding_on : "everyone_after_287_BC"
+          powerful : "tribunes_use_frequently"
+        }
+
+        edicts : {
+          issued_by : "magistrates"
+          duration : "term_of_office"
+          scope : "within_jurisdiction"
+        }
+      }
+
+      content : {
+        categories : {
+          agrarian : "land_distribution"
+          military : "army_organization"
+          judicial : "court_procedures"
+          sumptuary : "limit_luxury"
+          electoral : "voting_procedures"
+          financial : "taxes_spending"
+          social : "citizenship_rights"
+          criminal : "define_punishments"
+        }
+
+        famous_laws : {
+          lex_hortensia : "plebiscites_binding_on_all"
+          lex_canuleia : "allow_patrician_plebeian_marriage"
+          lex_licinia_sextia : "limit_land_ownership"
+          lex_julia : "caesar_land_reform"
+          lex_gabinia : "pompey_pirate_command"
+        }
+      }
+    }
+
+    passage : {
+      senate_debate : "if_going_through_senate"
+      committee : "prepare_final_version"
+      assembly_vote : "final_approval"
+
+      obstacles : {
+        veto : "tribune_can_block"
+        auspices : "bad_omens_halt_process"
+        riots : "violent_opposition"
+        filibuster : "talk_until_sunset"
+        bribery : "buy_votes_against"
+      }
+
+      tactics : {
+        logrolling : "combine_multiple_proposals"
+        amendments : "modify_to_gain_support"
+        timing : "when_opponents_absent"
+        propaganda : "sway_public_opinion"
+        deals : "promise_support_for_other_laws"
+      }
+    }
+
+    enforcement : {
+      magistrates : "enforce_laws"
+      courts : "adjudicate_violations"
+      penalties : "fines_exile_death"
+
+      problems : {
+        selective : "enforce_against_enemies"
+        ignored : "inconvenient_laws"
+        obsolete : "never_removed"
+        contradictory : "multiple_laws_conflict"
+      }
+    }
+  }
+
+  // ==========================================
+  // LEGAL SYSTEM & TRIALS
+  // ==========================================
+  legal_system : {
+    courts : {
+      quaestiones_perpetuae : {
+        description : "permanent_criminal_courts"
+        established : "149_BC_onwards"
+
+        types : {
+          repetundae : "extortion_by_officials"
+          maiestatis : "treason"
+          peculatus : "embezzlement"
+          ambitus : "electoral_bribery"
+          vis : "violence"
+          falsum : "forgery_fraud"
+          parricidium : "murder_of_relative"
+          sicarii : "assassination"
+        }
+      }
+
+      juries : {
+        size : "50_to_75_jurors"
+        selection : {
+          senators : "originally"
+          equestrians : "after_reforms"
+          mixed : "eventually_combined"
+          challenges : "reject_biased_jurors"
+        }
+
+        verdict : "majority_vote"
+        no_appeal : "verdict_final"
+      }
+    }
+
+    trials : {
+      accusation : {
+        anyone_can_accuse : "no_prosecutor_office"
+        nominis_delatio : "formal_charge"
+        motives : ["justice", "political_gain", "personal_vendetta"]
+        risks : "if_fail_look_foolish"
+      }
+
+      preparation : {
+        investigation : {
+          gather_evidence : "documents_witnesses"
+          interview : "question_people"
+          visit_sites : "crime_scene"
+          expense : "costly_process"
+        }
+
+        legal_team : {
+          advocate : {
+            role : "lawyer_speaker"
+            famous : ["Cicero", "Hortensius", "Cato"]
+            skills : ["rhetoric", "law", "acting"]
+            payment : "technically_free_actually_favors"
+          }
+
+          assistants : {
+            legal_experts : "jurisprudence"
+            researchers : "find_precedents"
+            speechwriters : "draft_arguments"
+          }
+        }
+
+        strategy : {
+          legal_argument : "prove_guilt_or_innocence"
+          character : "attack_or_defend_reputation"
+          emotion : "appeal_to_jury_sympathy"
+          politics : "connect_to_larger_issues"
+          procedure : "technicalities"
+        }
+      }
+
+      trial_procedure : {
+        opening : {
+          charges_read : "formal_accusation"
+          plea : "defendant_responds"
+          jury_empaneled : "seated"
+        }
+
+        prosecution : {
+          opening_speech : "accusator_presents_case"
+          evidence : "documents_letters_testimony"
+          witnesses : "sworn_statements"
+          time_limit : "water_clock_clepsydra"
+        }
+
+        defense : {
+          rebuttal : "defendant_or_advocate_responds"
+          counter_evidence : "prove_innocence_or_raise_doubt"
+          character_witnesses : "testify_to_good_character"
+          appeals : {
+            emotion : "plead_for_mercy"
+            family : "bring_weeping_children"
+            service : "remind_of_past_deeds"
+            politics : "attack_motives_of_accusers"
+          }
+        }
+
+        closing : {
+          summation : "final_speeches"
+          jury_instruction : "praetor_explains_law"
+          voting : "secret_ballot"
+          verdict : "guilty_or_acquitted"
+        }
+      }
+
+      rhetoric : {
+        techniques : {
+          ethos : "credibility_character"
+          pathos : "emotion_sympathy"
+          logos : "logic_reason"
+
+          specific : {
+            prosopopoeia : "speak_as_if_republic_herself"
+            rogatio : "rhetorical_questions"
+            amplificatio : "exaggeration"
+            irony : "sarcasm"
+            invective : "personal_attacks"
+          }
+        }
+
+        famous_speeches : {
+          in_verrem : "Cicero_against_corrupt_governor"
+          pro_caelio : "defend_young_aristocrat"
+          in_catilinam : "expose_conspiracy"
+          pro_milone : "justify_political_murder"
+        }
+      }
+
+      verdict : {
+        acquittal : {
+          effect : "charges_dropped"
+          reputation : "restored_or_damaged"
+          countersuit : "prosecute_false_accusers"
+        }
+
+        conviction : {
+          penalties : {
+            exile : "aquae_et_ignis_interdictio"
+            fine : "repayment_plus_damages"
+            infamy : "loss_of_rights"
+            death : "very_rare_for_citizens"
+          }
+
+          execution : {
+            appeal : "to_people_before_execution"
+            escape : "exile_instead"
+            methods : ["strangling", "beheading", "crucifixion_non_citizens"]
+          }
+        }
+      }
+    }
+
+    political_prosecutions : {
+      motivations : {
+        eliminate_rival : "destroy_political_opponent"
+        make_name : "young_prosecutor_gains_fame"
+        revenge : "settle_old_scores"
+        policy : "attack_opposing_faction"
+      }
+
+      famous_cases : {
+        cicero_vs_verres : "launched_cicero_career"
+        cato_vs_murena : "failed_prosecution"
+        clodius_trials : "multiple_acquittals_despite_guilt"
+        caesar_early_prosecutions : "built_reputation"
+      }
+
+      show_trials : {
+        predetermined : "outcome_decided_beforehand"
+        political_message : "intimidate_opponents"
+        public_spectacle : "massive_crowds"
+        propaganda : "spread_version_of_events"
+      }
+    }
+  }
+
+  // ==========================================
+  // PLAYER POLITICAL CAREER
+  // ==========================================
+  player_career : {
+    starting : {
+      background : {
+        patrician : {
+          advantages : "name_recognition_wealth_connections"
+          disadvantages : "cannot_be_tribune"
+          expectations : "high"
+        }
+
+        plebeian_wealthy : {
+          advantages : "can_be_tribune_populist_appeal"
+          disadvantages : "less_prestigious"
+          expectations : "moderate"
+        }
+
+        new_man : {
+          advantages : "underdog_story"
+          disadvantages : "no_connections_no_prestige"
+          expectations : "prove_yourself"
+          difficulty : "hard_mode"
+        }
+      }
+
+      initial_resources : {
+        wealth : "varies_by_background"
+        connections : "family_networks"
+        reputation : "inherited_or_none"
+        education : "rhetoric_law_military"
+      }
+    }
+
+    progression : {
+      build_reputation : {
+        methods : ["military_service", "legal_cases", "public_works", "generosity"]
+        takes_time : "years_of_effort"
+        setbacks : "failures_damage_reputation"
+      }
+
+      accumulate_wealth : {
+        sources : ["inheritance", "business", "government_service", "corruption"]
+        necessary : "for_campaigning"
+        dangerous : "visible_wealth_draws_suspicion"
+      }
+
+      form_alliances : {
+        identify_allies : "who_shares_interests"
+        build_relationships : "favors_and_obligations"
+        marriage : "political_dynasties"
+        betrayal : "always_possible"
+      }
+
+      run_for_office : {
+        choose_timing : "when_you_can_win"
+        campaign : "spend_money_and_effort"
+        win_or_lose : "consequences_either_way"
+        serve_term : "perform_duties"
+      }
+
+      climb_ladder : {
+        cursus_honorum : "follow_traditional_path"
+        or_shortcut : "revolutionary_methods"
+        obstacles : ["rivals", "scandals", "failures", "age"]
+        goal : "consulship_or_beyond"
+      }
+    }
+
+    choices : {
+      ethical : {
+        honest_politician : {
+          advantages : "clean_reputation"
+          disadvantages : "less_money_slower_progress"
+          ending : "respected_but_may_not_reach_top"
+        }
+
+        pragmatic : {
+          advantages : "competitive"
+          disadvantages : "some_skeletons_in_closet"
+          ending : "successful_with_compromises"
+        }
+
+        corrupt : {
+          advantages : "massive_resources"
+          disadvantages : "prosecution_risk_infamy"
+          ending : "powerful_but_hated_or_exiled"
+        }
+
+        revolutionary : {
+          advantages : "change_the_system"
+          disadvantages : "assassination_risk_extreme"
+          ending : "dictator_or_dead"
+        }
+      }
+
+      factional : {
+        optimates : "join_establishment"
+        populares : "champion_people"
+        military : "build_army_loyalty"
+        independent : "no_faction_harder_but_freer"
+      }
+
+      style : {
+        orator : "speech_based"
+        general : "military_glory"
+        administrator : "effective_governance"
+        demagogue : "popular_rabble_rousing"
+        schemer : "backroom_deals"
+      }
+    }
+
+    challenges : {
+      rivals : {
+        other_players : "competing_for_same_offices"
+        ai_politicians : "ambitious_senators"
+        grudges : "old_enemies"
+        jealousy : "threatened_by_success"
+      }
+
+      scandals : {
+        revealed_corruption : "past_crimes_exposed"
+        sexual : "affairs_impropriety"
+        financial : "bankruptcy_debts"
+        family : "relatives_misbehaving"
+
+        handling : {
+          denial : "claim_innocence"
+          counterattack : "accuse_accusers"
+          spin : "reframe_narrative"
+          disappear : "lay_low"
+          embrace : "own_it"
+        }
+      }
+
+      crises : {
+        military_defeat : "blamed_for_loss"
+        economic_disaster : "city_bankruptcy"
+        riots : "public_unrest"
+        foreign_invasion : "defend_republic"
+        civil_war : "choose_sides"
+      }
+
+      assassination_attempts : {
+        warning : "discover_plot"
+        defend : "bodyguards_allies"
+        preempt : "strike_first"
+        survive : "escape_death"
+        revenge : "punish_conspirators"
+      }
+    }
+
+    endings : {
+      triumphant : {
+        consul : "reach_pinnacle"
+        censor : "crown_of_career"
+        triumph : "victory_parade"
+        legacy : "remembered_forever"
+      }
+
+      moderate : {
+        senior_senator : "respected_elder"
+        provincial_governor : "wealthy_retirement"
+        comfortable : "family_legacy"
+      }
+
+      failure : {
+        defeated : "never_elected"
+        exile : "forced_out"
+        bankruptcy : "financial_ruin"
+        forgotten : "no_legacy"
+      }
+
+      revolutionary : {
+        dictator : "supreme_power"
+        emperor : "end_republic"
+        tyrant : "hated_but_powerful"
+        assassinated : "killed_by_senators"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    politics_screen : {
+      senate_view : {
+        members : "list_all_senators"
+        factions : "breakdown_by_allegiance"
+        your_standing : "reputation_and_rank"
+        current_issues : "active_debates"
+      }
+
+      election_calendar : {
+        upcoming_elections : "schedule"
+        candidates : "who_is_running"
+        polling : "predicted_results"
+        your_campaigns : "if_running"
+      }
+
+      legislation : {
+        proposed_laws : "under_consideration"
+        your_position : "support_or_oppose"
+        vote_prediction : "likely_outcome"
+        impact_analysis : "effects_on_city"
+      }
+
+      relationships : {
+        allies : "who_supports_you"
+        enemies : "who_opposes_you"
+        neutral : "swing_votes"
+        influence_map : "power_structure"
+      }
+    }
+
+    decisions : {
+      campaign_management : {
+        budget : "how_much_to_spend"
+        tactics : "what_strategies"
+        ethics : "how_dirty_to_play"
+        messaging : "what_to_promise"
+      }
+
+      senate_votes : {
+        which_way : "support_or_oppose"
+        speech : "give_address"
+        deals : "horse_trading"
+        consequences : "immediate_and_long_term"
+      }
+
+      corruption : {
+        opportunities : "presented_regularly"
+        risk_assessment : "chance_of_caught"
+        moral_choice : "what_kind_of_leader"
+        slippery_slope : "escalation"
+      }
+
+      alliances : {
+        form : "who_to_ally_with"
+        maintain : "keep_happy"
+        betray : "when_advantageous"
+        respond_to_betrayal : "revenge_or_forgive"
+      }
+    }
+
+    events : {
+      election_results : "win_or_lose"
+      scandals : "yours_or_opponents"
+      assassination_plots : "discover_or_be_victim"
+      faction_shifts : "political_realignments"
+      constitutional_crises : "republic_in_danger"
+      civil_war : "ultimate_political_failure"
+    }
+
+    mini_games : {
+      speech : {
+        rhetoric_game : "choose_arguments"
+        audience_reaction : "real_time_feedback"
+        opponent_response : "counter_your_points"
+        verdict : "persuade_or_fail"
+      }
+
+      trial : {
+        investigation : "gather_evidence"
+        witness_examination : "question_and_respond"
+        jury_management : "persuade_jurors"
+        verdict : "win_or_lose_case"
+      }
+
+      senate_debate : {
+        filibuster : "prevent_vote"
+        amendment : "modify_proposal"
+        coalition : "build_support"
+        passage : "succeed_or_fail"
+      }
+
+      conspiracy : {
+        recruit : "find_co_conspirators"
+        plan : "design_plot"
+        execute : "carry_out"
+        cover_up : "avoid_detection"
+      }
+    }
+
+    balance : {
+      time : "politics_takes_time_from_city_building"
+      money : "campaigns_are_expensive"
+      reputation : "affects_everything"
+      risk : "corruption_and_intrigue_dangerous"
+      reward : "power_and_influence"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    based_on : {
+      period : "late_republic_133_to_27_BC"
+      sources : ["Cicero", "Sallust", "Plutarch", "Polybius", "Livy"]
+      accuracy : "as_authentic_as_possible"
+      dramatization : "some_compression_for_gameplay"
+    }
+
+    famous_figures : {
+      as_rivals : {
+        pompey : "the_great_general"
+        crassus : "richest_man_in_rome"
+        cicero : "greatest_orator"
+        cato : "incorruptible_conservative"
+        clodius : "violent_populist"
+        catiline : "failed_revolutionary"
+        sulla : "first_dictator_to_not_resign"
+        gracchi : "reforming_tribunes"
+      }
+
+      player_interaction : {
+        ally_with : "form_triumvirate_or_coalition"
+        oppose : "become_rivals"
+        learn_from : "emulate_tactics"
+        destroy : "ruin_their_careers"
+      }
+    }
+
+    educational_content : {
+      encyclopedia : "detailed_political_terms"
+      biographies : "famous_politicians"
+      timeline : "key_political_events"
+      constitution : "how_republic_works"
+      speeches : "famous_orations_quoted"
+    }
+
+    authenticity_mode : {
+      enabled : "optional"
+      effects : {
+        historical_laws : "actual_legislation"
+        real_figures : "compete_against_historical_politicians"
+        accurate_procedure : "strict_constitutional_rules"
+        latin_terms : "proper_vocabulary"
+      }
+    }
+  }
+}
