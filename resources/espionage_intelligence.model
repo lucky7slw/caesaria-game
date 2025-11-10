@@ -1,0 +1,1308 @@
+// CaesarIA 2025 - Espionage & Intelligence Network
+// Covert operations, spy networks, and secret intelligence gathering
+
+espionage_system : {
+  // ==========================================
+  // SPY NETWORK STRUCTURE
+  // ==========================================
+  network : {
+    organization : {
+      hierarchy : {
+        spymaster : {
+          role : "player_or_appointed_official"
+          responsibilities : ["oversee_all_operations", "analyze_intelligence", "direct_agents"]
+          authority : "complete_control"
+          secrecy : "identity_hidden"
+        }
+
+        handlers : {
+          count : "1_per_5_agents"
+          role : "manage_field_agents"
+          responsibilities : ["assign_missions", "receive_reports", "maintain_cover"]
+          compartmentalization : "dont_know_other_handlers"
+        }
+
+        field_agents : {
+          types : ["spies", "scouts", "infiltrators", "saboteurs", "assassins"]
+          count : "varies_by_budget"
+          training : "specialized_by_type"
+          expendable : "sometimes"
+        }
+
+        informants : {
+          role : "part_time_sources"
+          count : "unlimited"
+          reliability : "varies_greatly"
+          payment : "per_information"
+          identity : "civilians_with_access"
+        }
+
+        sleeper_agents : {
+          role : "long_term_deep_cover"
+          placement : "enemy_cities_governments"
+          activation : "only_when_needed"
+          risk : "can_be_turned"
+        }
+      }
+
+      communication : {
+        methods : {
+          dead_drops : {
+            description : "hidden_exchange_locations"
+            types : ["hollow_trees", "loose_bricks", "market_stalls", "temples"]
+            schedule : "pre_arranged_times"
+            security : "avoid_direct_contact"
+          }
+
+          couriers : {
+            description : "message_runners"
+            speed : "fast_horses_or_ships"
+            security : {
+              sealed_messages : "wax_seals"
+              memorization : "destroy_written_copy"
+              multiple_routes : "redundancy"
+              expendable : "captured_couriers_killed"
+            }
+          }
+
+          coded_messages : {
+            description : "encrypted_communications"
+            methods : ["substitution_cipher", "caesar_cipher", "scytale", "steganography"]
+            keys : "changed_regularly"
+            code_books : "hidden"
+          }
+
+          signal : {
+            visual : ["smoke", "mirrors", "flags", "lights"]
+            audio : ["drums", "horns", "bells"]
+            timing : "prearranged_meanings"
+            range : "limited"
+          }
+        }
+
+        safe_houses : {
+          location : "throughout_city_and_empire"
+          purpose : {
+            meetings : "secure_discussions"
+            hideouts : "agents_on_run"
+            interrogations : "questioning_prisoners"
+            storage : "documents_equipment"
+          }
+
+          security : {
+            multiple_exits : "escape_routes"
+            lookouts : "sentries"
+            reinforced : "defend_if_discovered"
+            discreet : "unremarkable_appearance"
+          }
+
+          staff : {
+            keeper : "maintains_safe_house"
+            guards : "2_to_4"
+            servants : "provide_cover_story"
+          }
+        }
+      }
+
+      resources : {
+        budget : {
+          allocation : {
+            salaries : "40_percent"
+            bribes : "30_percent"
+            equipment : "15_percent"
+            operations : "10_percent"
+            contingency : "5_percent"
+          }
+
+          sources : {
+            state_treasury : "official_allocation"
+            secret_funds : "hidden_accounts"
+            seized_assets : "from_enemies"
+            extortion : "blackmail_payments"
+          }
+
+          costs : {
+            minimal_network : "10000_denarii_per_month"
+            standard_network : "50000_denarii_per_month"
+            extensive_network : "200000_denarii_per_month"
+            empire_wide : "1000000_denarii_per_month"
+          }
+        }
+
+        equipment : {
+          documents : ["forged_papers", "blank_seals", "letter_templates"]
+          disguises : ["wigs", "makeup", "clothing", "fake_badges"]
+          weapons : ["hidden_daggers", "garrotes", "poison", "crossbows"]
+          tools : ["lockpicks", "code_books", "invisible_ink", "listening_devices"]
+          transportation : ["fast_horses", "unmarked_carts", "boats"]
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // AGENT TYPES & RECRUITMENT
+  // ==========================================
+  agents : {
+    types : {
+      spy : {
+        role : "intelligence_gathering"
+        skills : ["observation", "memory", "social", "languages"]
+        cover : {
+          merchant : "travels_widely"
+          scholar : "asks_questions"
+          servant : "invisible_access"
+          entertainer : "welcomed_everywhere"
+        }
+
+        missions : {
+          surveillance : "watch_targets"
+          infiltration : "join_organizations"
+          information_theft : "steal_documents"
+          contact_recruitment : "find_informants"
+        }
+
+        training_duration : "6_months_to_2_years"
+        cost : "2000_denarii_per_month"
+      }
+
+      scout : {
+        role : "military_reconnaissance"
+        skills : ["navigation", "survival", "stealth", "memory"]
+        equipment : ["fast_horse", "light_armor", "signal_equipment"]
+
+        missions : {
+          enemy_positions : "locate_armies"
+          terrain_mapping : "scout_routes"
+          force_strength : "count_troops"
+          supply_lines : "find_vulnerabilities"
+        }
+
+        training_duration : "3_months"
+        cost : "500_denarii_per_month"
+      }
+
+      infiltrator : {
+        role : "deep_cover_operations"
+        skills : ["acting", "languages", "cultural_knowledge", "patience"]
+
+        placement : {
+          government : "become_official"
+          military : "join_legion"
+          merchant_guild : "establish_business"
+          household : "trusted_servant"
+        }
+
+        duration : "years_of_service"
+        risk : "discovery_means_death"
+        value : "priceless_intelligence"
+
+        training_duration : "1_to_3_years"
+        cost : "5000_denarii_per_month_plus_cover"
+      }
+
+      saboteur : {
+        role : "destruction_disruption"
+        skills : ["demolition", "arson", "mechanics", "chemistry"]
+
+        targets : {
+          infrastructure : ["aqueducts", "bridges", "roads", "walls"]
+          military : ["supplies", "weapons", "ships", "siege_engines"]
+          economic : ["warehouses", "markets", "workshops", "mines"]
+          political : ["records", "treasuries", "monuments"]
+        }
+
+        methods : {
+          fire : "most_common"
+          structural_damage : "weaken_supports"
+          contamination : "poison_water_food"
+          theft : "steal_critical_items"
+        }
+
+        training_duration : "1_year"
+        cost : "3000_denarii_per_month"
+      }
+
+      assassin : {
+        role : "targeted_elimination"
+        skills : ["combat", "stealth", "poison", "patience"]
+
+        methods : {
+          blade : {
+            weapons : ["dagger", "stiletto", "garrote"]
+            approach : ["ambush", "disguise", "surprise"]
+            escape : "planned_route"
+          }
+
+          poison : {
+            types : ["hemlock", "nightshade", "arsenic", "snake_venom"]
+            delivery : ["food", "drink", "needle", "vapor"]
+            timing : "slow_or_fast_acting"
+          }
+
+          accident : {
+            staged : ["fall", "drowning", "fire", "collapse"]
+            investigation : "appears_natural"
+            perfect_crime : "no_suspects"
+          }
+
+          public : {
+            dramatic : "send_message"
+            mob : "incite_riot"
+            execution_style : "visible_to_all"
+            escape : "difficult_or_impossible"
+          }
+        }
+
+        difficulty : {
+          commoner : "easy"
+          official : "moderate"
+          senator : "hard"
+          consul : "very_hard"
+          emperor : "near_impossible"
+        }
+
+        training_duration : "2_to_5_years"
+        cost : "10000_denarii_per_month"
+        mission_fee : "50000_to_1000000_denarii"
+      }
+
+      codebreaker : {
+        role : "cryptanalysis"
+        skills : ["mathematics", "languages", "pattern_recognition", "logic"]
+
+        methods : {
+          frequency_analysis : "letter_patterns"
+          known_plaintext : "guess_content"
+          brute_force : "try_all_keys"
+          linguistic : "language_structure"
+        }
+
+        success_rate : {
+          simple_ciphers : "90_percent"
+          complex_ciphers : "50_percent"
+          unknown_language : "10_percent"
+        }
+
+        training_duration : "3_years_minimum"
+        cost : "4000_denarii_per_month"
+      }
+
+      interrogator : {
+        role : "extract_information"
+        skills : ["psychology", "intimidation", "torture", "deception"]
+
+        techniques : {
+          psychological : {
+            good_cop_bad_cop : "alternating_approaches"
+            isolation : "break_down_resistance"
+            false_promises : "offer_freedom"
+            misinformation : "make_them_think_allies_betrayed"
+          }
+
+          physical : {
+            pain : "various_tortures"
+            deprivation : "sleep_food_water"
+            stress_positions : "prolonged_discomfort"
+            threats : "to_family"
+          }
+
+          deception : {
+            pretend_know_everything : "bluff"
+            fake_evidence : "forged_documents"
+            planted_informant : "cell_mate_is_spy"
+          }
+        }
+
+        effectiveness : {
+          willing_subject : "95_percent_truth"
+          resistant : "50_percent_truth"
+          trained_agent : "20_percent_truth"
+          innocent : "will_confess_anything_unreliable"
+        }
+
+        training_duration : "1_year"
+        cost : "2000_denarii_per_month"
+      }
+    }
+
+    recruitment : {
+      sources : {
+        military : {
+          veterans : "experienced_disciplined"
+          scouts : "already_trained"
+          officers : "strategic_thinking"
+          selection_rate : "1_in_20"
+        }
+
+        criminals : {
+          thieves : "stealth_skills"
+          assassins : "already_killers"
+          forgers : "documentation_skills"
+          smugglers : "know_secret_routes"
+          risk : "unreliable_may_betray"
+        }
+
+        foreigners : {
+          exiles : "desperate_loyal"
+          merchants : "travel_widely"
+          slaves : "invisible_expendable"
+          language_advantage : "native_speakers"
+        }
+
+        volunteers : {
+          patriots : "serve_rome"
+          adventurers : "excitement_seekers"
+          idealists : "believe_in_cause"
+          reliability : "high"
+        }
+
+        pressed : {
+          blackmail : "forced_service"
+          debt : "work_off_obligations"
+          imprisonment : "freedom_for_service"
+          reliability : "low_will_betray_if_chance"
+        }
+      }
+
+      vetting : {
+        background_check : {
+          investigation : "into_past"
+          family : "check_relatives"
+          debts : "financial_vulnerability"
+          loyalties : "political_religious"
+          duration : "1_to_3_months"
+        }
+
+        testing : {
+          loyalty : "small_missions_first"
+          skills : "demonstrate_abilities"
+          stress : "under_pressure"
+          discretion : "can_keep_secrets"
+        }
+
+        rejection_rate : "70_percent"
+      }
+
+      training : {
+        basic : {
+          duration : "3_months"
+          curriculum : ["tradecraft", "surveillance", "codes", "combat"]
+          washout_rate : "30_percent"
+        }
+
+        specialized : {
+          duration : "varies_by_specialty"
+          intensive : "realistic_scenarios"
+          dangerous : "some_die_in_training"
+        }
+
+        continued : {
+          updates : "new_techniques"
+          language_training : "additional_covers"
+          cross_training : "multiple_skills"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // INTELLIGENCE GATHERING
+  // ==========================================
+  intelligence : {
+    collection : {
+      methods : {
+        humint : {
+          description : "human_intelligence"
+          sources : {
+            agents : "trained_spies"
+            informants : "paid_civilians"
+            defectors : "enemy_turncoats"
+            prisoners : "interrogation"
+            diplomats : "official_contacts"
+          }
+
+          advantages : "detailed_nuanced_contextual"
+          disadvantages : "slow_biased_unreliable"
+        }
+
+        sigint : {
+          description : "signals_intelligence"
+          sources : {
+            intercepted_messages : "captured_couriers"
+            decoded_ciphers : "cryptanalysis"
+            signal_observation : "watch_enemy_signals"
+          }
+
+          advantages : "objective_timely"
+          disadvantages : "may_be_encrypted_or_false"
+        }
+
+        osint : {
+          description : "open_source_intelligence"
+          sources : {
+            public_records : "tax_census_legal"
+            merchants : "trade_reports"
+            travelers : "eyewitness_accounts"
+            propaganda : "enemy_official_statements"
+          }
+
+          advantages : "legal_abundant_cheap"
+          disadvantages : "incomplete_may_be_propaganda"
+        }
+
+        recon : {
+          description : "reconnaissance"
+          sources : {
+            scouts : "visual_observation"
+            maps : "terrain_analysis"
+            captured_documents : "enemy_plans"
+          }
+
+          advantages : "current_accurate_visual"
+          disadvantages : "limited_scope_dangerous"
+        }
+      }
+
+      targets : {
+        military : {
+          force_strength : "troop_numbers"
+          disposition : "unit_locations"
+          morale : "readiness_to_fight"
+          commanders : "leadership_quality"
+          plans : "intended_operations"
+          logistics : "supply_vulnerabilities"
+        }
+
+        political : {
+          factions : "who_supports_whom"
+          tensions : "internal_conflicts"
+          corruption : "exploitable_weaknesses"
+          succession : "who_will_lead_next"
+          alliances : "foreign_relationships"
+        }
+
+        economic : {
+          resources : "wealth_and_production"
+          trade_routes : "commerce_patterns"
+          shortages : "vulnerabilities"
+          taxation : "revenue_collection"
+          debt : "financial_stress"
+        }
+
+        technological : {
+          innovations : "new_inventions"
+          manufacturing : "production_methods"
+          military_equipment : "weapon_designs"
+          engineering : "construction_techniques"
+        }
+
+        social : {
+          unrest : "population_discontent"
+          demographics : "population_structure"
+          culture : "values_and_beliefs"
+          religion : "spiritual_movements"
+        }
+      }
+
+      analysis : {
+        processing : {
+          collation : "combine_from_multiple_sources"
+          verification : "cross_check_accuracy"
+          interpretation : "what_does_it_mean"
+          assessment : "confidence_levels"
+        }
+
+        products : {
+          reports : {
+            raw_intelligence : "unprocessed_information"
+            analyzed_intelligence : "interpreted_findings"
+            estimates : "predictions_future"
+            warnings : "urgent_threats"
+          }
+
+          formats : {
+            written : "detailed_documents"
+            oral : "briefings"
+            visual : "maps_charts"
+          }
+
+          distribution : {
+            need_to_know : "compartmentalized"
+            security_levels : "classified_restricted_secret"
+            timely : "delivered_when_useful"
+          }
+        }
+
+        challenges : {
+          information_overload : "too_much_data"
+          deception : "enemy_plants_false_info"
+          bias : "analysts_preconceptions"
+          noise : "irrelevant_information"
+          timing : "out_of_date"
+        }
+      }
+    }
+
+    counterintelligence : {
+      definition : "protect_against_enemy_spies"
+
+      detection : {
+        surveillance : {
+          watch_suspects : "follow_potential_spies"
+          monitor_communications : "intercept_messages"
+          check_backgrounds : "investigate_newcomers"
+          informant_networks : "citizens_report_suspicious"
+        }
+
+        anomalies : {
+          unusual_behavior : "acting_strange"
+          access_patterns : "seeking_sensitive_info"
+          financial : "unexplained_wealth"
+          relationships : "contact_with_foreigners"
+        }
+
+        investigations : {
+          discreet_inquiry : "dont_alert_suspect"
+          evidence_gathering : "build_case"
+          interrogation : "question_suspect"
+          trial : "legal_or_extralegal"
+        }
+      }
+
+      penetration : {
+        double_agents : {
+          turn_enemy_spy : "flip_to_work_for_you"
+          methods : ["blackmail", "bribery", "ideology", "threats"]
+          use : "feed_disinformation_to_enemy"
+          risk : "triple_agent"
+        }
+
+        moles : {
+          plant_in_enemy : "long_term_infiltration"
+          rise_through_ranks : "gain_access"
+          report_intelligence : "betray_from_within"
+          discovery : "catastrophic"
+        }
+
+        false_information : {
+          deception_operations : "mislead_enemy"
+          channels : "through_double_agents"
+          believable : "mix_with_truth"
+          strategic : "influence_enemy_decisions"
+        }
+      }
+
+      security : {
+        operational_security : {
+          compartmentalization : "need_to_know_only"
+          vetting : "screen_personnel"
+          surveillance : "watch_own_people"
+          polygraph : "detect_lies"
+        }
+
+        physical_security : {
+          guards : "protect_facilities"
+          locks : "secure_documents"
+          searches : "prevent_theft"
+          secure_areas : "restricted_access"
+        }
+
+        communications_security : {
+          encryption : "encode_messages"
+          secure_channels : "protected_routes"
+          authentication : "verify_identity"
+          destroy : "burn_after_reading"
+        }
+      }
+
+      enforcement : {
+        arrest : "capture_enemy_agents"
+        interrogation : "extract_information"
+        trial : "legal_proceedings_or_not"
+        execution : "death_penalty_common"
+        expulsion : "deport_foreign_spies"
+        exchange : "trade_for_our_captured_agents"
+      }
+    }
+  }
+
+  // ==========================================
+  // COVERT OPERATIONS
+  // ==========================================
+  operations : {
+    types : {
+      sabotage : {
+        infrastructure : {
+          targets : ["aqueducts", "bridges", "roads", "walls", "harbors"]
+          methods : ["demolition", "arson", "structural_weakening"]
+          timing : "during_siege_or_before_war"
+          impact : "severe_disruption"
+        }
+
+        military : {
+          targets : ["armories", "granaries", "ships", "siege_engines"]
+          methods : ["fire", "theft", "contamination"]
+          timing : "before_battle"
+          impact : "tactical_advantage"
+        }
+
+        economic : {
+          targets : ["warehouses", "workshops", "mines", "farms"]
+          methods : ["arson", "theft", "vandalism"]
+          timing : "long_term_campaign"
+          impact : "economic_weakening"
+        }
+      }
+
+      assassination : {
+        planning : {
+          target_selection : {
+            priority : ["enemy_leaders", "generals", "officials", "political_rivals"]
+            assessment : {
+              value : "how_important"
+              difficulty : "how_protected"
+              consequences : "retaliation_risk"
+            }
+          }
+
+          reconnaissance : {
+            routine : "daily_schedule"
+            security : "guards_and_precautions"
+            vulnerabilities : "weaknesses_in_protection"
+            access : "how_to_get_close"
+          }
+
+          method_selection : {
+            factors : ["target_protection", "desired_message", "escape_possibility"]
+            chosen : "best_fit_for_situation"
+          }
+
+          team_assembly : {
+            assassin : "primary_killer"
+            support : ["lookout", "diversion", "escape_assistance"]
+            size : "small_for_secrecy"
+          }
+        }
+
+        execution : {
+          approach : "get_to_target"
+          strike : "kill_quickly"
+          confirmation : "ensure_death"
+          escape : "get_away_safely"
+          cover : "hide_evidence"
+        }
+
+        aftermath : {
+          success : {
+            report : "confirm_to_handler"
+            payment : "reward"
+            consequences : "enemy_response"
+            investigation : "enemy_seeks_culprits"
+          }
+
+          failure : {
+            wounded_target : "increased_security"
+            captured_assassin : "interrogation_exposure"
+            traced : "network_compromised"
+            retaliation : "our_leaders_targeted"
+          }
+        }
+      }
+
+      infiltration : {
+        target_organizations : {
+          government : "access_decisions"
+          military : "learn_plans"
+          merchants : "economic_intelligence"
+          religious : "influence_population"
+          criminal : "underworld_connections"
+        }
+
+        cover_establishment : {
+          identity : "create_false_background"
+          credentials : "forge_documents"
+          references : "plant_false_witnesses"
+          skills : "demonstrate_expertise"
+          time : "months_to_years"
+        }
+
+        penetration : {
+          entry_level : "start_low"
+          prove_value : "perform_well"
+          gain_trust : "build_relationships"
+          promotion : "rise_in_ranks"
+          access : "reach_sensitive_areas"
+        }
+
+        exploitation : {
+          gather_intelligence : "steal_secrets"
+          influence : "shape_decisions"
+          sabotage : "disrupt_from_within"
+          recruitment : "turn_others"
+          exfiltration : "extract_when_necessary"
+        }
+      }
+
+      propaganda : {
+        purpose : "influence_public_opinion"
+
+        methods : {
+          rumors : {
+            spread : "through_markets_taverns"
+            content : ["fear", "hope", "anger", "doubt"]
+            viral : "people_spread_voluntarily"
+          }
+
+          graffiti : {
+            location : "public_walls"
+            messages : ["political_slogans", "insults", "false_news"]
+            anonymous : "hard_to_trace"
+          }
+
+          pamphlets : {
+            written : "printed_or_copied"
+            distributed : "secretly_or_openly"
+            content : ["manifestos", "exposés", "calls_to_action"]
+          }
+
+          speakers : {
+            orators : "hire_persuasive_speakers"
+            crowds : "forum_gatherings"
+            message : "prepared_talking_points"
+          }
+
+          staged_events : {
+            incidents : "fake_attacks_or_miracles"
+            witnesses : "planted_actors"
+            reactions : "orchestrated_outrage"
+          }
+        }
+
+        targets : {
+          enemy_population : "undermine_morale"
+          own_population : "maintain_support"
+          allies : "strengthen_bonds"
+          neutrals : "win_support"
+        }
+
+        effects : {
+          immediate : "short_term_reaction"
+          cumulative : "long_term_attitude_shift"
+          measurement : "difficult_to_assess"
+        }
+      }
+
+      exfiltration : {
+        definition : "extract_persons_from_hostile_territory"
+
+        scenarios : {
+          blown_agent : "cover_compromised"
+          defector : "enemy_wants_to_switch_sides"
+          rescued_prisoner : "escape_from_capture"
+          completed_mission : "time_to_leave"
+        }
+
+        methods : {
+          disguise : "blend_in_travel_openly"
+          smuggling : "hidden_in_cargo"
+          bribery : "pay_border_guards"
+          force : "fight_way_out"
+          underground : "secret_routes"
+        }
+
+        challenges : {
+          pursuit : "enemy_chasing"
+          checkpoints : "guards_watching"
+          distance : "long_journey"
+          exposure : "maintaining_cover"
+        }
+
+        safe_return : {
+          debriefing : "report_everything"
+          medical : "treat_injuries"
+          security : "ensure_not_followed"
+          reward : "payment_or_protection"
+          redeployment : "or_retirement"
+        }
+      }
+    }
+
+    planning : {
+      mission_design : {
+        objective : "clear_goal"
+        intelligence : "gather_information"
+        assets : "select_agents"
+        timeline : "schedule_phases"
+        contingencies : "backup_plans"
+        approval : "higher_authority"
+      }
+
+      risk_assessment : {
+        probability_success : "estimated_percentage"
+        consequences_failure : "what_if_wrong"
+        exposure_risk : "network_compromise"
+        political_impact : "diplomatic_fallout"
+        cost_benefit : "worth_it"
+      }
+
+      authorization : {
+        levels : {
+          routine : "handler_approves"
+          sensitive : "spymaster_approves"
+          critical : "consul_or_senate_approves"
+          deniable : "no_official_approval"
+        }
+      }
+    }
+
+    execution : {
+      deployment : "send_agents"
+      monitoring : "track_progress"
+      support : "provide_assistance"
+      extraction : "retrieve_agents"
+      cover_up : "hide_involvement"
+    }
+
+    after_action : {
+      success : {
+        report : "detailed_account"
+        lessons_learned : "what_worked"
+        rewards : "pay_agents"
+        exploitation : "use_intelligence_gained"
+      }
+
+      failure : {
+        damage_assessment : "what_was_lost"
+        investigation : "why_failed"
+        rescue : "save_captured_agents_if_possible"
+        cover_up : "hide_involvement"
+        consequences : "accept_fallout"
+      }
+    }
+  }
+
+  // ==========================================
+  // CRYPTOGRAPHY
+  // ==========================================
+  codes_ciphers : {
+    encryption : {
+      methods : {
+        substitution : {
+          caesar_cipher : {
+            description : "shift_alphabet"
+            key : "shift_amount_1_to_25"
+            example : "A_becomes_D_with_shift_3"
+            security : "weak_easily_broken"
+          }
+
+          monoalphabetic : {
+            description : "random_substitution"
+            key : "substitution_alphabet"
+            security : "moderate_frequency_analysis_breaks"
+          }
+
+          polyalphabetic : {
+            description : "multiple_substitution_alphabets"
+            key : "keyword_determines_shifts"
+            security : "strong_for_ancient_times"
+          }
+        }
+
+        transposition : {
+          scytale : {
+            description : "wrap_strip_around_cylinder"
+            key : "cylinder_diameter"
+            decode : "same_diameter_cylinder"
+            security : "moderate"
+          }
+
+          columnar : {
+            description : "write_in_columns_read_by_key"
+            key : "column_order"
+            security : "moderate"
+          }
+        }
+
+        steganography : {
+          hidden_messages : {
+            invisible_ink : "lemon_juice_milk_urine"
+            reveal : "heat_or_chemical"
+            security : "high_if_undetected"
+          }
+
+          acrostic : {
+            description : "first_letter_each_line_spells_message"
+            hidden_in : "poem_or_letter"
+            security : "moderate"
+          }
+
+          null_cipher : {
+            description : "real_message_hidden_in_innocent_text"
+            pattern : "every_nth_letter_or_word"
+            security : "high_if_pattern_unknown"
+          }
+        }
+
+        book_cipher : {
+          description : "numbers_refer_to_book_page_line_word"
+          key : "specific_book_both_parties_have"
+          security : "very_high_without_key_book"
+        }
+      }
+
+      key_management : {
+        generation : "create_keys"
+        distribution : "securely_share"
+        storage : "protect_from_capture"
+        rotation : "change_regularly"
+        compromise : "assume_enemy_has_old_keys"
+      }
+    }
+
+    cryptanalysis : {
+      techniques : {
+        frequency_analysis : {
+          letter_frequency : "E_most_common_in_Latin"
+          bigrams : "common_pairs_like_QU"
+          trigrams : "common_triplets"
+          crack : "monoalphabetic_ciphers"
+        }
+
+        known_plaintext : {
+          guess_content : "standard_openings_or_signatures"
+          compare : "ciphertext_to_guess"
+          derive_key : "from_comparison"
+        }
+
+        brute_force : {
+          try_all_keys : "exhaustive_search"
+          feasible : "only_for_small_keyspaces"
+          time : "can_take_days_or_months"
+        }
+
+        pattern_recognition : {
+          repeated_sequences : "likely_common_words"
+          message_length : "clues_to_content"
+          linguistic : "language_structure"
+        }
+      }
+
+      codebreaker_tools : {
+        frequency_tables : "letter_distribution"
+        common_words : "likely_plaintext"
+        cribs : "known_or_guessed_phrases"
+        patience : "most_important"
+      }
+
+      success_rates : {
+        caesar_cipher : "95_percent_minutes"
+        monoalphabetic : "80_percent_hours"
+        polyalphabetic : "50_percent_days"
+        book_cipher : "5_percent_without_key"
+        steganography : "10_percent_if_undetected"
+      }
+    }
+
+    gameplay : {
+      mini_game : {
+        encrypt_messages : "player_encodes"
+        decrypt_intercepts : "puzzle_game"
+        difficulty : "varies_by_cipher"
+        rewards : "intelligence_or_security"
+      }
+
+      strategic : {
+        choose_cipher : "security_vs_speed"
+        change_keys : "manage_schedules"
+        risk : "capture_means_compromise"
+      }
+    }
+  }
+
+  // ==========================================
+  // INFORMATION WARFARE
+  // ==========================================
+  information : {
+    intelligence_marketplace : {
+      brokers : {
+        description : "information_dealers"
+        neutrality : "sell_to_highest_bidder"
+        reliability : "varies_reputation_based"
+        location : "underground_networks"
+      }
+
+      buying_intelligence : {
+        quality : {
+          rumor : "unverified_100_denarii"
+          report : "from_source_1000_denarii"
+          document : "verified_10000_denarii"
+          agent : "exclusive_source_50000_denarii"
+        }
+
+        verification : "buyer_beware"
+        bidding : "compete_with_enemies"
+      }
+
+      selling_intelligence : {
+        declassified : "old_or_less_sensitive"
+        disinformation : "plant_false_info"
+        double_dealing : "profit_from_both_sides"
+      }
+    }
+
+    disinformation : {
+      purpose : "deceive_enemy"
+
+      campaigns : {
+        false_strengths : "appear_stronger_than_are"
+        false_weaknesses : "lure_into_trap"
+        false_plans : "mislead_about_intentions"
+        false_alliances : "create_confusion"
+      }
+
+      channels : {
+        double_agents : "feed_false_info"
+        captured_documents : "plant_fake_papers"
+        propaganda : "public_deception"
+        rumors : "spread_lies"
+      }
+
+      risks : {
+        exposed : "lose_credibility"
+        backfire : "enemy_uses_against_you"
+        confusion : "own_side_believes_false_info"
+      }
+    }
+
+    psychological_operations : {
+      target : "enemy_morale_and_decision_making"
+
+      tactics : {
+        fear : "spread_terror"
+        doubt : "undermine_confidence"
+        confusion : "create_chaos"
+        defeatism : "promote_surrender"
+      }
+
+      methods : {
+        atrocity_propaganda : "exaggerate_or_invent_horrors"
+        rumor_campaigns : "spread_demoralizing_stories"
+        false_flag : "blame_enemy_for_own_actions"
+        subversion : "encourage_rebellion"
+      }
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL EXAMPLES
+  // ==========================================
+  historical : {
+    roman_intelligence : {
+      frumentarii : {
+        description : "grain_collectors_turned_spies"
+        functions : ["courier", "spy", "secret_police"]
+        empire_wide : "network_throughout_provinces"
+        feared : "by_citizens_and_officials"
+      }
+
+      speculatores : {
+        description : "military_scouts_and_spies"
+        functions : ["reconnaissance", "assassination", "bodyguard"]
+        elite : "best_soldiers"
+      }
+
+      agentes_in_rebus : {
+        description : "agents_of_affairs"
+        later_empire : "formalized_intelligence_service"
+        functions : ["courier", "inspector", "spy"]
+      }
+
+      cursus_publicus : {
+        description : "imperial_courier_system"
+        dual_use : "official_mail_and_intelligence"
+        speed : "fast_horses_relay_stations"
+        controlled : "by_state"
+      }
+    }
+
+    famous_operations : {
+      hannibal_spies : {
+        description : "Carthaginian_intelligence_in_italy"
+        network : "Gauls_and_allies"
+        success : "informed_Hannibal_of_Roman_movements"
+      }
+
+      scipio_agents : {
+        description : "Scipio_used_spies_in_Africa"
+        disguised : "as_messengers"
+        reconnaissance : "Carthaginian_camps"
+      }
+
+      caesar_commentarii : {
+        description : "Caesar_extensive_intelligence_use"
+        scouts : "speculatores"
+        informants : "Gallic_allies_and_turncoats"
+        propaganda : "wrote_own_accounts"
+      }
+
+      octavian_network : {
+        description : "future_Augustus_intelligence_apparatus"
+        agents : "throughout_empire"
+        counterintelligence : "against_political_rivals"
+        foundation : "later_imperial_system"
+      }
+    }
+
+    lessons : {
+      compartmentalization : "Romans_learned_need_to_know"
+      verification : "cross_check_sources"
+      speed : "timely_intelligence_critical"
+      security : "protect_sources_and_methods"
+      adaptability : "change_tactics_when_exposed"
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    espionage_screen : {
+      network_overview : {
+        agents : "list_of_active_operatives"
+        missions : "current_operations"
+        intelligence : "gathered_information"
+        budget : "spending_and_costs"
+      }
+
+      agent_management : {
+        recruit : "hire_new_agents"
+        train : "improve_skills"
+        assign : "give_missions"
+        retire : "release_or_pension"
+      }
+
+      mission_planning : {
+        select_operation : "choose_type"
+        assign_agents : "who_does_what"
+        allocate_resources : "budget_and_equipment"
+        approve : "authorize_mission"
+      }
+
+      intelligence_center : {
+        reports : "read_gathered_intelligence"
+        analysis : "interpret_information"
+        alerts : "urgent_warnings"
+        archive : "historical_intelligence"
+      }
+    }
+
+    decisions : {
+      network_scope : {
+        local : "city_only"
+        regional : "province"
+        empire_wide : "throughout_territories"
+        cost : "scales_with_scope"
+      }
+
+      agent_recruitment : {
+        quality_vs_quantity : "few_skilled_or_many_mediocre"
+        background : "military_criminal_or_civilian"
+        loyalty : "patriotic_or_mercenary"
+      }
+
+      operations : {
+        risk_tolerance : "safe_or_aggressive"
+        deniability : "traceable_or_secret"
+        methods : "ethical_or_ruthless"
+      }
+
+      intelligence_sharing : {
+        allies : "share_or_keep_secret"
+        senate : "inform_or_hide"
+        public : "reveal_or_classify"
+      }
+    }
+
+    events : {
+      intelligence_coups : "major_secrets_revealed"
+      blown_operations : "missions_exposed"
+      agent_captured : "rescue_or_abandon"
+      enemy_spy_discovered : "interrogate_or_turn"
+      assassination_success : "target_eliminated"
+      assassination_failure : "increased_security"
+      network_penetration : "enemy_infiltrated_your_network"
+      propaganda_success : "enemy_population_swayed"
+    }
+
+    mini_games : {
+      cryptography : {
+        encode : "encrypt_messages"
+        decode : "break_enemy_ciphers"
+        difficulty : "varies_by_method"
+        time_limit : "urgent_decryption"
+      }
+
+      infiltration : {
+        create_cover : "build_false_identity"
+        maintain_cover : "act_convincingly"
+        gather_intel : "subtle_observation"
+        escape : "when_discovered"
+      }
+
+      assassination : {
+        planning : "choose_method_and_timing"
+        execution : "stealth_approach"
+        escape : "get_away_safely"
+      }
+
+      interrogation : {
+        techniques : "choose_approach"
+        resistance : "subject_fights_back"
+        truth : "separate_fact_from_lies"
+      }
+    }
+
+    balance : {
+      cost : "expensive_to_maintain"
+      risk : "operations_can_fail_spectacularly"
+      reward : "priceless_intelligence_and_advantages"
+      ethics : "dark_side_of_statecraft"
+      discovery : "enemy_will_retaliate"
+    }
+
+    achievements : {
+      master_spy : "run_successful_empire_wide_network"
+      codebreaker : "decrypt_100_messages"
+      silent_assassin : "never_caught_10_assassinations"
+      spymaster : "prevent_10_enemy_operations"
+      double_cross : "turn_5_enemy_agents"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY MODE
+  // ==========================================
+  authenticity : {
+    limitations : {
+      technology : "no_modern_surveillance"
+      communication : "slow_by_modern_standards"
+      formalization : "less_organized_than_modern"
+      record_keeping : "much_lost_to_history"
+    }
+
+    realistic_elements : {
+      methods : "based_on_historical_accounts"
+      organizations : "frumentarii_speculatores"
+      ciphers : "Caesar_cipher_scytale"
+      operations : "types_romans_actually_used"
+    }
+
+    educational : {
+      encyclopedia : "history_of_roman_intelligence"
+      famous_spies : "known_historical_agents"
+      techniques : "how_they_actually_worked"
+      evolution : "development_over_time"
+    }
+  }
+}
