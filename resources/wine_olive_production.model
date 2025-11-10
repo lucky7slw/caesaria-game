@@ -1,0 +1,1904 @@
+// CaesarIA 2025 - Wine & Olive Production System
+// Complete production chains with symposia culture and Roman social life
+
+wine_olive_economy : {
+  // ==========================================
+  // WINE PRODUCTION
+  // ==========================================
+  viticulture : {
+    vineyards : {
+      establishment : {
+        land_requirements : {
+          soil : "well_drained_hillsides_preferred"
+          slope : "south_facing_for_sun"
+          climate : "mediterranean_ideal"
+          size : "10_to_500_acres"
+        }
+
+        planting : {
+          vines : {
+            varieties : {
+              aminean : {
+                quality : "highest"
+                region : "campania"
+                aging_potential : "decades"
+                price : "premium"
+              }
+
+              falernian : {
+                quality : "legendary"
+                region : "falernum_campania"
+                aging : "improves_for_15_to_20_years"
+                price : "astronomical"
+                fame : "most_expensive_wine_in_rome"
+              }
+
+              caecuban : {
+                quality : "excellent"
+                region : "latium"
+                characteristics : "full_bodied"
+                price : "very_high"
+              }
+
+              alban : {
+                quality : "good"
+                region : "alban_hills"
+                characteristics : "sweet"
+                price : "moderate"
+              }
+
+              common_varieties : {
+                quality : "basic"
+                region : "anywhere"
+                price : "cheap"
+                consumption : "daily_drinking"
+              }
+            }
+
+            planting_density : "2000_to_4000_vines_per_acre"
+            training : "vines_trained_on_stakes_or_trees"
+            time_to_production : "3_years"
+            productive_life : "25_to_40_years"
+          }
+
+          labor : {
+            workers : "skilled_vineyard_workers_vinitores"
+            slaves : "common_in_large_estates"
+            seasonal : "harvest_requires_extra_hands"
+          }
+        }
+
+        investment : {
+          land_purchase : "50000_to_500000_denarii"
+          vines : "1000_denarii_per_acre"
+          equipment : "presses_vats_storage"
+          buildings : "wine_house_cellars"
+          total : "100000_to_2000000_denarii"
+          return : "5_to_10_years_to_profit"
+        }
+      }
+
+      cultivation : {
+        annual_cycle : {
+          winter : {
+            months : "December_to_February"
+            tasks : ["pruning", "soil_preparation", "equipment_repair"]
+            critical : "pruning_determines_yield"
+          }
+
+          spring : {
+            months : "March_to_May"
+            tasks : ["training_shoots", "weeding", "pest_control"]
+            bud_break : "april"
+            flowering : "may"
+          }
+
+          summer : {
+            months : "June_to_August"
+            tasks : ["thinning_clusters", "leaf_removal", "irrigation"]
+            veraison : "grapes_change_color"
+            ripening : "sugar_accumulation"
+          }
+
+          autumn : {
+            months : "September_to_November"
+            harvest : {
+              timing : "critical_for_quality"
+              too_early : "underripe_acidic"
+              too_late : "overripe_raisiny"
+              perfect : "balance_sugar_and_acid"
+
+              vindemia : {
+                description : "grape_harvest_festival"
+                celebration : "entire_community_participates"
+                speed : "must_harvest_quickly"
+                workers : "all_hands_needed"
+                pay : "bonus_wages_plus_wine"
+              }
+
+              picking : {
+                method : "hand_harvested"
+                containers : "baskets_and_amphorae"
+                transport : "to_wine_press_immediately"
+                sorting : "remove_bad_grapes"
+              }
+            }
+          }
+        }
+
+        challenges : {
+          weather : {
+            frost : "kills_buds_in_spring"
+            hail : "destroys_crop"
+            drought : "stress_vines"
+            excessive_rain : "dilutes_grapes_causes_rot"
+          }
+
+          pests : {
+            birds : "eat_ripe_grapes"
+            insects : "damage_vines"
+            wild_animals : "deer_boar_eat_grapes"
+            control : ["nets", "scarecrows", "guards", "fencing"]
+          }
+
+          diseases : {
+            powdery_mildew : "fungal_disease"
+            downy_mildew : "wet_conditions"
+            bunch_rot : "ruins_grapes"
+            prevention : ["sulfur_dusting", "air_circulation", "vineyard_hygiene"]
+          }
+        }
+      }
+
+      yields : {
+        per_acre : {
+          poor_year : "500_liters"
+          average_year : "1500_liters"
+          excellent_year : "3000_liters"
+        }
+
+        quality_vs_quantity : {
+          high_yield : "lower_quality"
+          low_yield : "concentrated_higher_quality"
+          pruning_strategy : "determines_balance"
+        }
+      }
+    }
+
+    wine_making : {
+      pressing : {
+        calcatorium : {
+          description : "treading_floor"
+          method : "workers_crush_grapes_by_foot"
+          traditional : "still_preferred_for_quality"
+          gentle : "doesnt_crush_seeds_bitter_tannins"
+          labor : "5_to_10_workers_dancing_and_singing"
+          duration : "several_hours"
+        }
+
+        torcular : {
+          description : "screw_press_or_lever_press"
+          method : "mechanical_pressure"
+          efficiency : "extracts_more_juice"
+          stages : {
+            first_press : "free_run_juice_highest_quality"
+            second_press : "good_quality"
+            third_press : "lower_quality_or_vinegar"
+          }
+        }
+
+        must : {
+          description : "freshly_pressed_grape_juice"
+          contains : "skins_seeds_stems_initially"
+          separation : "for_white_wine_immediate"
+          maceration : "for_red_wine_skin_contact"
+        }
+      }
+
+      fermentation : {
+        vessels : {
+          dolia : {
+            description : "large_clay_jars_buried_in_ground"
+            capacity : "400_to_2000_liters"
+            temperature : "stable_underground"
+            traditional : "oldest_method"
+          }
+
+          amphorae : {
+            description : "clay_vessels"
+            capacity : "26_to_40_liters"
+            portable : "for_transport_and_storage"
+            lined : "with_pitch_or_resin"
+          }
+
+          wooden_barrels : {
+            description : "introduced_from_gaul"
+            advantages : "lighter_than_amphorae_easier_transport"
+            flavoring : "oak_adds_flavors"
+            adoption : "increasingly_common_in_empire"
+          }
+        }
+
+        process : {
+          spontaneous : "wild_yeast_from_grape_skins"
+          no_cultured_yeast : "didnt_understand_yeast"
+          duration : "1_to_3_weeks"
+          temperature : "critical_for_quality"
+          monitoring : "taste_daily"
+
+          problems : {
+            stuck_fermentation : "stops_before_complete"
+            spoilage : "vinegar_bacteria"
+            oxidation : "exposure_to_air"
+            remedies : ["heat", "fresh_must_added", "seal_better"]
+          }
+        }
+
+        additives : {
+          honey : "sweeten_and_boost_alcohol"
+          herbs : "flavoring_medicinal"
+          spices : ["cinnamon", "saffron", "ginger"]
+          resin : "preserve_and_flavor_retsina"
+          seawater : "salinity_preservation"
+          marble_dust : "reduce_acidity"
+          lead : "sweeten_but_toxic"
+          sulfur : "preserve_from_oxidation"
+        }
+      }
+
+      aging : {
+        duration : {
+          basic_wine : "drink_within_year"
+          quality_wine : "3_to_5_years"
+          premium_wine : "10_to_20_years"
+          legendary : {
+            opimian_wine : {
+              vintage : "121_BC"
+              aged : "over_100_years"
+              consul_opimius : "legendary_vintage"
+              value : "priceless"
+            }
+
+            falernian : "best_at_15_to_20_years"
+          }
+        }
+
+        storage : {
+          cellars : {
+            apotheca : "wine_storage_room"
+            conditions : "cool_stable_temperature"
+            location : "underground_or_north_facing"
+            capacity : "hundreds_to_thousands_of_amphorae"
+          }
+
+          fumarium : {
+            description : "smoking_room"
+            method : "heat_and_smoke_age_wine_quickly"
+            result : "smoky_character"
+            used_for : "cheaper_wines_to_simulate_aging"
+          }
+
+          position : {
+            amphorae : "stored_upright_or_on_sides"
+            sealing : "cork_or_clay_plug_plus_pitch"
+            labeling : "painted_or_stamped_vintage_vineyard"
+          }
+        }
+
+        quality_development : {
+          young_wine : "harsh_acidic"
+          aged_wine : "smooth_complex"
+          peak : "varies_by_variety"
+          decline : "eventually_turns_to_vinegar"
+
+          care : {
+            racking : "transfer_to_clean_vessel_remove_sediment"
+            topping_up : "prevent_oxidation"
+            inspection : "taste_regularly"
+            rotation : "sell_older_vintages_first"
+          }
+        }
+      }
+
+      styles : {
+        white_wine : {
+          production : "minimal_skin_contact"
+          characteristics : "light_crisp_acidic"
+          consumption : "drink_young"
+        }
+
+        red_wine : {
+          production : "extended_skin_contact"
+          characteristics : "full_bodied_tannic"
+          aging : "improves_with_time"
+        }
+
+        sweet_wine : {
+          passum : {
+            method : "dry_grapes_on_mats"
+            result : "concentrated_sugars"
+            uses : "dessert_wine"
+          }
+
+          mulsum : {
+            method : "honey_added_to_wine"
+            popular : "very_common"
+            served : "as_aperitif"
+          }
+        }
+
+        fortified_wine : {
+          method : "boil_must_to_concentrate"
+          result : "higher_alcohol_sweeter"
+          defrutum : "reduced_to_2_3_volume"
+          carenum : "reduced_to_1_2_volume"
+          sapa : "reduced_to_1_3_volume_syrup"
+        }
+
+        flavored_wine : {
+          conditum : {
+            spices : ["honey", "pepper", "saffron", "mastic", "bay_leaves"]
+            preparation : "mix_and_age"
+            serve : "special_occasions"
+          }
+
+          absinthium : {
+            base : "wormwood"
+            medicinal : "digestive_aid"
+            bitter : "acquired_taste"
+          }
+
+          rosatum : {
+            rose_petals : "steeped_in_wine"
+            delicate : "floral_aroma"
+            luxury : "wealthy_households"
+          }
+        }
+
+        posca : {
+          description : "vinegar_wine_water"
+          quality : "low"
+          consumers : "soldiers_laborers_poor"
+          refreshing : "diluted_acidic"
+          cheap : "made_from_spoiled_wine"
+        }
+      }
+    }
+
+    economics : {
+      costs : {
+        production : {
+          vineyard_labor : "50_denarii_per_acre_per_year"
+          harvest : "100_denarii_per_acre"
+          processing : "variable_by_volume"
+          storage : "ongoing"
+          total : "300_to_500_denarii_per_acre_per_year"
+        }
+
+        overhead : {
+          equipment_maintenance : "ongoing"
+          slave_upkeep : "if_using_slaves"
+          free_labor_wages : "if_hiring"
+          taxes : "to_state"
+        }
+      }
+
+      revenue : {
+        prices_per_amphora : {
+          posca_cheap_wine : "1_to_5_denarii"
+          ordinary_wine : "10_to_20_denarii"
+          quality_wine : "50_to_100_denarii"
+          premium_wine : "200_to_500_denarii"
+          legendary_falernian : "1000_plus_denarii"
+        }
+
+        markets : {
+          local : "taverns_shops_direct_sales"
+          regional : "other_cities"
+          export : "provinces_and_beyond"
+          imperial : "supply_army_and_state"
+        }
+
+        bulk_vs_boutique : {
+          volume_producer : "low_margins_high_volume"
+          quality_estate : "high_margins_low_volume"
+        }
+      }
+
+      profitability : {
+        large_estate : "500_acres_200000_denarii_profit_per_year"
+        medium_estate : "50_acres_20000_denarii_profit_per_year"
+        small_vineyard : "5_acres_2000_denarii_profit_per_year"
+
+        wealth_generation : {
+          landed_aristocracy : "wine_estates_major_income"
+          social_mobility : "freedmen_become_wealthy"
+          investment : "popular_for_senators_equestrians"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // OLIVE CULTIVATION
+  // ==========================================
+  olive_production : {
+    groves : {
+      establishment : {
+        land : "rocky_poor_soil_acceptable"
+        climate : "mediterranean_essential"
+        drought_tolerance : "excellent"
+        long_term : "trees_live_centuries"
+
+        planting : {
+          spacing : "30_to_40_feet_apart"
+          varieties : {
+            licinian : "high_quality_oil"
+            sergian : "table_olives"
+            royal : "large_fruit"
+            radius : "medium_oil_yield"
+            common : "hardy_productive"
+          }
+
+          propagation : {
+            cuttings : "from_established_trees"
+            grafting : "improve_wild_olives"
+            transplanting : "young_saplings"
+          }
+
+          time_to_production : "7_to_10_years_for_first_harvest"
+          full_production : "age_20_onwards"
+          lifespan : "500_plus_years"
+        }
+
+        investment : {
+          land : "cheaper_than_vineyard_land"
+          trees : "slow_return_on_investment"
+          equipment : "presses_storage"
+          total : "50000_to_500000_denarii"
+          payback : "15_to_20_years"
+        }
+      }
+
+      cultivation : {
+        annual_care : {
+          pruning : "every_2_to_3_years"
+          soil_management : "minimal_fertilization"
+          pest_control : "olive_fly_main_problem"
+          irrigation : "drought_tolerant_but_benefits"
+        }
+
+        harvest : {
+          timing : {
+            green_olives : "september_to_october"
+            black_olives : "november_to_january"
+            oil_production : "november_peak_oil_content"
+          }
+
+          methods : {
+            hand_picking : "highest_quality_careful"
+            beating : "sticks_to_knock_down_faster"
+            shaking : "mechanical_or_manual"
+            gathering : "nets_below_trees"
+          }
+
+          labor : {
+            intensive : "entire_household_involved"
+            seasonal : "hire_extra_workers"
+            duration : "2_to_4_weeks"
+          }
+
+          yields : {
+            young_tree : "10_to 50_pounds"
+            mature_tree : "50_to_200_pounds"
+            ancient_tree : "300_plus_pounds"
+            per_acre : "1_to_3_tons_olives"
+          }
+        }
+
+        alternate_bearing : {
+          description : "heavy_crop_then_light_crop_alternating_years"
+          management : "pruning_can_reduce_effect"
+          planning : "expect_variability"
+        }
+      }
+
+      processing : {
+        table_olives : {
+          varieties : "large_fleshy_olives"
+
+          curing : {
+            water_curing : {
+              method : "soak_in_water_change_daily"
+              duration : "10_to_14_days"
+              result : "mild_flavor"
+            }
+
+            brine_curing : {
+              method : "soak_in_salt_water"
+              duration : "6_to_12_months"
+              result : "traditional_flavor"
+            }
+
+            dry_curing : {
+              method : "pack_in_salt"
+              duration : "1_month"
+              result : "wrinkled_concentrated"
+            }
+
+            lye_curing : {
+              method : "wood_ash_solution"
+              duration : "12_to_24_hours"
+              result : "quick_but_harsh"
+            }
+          }
+
+          flavoring : {
+            herbs : ["fennel", "oregano", "thyme"]
+            spices : "coriander_cumin"
+            aromatics : "garlic_lemon"
+            oil : "preserved_in_olive_oil"
+          }
+
+          storage : {
+            amphorae : "sealed_containers"
+            duration : "months_to_years"
+            export : "major_trade_commodity"
+          }
+        }
+
+        olive_oil : {
+          extraction : {
+            crushing : {
+              trapetum : {
+                description : "olive_crusher_rotating_stones"
+                method : "grind_olives_to_paste"
+                includes : "pits_crushed_too"
+              }
+
+              paste : {
+                consistency : "thick_pulp"
+                malaxation : "mix_to_coalesce_oil_droplets"
+                duration : "30_to_60_minutes"
+              }
+            }
+
+            pressing : {
+              first_press : {
+                method : "gentle_pressure"
+                yield : "oleum_ex_albis_virgin_oil"
+                quality : "highest_coldest_press"
+                color : "golden_green"
+                flavor : "fruity_mild"
+                use : "raw_consumption_cooking"
+              }
+
+              second_press : {
+                method : "increased_pressure"
+                yield : "ordinary_oil"
+                quality : "good"
+                use : "cooking"
+              }
+
+              third_press : {
+                method : "hot_water_added_maximum_pressure"
+                yield : "lampante_oil"
+                quality : "low"
+                use : "lamps_soap_not_eating"
+              }
+
+              press_types : {
+                lever_press : "weighted_beam"
+                screw_press : "threaded_mechanism"
+                capacity : "process_tons_per_day"
+              }
+            }
+
+            separation : {
+              settling : "oil_floats_on_water"
+              skimming : "remove_oil_from_top"
+              multiple_separations : "improve_purity"
+            }
+          }
+
+          grades : {
+            extra_virgin : {
+              description : "first_cold_press"
+              acidity : "below_1_percent"
+              flavor : "excellent"
+              price : "premium"
+              use : "raw_salads_finishing"
+            }
+
+            virgin : {
+              description : "first_press_but_lower_quality_fruit"
+              acidity : "1_to_2_percent"
+              flavor : "good"
+              price : "moderate"
+              use : "cooking"
+            }
+
+            ordinary : {
+              description : "second_press"
+              acidity : "2_to_4_percent"
+              flavor : "acceptable"
+              price : "cheap"
+              use : "cooking_frying"
+            }
+
+            lampante : {
+              description : "third_press_or_bad_fruit"
+              acidity : "above_4_percent"
+              flavor : "poor_rancid"
+              price : "very_cheap"
+              use : "lamps_industrial"
+            }
+          }
+
+          storage : {
+            vessels : "amphorae_or_dolia"
+            conditions : "cool_dark"
+            sealing : "prevent_oxidation"
+            shelf_life : "1_to_2_years_best_quality"
+          }
+
+          uses : {
+            culinary : "cooking_frying_salad_dressing"
+            lighting : "olive_oil_lamps"
+            cosmetics : "skin_care_hair_care"
+            medicine : "base_for_ointments"
+            religious : "anointing_oil"
+            athletic : "massage_oil_for_gymnasia"
+            industrial : "soap_making_textile_processing"
+          }
+        }
+      }
+
+      economics : {
+        costs : {
+          labor : "harvest_and_processing_intensive"
+          equipment : "presses_expensive"
+          storage : "large_vessels_needed"
+          transport : "heavy_amphorae"
+        }
+
+        revenue : {
+          olive_oil_prices : {
+            lampante : "2_denarii_per_liter"
+            ordinary : "5_denarii_per_liter"
+            virgin : "10_denarii_per_liter"
+            extra_virgin : "20_plus_denarii_per_liter"
+          }
+
+          table_olives : "10_to_50_denarii_per_amphora"
+
+          markets : {
+            local : "direct_sales"
+            regional : "trade_networks"
+            export : "spain_to_rome_major_route"
+          }
+        }
+
+        profitability : {
+          mature_grove_50_acres : "15000_denarii_per_year"
+          large_estate_500_acres : "150000_denarii_per_year"
+          oil_vs_table : "oil_more_profitable_in_bulk"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // SYMPOSIA & DRINKING CULTURE
+  // ==========================================
+  symposia : {
+    description : "wine_drinking_party_after_dinner"
+    greek_origin : "adopted_and_adapted_by_romans"
+    convivium : "roman_term_for_banquet"
+
+    structure : {
+      cena : {
+        description : "dinner_first"
+        courses : {
+          gustatio : "appetizers_eggs_vegetables_shellfish"
+          primae_mensae : "main_courses_meat_fish"
+          secundae_mensae : "dessert_fruit_nuts_pastries"
+        }
+        wine : "mixed_with_water_during_dinner"
+        duration : "2_to_3_hours"
+      }
+
+      comissatio : {
+        description : "drinking_party_after_dinner"
+        wine : "stronger_less_diluted"
+        entertainment : "music_dancing_games_conversation"
+        duration : "until_dawn_sometimes"
+
+        participants : {
+          host : {
+            role : "provide_venue_and_wine"
+            status : "wealth_and_generosity_on_display"
+            magistrate_banquet : "arbiter_bibendi_master_of_drinking"
+          }
+
+          guests : {
+            invitations : "select_friends_clients_important_people"
+            expected : "bring_witty_conversation"
+            hierarchy : "seating_by_rank"
+          }
+
+          courtesans : {
+            meretrices : {
+              description : "high_class_companions"
+              role : "entertainment_conversation_companionship_intimacy"
+              education : "cultured_musical_literary"
+              payment : "expensive_gifts_and_fees"
+              status : "some_become_wealthy_influential"
+
+              famous_courtesans : {
+                volumnia_cytheris : "lover_of_mark_antony"
+                praecia : "political_influence"
+                chelidon : "advised_verres"
+              }
+            }
+
+            dancers : {
+              role : "erotic_dancing_performances"
+              exotic : "from_syria_spain_egypt"
+              scandalous : "increasingly_explicit_as_night_progresses"
+            }
+
+            musicians : {
+              instruments : ["lyre", "flute", "tambourine", "cymbals"]
+              singers : "erotic_love_songs"
+            }
+
+            acrobats : "physical_entertainment"
+          }
+
+          slaves : {
+            servers : "pour_wine_bring_food"
+            beautiful_boys : "pour_wine_sexual_availability"
+            silent : "expected_to_be_invisible"
+            numerous : "10_to_50_serving_large_banquet"
+          }
+        }
+      }
+    }
+
+    setting : {
+      triclinium : {
+        description : "dining_room"
+        couches : {
+          arrangement : "three_couches_around_central_table"
+          lectus_summus : "place_of_honor"
+          reclining : "left_elbow_propped"
+          capacity : "9_people_3_per_couch"
+        }
+
+        decoration : {
+          frescoes : "erotic_mythological_scenes_common"
+          mosaics : "elaborate_floor_designs"
+          lighting : "oil_lamps_candles"
+          perfumes : "incense_burning"
+        }
+      }
+
+      outdoor_symposia : {
+        summer : "in_gardens_under_porticos"
+        moonlight : "romantic_atmosphere"
+        fountains : "water_sounds"
+        sculpture_gardens : "erotic_statuary"
+      }
+    }
+
+    wine_service : {
+      crater : {
+        description : "mixing_bowl"
+        function : "mix_wine_with_water"
+        ratios : {
+          conservative : "1_part_wine_3_parts_water"
+          standard : "1_wine_2_water"
+          strong : "1_wine_1_water"
+          scythian : "unmixed_wine_barbaric"
+        }
+
+        arbiter_bibendi : {
+          role : "master_of_drinking_symposiarch"
+          decides : "wine_strength_and_pace"
+          authority : "absolute_for_evening"
+          sometimes : "chosen_by_dice"
+        }
+      }
+
+      pouring : {
+        slaves_pour : "into_individual_cups"
+        toasts : {
+          to_gods : "libation_poured_on_floor"
+          to_emperor : "mandatory_in_empire"
+          to_absent_friends : "sentimental"
+          to_lovers : "number_of_cups_equals_letters_in_name"
+        }
+
+        drinking_games : {
+          cottabus : {
+            description : "fling_wine_dregs_at_target"
+            skill : "accuracy_rewarded"
+            prizes : "kisses_from_courtesans"
+            mess : "wine_splattered_everywhere"
+          }
+
+          dice_games : "determine_who_drinks_next"
+          riddles : "loser_drinks"
+        }
+      }
+    }
+
+    entertainment : {
+      conversation : {
+        topics : {
+          philosophy : "stoicism_epicureanism_debated"
+          politics : "dangerous_but_unavoidable"
+          poetry : "recitations_and_improvisation"
+          gossip : "scandals_and_affairs"
+          boasting : "military_exploits_wealth"
+        }
+
+        sophistry : "clever_arguments"
+        insults : "witty_verbal_sparring"
+      }
+
+      music_and_dance : {
+        performances : {
+          lyre_players : "accompaniment"
+          flute_girls : {
+            auletrides : "slave_musicians"
+            erotic : "suggestive_playing"
+            available : "sexual_services_expected"
+          }
+
+          dancers : {
+            progression : "modest_to_erotic"
+            late_night : "fully_nude_dancing"
+            interactive : "guests_join_in"
+          }
+
+          singers : "love_songs_drinking_songs"
+        }
+      }
+
+      erotic_entertainment : {
+        progression : {
+          early_evening : "flirtation_innuendo"
+          mid_evening : "touching_fondling"
+          late_night : "open_sexual_activity"
+          dawn : "those_remaining_thoroughly_debauched"
+        }
+
+        activities : {
+          kissing_games : "spin_the_amphora_etc"
+          strip_games : "losing_means_disrobing"
+          public_displays : {
+            courtesans : "with_guests"
+            slaves : "commanded_to_perform"
+            guests : "exhibitionists_with_partners"
+          }
+
+          private_rooms : {
+            cubicula : "bedrooms_off_triclinium"
+            use : "retire_with_companions"
+            discrete : "or_not_depending_on_party"
+          }
+        }
+
+        boundaries : {
+          anything_goes : "with_slaves_and_sex_workers"
+          married_women : "adultery_still_taboo_if_citizen"
+          respectable_matrons : "never_at_these_parties"
+          double_standard : "men_have_freedom_women_dont"
+        }
+      }
+
+      spectacles : {
+        exotic_animals : "peacocks_parrots_monkeys"
+        dwarfs : "entertainment_unfortunately"
+        poets : "recite_new_works"
+        philosophers : "guest_lecturers"
+      }
+
+      descent_into_chaos : {
+        progressively_drunk : "wine_takes_effect"
+        vomiting : {
+          vomitorium : "NOT_for_purging_its_exit"
+          stick_down_throat : "to_continue_drinking"
+          slaves_clean : "continuously"
+        }
+
+        fights : "arguments_become_physical"
+        passing_out : "on_couches_under_tables"
+        morning_after : "terrible_hangovers"
+      }
+    }
+
+    types : {
+      private_symposia : {
+        intimate : "close_friends_only"
+        intellectual : "philosophy_focused"
+        hedonistic : "pleasure_focused"
+        political : "networking_and_deals"
+      }
+
+      public_banquets : {
+        saturnalia : {
+          december_festival : "role_reversal"
+          masters_serve_slaves : "temporary"
+          gambling_allowed : "normally_illegal"
+          gift_giving : "small_presents"
+          debauchery : "socially_sanctioned_excess"
+          duration : "week_long_parties"
+        }
+
+        triumph_feast : {
+          general_celebrates : "victory_banquet"
+          massive_scale : "thousands_fed"
+          propaganda : "display_of_wealth_and_power"
+        }
+
+        imperial_banquets : {
+          emperor_hosts : "political_theater"
+          hundreds_of_guests : "senators_equestrians"
+          extravagant : "exotic_foods_entertainment"
+          dangerous : "emperor_caligula_nero_unpredictable"
+        }
+      }
+
+      bacchanalia : {
+        description : "secret_nocturnal_wine_cult"
+        god : "bacchus_dionysus"
+
+        participants : {
+          initiates_only : "secret_rites"
+          mostly_women : "priestesses_lead"
+          some_men : "especially_young"
+          social_mixing : "nobles_and_commoners"
+        }
+
+        rituals : {
+          wine_consumption : "excessive_ritual"
+          music : {
+            drums : "tympana_frenzied_beating"
+            cymbals : "clash_rhythmically"
+            flutes : "wild_piping"
+          }
+
+          dancing : {
+            ecstatic : "frenzied_movement"
+            sexual : "orgiastic_dancing"
+            trance : "altered_states"
+          }
+
+          costumes : {
+            ivy_crowns : "sacred_to_bacchus"
+            animal_skins : "fawn_deer"
+            phalluses : "fertility_symbols"
+            gradually_removed : "increasing_nudity"
+          }
+
+          activities : {
+            symbolic_marriage : "to_god"
+            sexual_rites : "fertility_magic"
+            ecstatic_prophecy : "divine_possession"
+            simulated_madness : "bacchic_frenzy"
+            real_sex : "between_participants"
+            anything_could_happen : "in_darkness_and_wine"
+          }
+        }
+
+        scandal : {
+          senate_investigation : "186_BC"
+          charges : {
+            conspiracy : "political_plotting"
+            immorality : "sexual_excess"
+            murder : "alleged_human_sacrifice"
+            undermining_state : "secret_society"
+          }
+
+          suppression : {
+            thousands_arrested : "7000_people"
+            executions : "hundreds_killed"
+            driven_underground : "but_continued"
+          }
+
+          reality_vs_propaganda : {
+            moral_panic : "senatorial_fear_of_loss_of_control"
+            probably_exaggerated : "wine_cult_not_murder_cult"
+            but_definitely_sexual : "orgiastic_elements_real"
+          }
+        }
+
+        continued_practice : {
+          secret : "hidden_from_authorities"
+          countryside : "away_from_cities"
+          private_villas : "wealthy_patrons_host"
+          loyal_slaves : "enforce_secrecy"
+          mystery_religion : "initiates_sworn_to_silence"
+        }
+
+        gameplay : {
+          player_can : {
+            host : "organize_bacchanalia_on_estate"
+            attend : "join_cult"
+            suppress : "if_magistrate_raid_and_arrest"
+            ignore : "turn_blind_eye"
+          }
+
+          benefits : {
+            happiness_boost : "participants_ecstatic"
+            loyalty : "cult_members_bonded"
+            network : "secret_society_connections"
+            divine_favor : "bacchus_blessing"
+          }
+
+          risks : {
+            scandal : "if_exposed_reputation_damage"
+            arrest : "legal_consequences"
+            riot : "if_suppressed_bacchants_violent"
+            addiction : "chronic_wine_excess"
+          }
+        }
+      }
+    }
+
+    social_functions : {
+      networking : {
+        patron_client : "reinforce_relationships"
+        business_deals : "negotiated_over_wine"
+        political_alliances : "formed_and_broken"
+        marriages_arranged : "between_families"
+      }
+
+      display_of_wealth : {
+        rare_wines : "opimian_falernian"
+        exotic_foods : "flamingo_tongues_dormice"
+        beautiful_slaves : "expensive_educated"
+        entertainment : "professional_performers"
+        venue : "palatial_villa"
+        silverware : "elaborate_serving_vessels"
+      }
+
+      masculine_bonding : {
+        homosocial : "male_dominated_space"
+        competitive : "wit_wealth_stamina"
+        sexual_conquest : "sharing_lovers"
+        vulnerability : "drunken_confessions"
+      }
+
+      transgression : {
+        temporary_escape : "from_social_norms"
+        role_exploration : "sexual_fluidity"
+        power_dynamics : "reversed_or_reinforced"
+        cathartic : "release_tension"
+      }
+    }
+
+    famous_symposia : {
+      trimalchios_feast : {
+        source : "petronius_satyricon"
+        host : "wealthy_freedman"
+        extravagance : "absurdly_lavish"
+        nouveau_riche : "bad_taste_on_display"
+        satire : "of_excessive_wealth"
+      }
+
+      neros_banquets : {
+        emperor : "nero"
+        floating_palace : "on_lake"
+        golden_house : "domus_aurea"
+        depraved : "according_to_sources"
+        bankrupting : "imperial_treasury"
+      }
+
+      platos_symposium : {
+        philosophical : "greek_model"
+        love_discussed : "eros_and_philosophy"
+        socrates_present : "intellectual_discourse"
+        ideal : "what_romans_aspired_to_rarely_achieved"
+      }
+    }
+  }
+
+  // ==========================================
+  // BATH CULTURE & ENTERTAINMENT
+  // ==========================================
+  thermae_culture : {
+    social_hub : "center_of_daily_life"
+    mixed_use : {
+      bathing : "primary_function"
+      exercise : "palaestra_activities"
+      socializing : "meet_friends_make_deals"
+      eating : "snack_vendors"
+      entertainment : "various_services"
+      sex : "available_for_purchase"
+    }
+
+    bathing_sequence : {
+      apodyterium : {
+        description : "changing_room"
+        lockers : "cubbies_for_clothes_valuables"
+        slaves : "guard_belongings_or_steal"
+        nudity : "disrobe_completely"
+      }
+
+      palaestra : {
+        description : "exercise_courtyard"
+        activities : ["wrestling", "boxing", "ball_games", "weight_lifting"]
+        oil_application : "before_exercise"
+        build_sweat : "preparation_for_baths"
+      }
+
+      tepidarium : {
+        description : "warm_room"
+        temperature : "moderately_warm"
+        acclimatization : "before_hot_room"
+        socializing : "conversation"
+      }
+
+      caldarium : {
+        description : "hot_room"
+        temperature : "very_hot_steamy"
+        hypocaust : "underfloor_heating"
+        alveus : "hot_water_bath"
+        labrum : "cool_water_basin_for_splashing"
+        sweating : "profuse_cleansing"
+        strigil : {
+          description : "scraping_tool"
+          use : "remove_oil_sweat_dirt"
+          slaves : "perform_scraping_for_wealthy"
+        }
+      }
+
+      frigidarium : {
+        description : "cold_room"
+        pool : "cold_plunge"
+        shock : "invigorating"
+        close_pores : "after_hot_bath"
+      }
+
+      massage : {
+        unctores : {
+          description : "oil_appliers_and_masseurs"
+          techniques : ["stroking", "kneading", "slapping"]
+          oils : "olive_oil_with_perfumes"
+          services : {
+            therapeutic : "muscle_pain_relief"
+            relaxation : "stress_reduction"
+            sensual : {
+              description : "erotic_massage"
+              available : "for_fee"
+              private_rooms : "cubicula"
+              progression : "starts_professional_becomes_sexual"
+              happy_ending : "expected_and_provided"
+            }
+          }
+        }
+
+        alipilarii : {
+          description : "hair_removers"
+          method : "tweezers_or_early_depilatory"
+          painful : "necessary_evil"
+          smooth_skin : "aesthetic_ideal"
+        }
+      }
+    }
+
+    services : {
+      prostitution : {
+        ubiquitous : "in_and_around_baths"
+
+        locations : {
+          fornices : {
+            description : "vaulted_chambers_under_stands"
+            etymology : "source_of_word_fornication"
+            dark : "minimal_privacy"
+            cheap : "quick_services"
+          }
+
+          cubicula : {
+            description : "private_rooms"
+            within_bath_complex : "or_nearby"
+            better_quality : "more_expensive"
+            appointments : "or_walk_in"
+          }
+
+          street_corners : "outside_baths_soliciting"
+        }
+
+        workers : {
+          meretrices : {
+            description : "higher_class_prostitutes"
+            location : "upscale_baths"
+            prices : "50_to_500_denarii"
+            services : "full_experience_conversation_included"
+            some_independent : "keep_own_earnings"
+          }
+
+          prostibulae : {
+            description : "common_prostitutes"
+            location : "cheaper_baths_street"
+            prices : "2_to_20_denarii"
+            services : "quick_transactions"
+            mostly_slaves : "earnings_to_pimp_or_master"
+          }
+
+          male_prostitutes : {
+            exoleti : {
+              description : "young_men_for_older_men"
+              legal : "if_not_citizens"
+              common : "accepted_practice"
+              prices : "varies_widely"
+            }
+
+            spadones : {
+              description : "eunuchs"
+              exotic : "imported_from_east"
+              expensive : "specialty_service"
+            }
+          }
+        }
+
+        regulation : {
+          official : {
+            licensed : "registered_with_aediles"
+            taxes : "paid_to_state"
+            inspections : "irregular"
+          }
+
+          unofficial : {
+            vast_majority : "unlicensed"
+            protection : "pimps_or_organized_crime"
+            bribes : "to_authorities"
+          }
+        }
+
+        clients : {
+          all_classes : "rich_and_poor"
+          married_men : "socially_acceptable"
+          young_men : "expected_to_frequent"
+          women : "rarely_but_some_wealthy_women_hire_male_prostitutes"
+        }
+
+        disease : {
+          common : "sexually_transmitted_infections"
+          no_understanding : "of_transmission"
+          treatments : "ineffective_mercury_compounds"
+          stigma : "prostitutes_blamed"
+        }
+      }
+
+      entertainment : {
+        musicians : "play_in_bath_halls"
+        acrobats : "performances"
+        story_tellers : "recount_tales"
+        philosophers : "lecturing_for_donations"
+        poets : "recitations"
+      }
+
+      food_vendors : {
+        snacks : "nuts_fruit_pastries"
+        drinks : "wine_water_juices"
+        full_meals : "in_larger_establishments"
+      }
+
+      gambling : {
+        dice : "illegal_but_ubiquitous"
+        board_games : "ludus_latrunculorum"
+        betting : "on_athletic_contests"
+      }
+    }
+
+    social_dynamics : {
+      mixed_bathing : {
+        early_republic : "separate_times_for_men_and_women"
+        late_republic : "increasing_mixture"
+        empire : {
+          hadrian : "separated_sexes"
+          later_emperors : "allowed_mixing_again"
+          practice : "varied_by_bath_and_period"
+        }
+
+        scandal : {
+          conservatives : "decried_moral_decay"
+          reality : "sexual_interaction_in_mixed_baths"
+          voyeurism : "mutual_viewing"
+        }
+      }
+
+      social_mixing : {
+        democratic : "rich_and_poor_bathe_together"
+        but_segregated : {
+          oil_quality : "wealthy_use_perfumed_expensive"
+          slaves : "attend_masters"
+          services : "wealthy_get_better_treatment"
+        }
+      }
+
+      nude_culture : {
+        complete_nudity : "expected_in_baths"
+        body_display : {
+          athletic_physique : "admired"
+          large_endowment : "subject_of_comment"
+          circumcision : "marked_as_jewish_mocked"
+          scars : "from_battle_honored"
+        }
+
+        sexual_tension : {
+          visual : "looking_appreciated"
+          touching : "accidental_or_intentional"
+          flirtation : "verbal_and_physical"
+          encounters : "arranged_or_spontaneous"
+        }
+      }
+
+      etiquette : {
+        greeting_friends : "expected"
+        dont_splash : "rudeness"
+        singing : "prohibited_by_some"
+        farting : "course_but_acceptable"
+        masturbation : "in_private_areas_ignored"
+        sex : "in_designated_spaces_tolerated"
+      }
+    }
+
+    hours : {
+      afternoon : "peak_time_eighth_to_tenth_hour"
+      morning : "less_crowded_serious_exercise"
+      evening : "social_hour"
+      night : "some_open_24_hours_for_fee"
+    }
+
+    cost : {
+      admission : {
+        men : "1_quadrans_very_cheap"
+        women : "2_quadrans"
+        children : "free_or_half_price"
+        slaves : "with_master_included"
+      }
+
+      services : "additional_fees_for_massage_etc"
+
+      free_baths : {
+        imperial_gift : "emperors_provide_free_days"
+        private_benefactors : "wealthy_sponsor_free_admission"
+        political : "aediles_during_campaigns"
+      }
+    }
+
+    famous_baths : {
+      baths_of_caracalla : "1600_capacity"
+      baths_of_diocletian : "3000_capacity"
+      baths_of_trajan : "magnificent"
+      see_engineering_marvels : "thermae_imperialis_detailed"
+    }
+  }
+
+  // ==========================================
+  // LUPANARES & BROTHELS
+  // ==========================================
+  brothels : {
+    description : "dedicated_houses_of_prostitution"
+    latin_term : "lupanar_plural_lupanares"
+    etymology : "from_lupa_she_wolf_slang_for_prostitute"
+
+    types : {
+      licensed_establishments : {
+        legal_status : "legitimate_business"
+        registration : "with_aediles"
+        taxation : "revenue_to_state"
+        inspection : "irregular_enforcement"
+
+        facilities : {
+          purpose_built : {
+            rooms : "multiple_small_cells"
+            beds : "stone_benches_with_cushions"
+            frescoes : {
+              erotic_art : "explicit_sexual_positions"
+              menu : "shows_available_services"
+              famous : "pompeii_lupanar_preserved"
+            }
+
+            signage : {
+              external : "phallus_symbols_point_the_way"
+              prices : "posted_or_negotiated"
+            }
+
+            location : "near_baths_forums_entertainment"
+          }
+
+          converted_buildings : "shops_or_homes_adapted"
+        }
+
+        staff : {
+          leno_lena : {
+            description : "pimp_or_madam"
+            role : "manage_operations"
+            social_status : "infamis_disgraced"
+            wealth : "can_become_very_rich"
+            protection : "hired_muscle"
+          }
+
+          prostitutes : {
+            meretrices : {
+              status : "better_quality"
+              slaves : "owned_by_leno_or_work_independently"
+              earnings : "keep_portion_if_independent"
+              rooms : "private_better_appointed"
+            }
+
+            prostibulae : {
+              status : "common_streetwalkers"
+              work : "in_cribs_or_streets"
+              earnings : "minimal_exploitation"
+              conditions : "poor_dangerous"
+            }
+
+            specialties : {
+              oral : "fellators_fellatrices"
+              anal : "pathics"
+              exotic : "foreign_women_novelty"
+              virgins : "premium_price_often_fraud"
+            }
+          }
+
+          doormen : "security_and_collect_fees"
+          servants : "clean_provide_water_wine"
+        }
+
+        services : {
+          basic : "quick_intercourse"
+          extended : "time_and_multiple_acts"
+          specialized : "particular_acts_or_fetishes"
+          dinner_and_company : "higher_class_courtesans"
+        }
+
+        pricing : {
+          street_level : "2_to_5_denarii_standing_in_alley"
+          lupanar : "10_to_50_denarii_room_and_time"
+          high_class : "100_to_1000_denarii_courtesan_evening"
+          specialized : "negotiated_can_be_very_expensive"
+        }
+
+        clients : {
+          all_classes : "senators_to_slaves"
+          anonymity : "often_desired"
+          regulars : "favorite_girls"
+          groups : "friends_together"
+          young_men : "sexual_initiation"
+        }
+      }
+
+      unlicensed_operations : {
+        street_prostitution : "most_common"
+        apartment_brothels : "small_scale"
+        mobile : "follow_armies_or_events"
+        completely_illegal : "no_taxes_or_protection"
+      }
+    }
+
+    famous_example : {
+      pompeii_lupanar : {
+        discovered : "preserved_by_vesuvius_79_AD"
+        location : "via_dell_abbondanza"
+
+        structure : {
+          two_stories : "ten_rooms_total"
+          ground_floor : "five_cells_for_cheaper_services"
+          upper_floor : "better_rooms"
+          latrine : "shared_facility"
+        }
+
+        frescoes : {
+          explicit : "sexual_acts_depicted"
+          positions : "various_illustrated"
+          purpose : "menu_for_illiterate_or_foreign_clients"
+          preservation : "still_visible_today"
+          details : {
+            couples : "male_female"
+            group_scenes : "multiple_participants"
+            same_sex : "male_male_depicted"
+            oral_anal : "all_acts_shown"
+          }
+        }
+
+        graffiti : {
+          clients_wrote : "on_walls"
+          examples : {
+            boasting : "hic_ego_puellas_multas_futui"
+            prices : "weaving_girl_2_asses"
+            names : "athenais_2_asses"
+            crude : "explicit_descriptions"
+            romantic : "occasional_love_declarations"
+          }
+
+          preserved : "archaeological_goldmine"
+        }
+
+        beds : {
+          stone_platforms : "built_in"
+          cushions : "on_top_for_comfort"
+          small : "cramped_quarters"
+        }
+      }
+    }
+
+    social_context : {
+      acceptability : {
+        for_men : "completely_normal"
+        married_men : "no_stigma"
+        social_outlet : "expected"
+        prostitutes : "stigmatized_but_necessary"
+      }
+
+      regulation : {
+        licensing : "required_theoretically"
+        taxes : "prostitution_tax_revenue"
+        zones : "red_light_districts_informal"
+        times : "some_restrictions_religious_days"
+      }
+
+      moral_debate : {
+        conservatives : "decry_moral_decline"
+        pragmatists : "necessary_evil_outlet"
+        stoics : "indifference_bodily_pleasures"
+        epicureans : "moderate_pleasure_acceptable"
+      }
+
+      double_standard : {
+        men : "complete_sexual_freedom"
+        women : {
+          matrons : "must_be_chaste"
+          prostitutes : "infamis_no_rights"
+          slaves : "no_choice"
+          adultery : "for_citizen_women_serious_crime"
+        }
+      }
+    }
+
+    economics : {
+      revenue : {
+        individual_prostitute : "10_to_100_denarii_per_day"
+        brothel : "1000_to_10000_denarii_per_month"
+        pimp_profits : "substantial_after_expenses"
+      }
+
+      expenses : {
+        rent : "for_building"
+        bribes : "to_officials"
+        protection : "organized_crime"
+        food_and_upkeep : "for_enslaved_workers"
+      }
+
+      industry_size : "massive_thousands_of_sex_workers"
+    }
+
+    gameplay_integration : {
+      as_buildings : {
+        construct : "lupanares_in_city"
+        placement : "near_entertainment_districts"
+        upgrades : "quality_affects_revenue"
+      }
+
+      effects : {
+        happiness : {
+          male_citizens : "+5_happiness"
+          wives : "no_effect_or_slight_negative"
+        }
+
+        economy : {
+          revenue : "tax_income_from_prostitution"
+          employment : "jobs_for_desperate"
+        }
+
+        morality : {
+          conservative_faction : "disapproval"
+          libertine_faction : "approval"
+        }
+
+        crime : {
+          associated : "theft_violence_in_areas"
+          organized_crime : "protection_rackets"
+        }
+      }
+
+      decisions : {
+        regulation : {
+          license : "require_registration_collect_taxes"
+          zone : "restrict_to_certain_areas"
+          ban : "outlaw_drives_underground"
+        }
+
+        moral_campaigns : {
+          crackdown : "raids_and_arrests"
+          tolerance : "laissez_faire"
+          state_brothels : "government_run"
+        }
+      }
+
+      events : {
+        scandal : "prominent_citizen_caught"
+        raid : "authorities_close_illegal_establishment"
+        disease_outbreak : "STI_epidemic"
+        murder : "violence_in_brothel"
+        slave_rescue : "activists_free_enslaved_workers"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    production_chains : {
+      wine : {
+        chain : "vineyard → grapes → wine_press → fermentation → aging → bottling → market"
+        workers : ["vinitores", "pressers", "cellar_workers", "merchants"]
+        time : "3_months_to_20_years_depending_on_quality"
+        quality_tiers : ["posca", "ordinary", "quality", "premium", "legendary"]
+      }
+
+      olive_oil : {
+        chain : "olive_grove → harvest → crushing → pressing → separation → storage → market"
+        byproducts : ["table_olives", "lampante_oil"]
+        workers : ["olive_farmers", "press_operators", "merchants"]
+        time : "seasonal_harvest_annual_cycle"
+        quality_tiers : ["lampante", "ordinary", "virgin", "extra_virgin"]
+      }
+    }
+
+    buildings : {
+      vineyard : {
+        size : "large_footprint_5_to_500_acres"
+        workers : "5_to_100_depending_on_size"
+        output : "grapes_for_wine"
+        upgrades : ["better_varieties", "more_acreage", "equipment"]
+      }
+
+      wine_press : {
+        function : "crush_grapes_into_must"
+        workers : "3_to_10"
+        capacity : "tons_per_day"
+      }
+
+      wine_cellar : {
+        function : "fermentation_and_aging"
+        storage : "hundreds_of_amphorae"
+        aging_time : "affects_value"
+        maintenance : "cellar_master_required"
+      }
+
+      olive_grove : {
+        size : "medium_to_large_footprint"
+        workers : "seasonal_variation"
+        output : "olives"
+        long_term_investment : "decades_to_mature"
+      }
+
+      olive_press : {
+        function : "extract_oil_from_olives"
+        workers : "5_to_20"
+        output : "multiple_grades_of_oil"
+      }
+
+      lupanar : {
+        size : "small_to_medium_building"
+        workers : "2_to_20_prostitutes_plus_staff"
+        revenue : "direct_fees_plus_taxes"
+        location : "entertainment_districts"
+      }
+
+      symposium_hall : {
+        size : "medium_building_or_part_of_villa"
+        function : "host_drinking_parties"
+        capacity : "9_to_50_guests"
+        prestige : "increases_reputation"
+      }
+    }
+
+    economics : {
+      profitability : {
+        wine_estate : "very_profitable_long_term"
+        olive_estate : "steady_income_less_glamorous"
+        brothels : "high_revenue_morally_questionable"
+        symposia : "cost_money_but_increase_influence"
+      }
+
+      trade : {
+        export : "ship_wine_and_oil_to_provinces"
+        import : "exotic_varieties"
+        prices : "fluctuate_with_harvests"
+      }
+    }
+
+    social_effects : {
+      wine_culture : {
+        symposia : "increase_upper_class_happiness"
+        taverns : "increase_lower_class_happiness"
+        drunkenness : "public_order_issues"
+      }
+
+      sexual_services : {
+        brothels : "male_happiness_moral_controversy"
+        bath_culture : "social_cohesion_health"
+        scandal_risk : "political_damage_if_exposed"
+      }
+    }
+
+    events : {
+      vintage_year : "exceptional_wine_quality_windfall"
+      blight : "crop_failure_economic_loss"
+      festival : "bacchanalia_city_wide_happiness"
+      scandal : "orgy_at_villa_political_fallout"
+      raid : "authorities_close_brothels"
+      plague : "STI_epidemic_health_crisis"
+    }
+
+    player_choices : {
+      focus_on_quality : "premium_wines_high_prices"
+      focus_on_volume : "cheap_wine_lower_margins"
+      moral_stance : {
+        permit_brothels : "revenue_but_controversy"
+        ban_prostitution : "moral_high_ground_black_market"
+      }
+
+      host_symposia : "network_and_influence_expensive"
+      bacchanalia : "divine_favor_and_happiness_scandal_risk"
+    }
+
+    achievements : {
+      wine_baron : "own_10_vineyards"
+      legendary_vintage : "produce_100_quality_falernian"
+      oil_magnate : "control_olive_oil_trade"
+      symposium_master : "host_100_successful_parties"
+      bacchant : "complete_bacchanalia_without_arrest"
+      pimp_emperor : "own_50_lupanares"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY & SOURCES
+  // ==========================================
+  historical_notes : {
+    wine_production : {
+      sources : ["Pliny_Natural_History", "Cato_De_Agricultura", "Columella", "Varro"]
+      archaeology : "wine_presses_excavated"
+      amphorae : "thousands_found_with_vintner_stamps"
+      varieties : "ancient_grapes_documented"
+    }
+
+    olive_cultivation : {
+      sources : "same_agricultural_writers"
+      olive_presses : "well_preserved_examples"
+      olive_oil_trade : "major_industry_esp_spain"
+    }
+
+    symposia_culture : {
+      literary : ["Petronius_Satyricon", "Plato_Symposium_Greek_model", "Martial", "Juvenal"]
+      artistic : "numerous_frescoes_mosaics"
+      explicit : "pompeii_house_of_vettii"
+    }
+
+    bacchanalia : {
+      historical_event : "186_BC_suppression"
+      primary_source : "Livy_History_of_Rome"
+      senatus_consultum : "official_decree_preserved"
+      archaeological : "bacchic_imagery_common"
+    }
+
+    bath_culture : {
+      extensive_evidence : "thermae_ruins_throughout_empire"
+      graffiti : "pompeii_herculaneum"
+      literature : ["Seneca", "Martial_complaints_about_noise"]
+      mixed_bathing : "documented_and_debated"
+    }
+
+    prostitution : {
+      pompeii_lupanar : "perfectly_preserved_brothel"
+      graffiti : "prices_and_names_documented"
+      legal_sources : "regulation_and_taxation"
+      literary : ["Martial", "Juvenal_satire", "Plautus_comedies"]
+      explicit_art : "thousands_of_erotic_artifacts"
+    }
+
+    educational_content : {
+      mature_rating : "17_plus_recommended"
+      historical_context : "explain_roman_attitudes"
+      primary_sources : "quote_ancient_texts"
+      art_gallery : "pompeii_frescoes_tastefully_presented"
+      documentaries : "link_to_scholarly_resources"
+    }
+
+    disclaimers : {
+      adult_content : "toggle_on_off_in_settings"
+      historical_accuracy : "vs_modern_morality"
+      exploitation : "acknowledge_slavery_and_lack_of_consent_issues"
+      educational_purpose : "understand_ancient_culture_not_glorify"
+    }
+  }
+
+  // ==========================================
+  // ASSET REQUIREMENTS
+  // ==========================================
+  assets_needed : {
+    models : {
+      vineyards : "grapevines_in_rows_3d_models"
+      wine_presses : "calcatorium_and_torcular"
+      amphorae : "various_sizes_and_styles"
+      olive_groves : "olive_trees_mature_and_young"
+      olive_presses : "trapetum_and_screw_press"
+
+      buildings : {
+        wine_cellars : "interior_and_exterior"
+        lupanares : "pompeii_style_brothels"
+        symposium_halls : "triclinium_with_couches"
+        baths : "detailed_thermae_interiors"
+      }
+
+      characters : {
+        vinitores : "vineyard_workers"
+        courtesans : "various_clothing_stages"
+        symposium_guests : "reclining_on_couches"
+        bath_attendants : "masseurs_etc"
+        prostitutes : "various_types"
+      }
+    }
+
+    textures : {
+      grapes : "various_varieties_and_ripeness"
+      wine : "red_white_in_vessels"
+      olive_oil : "golden_liquid"
+      frescoes : {
+        erotic_pompeii : "tasteful_historical_recreations"
+        symposium_scenes : "banquet_imagery"
+        bacchic_imagery : "dionysian_themes"
+      }
+
+      mosaics : "geometric_and_figural_bath_floors"
+    }
+
+    animations : {
+      grape_treading : "workers_crushing_grapes_by_foot"
+      wine_pressing : "operating_screw_press"
+      olive_harvesting : "picking_and_beating"
+      reclining : "symposium_guests_on_couches"
+      bathing : "sequence_through_rooms"
+      intimate : {
+        kissing : "symposium_and_bath"
+        embracing : "various_contexts"
+        discreet_suggestion : "fade_to_black_or_tasteful_silhouette"
+      }
+    }
+
+    audio : {
+      ambience : {
+        vineyard : "rustling_leaves_workers_singing"
+        wine_cellar : "dripping_water_echoes"
+        symposium : "laughter_music_conversation"
+        baths : "splashing_water_echoing_voices"
+        lupanar : "muffled_sounds_discreet"
+      }
+
+      music : {
+        symposium : "lyre_flute_authentic_instruments"
+        bacchanalia : "drums_cymbals_frenzied"
+        baths : "relaxing_ambient"
+      }
+    }
+
+    sources : {
+      pompeii_archaeological : "public_domain_photos_and_scans"
+      museum_collections : "british_museum_naples_louvre"
+      3d_scan_repositories : "sketchfab_turbosquid_historical"
+      commission_custom : "for_unique_needs"
+      procedural_generation : "for_repetitive_elements"
+    }
+  }
+}
