@@ -1,0 +1,1556 @@
+// CaesarIA 2025 - Medicine & Healthcare System
+// Roman medical practices, public health, and disease management
+
+healthcare_system : {
+  // ==========================================
+  // MEDICAL THEORY
+  // ==========================================
+  medical_philosophy : {
+    four_humors : {
+      theory : "basis_of_roman_medicine"
+      origin : "hippocratic_and_galenic"
+
+      humors : {
+        blood : {
+          element : "air"
+          qualities : "hot_and_moist"
+          organ : "heart"
+          season : "spring"
+          temperament : "sanguine"
+          excess_symptoms : ["fever", "inflammation", "headache"]
+          treatment : "bloodletting"
+        }
+
+        yellow_bile : {
+          element : "fire"
+          qualities : "hot_and_dry"
+          organ : "liver"
+          season : "summer"
+          temperament : "choleric"
+          excess_symptoms : ["anger", "jaundice", "fever"]
+          treatment : "cooling_foods_and_purging"
+        }
+
+        black_bile : {
+          element : "earth"
+          qualities : "cold_and_dry"
+          organ : "spleen"
+          season : "autumn"
+          temperament : "melancholic"
+          excess_symptoms : ["depression", "constipation", "dark_urine"]
+          treatment : "warming_foods_and_activity"
+        }
+
+        phlegm : {
+          element : "water"
+          qualities : "cold_and_moist"
+          organ : "brain_and_lungs"
+          season : "winter"
+          temperament : "phlegmatic"
+          excess_symptoms : ["lethargy", "coughs", "pale_complexion"]
+          treatment : "drying_warming_foods"
+        }
+      }
+
+      balance : {
+        health : "equilibrium_of_humors"
+        disease : "imbalance"
+        diagnosis : "identify_which_humor_excessive_or_deficient"
+        treatment : "restore_balance"
+      }
+
+      individual_constitution : {
+        each_person : "unique_humoral_balance"
+        temperament : "personality_from_dominant_humor"
+        susceptibility : "prone_to_certain_diseases"
+      }
+    }
+
+    miasma_theory : {
+      belief : "bad_air_causes_disease"
+      sources : ["swamps", "rotting_matter", "crowded_places", "battlefields"]
+
+      prevention : {
+        ventilation : "fresh_air_essential"
+        location : "avoid_swamps_and_low_areas"
+        cleanliness : "remove_waste"
+        fumigation : "burning_aromatic_substances"
+      }
+
+      partially_correct : "correlation_with_sanitation_works"
+    }
+
+    divine_influence : {
+      gods : {
+        aesculapius : {
+          greek_name : "Asclepius"
+          domain : "healing_and_medicine"
+          symbol : "staff_with_serpent"
+          temples : "healing_centers"
+        }
+
+        apollo : "also_god_of_healing"
+        fever_goddess : "febris"
+        health_goddess : "salus"
+      }
+
+      temple_healing : {
+        incubation : "sleep_in_temple"
+        dreams : "god_appears_with_cure"
+        offerings : "gratitude_for_healing"
+        votive_offerings : "body_part_replicas"
+      }
+
+      prayer_and_sacrifice : "common_alongside_medicine"
+    }
+  }
+
+  // ==========================================
+  // MEDICAL PRACTITIONERS
+  // ==========================================
+  practitioners : {
+    medicus : {
+      title : "doctor_physician"
+      training : {
+        apprenticeship : "learn_from_master"
+        duration : "5_to_10_years"
+        no_formal_schools : "until_late_empire"
+        study : ["anatomy", "pharmacology", "surgery", "theory"]
+      }
+
+      specializations : {
+        medicus_ordinarius : {
+          description : "general_practitioner"
+          treats : "common_ailments"
+          most_common : true
+        }
+
+        chirurgus : {
+          description : "surgeon"
+          expertise : ["wounds", "amputations", "tumors", "cataracts"]
+          military : "attached_to_legions"
+          tools : ["scalpels", "forceps", "bone_saws", "cauters"]
+        }
+
+        ocularius : {
+          description : "eye_specialist"
+          treats : ["cataracts", "infections", "injuries"]
+          techniques : "couching_for_cataracts"
+        }
+
+        auricularius : {
+          description : "ear_specialist"
+          treats : ["infections", "deafness", "injuries"]
+        }
+
+        dentarius : {
+          description : "dentist"
+          procedures : ["extractions", "fillings", "false_teeth"]
+          pain_relief : "opium_or_alcohol"
+        }
+
+        obstetrix : {
+          description : "midwife"
+          gender : "always_female"
+          expertise : ["childbirth", "women_health", "infant_care"]
+          training : "experienced_mothers_teach_younger"
+          essential : "most_births_at_home"
+        }
+
+        medicus_militaris : {
+          description : "military_doctor"
+          attached_to : "legion"
+          expertise : ["battlefield_wounds", "arrow_removal", "amputation"]
+          valetudinarium : "military_hospital"
+        }
+      }
+
+      status : {
+        early_republic : "low_often_slaves_or_freedmen"
+        late_republic : "rising_respect"
+        empire : "honored_profession"
+        wealth : "successful_doctors_very_wealthy"
+        imperial_physician : "archiatrus_highest_prestige"
+      }
+
+      payment : {
+        fee_for_service : "wealthy_patients"
+        retainer : "noble_families"
+        public_salary : "city_employed"
+        military_pay : "legion_doctors"
+        free_for_poor : "some_charitable_doctors"
+      }
+
+      famous_physicians : {
+        galen : {
+          lived : "129_to_216_AD"
+          achievements : ["anatomy", "pharmacology", "philosophy"]
+          writings : "dominated_medicine_for_1400_years"
+          imperial_physician : "to_marcus_aurelius"
+        }
+
+        celsus : {
+          lived : "1st_century_AD"
+          work : "De_Medicina"
+          encyclopedic : "comprehensive_medical_knowledge"
+        }
+
+        dioscorides : {
+          lived : "1st_century_AD"
+          work : "De_Materia_Medica"
+          pharmacology : "described_600_plants"
+        }
+      }
+    }
+
+    pharmacopola : {
+      title : "pharmacist_druggist"
+      role : "prepare_and_sell_medicines"
+
+      shop : {
+        location : "urban_markets"
+        stock : {
+          herbs : ["mint", "sage", "thyme", "rosemary", "fennel"]
+          minerals : ["sulfur", "alum", "copper_salts"]
+          animal_products : ["honey", "snake_venom", "dried_organs"]
+          imported : ["opium", "frankincense", "myrrh", "cinnamon"]
+        }
+
+        preparation : {
+          decoctions : "boiled_herbs"
+          infusions : "steeped_in_water"
+          tinctures : "alcohol_extracts"
+          poultices : "external_applications"
+          pills : "compressed_powders"
+          ointments : "mixed_with_fats"
+        }
+
+        pricing : {
+          common_herbs : "cheap"
+          rare_imports : "expensive"
+          complex_preparations : "premium"
+        }
+      }
+    }
+
+    folk_healers : {
+      wise_women : {
+        role : "village_healers"
+        knowledge : "traditional_remedies"
+        treatments : ["herbs", "charms", "midwifery"]
+        status : "respected_by_common_folk"
+        suspicion : "sometimes_accused_of_witchcraft"
+      }
+
+      herbalists : {
+        expertise : "plant_medicine"
+        gathering : "wild_and_cultivated"
+        preparation : "traditional_methods"
+      }
+
+      bone_setters : {
+        specialty : "fractures_and_dislocations"
+        techniques : "manipulation_and_splinting"
+        often : "non_literate_but_skilled"
+      }
+    }
+
+    quacks_and_charlatans : {
+      existence : "common"
+      methods : {
+        fake_remedies : "worthless_concoctions"
+        magic_amulets : "superstitious_cures"
+        false_claims : "cure_anything"
+        dangerous : "toxic_or_harmful_treatments"
+      }
+
+      victims : "desperate_and_uneducated"
+      regulation : "minimal"
+    }
+  }
+
+  // ==========================================
+  // DISEASES & CONDITIONS
+  // ==========================================
+  diseases : {
+    infectious : {
+      plague : {
+        types : ["bubonic", "pneumonic", "septicemic"]
+        transmission : "rats_and_fleas"
+        symptoms : ["fever", "buboes", "delirium", "death"]
+        mortality : "50_to_90_percent_untreated"
+
+        famous_outbreaks : {
+          antonine_plague : {
+            years : "165_to_180_AD"
+            disease : "possibly_smallpox_or_measles"
+            deaths : "5_million"
+            impact : "weakened_empire"
+          }
+
+          plague_of_cyprian : {
+            years : "249_to_262_AD"
+            deaths : "thousands_daily_in_rome"
+            impact : "massive_depopulation"
+          }
+        }
+
+        gameplay : {
+          outbreak_triggers : ["rats", "poor_sanitation", "crowding", "trade"]
+          spread : "exponential_without_intervention"
+          containment : ["quarantine", "burn_infected_areas", "prayer"]
+          effects : {
+            population : "massive_deaths"
+            economy : "workforce_shortage"
+            morale : "panic_and_fear"
+            divine_disfavor : "punishment_from_gods"
+          }
+        }
+      }
+
+      malaria : {
+        description : "bad_air_disease"
+        source : "swamps_and_stagnant_water"
+        symptoms : ["recurring_fever", "chills", "sweating", "weakness"]
+        chronic : "debilitating_over_time"
+
+        prevention : {
+          drain_swamps : "eliminate_breeding_grounds"
+          avoid_low_areas : "build_on_hills"
+          close_windows : "at_dusk_when_miasma_rises"
+        }
+
+        treatment : {
+          febrifuges : "fever_reducing_herbs"
+          rest : "during_fever_episodes"
+          prayer : "to_fever_goddess_febris"
+          ineffective : "no_cure_available"
+        }
+      }
+
+      dysentery : {
+        description : "bloody_flux"
+        cause : "contaminated_water_and_food"
+        symptoms : ["diarrhea", "blood_in_stool", "abdominal_pain", "dehydration"]
+        mortality : "high_in_severe_cases"
+
+        prevention : {
+          clean_water : "aqueducts_and_fountains"
+          food_hygiene : "cook_thoroughly"
+          waste_disposal : "sewers_and_latrines"
+        }
+
+        treatment : {
+          binding_agents : "clay_and_charcoal"
+          astringents : "tannin_rich_plants"
+          fluids : "wine_and_broth"
+          rest : "abstain_from_solid_food"
+        }
+      }
+
+      tuberculosis : {
+        description : "consumption_phthisis"
+        symptoms : ["chronic_cough", "blood_in_sputum", "weight_loss", "night_sweats"]
+        slow_progression : "months_to_years"
+        mortality : "high_eventually_fatal"
+
+        treatment : {
+          rest : "in_dry_climate"
+          nutrition : "rich_diet"
+          fresh_air : "mountain_or_seaside"
+          ineffective : "no_real_cure"
+        }
+      }
+
+      smallpox : {
+        symptoms : ["fever", "pustules", "scarring"]
+        mortality : "30_percent"
+        transmission : "highly_contagious"
+
+        treatment : {
+          isolation : "quarantine_patients"
+          supportive : "fluids_and_rest"
+          prayers : "divine_intervention"
+        }
+      }
+
+      leprosy : {
+        symptoms : ["skin_lesions", "nerve_damage", "deformities"]
+        stigma : "extreme_social_isolation"
+        progression : "slow_years"
+
+        treatment : {
+          isolation : "leper_colonies"
+          experimental : "various_ointments"
+          mostly_ineffective : true
+        }
+      }
+    }
+
+    parasitic : {
+      intestinal_worms : {
+        types : ["roundworms", "tapeworms", "hookworms"]
+        common : "especially_in_children"
+        symptoms : ["abdominal_pain", "malnutrition", "anemia"]
+
+        treatment : {
+          vermifuges : "wormwood_pomegranate_rind"
+          purgatives : "expel_worms"
+          effective : "often_successful"
+        }
+      }
+
+      lice : {
+        types : ["head_lice", "body_lice", "pubic_lice"]
+        common : "in_crowded_conditions"
+
+        treatment : {
+          combing : "fine_toothed_combs"
+          washing : "frequent_bathing"
+          fumigation : "sulfur_smoke"
+          shaving : "remove_hair"
+        }
+      }
+    }
+
+    chronic : {
+      gout : {
+        description : "rich_mans_disease"
+        cause : "diet_high_in_meat_and_wine"
+        symptoms : ["joint_pain", "swelling", "especially_big_toe"]
+
+        treatment : {
+          diet : "reduce_meat_and_wine"
+          colchicum : "autumn_crocus_effective"
+          rest : "avoid_use_of_joint"
+        }
+      }
+
+      arthritis : {
+        common : "in_elderly"
+        symptoms : ["joint_pain", "stiffness", "reduced_mobility"]
+
+        treatment : {
+          hot_baths : "thermal_springs"
+          massage : "with_oils"
+          exercise : "gentle_movement"
+          pain_relief : "opium_or_willow_bark"
+        }
+      }
+
+      kidney_stones : {
+        symptoms : ["severe_pain", "blood_in_urine"]
+
+        treatment : {
+          fluids : "increase_water_intake"
+          herbs : "diuretics"
+          surgery : "lithotomy_dangerous_but_practiced"
+        }
+      }
+    }
+
+    injuries : {
+      wounds : {
+        types : ["cuts", "punctures", "lacerations"]
+
+        treatment : {
+          cleaning : "wine_or_vinegar"
+          suturing : "thread_or_gut"
+          bandaging : "linen_strips"
+          honey : "antibacterial_properties"
+          infection_risk : "high_without_cleanliness"
+        }
+      }
+
+      fractures : {
+        types : ["simple", "compound", "greenstick"]
+
+        treatment : {
+          reduction : "set_bone_back_in_place"
+          splinting : "rigid_support"
+          immobilization : "weeks_of_rest"
+          compound : "high_infection_and_death_risk"
+          amputation : "if_infection_develops"
+        }
+      }
+
+      burns : {
+        degrees : ["first", "second", "third"]
+
+        treatment : {
+          cooling : "cold_water"
+          ointments : "oil_based"
+          honey : "antibacterial"
+          bandaging : "protect_from_infection"
+          severe : "often_fatal_from_infection"
+        }
+      }
+    }
+
+    mental_illness : {
+      melancholia : {
+        description : "depression"
+        cause : "excess_black_bile"
+
+        treatment : {
+          bloodletting : "remove_bile"
+          diet : "warming_foods"
+          exercise : "physical_activity"
+          music : "therapeutic"
+          entertainment : "distraction"
+        }
+      }
+
+      mania : {
+        description : "violent_excitement"
+        cause : "excess_yellow_bile"
+
+        treatment : {
+          restraint : "chains_if_necessary"
+          bloodletting : "calm_humors"
+          cold_baths : "shock_therapy"
+          isolation : "quiet_environment"
+        }
+      }
+
+      phrenitis : {
+        description : "delirium"
+        often : "from_fever"
+
+        treatment : {
+          cool_the_head : "cold_compresses"
+          bloodletting : "reduce_pressure"
+          sedatives : "opium"
+        }
+      }
+
+      dementia : {
+        in_elderly : true
+
+        care : {
+          family : "home_care"
+          supervision : "prevent_wandering"
+          patience : "understanding"
+          no_cure : true
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // TREATMENTS & PROCEDURES
+  // ==========================================
+  treatments : {
+    bloodletting : {
+      theory : "remove_excess_blood_humor"
+      methods : {
+        venesection : {
+          description : "cut_vein"
+          tools : "lancet_or_fleam"
+          amount : "pint_or_more"
+          locations : ["arm_vein", "leg_vein", "temple_vein"]
+        }
+
+        cupping : {
+          description : "heated_cups_draw_blood_to_surface"
+          scarification : "small_cuts_first"
+          creates_bruising : true
+        }
+
+        leeches : {
+          description : "medicinal_leeches_applied"
+          drink : "blood_until_full"
+          fall_off : "naturally"
+          multiple : "several_leeches_used"
+        }
+      }
+
+      frequency : "very_common_treatment"
+      risks : {
+        weakness : "from_blood_loss"
+        infection : "from_cuts"
+        death : "if_too_much_blood_removed"
+      }
+
+      effectiveness : "harmful_in_most_cases"
+    }
+
+    purging : {
+      theory : "expel_bad_humors"
+
+      methods : {
+        vomiting : {
+          emetics : ["mustard", "radish_seed", "hellebore"]
+          induced : "by_substance_or_feather_in_throat"
+        }
+
+        diarrhea : {
+          purgatives : ["senna", "aloe", "rhubarb", "castor_oil"]
+          strong : "can_cause_severe_dehydration"
+        }
+
+        sweating : {
+          diaphoretics : "induce_perspiration"
+          hot_baths : "combined_with_herbs"
+        }
+
+        urination : {
+          diuretics : "increase_urine_output"
+          herbs : ["dandelion", "juniper", "parsley"]
+        }
+      }
+
+      risks : "dehydration_and_weakness"
+    }
+
+    surgery : {
+      anesthesia : {
+        limited : true
+        methods : {
+          opium : "poppy_extract_pain_relief"
+          mandrake : "soporific_dangerous_dosing"
+          alcohol : "wine_to_intoxication"
+          compression : "restrict_blood_flow_numbness"
+          speed : "operate_very_quickly"
+        }
+      }
+
+      procedures : {
+        cataract_surgery : {
+          couching : "push_lens_down_and_out_of_way"
+          success_rate : "moderate"
+          risks : ["infection", "blindness"]
+        }
+
+        trepanation : {
+          description : "drill_hole_in_skull"
+          reasons : ["head_injury", "headaches", "epilepsy"]
+          survival : "surprisingly_high"
+          evidence : "skulls_show_healing"
+        }
+
+        amputation : {
+          reasons : ["gangrene", "compound_fracture", "severe_injury"]
+          procedure : {
+            tourniquet : "reduce_bleeding"
+            saw_through_bone : "quickly"
+            cauterize : "hot_iron_seal_blood_vessels"
+            bandage : "wrap_stump"
+          }
+          survival_rate : "30_to_50_percent"
+          shock_and_infection : "main_causes_of_death"
+        }
+
+        lithotomy : {
+          description : "remove_bladder_stones"
+          procedure : "cut_through_perineum"
+          extremely_painful : true
+          success_rate : "moderate"
+          specialists : "lithotomists"
+        }
+
+        tumor_removal : {
+          surface_tumors : "cut_away"
+          cauterization : "burn_remaining_tissue"
+          internal_tumors : "rarely_attempted_fatal"
+        }
+
+        arrow_removal : {
+          military : "common_battlefield_procedure"
+          techniques : ["push_through", "extract_with_forceps", "surgical_incision"]
+          complications : "infection_hemorrhage"
+        }
+      }
+
+      instruments : {
+        scalpels : "various_sizes_and_shapes"
+        forceps : "grip_and_extract"
+        cauters : "hot_irons_for_cauterization"
+        bone_saws : "amputation"
+        probes : "explore_wounds"
+        retractors : "hold_incisions_open"
+        needles_and_thread : "suturing"
+        specula : "vaginal_rectal_examination"
+      }
+
+      antisepsis : {
+        none : "no_germ_theory"
+        some_practices : {
+          wine : "clean_wounds_and_instruments"
+          vinegar : "acidic_cleaning"
+          boiling : "some_instruments"
+          clean_linens : "for_bandaging"
+        }
+        infection_common : "major_cause_of_death"
+      }
+    }
+
+    herbal_medicine : {
+      effective : {
+        willow_bark : {
+          contains : "salicylic_acid_aspirin_precursor"
+          uses : ["pain", "fever", "inflammation"]
+          effective : true
+        }
+
+        opium : {
+          source : "poppy_sap"
+          uses : ["pain", "cough", "diarrhea", "sleep"]
+          effective : "very_powerful"
+          addictive : true
+        }
+
+        digitalis : {
+          source : "foxglove"
+          uses : "heart_conditions"
+          effective : true
+          toxic : "narrow_therapeutic_window"
+        }
+
+        colchicum : {
+          source : "autumn_crocus"
+          uses : "gout"
+          effective : true
+          toxic : "can_be_fatal"
+        }
+
+        wormwood : {
+          uses : "intestinal_worms"
+          effective : true
+        }
+
+        garlic : {
+          uses : ["infection", "wounds", "respiratory"]
+          effective : "some_antimicrobial_properties"
+        }
+
+        honey : {
+          uses : ["wounds", "coughs", "burns"]
+          effective : "antibacterial_properties"
+        }
+      }
+
+      questionable : {
+        theriac : {
+          description : "cure_all_with_64_ingredients"
+          includes : ["opium", "viper_flesh", "spices"]
+          expensive : "only_for_wealthy"
+          effectiveness : "mainly_from_opium"
+        }
+
+        countless_others : "trial_and_error_mixtures"
+      }
+
+      placebo_effect : "belief_in_treatment_helps"
+    }
+
+    physical_therapy : {
+      massage : {
+        techniques : ["stroking", "kneading", "percussion"]
+        oils : "olive_oil_with_herbs"
+        uses : ["muscle_pain", "stiffness", "circulation"]
+        practiced_in : "baths_and_gymnasia"
+      }
+
+      exercise : {
+        prescribed : "for_various_conditions"
+        types : ["walking", "wrestling", "ball_games"]
+        moderation : "not_to_exhaustion"
+      }
+
+      hydrotherapy : {
+        thermal_baths : {
+          hot_springs : "natural_mineral_waters"
+          therapeutic : "arthritis_and_skin_conditions"
+          popular : "spa_towns"
+        }
+
+        sea_bathing : {
+          believed : "healthful"
+          resorts : "coastal_towns"
+        }
+
+        cold_plunge : {
+          after_hot_bath : "invigorate"
+          believed : "strengthen_constitution"
+        }
+      }
+    }
+
+    dietetics : {
+      food_as_medicine : "hippocratic_principle"
+
+      hot_foods : {
+        examples : ["pepper", "ginger", "meat"]
+        uses : "warm_cold_phlegmatic_conditions"
+      }
+
+      cold_foods : {
+        examples : ["cucumbers", "lettuce", "fish"]
+        uses : "cool_hot_choleric_conditions"
+      }
+
+      moist_foods : {
+        examples : ["grapes", "melons", "milk"]
+        uses : "counter_dryness"
+      }
+
+      dry_foods : {
+        examples : ["bread", "cheese", "dried_figs"]
+        uses : "counter_excess_moisture"
+      }
+
+      moderation : "key_to_health"
+      individualized : "diet_for_each_constitution"
+    }
+  }
+
+  // ==========================================
+  // HEALTHCARE FACILITIES
+  // ==========================================
+  facilities : {
+    valetudinarium : {
+      description : "hospital_usually_military"
+      first_hospitals : "roman_invention"
+
+      layout : {
+        wards : {
+          long_rooms : "beds_along_walls"
+          capacity : "30_to_60_patients"
+          separate : "by_condition_or_severity"
+        }
+
+        surgery : {
+          operating_room : "bright_well_lit"
+          equipment : "instruments_and_tables"
+        }
+
+        pharmacy : {
+          preparation_room : "make_medicines"
+          storage : "herbs_and_supplies"
+        }
+
+        baths : {
+          cleanliness : "patient_hygiene"
+          therapy : "hydrotherapy"
+        }
+
+        kitchen : {
+          patient_meals : "nutritious_diet"
+          special_diets : "as_prescribed"
+        }
+
+        staff_quarters : "doctors_and_attendants"
+
+        courtyard : {
+          exercise : "ambulatory_patients"
+          fresh_air : "beneficial"
+          garden : "grow_medicinal_herbs"
+        }
+      }
+
+      staff : {
+        medicus_ordinarius : "chief_physician"
+        medici : "additional_doctors_3_to_5"
+        capsarii : "wound_dressers_orderlies"
+        slaves : "cleaning_and_menial_tasks"
+        total : "20_to_50_staff"
+      }
+
+      military : {
+        every_legion : "has_valetudinarium"
+        location : "in_or_near_fort"
+        capacity : "up_to_10_percent_of_legion"
+        function : "treat_and_return_soldiers"
+      }
+
+      civilian : {
+        rare : "in_republic"
+        increasing : "in_empire"
+        locations : "major_cities"
+        charity : "some_for_poor"
+        private : "for_wealthy"
+      }
+
+      effectiveness : {
+        cleanliness : "better_than_home"
+        expertise : "trained_doctors"
+        supplies : "well_stocked"
+        survival_rates : "higher_than_average"
+      }
+
+      gameplay : {
+        construction : {
+          size : "large_building"
+          cost : "500000_denarii"
+          staff : "hire_doctors_and_attendants"
+        }
+
+        operation : {
+          capacity : "300_patients"
+          maintenance : "10000_denarii_per_month"
+          healing_rate : "+50_percent_faster"
+        }
+
+        benefits : {
+          city_health : "+20"
+          epidemic_resistance : "+30_percent"
+          population_growth : "lower_death_rate"
+          military : "faster_recovery_of_wounded"
+        }
+      }
+    }
+
+    asclepieion : {
+      description : "healing_temple"
+      dedicated_to : "aesculapius_god_of_healing"
+
+      features : {
+        temple : "main_sanctuary"
+        incubation_hall : {
+          abaton : "sacred_sleeping_chamber"
+          function : "patients_sleep_await_divine_dream"
+          snakes : "sacred_serpents_roam_freely"
+        }
+
+        thermal_baths : "healing_waters"
+        gymnasium : "exercise_for_health"
+        theater : "entertainment_therapeutic"
+        library : "medical_texts"
+
+        sacred_spring : {
+          believed : "healing_properties"
+          rituals : "bathing_and_drinking"
+        }
+      }
+
+      treatment : {
+        ritual : {
+          sacrifice : "to_aesculapius"
+          purification : "ritual_bathing"
+          incubation : "sleep_in_temple"
+          dream_interpretation : "priests_explain_cure"
+        }
+
+        practical : {
+          diet : "prescribed_foods"
+          exercise : "regimen"
+          baths : "hydrotherapy"
+          herbs : "medicines"
+        }
+
+        combination : "divine_and_medical"
+      }
+
+      famous_asclepieia : {
+        epidaurus : "most_famous_in_greece"
+        pergamon : "large_complex"
+        rome : "tiber_island"
+      }
+
+      effectiveness : {
+        placebo : "strong_belief_aids_healing"
+        rest : "therapeutic_environment"
+        diet_and_exercise : "beneficial"
+        some_actual_healing : "trained_priests_medical_knowledge"
+      }
+
+      gameplay : {
+        construction : {
+          cost : "300000_denarii"
+          requires : "temple_technology"
+        }
+
+        operation : {
+          priests : "10_temple_healers"
+          donations : "from_healed_patients"
+          votive_offerings : "revenue_stream"
+        }
+
+        benefits : {
+          divine_favor_aesculapius : "+25"
+          city_health : "+15"
+          tourism : "pilgrims_from_afar"
+          prestige : "+50"
+        }
+
+        miracles : {
+          rare : "1_percent_chance"
+          dramatic_healing : "terminally_ill_cured"
+          belief_boost : "strengthens_faith"
+        }
+      }
+    }
+
+    thermae : {
+      description : "public_baths"
+      health_function : "hygiene_and_wellness"
+
+      health_benefits : {
+        cleanliness : "prevent_skin_diseases"
+        exercise : "palaestra_activities"
+        social : "mental_health"
+        relaxation : "stress_relief"
+        heat_therapy : "muscle_and_joint_pain"
+      }
+
+      see_also : "thermae_imperialis_in_engineering_marvels"
+    }
+
+    pharmacopola_shop : {
+      description : "pharmacy"
+      function : "prepare_and_sell_medicines"
+
+      stock : "see_pharmacopola_above"
+
+      gameplay : {
+        construction : "small_building"
+        cost : "10000_denarii"
+        revenue : "sell_medicines"
+        supply_chain : {
+          herbs : "from_farms_or_gathering"
+          imports : "from_trade_routes"
+          preparation : "skilled_workers"
+        }
+
+        benefits : {
+          city_health : "+5"
+          access_to_medicine : "citizens_can_buy"
+          economy : "jobs_and_trade"
+        }
+      }
+    }
+
+    doctor_office : {
+      description : "private_practice"
+      medicus : "individual_doctor"
+
+      services : {
+        consultations : "diagnosis_and_advice"
+        minor_surgery : "small_procedures"
+        prescriptions : "recommend_medicines"
+        house_calls : "visit_wealthy_patients"
+      }
+
+      gameplay : {
+        automatic : "doctors_appear_in_wealthy_areas"
+        or_player_builds : "subsidize_in_poor_areas"
+
+        benefits : {
+          health : "+3_in_area"
+          prestige : "attracts_wealthy_citizens"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // PUBLIC HEALTH
+  // ==========================================
+  public_health : {
+    sanitation : {
+      water_supply : {
+        aqueducts : {
+          clean_water : "from_distant_sources"
+          flow_rate : "constant_supply"
+          public_fountains : "free_access"
+
+          health_impact : {
+            disease_prevention : "clean_drinking_water"
+            hygiene : "washing_and_bathing"
+            sewage : "flush_waste"
+          }
+        }
+
+        wells : {
+          backup : "if_aqueduct_fails"
+          quality : "variable"
+          contamination_risk : "higher_than_aqueduct"
+        }
+      }
+
+      sewage : {
+        cloaca_maxima : {
+          description : "great_sewer_of_rome"
+          built : "6th_century_BC"
+          function : "drain_forum_and_low_areas"
+        }
+
+        smaller_sewers : "throughout_city"
+
+        connections : {
+          public_latrines : "direct_connection"
+          baths : "waste_water_disposal"
+          streets : "storm_drains"
+          private_homes : "wealthy_only"
+        }
+
+        flow : {
+          running_water : "continuous_flushing"
+          to_river : "dumps_in_tiber_or_sea"
+          downstream_problems : "pollution"
+        }
+
+        health_impact : {
+          waste_removal : "prevents_accumulation"
+          odor_reduction : "better_than_streets"
+          disease : "still_spreads_via_water"
+        }
+      }
+
+      waste_disposal : {
+        latrines : {
+          public : {
+            location : "throughout_city"
+            design : "bench_with_holes_over_running_water"
+            capacity : "10_to_20_people"
+            social : "Romans_chatted_while_using"
+            sponge_on_stick : "shared_cleaning_tool"
+          }
+
+          private : {
+            wealthy_homes : "indoor_plumbing"
+            chamber_pots : "slaves_empty"
+          }
+        }
+
+        refuse : {
+          streets : "often_thrown_in_streets"
+          dunghills : "accumulation_points"
+          removal : "sporadic_by_city_workers"
+          night_soil : "collected_for_farms"
+        }
+      }
+
+      cleanliness : {
+        baths : {
+          frequency : "daily_for_many_romans"
+          affordable : "cheap_admission"
+          social_norm : "cleanliness_valued"
+        }
+
+        streets : {
+          sweepers : "public_workers"
+          irregular : "poorer_areas_neglected"
+          rain : "natural_washing"
+        }
+
+        homes : {
+          wealthy : "slaves_clean_thoroughly"
+          poor : "limited_cleaning"
+        }
+      }
+    }
+
+    disease_prevention : {
+      quarantine : {
+        isolation : "sick_kept_separate"
+        plague_victims : "marked_houses"
+        travel_restrictions : "during_epidemics"
+        effectiveness : "limited_understanding"
+      }
+
+      fumigation : {
+        theory : "combat_bad_air"
+        methods : ["burning_aromatic_herbs", "sulfur_smoke"]
+        locations : ["homes", "public_buildings", "streets"]
+        effectiveness : "minimal"
+      }
+
+      city_planning : {
+        elevation : "build_on_hills_away_from_swamps"
+        ventilation : "wide_streets_for_air_circulation"
+        water : "separate_drinking_from_waste"
+      }
+    }
+
+    regulation : {
+      building_codes : {
+        minimum_standards : "after_fires"
+        fire_safety : "spacing_and_materials"
+        height_limits : "prevent_collapse"
+      }
+
+      food_inspection : {
+        aediles : "magistrates_oversee_markets"
+        spoiled_food : "confiscated_and_destroyed"
+        weights_and_measures : "prevent_fraud"
+        limited : "no_understanding_of_bacteria"
+      }
+
+      medical_practice : {
+        minimal_regulation : true
+        no_licensing : "anyone_can_claim_to_be_doctor"
+        reputation : "only_check"
+        fraud_common : "quacks_and_charlatans"
+      }
+    }
+
+    health_education : {
+      limited : true
+      upper_class : "read_medical_texts"
+      common_folk : "oral_tradition"
+      public_health_campaigns : "non_existent"
+    }
+  }
+
+  // ==========================================
+  // CITIZEN HEALTH TRACKING
+  // ==========================================
+  individual_health : {
+    health_points : {
+      range : "0_to_100"
+      death : "at_0"
+      full_health : "100"
+
+      factors : {
+        age : {
+          infant : "fragile_high_mortality"
+          child : "growing_susceptible"
+          adult : "strongest"
+          elderly : "declining"
+        }
+
+        nutrition : {
+          well_fed : "maintain_health"
+          adequate : "slow_decline"
+          malnourished : "accelerated_decline"
+          starving : "rapid_death"
+        }
+
+        disease : {
+          healthy : "no_disease"
+          sick : "health_declining"
+          chronic : "permanent_reduction"
+          terminal : "inevitable_death"
+        }
+
+        injury : {
+          none : "no_effect"
+          minor : "temporary_reduction"
+          serious : "long_term_impact"
+          critical : "life_threatening"
+        }
+
+        lifestyle : {
+          hygiene : "bathing_prevents_disease"
+          exercise : "maintains_health"
+          stress : "mental_health_affects_physical"
+          vices : "alcohol_excess_harmful"
+        }
+
+        environment : {
+          clean : "healthy_surroundings"
+          polluted : "disease_risk"
+          crowded : "contagion_spreads"
+          climate : "weather_effects"
+        }
+
+        medical_care : {
+          none : "natural_recovery_only"
+          folk_medicine : "small_boost"
+          doctor : "significant_boost"
+          hospital : "best_recovery"
+        }
+      }
+    }
+
+    disease_states : {
+      healthy : "no_ailments"
+
+      infected : {
+        contagious : "spreads_to_contacts"
+        progression : "worsens_over_time"
+        recovery : "immune_system_or_treatment"
+        death : "if_untreated_and_severe"
+      }
+
+      chronic_ill : {
+        permanent : "lifelong_condition"
+        reduced_capacity : "cannot_work_fully"
+        managed : "with_treatment"
+      }
+
+      injured : {
+        temporary : "heals_over_time"
+        disability : "if_severe"
+        infection_risk : "wounds_can_become_infected"
+      }
+
+      pregnant : {
+        female_only : true
+        duration : "9_months"
+        health_impact : "increased_needs"
+        childbirth_risk : "maternal_mortality"
+      }
+
+      elderly_frail : {
+        old_age : "natural_decline"
+        multiple_conditions : "accumulating"
+        death_approaching : "within_years"
+      }
+    }
+
+    visualization : {
+      health_bar : "above_citizen_head"
+      status_icons : "disease_injury_pregnancy"
+      facial_expressions : "sick_citizens_look_ill"
+      movement : "injured_citizens_limp"
+      skin_tone : "pale_when_sick"
+    }
+
+    death : {
+      causes : {
+        disease : "illness_progresses_to_death"
+        injury : "fatal_wounds"
+        starvation : "no_food"
+        old_age : "natural_end"
+        childbirth : "maternal_mortality"
+        accident : "falls_fires_etc"
+        violence : "murder_riots_war"
+      }
+
+      mourning : {
+        family : "grief_affects_happiness"
+        funeral : "burial_or_cremation"
+        inheritance : "property_transfers"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    health_screen : {
+      city_overview : {
+        overall_health : "0_to_100_rating"
+        disease_outbreaks : "active_epidemics"
+        healthcare_coverage : "percent_with_access"
+        mortality_rate : "deaths_per_1000"
+      }
+
+      disease_map : {
+        heat_map : "show_infection_areas"
+        outbreak_tracking : "spread_over_time"
+        quarantine_zones : "player_defined"
+      }
+
+      facilities : {
+        hospitals : "list_and_status"
+        temples : "healing_temples"
+        doctors : "number_and_distribution"
+        pharmacies : "medicine_availability"
+      }
+
+      statistics : {
+        leading_causes_of_death : "breakdown"
+        age_demographics : "population_pyramid"
+        life_expectancy : "average_age_at_death"
+        infant_mortality : "deaths_under_1_year"
+      }
+    }
+
+    decisions : {
+      public_health : {
+        sanitation_budget : "maintain_aqueducts_and_sewers"
+        healthcare_spending : "subsidize_doctors_and_hospitals"
+        quarantine : "isolate_infected_areas"
+        emergency_measures : "during_plagues"
+      }
+
+      epidemic_response : {
+        quarantine : {
+          effect : "slow_spread"
+          cost : "economic_disruption"
+          unpopular : "people_resist"
+        }
+
+        mass_treatment : {
+          distribute_medicine : "if_available"
+          prayer_days : "ask_gods_for_help"
+          clean_streets : "emergency_sanitation"
+        }
+
+        burn_infected_areas : {
+          drastic : "destroy_disease_source"
+          effective : "stops_spread"
+          catastrophic : "people_homeless_angry"
+        }
+      }
+
+      healthcare_access : {
+        free_clinics : {
+          cost : "taxpayer_funded"
+          benefit : "everyone_gets_care"
+          quality : "basic"
+        }
+
+        private_only : {
+          cost : "none_to_city"
+          benefit : "wealthy_excellent_care"
+          problem : "poor_die_untreated"
+        }
+
+        mixed : {
+          cost : "moderate"
+          benefit : "balanced_approach"
+          typical : "historical_norm"
+        }
+      }
+    }
+
+    events : {
+      epidemic_outbreak : {
+        trigger : ["rats", "poor_sanitation", "infected_traders", "divine_wrath"]
+        progression : {
+          patient_zero : "first_case"
+          spread : "exponential_if_unchecked"
+          peak : "maximum_daily_deaths"
+          decline : "if_controlled_or_burns_out"
+        }
+
+        player_response : "emergency_decisions"
+
+        outcomes : {
+          contained : "minimal_deaths"
+          moderate : "significant_loss"
+          catastrophic : "decimates_population"
+        }
+      }
+
+      medical_breakthrough : {
+        trigger : "research_or_random"
+        discovery : {
+          new_herb : "effective_treatment"
+          surgical_technique : "improves_outcomes"
+          sanitation_practice : "prevents_disease"
+        }
+
+        effect : "permanent_health_boost"
+      }
+
+      doctor_arrives : {
+        famous_physician : "wants_to_practice_in_city"
+        effect : "+10_city_health"
+        cost : "high_salary"
+      }
+
+      quack_scandal : {
+        charlatan_exposed : "fake_doctor_caught"
+        effect : "-5_city_health_temporarily"
+        action : "ban_or_execute"
+      }
+    }
+
+    mini_games : {
+      surgery : {
+        operation : "timed_precision_game"
+        tools : "select_correct_instruments"
+        patient : "health_bar_declining"
+        success : "patient_survives"
+        failure : "patient_dies"
+      }
+
+      diagnosis : {
+        symptoms : "presented_to_player"
+        examination : "ask_questions_observe"
+        diagnosis : "choose_disease"
+        treatment : "prescribe_remedy"
+        outcome : "correct_heals_wrong_worsens"
+      }
+
+      epidemic_management : {
+        outbreak : "disease_spreading"
+        resources : "limited_doctors_medicine"
+        decisions : "allocate_resources_quarantine"
+        goal : "minimize_deaths"
+        score : "survival_rate"
+      }
+    }
+
+    progression : {
+      medical_technology : {
+        basic : "folk_medicine_and_prayer"
+        intermediate : "trained_doctors_and_hospitals"
+        advanced : "specialized_surgery_and_pharmacology"
+      }
+
+      infrastructure : {
+        sanitation : "aqueducts_and_sewers"
+        healthcare : "hospitals_and_clinics"
+        public_health : "regulations_and_inspections"
+      }
+
+      outcomes : {
+        life_expectancy : "increases_with_better_healthcare"
+        population_growth : "lower_mortality_rates"
+        productivity : "healthy_workers_more_efficient"
+        prestige : "advanced_medicine_attracts_people"
+      }
+    }
+
+    balance : {
+      cost : "healthcare_expensive"
+      benefit : "healthy_population_productive"
+      trade_offs : "spend_on_health_or_military"
+      epidemics : "can_devastate_unprepared_cities"
+    }
+
+    achievements : {
+      plague_doctor : "survive_major_epidemic"
+      life_saver : "build_10_hospitals"
+      clean_city : "100_public_health_rating"
+      long_life : "average_life_expectancy_60_years"
+      medical_marvel : "unlock_all_treatments"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    based_on : {
+      medical_texts : ["galen", "celsus", "dioscorides", "hippocratic_corpus"]
+      archaeology : "surgical_instruments_hospitals"
+      skeletal_evidence : "diseases_and_injuries"
+      literary_sources : "pliny_martial_juvenal"
+    }
+
+    limitations_acknowledged : {
+      no_germ_theory : "didnt_understand_infection"
+      humoral_theory_wrong : "but_logical_for_time"
+      many_treatments_harmful : "bloodletting_purging"
+      some_treatments_effective : "herbs_surgery_sanitation"
+    }
+
+    innovations_were_real : {
+      hospitals : "roman_invention"
+      surgical_instruments : "sophisticated"
+      public_health : "aqueducts_sewers_baths"
+      military_medicine : "organized_medical_corps"
+      pharmacology : "extensive_herbal_knowledge"
+    }
+
+    outcomes : {
+      life_expectancy : {
+        average : "25_to_30_years"
+        but : "high_infant_mortality_skews"
+        if_survive_to_10 : "could_live_to_50_60"
+        elders : "70_plus_not_uncommon"
+      }
+
+      infant_mortality : "30_to_50_percent"
+      maternal_mortality : "1_to_2_percent_per_birth"
+      epidemic_deaths : "could_kill_millions"
+    }
+
+    educational_content : {
+      encyclopedia : "detailed_medical_history"
+      famous_physicians : "biographies"
+      disease_descriptions : "symptoms_and_treatments"
+      evolution : "how_medicine_developed"
+      primary_sources : "quote_ancient_texts"
+    }
+  }
+}
