@@ -1,0 +1,887 @@
+// CaesarIA 2025 - Deep Life Simulation System
+// Sims-level citizen AI and life simulation
+
+life_simulation : {
+  // ==========================================
+  // INDIVIDUAL CITIZENS
+  // ==========================================
+  citizens : {
+    // Identity & Appearance
+    identity : {
+      name : {
+        generation : "historically_accurate_roman_names"
+        format : "praenomen_nomen_cognomen"
+        family_names : "inherited"
+        nicknames : "earned_through_life"
+      }
+
+      appearance : {
+        procedural : true
+        unique : "every_citizen_looks_different"
+
+        features : {
+          face : {
+            variations : 1000
+            age_appropriate : true
+            family_resemblance : "children_look_like_parents"
+          }
+
+          body : {
+            height : "gaussian_distribution"
+            build : ["thin", "average", "muscular", "heavy"]
+            affected_by : ["age", "wealth", "profession", "health"]
+          }
+
+          clothing : {
+            social_class : "toga_quality_and_color"
+            profession : "craftsman_apron_soldier_armor"
+            weather : "warm_cloak_in_winter"
+            fashion : "trends_evolve"
+          }
+
+          accessories : {
+            jewelry : "wealth_dependent"
+            tools : "profession_specific"
+            weapons : "if_soldier"
+            religious : "amulets_charms"
+          }
+        }
+
+        aging : {
+          visible : true
+          stages : ["infant", "child", "teen", "young_adult", "adult", "middle_age", "elderly"]
+          wrinkles : "appear_gradually"
+          hair : "grays_and_thins"
+        }
+      }
+    }
+
+    // Life Stats
+    stats : {
+      // Basic Needs
+      needs : {
+        hunger : {
+          range : "0_to_100"
+          decay_rate : "varies_by_activity"
+          critical_below : 20
+          death_at : 0
+
+          satisfaction : {
+            food_quality : "affects_happiness"
+            variety : "prefer_diverse_diet"
+            cultural_preferences : "roman_tastes"
+          }
+        }
+
+        thirst : {
+          range : "0_to_100"
+          decay_rate : "faster_than_hunger"
+          critical_below : 15
+          death_at : 0
+
+          sources : ["fountain", "well", "aqueduct", "river"]
+          quality : "clean_vs_dirty_water"
+        }
+
+        sleep : {
+          range : "0_to_100"
+          decay_rate : "linear_over_16_hours"
+          critical_below : 10
+          effects : "exhaustion_affects_everything"
+
+          schedule : {
+            adults : "night_sleep"
+            children : "nap_and_night_sleep"
+            elderly : "more_rest_needed"
+          }
+        }
+
+        hygiene : {
+          range : "0_to_100"
+          decay_rate : "faster_if_working"
+          affects : ["social", "health", "attractiveness"]
+
+          satisfaction : {
+            bath : "at_bathhouse"
+            wash : "at_home"
+            clothes : "clean_vs_dirty"
+          }
+        }
+
+        bladder : {
+          range : "0_to_100"
+          decay_rate : "moderate"
+          urgent : "when_critical"
+
+          facilities : ["latrine", "home_toilet", "behind_tree"]
+          embarrassment : "if_public_accident"
+        }
+
+        comfort : {
+          range : "0_to_100"
+          affected_by : ["seating", "temperature", "pain"]
+
+          factors : {
+            furniture_quality : true
+            home_amenities : true
+            clothing_appropriate : true
+          }
+        }
+
+        fun : {
+          range : "0_to_100"
+          decay_rate : "slow"
+          critical_for : "mental_health"
+
+          sources : ["entertainment", "games", "socializing", "hobbies"]
+        }
+
+        social : {
+          range : "0_to_100"
+          decay_rate : "varies_by_personality"
+          extroverts : "decay_faster"
+          introverts : "decay_slower"
+
+          satisfaction : ["conversation", "parties", "events", "family_time"]
+        }
+      }
+
+      // Advanced Stats
+      health : {
+        physical_health : {
+          range : "0_to_100"
+
+          factors : {
+            disease : "illnesses_reduce"
+            injury : "accidents_wounds"
+            nutrition : "food_quality"
+            exercise : "labor_fitness"
+            age : "declines_with_age"
+          }
+
+          conditions : {
+            diseases : ["plague", "fever", "infection", "chronic_illness"]
+            injuries : ["broken_bone", "cuts", "burns", "disabilities"]
+            recovery : "time_and_medicine"
+          }
+        }
+
+        mental_health : {
+          range : "0_to_100"
+
+          factors : {
+            stress : "work_disasters_violence"
+            trauma : "witnessing_death_war"
+            happiness : "general_life_satisfaction"
+            relationships : "social_bonds"
+          }
+
+          conditions : {
+            depression : "prolonged_unhappiness"
+            anxiety : "constant_worry"
+            ptsd : "after_trauma"
+            madness : "extreme_cases"
+          }
+        }
+      }
+
+      fitness : {
+        range : "0_to_100"
+        affected_by : ["profession", "exercise", "diet", "age"]
+
+        levels : {
+          unfit : "0_to_30"
+          average : "30_to_70"
+          fit : "70_to_90"
+          athletic : "90_to_100"
+        }
+
+        effects : {
+          work_speed : "fit_work_faster"
+          combat : "fit_fight_better"
+          health : "fit_resist_disease"
+        }
+      }
+
+      skills : {
+        learning : true
+        experience_based : true
+
+        categories : {
+          labor : ["farming", "construction", "mining"]
+          crafts : ["pottery", "smithing", "weaving"]
+          trade : ["negotiation", "accounting"]
+          combat : ["melee", "ranged", "tactics"]
+          arts : ["music", "theater", "poetry"]
+          social : ["charisma", "rhetoric", "diplomacy"]
+        }
+
+        progression : {
+          novice : "0_to_25"
+          apprentice : "25_to_50"
+          journeyman : "50_to_75"
+          expert : "75_to_95"
+          master : "95_to_100"
+        }
+      }
+    }
+
+    // Personality
+    personality : {
+      traits : {
+        system : "big_five_plus_roman"
+
+        big_five : {
+          openness : "0_to_100"
+          conscientiousness : "0_to_100"
+          extraversion : "0_to_100"
+          agreeableness : "0_to_100"
+          neuroticism : "0_to_100"
+        }
+
+        additional_traits : [
+          "ambitious", "lazy", "greedy", "generous",
+          "brave", "cowardly", "honest", "deceitful",
+          "religious", "skeptical", "cheerful", "gloomy",
+          "hot_tempered", "calm", "loyal", "treacherous",
+          "humble", "proud", "curious", "indifferent"
+        ]
+
+        inherited : {
+          from_parents : "50_percent_genetic"
+          from_environment : "50_percent_nurture"
+        }
+      }
+
+      preferences : {
+        food : ["meat", "bread", "vegetables", "wine", "fruits"]
+        entertainment : ["theater", "gladiators", "races", "music"]
+        activities : ["socializing", "solitude", "exercise", "learning"]
+        values : ["family", "wealth", "honor", "pleasure", "duty"]
+      }
+
+      desires : {
+        short_term : ["eat", "sleep", "socialize"]
+        medium_term : ["get_job", "find_partner", "buy_furniture"]
+        long_term : ["own_house", "raise_family", "become_wealthy"]
+        lifetime : ["legacy", "immortality_through_children"]
+      }
+    }
+
+    // Memory & Learning
+    memory : {
+      enabled : true
+
+      types : {
+        episodic : {
+          description : "remember_specific_events"
+          examples : ["my_wedding", "the_great_fire", "when_son_was_born"]
+          emotional_weight : "strong_emotions_remembered_longer"
+          decay : "fade_over_years"
+        }
+
+        semantic : {
+          description : "general_knowledge"
+          examples : ["how_to_farm", "city_layout", "social_norms"]
+          permanent : "once_learned_not_forgotten"
+        }
+
+        procedural : {
+          description : "learned_skills"
+          examples : ["pottery_making", "sword_fighting"]
+          improves_with_practice : true
+        }
+
+        relationship : {
+          description : "remember_interactions"
+          tracks : ["who_they_know", "relationship_history", "favors_owed"]
+          influences : "future_behavior"
+        }
+      }
+
+      emotional_memories : {
+        joy : "weddings_births_victories"
+        sadness : "deaths_defeats_tragedies"
+        fear : "disasters_violence_trauma"
+        anger : "betrayals_injustices"
+        disgust : "unpleasant_experiences"
+      }
+
+      forgetting : {
+        natural_decay : "memories_fade"
+        trauma_suppression : "block_painful_memories"
+        disease_related : "dementia_in_old_age"
+      }
+    }
+  }
+
+  // ==========================================
+  // LIFE CYCLE
+  // ==========================================
+  life_cycle : {
+    // Birth
+    birth : {
+      conception : {
+        requires : ["male", "female", "relationship", "home"]
+        chance : "based_on_fertility"
+        pregnancy_duration : "9_months"
+      }
+
+      pregnancy : {
+        visible : true
+        affects_mother : ["reduced_work", "special_needs"]
+        complications : "rare_but_possible"
+      }
+
+      childbirth : {
+        location : "home_or_clinic"
+        risks : "maternal_and_infant_mortality"
+        midwife : "increases_safety"
+        celebration : "family_event"
+      }
+
+      twins : {
+        chance : "1_in_80"
+        identical_or_fraternal : true
+      }
+    }
+
+    // Childhood
+    childhood : {
+      stages : {
+        infant : {
+          age : "0_to_2"
+          needs : "constant_care"
+          carried : "by_parent"
+          no_walking : true
+        }
+
+        toddler : {
+          age : "2_to_5"
+          learning : "basic_skills"
+          playing : "with_toys"
+          walking : "slowly"
+        }
+
+        child : {
+          age : "5_to_12"
+          education : "basic_or_advanced"
+          chores : "help_family"
+          playing : "with_other_children"
+        }
+
+        teenager : {
+          age : "12_to_16"
+          apprenticeship : "learning_trade"
+          or_education : "if_wealthy"
+          developing_personality : true
+          physical_changes : "puberty"
+        }
+      }
+
+      parenting : {
+        parents_care : true
+        if_orphaned : "adopted_or_state_care"
+        education : "wealthy_get_better"
+        discipline : "shapes_personality"
+      }
+    }
+
+    // Adulthood
+    adulthood : {
+      coming_of_age : {
+        age : 16
+        ceremony : "toga_virilis"
+        responsibilities : "full_citizen"
+        can_marry : true
+        can_vote : true
+      }
+
+      prime : {
+        age : "16_to_50"
+        physical_peak : "20_to_30"
+        career_focus : true
+        family_raising : true
+      }
+
+      middle_age : {
+        age : "50_to_65"
+        wisdom : "increased"
+        physical_decline : "gradual"
+        mentoring : "younger_generation"
+      }
+    }
+
+    // Old Age & Death
+    old_age : {
+      elderly : {
+        age : "65_plus"
+        retirement : "if_wealthy"
+        or_work : "if_poor"
+        health_issues : "more_common"
+        respect : "from_young"
+      }
+
+      death : {
+        causes : {
+          old_age : "natural"
+          disease : "plague_fever"
+          accident : "workplace_fires"
+          violence : "murder_war"
+          starvation : "famine"
+          childbirth : "women_only"
+        }
+
+        process : {
+          decline : "warning_signs"
+          or_sudden : "heart_attack_violence"
+          last_words : "sometimes"
+        }
+
+        aftermath : {
+          funeral : "family_ceremony"
+          burial_or_cremation : "cultural_norms"
+          inheritance : "wealth_distributed"
+          mourning : "family_grief"
+          ghost : "rare_haunting"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // RELATIONSHIPS
+  // ==========================================
+  relationships : {
+    // Relationship System
+    system : {
+      tracking : "every_citizen_to_every_citizen"
+      dynamic : "changes_based_on_interactions"
+
+      relationship_types : {
+        family : ["parent", "child", "sibling", "spouse", "cousin", "uncle_aunt"]
+        romantic : ["crush", "dating", "engaged", "married", "divorced", "widowed"]
+        friendship : ["acquaintance", "friend", "best_friend", "enemy", "rival"]
+        professional : ["employer", "employee", "colleague", "mentor", "apprentice"]
+        political : ["patron", "client", "ally", "opponent"]
+      }
+
+      relationship_values : {
+        range : "-100_to_100"
+        positive : "like_love_admire"
+        neutral : "indifferent"
+        negative : "dislike_hate_fear"
+      }
+    }
+
+    // Romance & Marriage
+    romance : {
+      attraction : {
+        factors : ["physical_appearance", "personality_compatibility", "social_status", "wealth"]
+        chemistry : "sometimes_inexplicable"
+      }
+
+      dating : {
+        courtship : "roman_customs"
+        activities : ["walks", "theater", "dining", "gifts"]
+        progression : "from_acquaintance_to_love"
+      }
+
+      marriage : {
+        proposal : "traditionally_arranged_or_love"
+        engagement : "betrothal_period"
+        wedding : "ceremony_and_celebration"
+        dowry : "wealth_exchange"
+
+        married_life : {
+          living_together : true
+          shared_home : true
+          children : "expected"
+          partnership : "emotional_bond"
+        }
+
+        problems : {
+          infidelity : "possible"
+          arguments : "over_money_children_etc"
+          growing_apart : "relationship_decay"
+          divorce : "rare_but_possible"
+        }
+      }
+    }
+
+    // Family
+    family : {
+      nuclear_family : {
+        parents : "mother_and_father"
+        children : "biological_or_adopted"
+        living_arrangement : "same_house"
+      }
+
+      extended_family : {
+        grandparents : "may_live_with"
+        aunts_uncles : "visit_regularly"
+        cousins : "close_relationships"
+      }
+
+      family_dynamics : {
+        hierarchical : "paterfamilias_authority"
+        respect_for_elders : true
+        duty_to_family : "strong_obligation"
+        inheritance : "family_wealth"
+      }
+
+      activities : {
+        meals_together : "daily"
+        celebrations : "birthdays_festivals"
+        mourning : "family_deaths"
+        support : "in_hard_times"
+      }
+    }
+
+    // Friendships
+    friendship : {
+      formation : {
+        proximity : "neighbors_coworkers"
+        shared_interests : "hobbies_beliefs"
+        repeated_positive_interactions : true
+        chemistry : "personality_match"
+      }
+
+      activities : {
+        socializing : "visiting_chatting"
+        entertainment : "going_to_events_together"
+        help : "favors_and_support"
+        gossip : "sharing_news"
+      }
+
+      conflicts : {
+        arguments : "over_disagreements"
+        betrayal : "breaking_trust"
+        jealousy : "envy_of_success"
+        resolution : "apologizing_forgiving"
+      }
+    }
+
+    // Enemies & Rivals
+    conflict : {
+      enemies : {
+        formation : "repeated_negative_interactions"
+        causes : ["insults", "theft", "violence", "betrayal"]
+        escalation : "feuds_vendettas"
+        resolution : "rare_forgiveness_or_death"
+      }
+
+      rivalry : {
+        competitive : "for_same_goals"
+        areas : ["profession", "romance", "status"]
+        intensity : "mild_to_obsessive"
+        can_be_positive : "healthy_competition"
+      }
+    }
+  }
+
+  // ==========================================
+  // DAILY LIFE & ROUTINES
+  // ==========================================
+  daily_life : {
+    // Schedules
+    schedules : {
+      working_class : {
+        dawn : "wake_up"
+        morning : "work"
+        midday : "lunch_break"
+        afternoon : "work"
+        evening : "return_home"
+        night : "family_time_sleep"
+      }
+
+      wealthy : {
+        morning : "breakfast_personal_time"
+        midday : "business_or_forum"
+        afternoon : "leisure_bath"
+        evening : "dinner_socializing"
+        night : "entertainment_sleep"
+      }
+
+      children : {
+        morning : "school_or_play"
+        midday : "lunch"
+        afternoon : "chores_or_play"
+        evening : "family_time"
+        night : "early_bed"
+      }
+
+      flexible : {
+        weekends : "no_concept_in_rome"
+        festivals : "work_stops"
+        emergencies : "override_routine"
+        personality : "some_more_routine_than_others"
+      }
+    }
+
+    // Activities
+    activities : {
+      work : {
+        types : "profession_dependent"
+        location : ["farm", "workshop", "market", "military"]
+        duration : "dawn_to_dusk"
+        breaks : "for_meals"
+        skill_improvement : "practice_makes_perfect"
+        income : "earns_money"
+        satisfaction : "affected_by_conditions"
+      }
+
+      eating : {
+        meals : ["breakfast", "lunch", "dinner"]
+        locations : ["home", "thermopolium", "tavern"]
+        social : "often_with_family_or_friends"
+        duration : "15_minutes_to_hours"
+      }
+
+      sleeping : {
+        location : "home_bedroom"
+        duration : "7_to_9_hours"
+        quality : "affected_by_comfort_noise"
+        dreams : "occasionally"
+      }
+
+      leisure : {
+        entertainment : ["theater", "gladiators", "races", "music"]
+        sports : ["swimming", "wrestling", "ball_games"]
+        hobbies : ["reading", "crafts", "gardening"]
+        socializing : ["visiting", "parties", "forum"]
+      }
+
+      hygiene : {
+        bathing : "at_bathhouse"
+        frequency : "daily_to_weekly"
+        social_activity : "chat_with_others"
+      }
+
+      religious : {
+        worship : "at_temple"
+        festivals : "city_wide_celebrations"
+        household_gods : "daily_offerings"
+        superstitions : "avoid_bad_omens"
+      }
+
+      shopping : {
+        market : "buy_food_goods"
+        haggling : "negotiation"
+        browsing : "window_shopping"
+        social : "meet_people"
+      }
+    }
+  }
+
+  // ==========================================
+  // SOCIAL DYNAMICS
+  // ==========================================
+  social : {
+    // Social Class
+    class : {
+      hierarchy : {
+        patricians : {
+          description : "noble_elite"
+          percentage : 5
+          privileges : ["politics", "best_jobs", "respect"]
+          expectations : ["maintain_dignity", "patron_duties"]
+        }
+
+        equestrians : {
+          description : "wealthy_business_class"
+          percentage : 15
+          privileges : ["wealth", "some_political_power"]
+          expectations : ["support_state", "business_acumen"]
+        }
+
+        plebeians : {
+          description : "common_citizens"
+          percentage : 70
+          rights : ["vote", "own_property"]
+          struggles : ["make_living", "improve_status"]
+        }
+
+        slaves : {
+          description : "owned_people"
+          percentage : 10
+          rights : "none"
+          treatment : "varies_by_owner"
+          hope : "manumission_freedom"
+        }
+      }
+
+      mobility : {
+        possible : true
+        difficult : "but_not_impossible"
+        paths : ["wealth_accumulation", "military_service", "political_favor"]
+        rare : "patrician_status_hereditary"
+      }
+    }
+
+    // Reputation
+    reputation : {
+      personal : {
+        known_for : ["profession", "deeds", "scandals"]
+        affects : ["relationships", "opportunities", "respect"]
+      }
+
+      family : {
+        inherited : "family_name_matters"
+        collective : "one_members_actions_affect_all"
+      }
+
+      city_wide : {
+        fame : "well_known_citizens"
+        infamy : "notorious_criminals"
+        respect : "earned_through_actions"
+      }
+    }
+
+    // Gossip & News
+    gossip : {
+      spread : {
+        word_of_mouth : "citizens_talk"
+        speed : "realistic_diffusion"
+        accuracy : "degrades_with_distance"
+        embellishment : "stories_grow"
+      }
+
+      topics : {
+        scandals : "affairs_crimes"
+        news : "political_events"
+        rumors : "unverified_information"
+        achievements : "celebrations"
+      }
+
+      effects : {
+        reputation : "damaged_or_enhanced"
+        relationships : "affected"
+        opportunities : "created_or_lost"
+      }
+    }
+
+    // Social Events
+    events : {
+      festivals : {
+        public : "city_wide_celebrations"
+        attendance : "expected"
+        activities : ["parades", "games", "feasts"]
+        social_bonding : true
+      }
+
+      parties : {
+        private : "invitation_only"
+        host : "wealthy_families"
+        activities : ["dining", "entertainment", "conversation"]
+        networking : "political_and_social"
+      }
+
+      weddings : {
+        celebration : "family_and_friends"
+        ceremony : "religious_and_legal"
+        feast : "elaborate_meal"
+        gifts : "expected"
+      }
+
+      funerals : {
+        mourning : "family_and_close_friends"
+        ceremony : "honor_deceased"
+        procession : "to_burial_site"
+        wake : "memorial_gathering"
+      }
+    }
+  }
+
+  // ==========================================
+  // AUTONOMOUS BEHAVIOR
+  // ==========================================
+  autonomy : {
+    // Decision Making
+    decisions : {
+      utility_based : {
+        evaluate_options : true
+        weigh_factors : ["needs", "desires", "personality", "situation"]
+        choose_best : "maximize_satisfaction"
+      }
+
+      hierarchical : {
+        immediate_needs : "highest_priority"
+        desires : "second_priority"
+        social_expectations : "third_priority"
+        long_term_goals : "background_influence"
+      }
+
+      randomness : {
+        small_random_factor : "realistic_unpredictability"
+        personality_influenced : "some_more_predictable"
+      }
+    }
+
+    // Learning & Adaptation
+    learning : {
+      from_experience : {
+        success : "reinforce_behavior"
+        failure : "avoid_repeating"
+        memory : "remember_outcomes"
+      }
+
+      from_observation : {
+        watch_others : "social_learning"
+        imitate_successful : "modeling"
+        cultural_transmission : "learn_norms"
+      }
+
+      from_instruction : {
+        parents : "teach_children"
+        mentors : "guide_apprentices"
+        advisors : "counsel_leaders"
+      }
+    }
+
+    // Emergent Behavior
+    emergence : {
+      unscripted_events : {
+        spontaneous_gatherings : "citizens_congregate"
+        protests : "if_unhappy"
+        celebrations : "after_victory"
+        panic : "during_disaster"
+      }
+
+      cultural_evolution : {
+        traditions_emerge : "repeated_behaviors_become_norms"
+        slang_develops : "language_evolution"
+        fashion_trends : "clothing_styles_spread"
+        neighborhoods_form : "similar_people_cluster"
+      }
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE
+  // ==========================================
+  performance : {
+    // Optimization
+    optimization : {
+      lod_system : {
+        detailed : "close_or_selected_citizens"
+        simplified : "distant_citizens"
+        dormant : "far_away_or_sleeping"
+      }
+
+      update_frequency : {
+        needs : "every_10_seconds"
+        mood : "every_30_seconds"
+        relationships : "after_interactions"
+        long_term_goals : "daily"
+      }
+
+      population_limits : {
+        low_end_device : 1000
+        mid_end_device : 5000
+        high_end_device : 20000
+        desktop : 100000
+      }
+    }
+  }
+}

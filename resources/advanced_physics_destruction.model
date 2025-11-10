@@ -1,0 +1,806 @@
+// CaesarIA 2025 - Advanced Physics & Destruction System
+// Realistic physics simulation and spectacular destruction
+
+physics_destruction : {
+  // ==========================================
+  // PHYSICS ENGINE
+  // ==========================================
+  physics_engine : {
+    enabled : true
+    engine : "custom_optimized_for_mobile"
+
+    // Core Physics
+    core : {
+      gravity : "9.81_m_s2"
+      air_resistance : true
+      friction : "material_dependent"
+      restitution : "bounciness"
+
+      simulation_rate : {
+        fixed_timestep : "60hz"
+        substeps : 4  // For stability
+        max_timestep : "0.1_seconds"
+      }
+
+      collision_detection : {
+        method : "continuous_collision_detection"
+        precision : "sub_centimeter"
+        layers : "objects_terrain_buildings"
+      }
+    }
+
+    // Rigid Body Physics
+    rigid_bodies : {
+      enabled : true
+
+      objects : {
+        buildings : {
+          mass : "calculated_from_volume_and_material"
+          center_of_mass : "structural_analysis"
+          moment_of_inertia : "realistic"
+
+          states : ["static", "kinematic", "dynamic"]
+          default_state : "static"
+          becomes_dynamic_when : "structural_failure"
+        }
+
+        debris : {
+          mass : "calculated"
+          lifetime : "30_seconds_to_permanent"
+          collision : "full_simulation"
+          merging : "combine_small_pieces"
+        }
+
+        vehicles : {
+          carts : "full_physics"
+          boats : "buoyancy_simulation"
+          siege_engines : "realistic_mechanics"
+        }
+
+        citizens : {
+          ragdoll : "on_death_or_impact"
+          animated : "procedural_blending"
+          collision : "capsule_approximation"
+        }
+      }
+    }
+
+    // Soft Body Physics
+    soft_bodies : {
+      enabled : true
+
+      types : {
+        cloth : {
+          flags : "wind_simulation"
+          awnings : "market_tents"
+          capes : "citizen_clothing"
+          simulation : "position_based_dynamics"
+        }
+
+        water : {
+          type : "particle_based_fluid"
+          particles_visible : 100000
+          interactions : "splash_ripple_wave"
+        }
+
+        smoke : {
+          type : "volumetric_particles"
+          buoyancy : true
+          wind_affected : true
+        }
+
+        vegetation : {
+          trees : "procedural_animation"
+          grass : "wind_interaction"
+          crops : "growth_simulation"
+        }
+      }
+    }
+
+    // Constraints & Joints
+    constraints : {
+      enabled : true
+
+      types : {
+        hinges : "doors_gates_catapults"
+        springs : "suspension_shock_absorption"
+        ropes : "cranes_pulleys"
+        chains : "drawbridges"
+        welds : "structural_connections"
+      }
+
+      breaking : {
+        stress_limits : true
+        visual_feedback : "crack_particles"
+        audio_feedback : "snapping_sounds"
+      }
+    }
+  }
+
+  // ==========================================
+  // STRUCTURAL INTEGRITY SYSTEM
+  // ==========================================
+  structural_integrity : {
+    enabled : true
+
+    // Building Stability
+    stability : {
+      calculation : "real_time"
+
+      factors : {
+        foundation : {
+          terrain_type : "rock_best_mud_worst"
+          depth : "deeper_more_stable"
+          width : "wider_base_better"
+        }
+
+        materials : {
+          stone : {
+            strength : 100
+            weight : 150
+            durability : 95
+          }
+
+          marble : {
+            strength : 120
+            weight : 160
+            durability : 98
+            prestige : true
+          }
+
+          brick : {
+            strength : 70
+            weight : 100
+            durability : 80
+          }
+
+          wood : {
+            strength : 40
+            weight : 30
+            durability : 50
+            fire_vulnerable : true
+          }
+
+          concrete : {
+            strength : 90
+            weight : 140
+            durability : 85
+            roman_innovation : true
+          }
+        }
+
+        design : {
+          arches : "distribute_weight"
+          columns : "support_upper_floors"
+          buttresses : "lateral_support"
+          foundations : "underground_strength"
+        }
+
+        load_distribution : {
+          vertical_loads : "weight_from_above"
+          lateral_loads : "wind_earthquakes"
+          point_loads : "concentrated_stress"
+          distributed_loads : "even_pressure"
+        }
+      }
+
+      failure_modes : {
+        overload : "too_much_weight"
+        undermining : "foundation_removed"
+        lateral_collapse : "sideways_push"
+        material_failure : "stone_cracks"
+        age_decay : "structural_weakening"
+      }
+    }
+
+    // Visual Feedback
+    visual_feedback : {
+      stress_visualization : {
+        color_coded : true
+        colors : {
+          green : "safe_low_stress"
+          yellow : "moderate_stress"
+          orange : "high_stress"
+          red : "critical_danger"
+        }
+
+        overlay_mode : "toggle_on_off"
+        real_time : true
+      }
+
+      cracks : {
+        appear_at_stress_points : true
+        grow_over_time : true
+        types : ["hairline", "moderate", "severe", "structural"]
+        procedural : "unique_each_time"
+      }
+
+      deformation : {
+        sagging_beams : true
+        leaning_walls : true
+        bulging_foundations : true
+        settling : "gradual_sinking"
+      }
+    }
+  }
+
+  // ==========================================
+  // DESTRUCTION SYSTEM
+  // ==========================================
+  destruction : {
+    enabled : true
+
+    // Destruction Types
+    types : {
+      // Gradual Decay
+      decay : {
+        enabled : true
+
+        causes : {
+          age : "buildings_deteriorate"
+          weather : "rain_wind_damage"
+          neglect : "no_maintenance"
+          fire_damage : "charred_remains"
+          water_damage : "rot_erosion"
+        }
+
+        progression : {
+          pristine : "100_percent_health"
+          weathered : "80_percent"
+          damaged : "60_percent"
+          dilapidated : "40_percent"
+          ruins : "20_percent"
+          rubble : "0_percent"
+        }
+
+        visual_stages : {
+          paint_fading : "first_sign"
+          cracks_appearing : "early_stage"
+          missing_pieces : "mid_stage"
+          partial_collapse : "late_stage"
+          complete_ruin : "final_stage"
+        }
+      }
+
+      // Instant Destruction
+      instant : {
+        causes : ["earthquake", "explosion", "divine_wrath", "player_demolish"]
+
+        demolition_tool : {
+          select_building : true
+          confirm : "are_you_sure"
+          instant_or_animated : "player_choice"
+          resources_recovered : "50_percent"
+        }
+      }
+
+      // Fire Damage
+      fire : {
+        enabled : true
+
+        ignition : {
+          sources : ["lightning", "arson", "accident", "war"]
+          flammability : "material_dependent"
+
+          materials : {
+            wood : "highly_flammable"
+            thatch : "extremely_flammable"
+            brick : "resistant"
+            stone : "fireproof"
+            marble : "fireproof"
+          }
+        }
+
+        spread : {
+          to_adjacent_buildings : true
+          wind_affected : true
+          upward_tendency : "rises_naturally"
+          firebreaks : "roads_rivers_stone_buildings"
+        }
+
+        damage : {
+          structural_weakening : true
+          material_destruction : "wood_consumed"
+          charring : "permanent_blackening"
+          collapse_risk : "burns_through_supports"
+        }
+
+        suppression : {
+          water_sources : "fountains_aqueducts_river"
+          fire_brigade : "citizen_chain"
+          demolition : "controlled_destruction_to_stop_spread"
+        }
+      }
+
+      // Earthquake Damage
+      earthquake : {
+        enabled : true
+
+        magnitudes : {
+          minor : {
+            richter : "3_to_4"
+            effects : "cracks_minor_damage"
+            frequency : "common"
+          }
+
+          moderate : {
+            richter : "5_to_6"
+            effects : "significant_damage_some_collapse"
+            frequency : "occasional"
+          }
+
+          major : {
+            richter : "7_to_8"
+            effects : "widespread_destruction"
+            frequency : "rare"
+          }
+
+          catastrophic : {
+            richter : "9_plus"
+            effects : "total_devastation"
+            frequency : "very_rare"
+          }
+        }
+
+        effects : {
+          ground_shaking : {
+            duration : "10_to_60_seconds"
+            intensity : "magnitude_dependent"
+            camera_shake : "player_feels_it"
+          }
+
+          building_damage : {
+            weak_buildings : "collapse_immediately"
+            medium_buildings : "severe_damage"
+            strong_buildings : "moderate_damage"
+            reinforced_buildings : "minor_damage"
+          }
+
+          ground_deformation : {
+            cracks : "fissures_in_earth"
+            liquefaction : "soil_becomes_liquid"
+            landslides : "hills_collapse"
+            tsunamis : "if_coastal"
+          }
+        }
+
+        aftershocks : {
+          enabled : true
+          count : "3_to_10"
+          timing : "minutes_to_days_after"
+          decreasing_intensity : true
+        }
+      }
+
+      // Siege Damage
+      siege : {
+        enabled : true
+
+        weapons : {
+          battering_ram : {
+            targets : "gates_walls"
+            damage_type : "impact_crushing"
+            effectiveness : "wood_vulnerable"
+            animation : "swinging_impact"
+          }
+
+          catapult : {
+            targets : "buildings_walls"
+            damage_type : "kinetic_impact"
+            projectile : "stone_boulder"
+            arc_trajectory : true
+            area_damage : "splash_radius"
+          }
+
+          ballista : {
+            targets : "precise_strikes"
+            damage_type : "piercing"
+            projectile : "giant_bolt"
+            high_velocity : true
+          }
+
+          trebuchet : {
+            targets : "long_range_destruction"
+            damage_type : "massive_kinetic"
+            projectile : ["stone", "corpse", "fire_pot"]
+            max_range : "300_meters"
+            devastating : true
+          }
+
+          siege_tower : {
+            purpose : "wall_breach"
+            mobile : true
+            allows : "troops_to_scale_walls"
+          }
+        }
+
+        fortification_resistance : {
+          wooden_palisade : "weak"
+          brick_wall : "moderate"
+          stone_wall : "strong"
+          marble_wall : "very_strong"
+          reinforced_wall : "nearly_impervious"
+        }
+      }
+
+      // Flood Damage
+      flood : {
+        enabled : true
+
+        causes : {
+          river_overflow : "heavy_rain"
+          dam_break : "aqueduct_failure"
+          tsunami : "post_earthquake"
+          divine_event : "gods_wrath"
+        }
+
+        water_simulation : {
+          fluid_dynamics : "realistic_flow"
+          pressure : "breaks_weak_structures"
+          erosion : "undermines_foundations"
+          debris_flow : "carried_objects"
+        }
+
+        damage : {
+          undermining : "foundations_washed_away"
+          water_pressure : "walls_burst"
+          material_damage : "wood_warps_mud_dissolves"
+          drowning : "citizens_casualties"
+        }
+      }
+    }
+
+    // Destruction Physics
+    physics : {
+      // Fracture System
+      fracture : {
+        enabled : true
+        method : "voronoi_fracture"
+
+        patterns : {
+          natural : "realistic_crack_propagation"
+          material_specific : "stone_vs_wood_vs_brick"
+          stress_based : "breaks_at_weak_points"
+        }
+
+        fragments : {
+          count : "10_to_1000_pieces"
+          sizes : "large_chunks_to_dust"
+          each_is_rigid_body : true
+          can_damage_others : true
+        }
+      }
+
+      // Collapse Simulation
+      collapse : {
+        sequential : {
+          enabled : true
+          top_to_bottom : "realistic_progression"
+          chain_reaction : "one_floor_triggers_next"
+          timing : "progressive_over_seconds"
+        }
+
+        types : {
+          pancake : "floors_stack_vertically"
+          lean : "topples_to_side"
+          progressive : "section_by_section"
+          explosive : "outward_burst"
+        }
+
+        debris_behavior : {
+          bouncing : "realistic_physics"
+          sliding : "friction_based"
+          settling : "comes_to_rest"
+          stacking : "pile_formation"
+          dust_clouds : "particulate_effects"
+        }
+      }
+
+      // Impact Dynamics
+      impact : {
+        projectile_collision : {
+          crater_formation : "point_of_impact"
+          penetration : "through_weak_materials"
+          ricochet : "off_hard_surfaces"
+          energy_transfer : "knockback_effects"
+        }
+
+        falling_objects : {
+          terminal_velocity : true
+          impact_force : "mass_times_acceleration"
+          damage_radius : "proportional_to_size"
+          secondary_effects : "crushes_smaller_objects"
+        }
+      }
+    }
+
+    // Debris Management
+    debris : {
+      generation : {
+        procedural : true
+        lod_based : "detail_by_distance"
+
+        piece_types : {
+          large_chunks : "recognizable_parts"
+          medium_pieces : "broken_blocks"
+          small_fragments : "rubble"
+          dust : "particle_system"
+        }
+      }
+
+      persistence : {
+        permanent_option : "debris_stays_forever"
+        timed_removal : "fades_after_time"
+        manual_cleanup : "player_clears"
+
+        cleanup_systems : {
+          workers : "citizens_remove_debris"
+          time : "gradual_disappearance"
+          magic : "instant_removal_cheat"
+        }
+      }
+
+      reuse : {
+        salvage : "recover_materials"
+        efficiency : "50_to_80_percent"
+        time_required : "citizens_work_hours"
+        storage : "goes_to_warehouse"
+      }
+    }
+  }
+
+  // ==========================================
+  // MATERIAL PROPERTIES
+  // ==========================================
+  materials : {
+    // Physical Properties
+    properties : {
+      stone : {
+        density : 2500  // kg/m³
+        hardness : 8
+        toughness : 7
+        brittleness : 6
+        compressive_strength : "high"
+        tensile_strength : "low"
+        fire_resistance : 10
+        water_resistance : 9
+      }
+
+      marble : {
+        density : 2700
+        hardness : 9
+        toughness : 6
+        brittleness : 7
+        compressive_strength : "very_high"
+        tensile_strength : "low"
+        fire_resistance : 10
+        water_resistance : 10
+        beauty : 10
+      }
+
+      brick : {
+        density : 1800
+        hardness : 6
+        toughness : 5
+        brittleness : 7
+        compressive_strength : "medium"
+        tensile_strength : "low"
+        fire_resistance : 8
+        water_resistance : 6
+      }
+
+      wood : {
+        density : 600
+        hardness : 3
+        toughness : 6
+        brittleness : 3
+        compressive_strength : "low"
+        tensile_strength : "medium"
+        fire_resistance : 1
+        water_resistance : 3
+        flexibility : 8
+      }
+
+      concrete : {
+        density : 2300
+        hardness : 7
+        toughness : 8
+        brittleness : 5
+        compressive_strength : "high"
+        tensile_strength : "medium"
+        fire_resistance : 9
+        water_resistance : 8
+        roman_invention : true
+      }
+
+      metal : {
+        iron : {
+          density : 7800
+          hardness : 9
+          toughness : 9
+          fire_resistance : 10
+          conductivity : "heat_and_electricity"
+        }
+
+        bronze : {
+          density : 8800
+          hardness : 8
+          toughness : 8
+          corrosion_resistance : 8
+          prestige : true
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // ENVIRONMENTAL INTERACTIONS
+  // ==========================================
+  interactions : {
+    // Wind Effects
+    wind : {
+      enabled : true
+
+      effects : {
+        building_sway : "tall_buildings"
+        flag_flutter : "cloth_simulation"
+        dust_clouds : "particle_drift"
+        fire_spread : "wind_direction"
+        structural_stress : "sustained_high_winds"
+      }
+
+      speeds : {
+        calm : "0_to_10_kph"
+        breezy : "10_to_30_kph"
+        windy : "30_to_50_kph"
+        strong_winds : "50_to_80_kph"
+        storm : "80_plus_kph"
+      }
+    }
+
+    // Water Interactions
+    water : {
+      erosion : {
+        soil : "washes_away"
+        foundations : "undermines_gradually"
+        banks : "river_widening"
+      }
+
+      pressure : {
+        dam_stress : "water_weight"
+        flood_force : "destructive_power"
+        aqueduct_flow : "maintains_pressure"
+      }
+
+      freezing : {
+        ice_expansion : "cracks_stone"
+        thaw_cycles : "accelerates_wear"
+      }
+    }
+
+    // Temperature Effects
+    temperature : {
+      expansion_contraction : {
+        daily_cycles : "micro_stresses"
+        seasonal_cycles : "macro_stresses"
+        material_fatigue : "cumulative_damage"
+      }
+
+      fire_effects : {
+        material_weakening : "loss_of_strength"
+        thermal_shock : "rapid_temperature_change"
+        cracking : "differential_expansion"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    // Risk Management
+    risk : {
+      early_warning : {
+        structural_inspector : "advisor_warns"
+        cracks_visible : "player_can_see"
+        stress_overlay : "engineering_view"
+      }
+
+      prevention : {
+        maintenance : "regular_upkeep"
+        reinforcement : "strengthen_buildings"
+        firebreaks : "wide_roads"
+        seismic_design : "earthquake_resistant"
+      }
+
+      insurance : {
+        disaster_fund : "money_set_aside"
+        trade_contracts : "rebuild_materials"
+        citizen_morale : "affects_recovery_speed"
+      }
+    }
+
+    // Difficulty Scaling
+    difficulty : {
+      easy : {
+        destruction : "minimal"
+        decay_rate : "slow"
+        natural_disasters : "rare"
+      }
+
+      normal : {
+        destruction : "realistic"
+        decay_rate : "moderate"
+        natural_disasters : "occasional"
+      }
+
+      hard : {
+        destruction : "severe"
+        decay_rate : "fast"
+        natural_disasters : "frequent"
+      }
+
+      simulation : {
+        destruction : "maximum_realism"
+        decay_rate : "historically_accurate"
+        natural_disasters : "realistic_frequency"
+        no_magic_fixes : true
+      }
+    }
+  }
+
+  // ==========================================
+  // PERFORMANCE
+  // ==========================================
+  performance : {
+    // Optimization
+    optimization : {
+      lod_system : {
+        close : "full_physics_simulation"
+        medium : "simplified_collision"
+        far : "visual_only_no_physics"
+        very_far : "not_rendered"
+      }
+
+      debris_limits : {
+        max_pieces : 10000
+        merge_small_pieces : true
+        remove_distant : true
+        instancing : "shared_geometry"
+      }
+
+      physics_budget : {
+        max_active_bodies : 1000
+        sleep_threshold : "inactive_objects_freeze"
+        update_frequency : "60hz_close_30hz_far"
+      }
+    }
+
+    // Quality Presets
+    presets : {
+      low : {
+        fracture_pieces : 10
+        debris_lifetime : "10_seconds"
+        physics_quality : "simplified"
+      }
+
+      medium : {
+        fracture_pieces : 50
+        debris_lifetime : "30_seconds"
+        physics_quality : "balanced"
+      }
+
+      high : {
+        fracture_pieces : 200
+        debris_lifetime : "60_seconds"
+        physics_quality : "accurate"
+      }
+
+      ultra : {
+        fracture_pieces : 1000
+        debris_lifetime : "permanent"
+        physics_quality : "maximum"
+      }
+    }
+  }
+}
