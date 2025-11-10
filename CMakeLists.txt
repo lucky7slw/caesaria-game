@@ -6,6 +6,14 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules" ${CMAKE_MODULE
 message("CMake module path is ${CMAKE_MODULE_PATH}")
 
 message("System is ${CMAKE_SYSTEM_NAME}")
+
+# iOS/iPadOS platform detection
+if(IOS OR CMAKE_SYSTEM_NAME STREQUAL "iOS")
+  message("Building for iOS/iPadOS")
+  set(IOS TRUE)
+  add_definitions(-DIOS)
+  add_definitions(-DTARGET_OS_IPHONE)
+endif()
 option( BUILD_ZLIB  "Static zlib"    ON )
 option( BUILD_AES   "Static aes"     ON )
 option( BUILD_BZIP  "Static bzip"    ON )

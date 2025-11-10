@@ -4,9 +4,13 @@ Master: ![Build Status](https://travis-ci.org/dalerank/caesaria-game.svg?branch=
 
 ![IndieDb Rating](http://button.indiedb.com/popularity/medium/games/27823.png)
 
-# CaesarIA 0.5
+# CaesarIA 0.6 (2025 Edition)
 
-Work for CaesarIA began in 2009, it was a wide screen mod for Caesar III. In 2012 development moved to a standalone game with its own engine. In 2014, the game was released in steam, but still open-source software. It is an open-source remake of the popular citybuilder/economic strategy - Caesar III, videogame by Empressions Games. Now, CaesarIA is still in development phase, which means an early experimental stage. It is playable, and you can already download and test the game, but some features yet still missing. When CaesarIA will be released? It is very hard to quetion. Even after we are done implementing all the features, we will want to continue work for new features and testing. Information about release will be posted.
+Work for CaesarIA began in 2009, it was a wide screen mod for Caesar III. In 2012 development moved to a standalone game with its own engine. In 2014, the game was released on Steam, but remained open-source software. It is an open-source remake of the popular citybuilder/economic strategy game Caesar III by Impressions Games.
+
+**2025 Update:** This version includes modern platform support (iOS/iPadOS), enhanced touch controls, improved UI/UX, and quality-of-life gameplay improvements while staying true to the original Caesar III experience.
+
+CaesarIA is playable and actively maintained. You can download and test the game on Windows, Linux, macOS, Android, iOS, and iPadOS. Information about releases will be posted on our repository.
 
 See more info at the ours [website](https://bitbucket.org/dalerank/caesaria/wiki/Home)
 
@@ -23,14 +27,12 @@ argument "-c3gfx <path to CaesarIII folder>" when running CaesarIA.
 
 ### Saves
 
-On Windows, Mac OS X
-CaesarIA will also check the following folders:
+CaesarIA will check the following folders for saves:
 
-- <game directory>\saves (Windows 2000/XP/7/8)
-
-On Linux
-
-- <userhome>/.caesaria/saves (Linux)
+- **Windows**: <game directory>\saves
+- **Linux**: <userhome>/.caesaria/saves
+- **macOS**: <userhome>/.caesaria/saves or ~/Library/Application Support/CaesarIA/saves
+- **iOS/iPadOS**: App sandbox Documents folder
 
 ### Resources
 
@@ -50,11 +52,51 @@ and affect any old or new savegame.
 
 For more details please check the [wiki](https://bitbucket.org/dalerank/caesaria/wiki/Configuration%20files).
 
+## 2025 Edition Features
+
+### iOS and iPadOS Support
+CaesarIA now runs natively on iPhone and iPad with optimized touch controls:
+- Pinch-to-zoom for easy map navigation
+- Long-press for building information
+- Two-finger tap for context menus
+- Haptic feedback for immersive gameplay
+- See **INSTALL_IOS** for build instructions
+
+### Modern Gameplay Enhancements
+- **Auto-save**: Never lose progress with configurable auto-save intervals
+- **Quick Build Mode**: Preview buildings before placement with ghost overlays
+- **Smart Roads**: Auto-connecting roads with grid snapping
+- **Undo/Redo**: Reverse building placement mistakes (up to 10 steps)
+- **Game Speed Control**: Play at 0.5x to 3.0x speed
+- **Enhanced Minimap**: Resource overlays, threats, and clickable navigation
+
+### Quality of Life
+- Adaptive UI scaling for all screen sizes
+- Dark mode and high contrast options
+- Colorblind-friendly modes
+- Notification history and priority system
+- Budget forecasting and price history charts
+- Context-sensitive help and interactive tutorials
+
+### Performance
+- 60 FPS support with dynamic LOD
+- Optimized memory management
+- Background rendering optimizations
+
+For complete feature list, see **changes.md**
+
 ## Development
 
 CaesarIA does not require any specific frameworks - all the frameworks we need are placed in the game repository. The game engine used is a patched version of SDL2, which is also packaged as part of game. You may need to install gcc or any compiler to be able to build game.
 We use "cmake" for creating configs and building the game.
 
+### Platform-Specific Build Instructions
+- **Linux**: See INSTALL_LINUX
+- **Windows**: See INSTALL_WINDOWS
+- **macOS**: See INSTALL_MACOSX
+- **Android**: See INSTALL_ANDROID
+- **iOS/iPadOS**: See INSTALL_IOS (new in 2025!)
+
 It's also been tested on a variety of other tools on
-Windows/Mac/Linux. More detailed compiling instructions
+Windows/Mac/Linux/iOS/Android. More detailed compiling instructions
 and pre-compiled dependencies are available at the [wiki](https://bitbucket.org/dalerank/caesaria/wiki/Compiling).

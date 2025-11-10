@@ -1,0 +1,155 @@
+{
+  version : "0.6.0"
+  name : "CaesarIA 2025 Gameplay Enhancements"
+  description : "Modern quality-of-life improvements and gameplay enhancements for 2025"
+
+  // Enhanced Touch Controls (for mobile/tablet)
+  touch_controls : {
+    enabled : true
+    double_tap_speed : 300
+    long_press_duration : 500
+    pinch_zoom : true
+    two_finger_tap_contextmenu : true
+    gesture_sensitivity : "medium"
+    haptic_feedback : true
+  }
+
+  // Quality of Life Improvements
+  qol_features : {
+    // Auto-save functionality
+    auto_save : {
+      enabled : true
+      interval_minutes : 10
+      max_autosaves : 5
+    }
+
+    // Quick build mode
+    quick_build : {
+      enabled : true
+      show_preview : true
+      ghost_buildings : true
+    }
+
+    // Smart road building
+    smart_roads : {
+      auto_connect : true
+      show_grid : true
+      snap_to_buildings : true
+    }
+
+    // Enhanced notifications
+    notifications : {
+      popup_duration : 5
+      sound_alerts : true
+      priority_system : true
+      notification_history : true
+    }
+
+    // Improved resource management
+    resource_overlay : {
+      show_stockpiles : true
+      color_coded_warnings : true
+      trade_route_visualization : true
+    }
+  }
+
+  // Modern UI Improvements
+  ui_enhancements : {
+    // Responsive UI scaling
+    adaptive_ui : {
+      enabled : true
+      scale_with_resolution : true
+      min_ui_scale : 0.75
+      max_ui_scale : 2.0
+    }
+
+    // Dark mode support
+    themes : {
+      default : "classic"
+      dark_mode_available : true
+      high_contrast_mode : true
+    }
+
+    // Improved tooltips
+    tooltips : {
+      detailed_info : true
+      show_keyboard_shortcuts : true
+      delay_ms : 500
+    }
+
+    // Mini-map enhancements
+    minimap : {
+      show_resources : true
+      show_threats : true
+      clickable : true
+      overlay_options : ["none", "water", "food", "health", "entertainment", "education", "religion"]
+    }
+  }
+
+  // Gameplay Balancing for 2025
+  gameplay_tweaks : {
+    // Speed control
+    game_speed : {
+      pause_available : true
+      speed_options : [0.5, 1.0, 1.5, 2.0, 3.0]
+      default_speed : 1.0
+    }
+
+    // Building placement
+    building_mechanics : {
+      undo_placement : true
+      undo_limit : 10
+      building_rotation : true
+      copy_building_settings : true
+    }
+
+    // Citizen management
+    population : {
+      detailed_demographics : true
+      citizen_happiness_overlay : true
+      employment_visualization : true
+    }
+
+    // Economic improvements
+    economy : {
+      trade_advisor_ai_suggestions : true
+      automated_trade_routes : false
+      price_history_charts : true
+      budget_forecasting : true
+    }
+  }
+
+  // Accessibility Features
+  accessibility : {
+    colorblind_modes : ["none", "protanopia", "deuteranopia", "tritanopia"]
+    text_to_speech : false
+    reduced_motion : false
+    larger_text_option : true
+    subtitle_size_multiplier : 1.0
+  }
+
+  // Performance Optimizations
+  performance : {
+    dynamic_lod : true
+    background_optimization : true
+    memory_management : "balanced"
+    max_fps : 60
+    vsync : true
+  }
+
+  // Cloud Save Support (for future implementation)
+  cloud_features : {
+    enabled : false
+    save_sync : false
+    achievement_tracking : true
+    leaderboards : false
+  }
+
+  // Tutorial and Help
+  learning_aids : {
+    interactive_tutorial : true
+    context_sensitive_help : true
+    video_guides : false
+    tips_frequency : "medium"
+  }
+}

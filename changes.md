@@ -1,4 +1,60 @@
 Releases:
+
+##### 2025-01-10 (v0.6 - 2025 Edition)
+  * **Platform Support**: Added iOS and iPadOS support with native touch controls
+  * **Modern Build System**: Updated to Ubuntu 22.04 (Jammy), GCC 11/12, Clang 14/15
+  * **iOS/iPadOS Features**:
+    - Native iOS build configuration with CMake toolchain
+    - Optimized touch controls for iPhone and iPad
+    - Pinch-to-zoom gesture support
+    - Two-finger tap for context menus
+    - Long-press for building information
+    - Haptic feedback integration
+    - Support for iOS 13.0+ and iPadOS 13.0+
+  * **Quality of Life Improvements**:
+    - Auto-save functionality (configurable intervals)
+    - Quick build mode with ghost building previews
+    - Smart road building with auto-connect
+    - Enhanced notifications with priority system
+    - Notification history
+    - Color-coded resource warnings
+    - Trade route visualization
+    - Building placement undo/redo (up to 10 steps)
+  * **UI/UX Enhancements**:
+    - Adaptive UI scaling for all screen sizes and resolutions
+    - Dark mode support
+    - High contrast mode for accessibility
+    - Improved tooltips with keyboard shortcuts
+    - Enhanced minimap with resource overlays
+    - Detailed demographics display
+    - Citizen happiness overlay
+    - Employment visualization
+    - Price history charts
+    - Budget forecasting
+  * **Accessibility Features**:
+    - Colorblind modes (protanopia, deuteranopia, tritanopia)
+    - Larger text options
+    - Reduced motion option
+    - Configurable subtitle sizes
+  * **Performance Optimizations**:
+    - Dynamic Level of Detail (LOD) system
+    - Background optimization
+    - Balanced memory management
+    - 60 FPS support with VSync
+  * **Gameplay Tweaks**:
+    - Multiple game speed options (0.5x to 3.0x)
+    - Building rotation support
+    - Copy building settings feature
+    - Context-sensitive help system
+    - Interactive tutorials
+    - Achievement tracking foundation
+  * **Developer Improvements**:
+    - iOS CMake toolchain file
+    - Comprehensive iOS build documentation (INSTALL_IOS)
+    - Enhanced configuration system (2025_enhancements.model)
+    - Updated copyright notices to 2025
+    - Version bumped to 0.6 build 100
+
 ##### 2014-05-07 (b1465)
   * Romanian and french localization start
   * Earthquake events add

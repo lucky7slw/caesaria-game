@@ -1,0 +1,187 @@
+# CaesarIA - iOS and iPadOS Installation Guide
+
+This guide will help you build and install CaesarIA for iOS (iPhone) and iPadOS (iPad).
+
+## Requirements
+
+- macOS (required for iOS development)
+- Xcode 13.0 or later (available from Mac App Store)
+- Xcode Command Line Tools
+- CMake 3.14 or later
+- Original Caesar III game resources (.sg2, .555 files)
+
+## Installing Prerequisites
+
+### 1. Install Xcode
+Download and install Xcode from the Mac App Store.
+
+### 2. Install Command Line Tools
+```bash
+xcode-select --install
+```
+
+### 3. Install CMake
+Using Homebrew (recommended):
+```bash
+brew install cmake
+```
+
+Or download from: https://cmake.org/download/
+
+## Building for iOS Device (iPhone/iPad)
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/dalerank/caesaria-game.git
+cd caesaria-game
+```
+
+### 2. Create build directory
+```bash
+mkdir build-ios
+cd build-ios
+```
+
+### 3. Configure with CMake for iOS
+```bash
+cmake .. \
+  -G Xcode \
+  -DCMAKE_TOOLCHAIN_FILE=../cmake/Modules/ios.toolchain.cmake \
+  -DPLATFORM=OS \
+  -DDEPLOYMENT_TARGET=13.0 \
+  -DCMAKE_BUILD_TYPE=Release
+```
+
+### 4. Build the project
+```bash
+cmake --build . --config Release
+```
+
+Alternatively, open the generated Xcode project:
+```bash
+open CaesarIA.xcodeproj
+```
+
+## Building for iOS Simulator
+
+For testing on the iOS Simulator:
+
+```bash
+mkdir build-ios-simulator
+cd build-ios-simulator
+
+cmake .. \
+  -G Xcode \
+  -DCMAKE_TOOLCHAIN_FILE=../cmake/Modules/ios.toolchain.cmake \
+  -DPLATFORM=SIMULATOR \
+  -DDEPLOYMENT_TARGET=13.0 \
+  -DCMAKE_BUILD_TYPE=Release
+
+cmake --build . --config Release
+```
+
+## Installing Resources
+
+CaesarIA requires original Caesar III resources to run.
+
+### 1. Prepare resources
+Copy your Caesar III resources to the `resources/gfx` folder:
+- .sg2 files (graphics)
+- .555 files (graphics)
+- .smk files to `resources/smk` (videos)
+- .wav files to `resources/audio` (sounds)
+
+### 2. Bundle resources with app
+The build process will automatically include resources in the app bundle.
+
+## Installing on Device
+
+### Option 1: Using Xcode (Recommended for testing)
+
+1. Connect your iPhone or iPad via USB
+2. Open the Xcode project: `build-ios/CaesarIA.xcodeproj`
+3. Select your device from the device menu
+4. Click the "Run" button (or press Cmd+R)
+
+Note: You'll need to configure code signing in Xcode:
+- Select the project in Xcode
+- Go to "Signing & Capabilities"
+- Select your development team
+- Xcode will automatically create provisioning profiles
+
+### Option 2: TestFlight (For distribution)
+
+1. Archive the app in Xcode: Product → Archive
+2. Upload to App Store Connect
+3. Distribute via TestFlight to testers
+
+### Option 3: Ad-Hoc Distribution
+
+1. Archive the app in Xcode
+2. Export with "Ad Hoc" distribution
+3. Install via Apple Configurator or Xcode Devices window
+
+## Touch Controls
+
+CaesarIA includes enhanced touch controls for iOS/iPadOS:
+
+- **Tap**: Select buildings, units, or UI elements
+- **Double-tap**: Quick access to building information
+- **Drag**: Scroll the map
+- **Pinch**: Zoom in/out (if enabled)
+- **Two-finger tap**: Context menu (equivalent to right-click)
+- **Long press**: Additional options/information
+
+## Troubleshooting
+
+### Code Signing Issues
+If you encounter code signing errors:
+1. Open Xcode
+2. Go to Preferences → Accounts
+3. Add your Apple ID
+4. Download manual profiles if needed
+
+### Missing SDK
+If CMake can't find the iOS SDK:
+```bash
+xcode-select --print-path
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+```
+
+### Build Errors
+Make sure you have the latest Xcode:
+```bash
+softwareupdate --list
+softwareupdate --install "Xcode"
+```
+
+## Performance Tips
+
+- iOS devices work best with medium-to-high graphics settings
+- iPad Pro models can handle maximum settings at 60 FPS
+- Older devices (iPhone 8 or earlier) may benefit from reduced graphics quality
+- Enable "Reduce Animations" in settings for better performance
+
+## Platform-Specific Features
+
+### iPad-Specific Features
+- Split-screen multitasking support
+- Apple Pencil support for precise control
+- Keyboard shortcuts (when hardware keyboard attached)
+
+### iPhone-Specific Optimizations
+- Portrait and landscape orientations
+- Compact UI mode for smaller screens
+- Dynamic text sizing
+
+## Support
+
+For issues specific to iOS/iPadOS:
+- Check GitHub issues: https://github.com/dalerank/caesaria-game/issues
+- Join the community discussion
+- Review the general documentation in README.md
+
+## License
+
+CaesarIA is licensed under GPL v3. See LICENSE file for details.
+Original Caesar III content remains property of Activision.
