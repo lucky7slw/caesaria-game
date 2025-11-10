@@ -99,7 +99,11 @@ CaesarIA now runs natively on iPhone and iPad with optimized touch controls:
 - Two-finger tap for context menus
 - Core Haptics for immersive feedback
 - Dynamic Island integration
-- See **INSTALL_IOS** for build instructions
+
+**Want to play on your iPhone/iPad?**
+- 📱 **Quick Start**: See **docs/IOS_QUICKSTART_GUIDE.md** for step-by-step instructions (30 minutes)
+- 📖 **Full Details**: See **INSTALL_IOS** for comprehensive build documentation
+- ⚡ **TL;DR**: Need Xcode + CMake, copy Caesar III resources, build, install - that's it!
 
 ### Modern Gameplay Enhancements
 - **Auto-save**: Never lose progress with configurable auto-save intervals
