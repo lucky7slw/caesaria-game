@@ -1,0 +1,1215 @@
+// CaesarIA 2025 - Chariot Racing Management
+// Complete racing management system with factions, drivers, and betting
+
+chariot_racing : {
+  // ==========================================
+  // RACING FACTIONS
+  // ==========================================
+  factions : {
+    description : "racing_teams_political_organizations"
+    number : 4
+    passionate_support : "fans_extremely_loyal"
+
+    teams : {
+      reds : {
+        color : "russata"
+        symbol : "mars_god_of_war"
+        character : "aggressive_drivers"
+        support_base : {
+          social_class : "mixed_all_classes"
+          political : "traditionally_conservative"
+          military : "soldiers_favor_reds"
+        }
+
+        racing_style : {
+          aggression : "high"
+          crashes : "frequent_but_spectacular"
+          wins : "bold_maneuvers"
+        }
+
+        famous_drivers : "many_legendary_names"
+        headquarters : "stables_training_facilities"
+      }
+
+      whites : {
+        color : "albata"
+        symbol : "zephyrus_west_wind"
+        character : "tactical_drivers"
+        support_base : {
+          social_class : "patricians_and_wealthy"
+          political : "senatorial_faction"
+          refined : "sophisticated_fans"
+        }
+
+        racing_style : {
+          aggression : "moderate"
+          strategy : "high_intelligence"
+          wins : "calculated_moves"
+        }
+
+        prestige : "highest_status_faction"
+      }
+
+      blues : {
+        color : "veneta"
+        symbol : "neptune_god_of_sea"
+        character : "technical_drivers"
+        support_base : {
+          social_class : "plebeians_and_freedmen"
+          political : "populares_faction"
+          trades : "merchants_and_craftsmen"
+        }
+
+        racing_style : {
+          aggression : "moderate"
+          technical_skill : "superior_handling"
+          wins : "perfect_turns_at_metae"
+        }
+
+        innovation : "always_trying_new_techniques"
+      }
+
+      greens : {
+        color : "prasina"
+        symbol : "mother_earth"
+        character : "endurance_drivers"
+        support_base : {
+          social_class : "rural_and_lower_urban"
+          political : "countryside_interests"
+          nature : "agricultural_associations"
+        }
+
+        racing_style : {
+          aggression : "low"
+          endurance : "outlast_opponents"
+          wins : "consistency_and_patience"
+        }
+
+        horses : "known_for_best_breeding_program"
+      }
+    }
+
+    faction_management : {
+      player_can : {
+        own_faction : "invest_in_team"
+        sponsor_faction : "provide_funding"
+        neutral : "just_watch_and_bet"
+      }
+
+      investment : {
+        drivers : "hire_and_train"
+        horses : "breeding_and_purchase"
+        equipment : "chariots_and_gear"
+        facilities : "stables_and_training"
+        marketing : "attract_fans"
+      }
+
+      revenue : {
+        prize_money : "from_race_wins"
+        sponsorships : "wealthy_patrons"
+        merchandise : "faction_colors_sold"
+        betting_cuts : "percentage_of_wagers"
+      }
+
+      rivalries : {
+        traditional : "reds_vs_blues_most_heated"
+        violence : "riots_and_street_fights"
+        sabotage : "poison_horses_bribe_drivers"
+        political : "senate_factions_aligned_with_racing"
+      }
+    }
+  }
+
+  // ==========================================
+  // CHARIOTEERS (DRIVERS)
+  // ==========================================
+  drivers : {
+    career_path : {
+      origins : {
+        slaves : {
+          common : "most_drivers_start_as_slaves"
+          owned_by : "faction_or_wealthy_patron"
+          motivation : "win_freedom"
+          cost : "purchase_price_5000_to_50000_denarii"
+        }
+
+        freedmen : {
+          former_slaves : "earned_freedom_continue_racing"
+          independent : "race_for_money"
+          respected : "if_successful"
+        }
+
+        free_born : {
+          rare : "stigma_attached"
+          desperate : "need_money"
+          or_glory_seeking : "thrill_of_fame"
+        }
+      }
+
+      progression : {
+        novice : {
+          skill : "0_to_20"
+          races : "minor_events"
+          pay : "100_denarii_per_race"
+          fame : "unknown"
+        }
+
+        competent : {
+          skill : "20_to_50"
+          races : "regular_circus_events"
+          pay : "500_to_1000_denarii_per_race"
+          fame : "local_recognition"
+        }
+
+        skilled : {
+          skill : "50_to_75"
+          races : "major_festivals"
+          pay : "5000_to_10000_denarii_per_race"
+          fame : "city_wide_celebrity"
+        }
+
+        champion : {
+          skill : "75_to_95"
+          races : "ludi_romani_imperial_games"
+          pay : "50000_plus_denarii_per_race"
+          fame : "empire_wide_legend"
+          wealth : "become_very_rich"
+        }
+
+        legendary : {
+          skill : "95_to_100"
+          races : "only_most_prestigious"
+          pay : "100000_plus_denarii_per_appearance"
+          fame : "immortalized_in_mosaics_and_poems"
+          retired_wealthy : "buy_own_faction"
+
+          famous_examples : {
+            gaius_appuleius_diocles : {
+              career : "42_years"
+              starts : "4257_races"
+              wins : "1462_victories"
+              winnings : "35863120_sesterces"
+              status : "wealthiest_athlete_all_time"
+            }
+
+            scorpus : {
+              career : "short_but_brilliant"
+              wins : "2000_plus_victories"
+              died : "age_27_in_crash"
+              mourned : "city_wide_grief"
+            }
+
+            crescens : {
+              won : "at_age_13"
+              prodigy : "youngest_champion"
+            }
+          }
+        }
+      }
+
+      retirement : {
+        age : "most_dont_survive_to_retire"
+        survival : "10_percent_reach_age_30"
+        rich_retirees : {
+          buy_stables : "own_racing_teams"
+          villas : "luxury_properties"
+          donate : "public_buildings"
+          monuments : "tombstones_elaborate"
+        }
+      }
+    }
+
+    attributes : {
+      skill : {
+        range : "0_to_100"
+        affects : "all_aspects_of_racing"
+        improves : "with_experience_and_training"
+      }
+
+      courage : {
+        range : "0_to_100"
+        affects : "risky_maneuvers"
+        personality : "some_naturally_braver"
+      }
+
+      stamina : {
+        range : "0_to_100"
+        affects : "performance_in_later_laps"
+        declines : "with_age_and_injury"
+      }
+
+      aggression : {
+        range : "0_to_100"
+        affects : "crash_risk_and_overtaking"
+        varies : "by_driver_personality"
+      }
+
+      focus : {
+        range : "0_to_100"
+        affects : "consistency_and_mistakes"
+        stress : "pressure_reduces_focus"
+      }
+
+      bond_with_horses : {
+        range : "0_to_100"
+        affects : "horse_performance"
+        develops : "over_time_with_same_team"
+      }
+    }
+
+    training : {
+      practice_races : {
+        frequency : "daily"
+        benefits : "improve_skill"
+        cost : "wear_on_horses_and_equipment"
+      }
+
+      physical_conditioning : {
+        strength_training : "upper_body_for_control"
+        endurance : "cardiovascular_fitness"
+        flexibility : "avoid_injury_in_crashes"
+      }
+
+      mental_preparation : {
+        visualization : "mentally_rehearse_races"
+        pressure_training : "simulate_crowds"
+        meditation : "focus_and_calm"
+      }
+
+      specialized_training : {
+        cornering : "master_turns_at_metae"
+        starts : "explosive_acceleration"
+        defensive_driving : "avoid_others_crashes"
+        whip_technique : "maximize_horse_speed"
+      }
+
+      veteran_mentorship : {
+        apprentice : "learn_from_experienced_drivers"
+        secrets : "handed_down_techniques"
+        relationships : "future_alliances"
+      }
+    }
+
+    injuries_and_death : {
+      common_injuries : {
+        whiplash : "from_sudden_stops"
+        broken_bones : "arms_ribs_legs"
+        road_rash : "dragged_on_track"
+        trampling : "by_horses"
+        concussions : "from_crashes"
+      }
+
+      fatal_crashes : {
+        frequency : "10_to_20_percent_of_drivers_die"
+        causes : ["crushed_by_chariot", "trampled", "head_injury", "multiple_chariot_pileup"]
+
+        naufragia : {
+          description : "shipwreck_term_for_crash"
+          spectacular : "multi_chariot_disasters"
+          crowd_reaction : "horror_and_excitement"
+        }
+      }
+
+      recovery : {
+        minor_injuries : "1_to_2_weeks"
+        serious_injuries : "months_out"
+        career_ending : "permanent_disability"
+      }
+
+      memorial : {
+        tombstones : "elaborate_with_career_stats"
+        mourning : "fans_devastated"
+        legacy : "remembered_in_songs_and_poems"
+      }
+    }
+  }
+
+  // ==========================================
+  // HORSES
+  // ==========================================
+  horses : {
+    team_configurations : {
+      bigae : {
+        horses : 2
+        speed : "fastest"
+        control : "easiest"
+        rarity : "less_common_in_imperial_period"
+      }
+
+      quadrigae : {
+        horses : 4
+        speed : "fast"
+        control : "difficult"
+        standard : "most_common_configuration"
+        arrangement : "two_yoked_two_trace"
+      }
+
+      sexigae : {
+        horses : 6
+        speed : "moderate"
+        control : "very_difficult"
+        prestige : "spectacular_display"
+        rare : "special_occasions_only"
+      }
+
+      decemjuges : {
+        horses : 10
+        speed : "slow"
+        control : "nearly_impossible"
+        exhibition : "for_show_not_competition"
+        emperor_nero : "attempted_and_crashed"
+      }
+    }
+
+    horse_attributes : {
+      speed : {
+        range : "0_to_100"
+        breeds : "north_african_and_spanish_fastest"
+        training : "improves_slightly"
+        genetics : "mostly_inherited"
+      }
+
+      stamina : {
+        range : "0_to_100"
+        affects : "performance_in_later_laps"
+        training : "significant_improvement_possible"
+      }
+
+      strength : {
+        range : "0_to_100"
+        affects : "pulling_power_acceleration"
+        important : "for_starts_and_uphills"
+      }
+
+      temperament : {
+        range : "calm_to_wild"
+        affects : "control_and_predictability"
+        training : "can_improve"
+        matched_teams : "horses_must_work_together"
+      }
+
+      courage : {
+        range : "0_to_100"
+        affects : "performance_in_chaos"
+        some_panic : "in_crashes"
+        trained : "exposure_to_crowds"
+      }
+
+      health : {
+        range : "0_to_100"
+        fragile : "racing_causes_injuries"
+        veterinary : "horse_doctors_medici_veterinarii"
+      }
+    }
+
+    breeding : {
+      bloodlines : {
+        famous_studs : "champion_horses_highly_valued"
+        breeding_records : "detailed_genealogies"
+        prices : "top_horses_50000_to_200000_denarii"
+      }
+
+      breeding_program : {
+        select_parents : "match_attributes"
+        gestation : "11_months"
+        foaling : "birth_of_foal"
+        training_start : "age_2"
+        racing_debut : "age_3_to_4"
+        prime : "age_5_to_8"
+        retirement : "age_10_to_breeding"
+      }
+
+      genetics : {
+        inheritance : "foals_inherit_parent_traits"
+        variation : "some_randomness"
+        dominant_traits : "speed_and_stamina_most_desired"
+      }
+
+      regional_breeds : {
+        spain : {
+          characteristics : "speed_and_fire"
+          expensive : true
+        }
+
+        north_africa : {
+          characteristics : "endurance_and_heat_tolerance"
+          common : "imported_frequently"
+        }
+
+        sicily : {
+          characteristics : "balanced_all_around"
+        }
+
+        local : {
+          characteristics : "cheaper_lower_quality"
+          serviceable : "for_novice_races"
+        }
+      }
+    }
+
+    care : {
+      stables : {
+        conditions : "clean_spacious"
+        staff : {
+          agaso : "stable_hand"
+          medicus_veterinarius : "horse_doctor"
+          mulio : "horse_trainer"
+          hippiatrus : "specialist_equine_physician"
+        }
+      }
+
+      feeding : {
+        diet : ["barley", "beans", "hay", "special_supplements"]
+        cost : "5_to_20_denarii_per_day_per_horse"
+        quality : "affects_performance"
+      }
+
+      training : {
+        daily_exercise : "maintain_fitness"
+        practice_races : "build_teamwork"
+        rest_days : "prevent_overwork"
+      }
+
+      veterinary : {
+        injuries : ["pulled_muscles", "lameness", "colic"]
+        treatments : ["poultices", "rest", "massage", "bloodletting"]
+        recovery : "weeks_to_months"
+        retirement : "if_permanently_injured"
+      }
+
+      superstitions : {
+        amulets : "protect_from_evil_eye"
+        blessings : "priests_bless_horses"
+        colors : "avoid_unlucky_combinations"
+        names : "give_powerful_names"
+      }
+    }
+
+    famous_horses : {
+      aquilo : {
+        meaning : "north_wind"
+        faction : "reds"
+        victories : "200_plus"
+        legacy : "bronze_statue"
+      }
+
+      hirpinus : {
+        victories : "386"
+        earnings : "enormous"
+        burial : "elaborate_tomb"
+      }
+
+      many_others : "horses_as_famous_as_drivers"
+    }
+  }
+
+  // ==========================================
+  // RACING MECHANICS
+  // ==========================================
+  races : {
+    race_structure : {
+      standard_race : {
+        laps : 7
+        distance : "approximately_5_miles"
+        duration : "15_to_20_minutes"
+        chariots : "12_per_race"
+        composition : "3_from_each_faction"
+      }
+
+      track_layout : {
+        circus_maximus : {
+          length : "1968_feet_per_lap"
+          width : "varies_narrower_at_turns"
+
+          spina : {
+            description : "central_barrier"
+            length : "1135_feet"
+            decorations : ["obelisks", "shrines", "lap_counters"]
+            danger : "crash_hazard_if_veer_too_close"
+          }
+
+          carceres : {
+            description : "starting_gates"
+            number : 12
+            mechanism : "spring_loaded_simultaneous_release"
+            stagger : "outer_gates_ahead_for_fairness"
+          }
+
+          metae : {
+            description : "turning_posts"
+            location : "both_ends_of_spina"
+            configuration : "three_conical_pillars"
+            danger : "tightest_turns_most_crashes"
+          }
+
+          surface : {
+            material : "sand_and_crushed_pottery"
+            maintenance : "raked_between_races"
+            dust : "kicked_up_reduces_visibility"
+          }
+        }
+      }
+
+      start : {
+        ceremony : {
+          procession : "chariots_parade_before_race"
+          presentation : "drivers_acknowledged"
+          betting_closed : "final_odds_set"
+        }
+
+        draw : {
+          positions : "drawn_by_lot"
+          inside_advantage : "shorter_distance"
+          outside_risk : "must_cut_across"
+        }
+
+        mappa : {
+          description : "white_cloth_dropped_by_magistrate"
+          signal : "race_begins"
+          explosive_start : "horses_bolt_forward"
+        }
+      }
+
+      tactics : {
+        positioning : {
+          inside_track : {
+            advantage : "shortest_route"
+            competition : "everyone_wants_it"
+            cutting_off : "block_rivals_from_inside"
+          }
+
+          outside_track : {
+            disadvantage : "longer_distance"
+            strategy : "stay_wide_then_cut_in"
+            safety : "less_crash_risk"
+          }
+        }
+
+        drafting : {
+          description : "follow_behind_another_chariot"
+          benefit : "reduced_wind_resistance"
+          timing : "pull_out_to_overtake_at_right_moment"
+        }
+
+        blocking : {
+          description : "prevent_opponent_from_passing"
+          legal : "if_no_contact"
+          dangerous : "can_cause_crashes"
+          retaliation : "blocked_driver_may_ram"
+        }
+
+        ramming : {
+          description : "deliberately_crash_into_opponent"
+          illegal : "technically_but_rarely_enforced"
+          effective : "remove_rival_from_race"
+          risky : "can_crash_yourself"
+          crowd_loves : "violence_and_drama"
+        }
+
+        whipping : {
+          own_horses : "urge_to_greater_speed"
+          opponents : "hit_their_horses_or_them"
+          drivers_hit_back : "whip_battles_mid_race"
+        }
+
+        cutting_corners : {
+          tight_turns : "shave_seconds_at_metae"
+          skill_required : "high_risk_high_reward"
+          drift : "controlled_slide_around_turn"
+        }
+
+        saving_stamina : {
+          early_laps : "conserve_horse_energy"
+          sprint_finish : "unleash_in_final_laps"
+          patience : "let_others_tire_themselves"
+        }
+      }
+
+      crashes : {
+        causes : {
+          tight_turns : "lose_control_at_metae"
+          ramming : "intentional_contact"
+          wheel_lock : "chariots_tangle"
+          horse_fall : "stumble_brings_down_team"
+          pile_up : "multiple_chariots_involved"
+        }
+
+        naufragium : {
+          description : "shipwreck"
+          driver_action : {
+            jump_clear : "if_quick"
+            or_dragged : "if_reins_tangled"
+
+            culter : {
+              description : "curved_knife"
+              location : "worn_on_belt"
+              purpose : "cut_reins_to_escape"
+              critical : "life_or_death"
+            }
+          }
+
+          aftermath : {
+            driver_injured : "trampled_or_crushed"
+            horses_injured : "broken_legs_common"
+            chariot_destroyed : "wreckage_cleared"
+            race_continues : "other_chariots_keep_going"
+          }
+        }
+
+        crowd_reaction : {
+          gasps : "at_spectacular_crashes"
+          cheers : "if_rival_faction_crashes"
+          concern : "if_favorite_driver_injured"
+          bloodlust : "some_enjoy_violence"
+        }
+
+        survival : {
+          lucky : "walk_away_unscathed"
+          injured : "carried_off_track"
+          dead : "killed_instantly"
+          horses : "destroyed_if_broken_leg"
+        }
+      }
+
+      finish : {
+        final_lap : {
+          indicator : "lap_counter_shows_7"
+          sprint : "unleash_all_remaining_speed"
+          desperation : "risky_maneuvers"
+          glory : "cross_finish_line_first"
+        }
+
+        photo_finish : {
+          close_races : "judges_decide"
+          sometimes_disputed : "faction_arguments"
+        }
+
+        victory : {
+          celebration : {
+            victor_lap : "parade_around_circus"
+            crown : "palm_frond_victory_symbol"
+            prize_money : "substantial_purse"
+            crowd : "thunderous_applause"
+          }
+
+          faction_celebration : {
+            fans_ecstatic : "wave_colors"
+            streets : "spontaneous_parties"
+            propaganda : "proclaim_superiority"
+          }
+
+          driver_fame : {
+            increase : "winning_builds_reputation"
+            earnings : "prize_plus_bonuses"
+            endorsements : "wealthy_sponsors"
+          }
+        }
+
+        defeat : {
+          losing_factions : {
+            disappointment : "fans_dejected"
+            anger : "at_drivers_or_rivals"
+            riots : "sometimes_erupt"
+          }
+
+          crashed_drivers : {
+            medical_attention : "if_alive"
+            career_impact : "if_injured"
+            death : "mourned_or_forgotten"
+          }
+        }
+      }
+    }
+
+    race_types : {
+      standard_race : {
+        frequency : "multiple_per_event_day"
+        laps : 7
+        importance : "moderate"
+      }
+
+      feature_race : {
+        frequency : "one_per_event_day"
+        laps : 7
+        prize : "double_or_triple"
+        importance : "high_prestige"
+        best_drivers : "only_champions"
+      }
+
+      endurance_race : {
+        frequency : "rare_special_occasions"
+        laps : 12
+        test : "stamina_over_speed"
+      }
+
+      novice_race : {
+        frequency : "opening_races"
+        laps : 5
+        competitors : "new_drivers"
+        prize : "small"
+      }
+    }
+  }
+
+  // ==========================================
+  // BETTING & ECONOMICS
+  // ==========================================
+  betting : {
+    massive_industry : {
+      scale : "millions_of_denarii_wagered_per_race"
+      all_classes : "rich_and_poor_bet"
+      addiction : "some_lose_everything"
+    }
+
+    bet_types : {
+      win : {
+        description : "pick_winner"
+        odds : "based_on_favorites"
+        payout : "2_to_1_to_100_to_1"
+      }
+
+      place : {
+        description : "finish_in_top_3"
+        odds : "lower_than_win"
+        safer : "easier_to_win"
+      }
+
+      exacta : {
+        description : "first_and_second_in_order"
+        odds : "high"
+        payout : "10_to_1_to_1000_to_1"
+      }
+
+      faction_win : {
+        description : "any_chariot_from_faction_wins"
+        odds : "moderate"
+        common : "faction_loyalty_betting"
+      }
+
+      over_under : {
+        description : "total_crashes_more_or_less_than_number"
+        novelty : "entertainment_value"
+      }
+
+      prop_bets : {
+        description : "specific_events"
+        examples : ["will_certain_driver_crash", "which_lap_first_crash", "will_all_12_finish"]
+      }
+    }
+
+    bookmakers : {
+      legal : "mostly_unregulated"
+      location : "throughout_circus_and_city"
+      operations : {
+        set_odds : "based_on_money_coming_in"
+        take_bets : "accept_wagers"
+        pay_out : "to_winners"
+        keep_cut : "typically_10_percent"
+      }
+
+      corruption : {
+        fix_races : "bribe_drivers_to_lose"
+        insider_information : "about_horse_injuries"
+        manipulate_odds : "fleece_bettors"
+      }
+    }
+
+    player_betting : {
+      can_bet : "on_any_race"
+      insider_edge : "if_own_faction_know_strategy"
+      risk : "can_lose_substantial_money"
+      reward : "can_win_fortune"
+    }
+  }
+
+  economics : {
+    event_costs : {
+      sponsor : {
+        magistrate : "aedile_or_praetor_pays"
+        emperor : "imperial_games"
+        private : "wealthy_individual"
+      }
+
+      expenses : {
+        prize_money : "50000_to_500000_denarii_per_day"
+        facility_rental : "if_not_own"
+        staff : "track_workers_officials"
+        entertainment : "music_dancers"
+        security : "prevent_riots"
+        animals_between_races : "wild_beast_displays"
+        total : "1000000_denarii_for_major_event"
+      }
+
+      revenue : {
+        none_directly : "admission_free_for_citizens"
+        political : "votes_and_popularity"
+        indirect : "concessions_betting_taxes"
+      }
+
+      motivation : {
+        political_career : "aediles_use_to_win_higher_office"
+        imperial_propaganda : "emperor_shows_generosity"
+        religious : "games_part_of_festivals"
+      }
+    }
+
+    faction_economics : {
+      revenue : {
+        prize_money : "race_winnings"
+        sponsorships : "wealthy_patrons"
+        merchandise : "sell_faction_gear"
+        stud_fees : "breeding_champion_horses"
+        betting_cuts : "if_run_books"
+        total : "successful_faction_millions_per_year"
+      }
+
+      expenses : {
+        driver_salaries : "champions_very_expensive"
+        horse_purchase_and_care : "breeding_program_costly"
+        equipment : "chariots_replaced_frequently"
+        facilities : "stables_training_grounds"
+        staff : "trainers_vets_grooms"
+        total : "millions_per_year"
+      }
+
+      profit : {
+        successful_faction : "very_profitable"
+        unsuccessful : "financial_losses"
+      }
+    }
+
+    chariot_industry : {
+      chariot_makers : {
+        craftsmen : "specialized_wheelwrights"
+        materials : ["wood", "leather", "bronze", "iron"]
+        design : {
+          lightweight : "for_speed"
+          sturdy : "withstand_crashes"
+          low : "center_of_gravity"
+          open_back : "easy_to_jump_out"
+        }
+        cost : "5000_to_20000_denarii"
+        replacement : "after_crashes_frequent"
+      }
+
+      equipment : {
+        reins : "long_leather_wrapped_around_waist"
+        whip : "scourge_to_urge_horses"
+        helmet : "light_leather_protection"
+        body_protection : {
+          minimal : "leather_wrappings"
+          flexibility : "more_important_than_armor"
+        }
+        colors : "faction_colors_prominent"
+      }
+    }
+  }
+
+  // ==========================================
+  // SOCIAL & CULTURAL IMPACT
+  // ==========================================
+  society : {
+    obsession : {
+      pervasive : "racing_dominates_conversation"
+      graffiti : "walls_covered_with_faction_slogans"
+      mosaics : "homes_decorated_with_racing_scenes"
+      poetry : "verse_written_about_charioteers"
+      curse_tablets : {
+        description : "magical_curses_against_rival_drivers"
+        method : "lead_tablets_with_spells"
+        buried : "at_circus_or_graves"
+        content : ["break_legs_of_horses", "blind_driver", "cause_crashes"]
+        discovered : "hundreds_found_by_archaeologists"
+      }
+    }
+
+    fan_culture : {
+      colors : "wear_faction_colors"
+      chants : "coordinated_cheering"
+      groups : "organized_fan_clubs"
+      leaders : "faction_captains"
+      loyalty : "lifelong_from_childhood"
+      hereditary : "families_support_same_faction"
+    }
+
+    riots : {
+      frequency : "not_uncommon"
+      triggers : {
+        disputed_result : "if_close_finish"
+        faction_tensions : "heated_rivalries"
+        political : "racing_factions_tied_to_politics"
+      }
+
+      violence : {
+        fist_fights : "in_stands"
+        street_battles : "after_races"
+        property_damage : "shops_vandalized"
+        deaths : "sometimes_multiple"
+      }
+
+      famous_riots : {
+        nika_riots : {
+          location : "constantinople_532_AD"
+          duration : "one_week"
+          destruction : "half_city_burned"
+          deaths : "30000_people"
+          cause : "blues_and_greens_united_against_emperor"
+          outcome : "nearly_toppled_justinian"
+        }
+
+        rome_riots : "less_severe_but_regular_occurrences"
+      }
+
+      control : {
+        security : "soldiers_on_standby"
+        separate_seating : "factions_in_different_sections"
+        magistrate_authority : "can_halt_races"
+        executions : "ringleaders_punished"
+      }
+    }
+
+    political_dimension : {
+      aligned : {
+        reds_and_whites : "traditionally_senatorial"
+        blues_and_greens : "traditionally_populares"
+      }
+
+      emperor_uses : {
+        favor_faction : "build_popular_support"
+        sponsor_games : "show_generosity"
+        gauge_opinion : "crowd_reaction_to_appearance"
+      }
+
+      danger : {
+        unpopular_emperor : "booed_at_circus"
+        protests : "demands_shouted"
+        assassination_risk : "large_crowds_security_challenge"
+      }
+    }
+
+    celebrity_culture : {
+      charioteers_as_stars : {
+        fame : "equivalent_modern_sports_heroes"
+        wealth : "richest_earn_more_than_generals"
+        recognition : "mobbed_in_streets"
+        influence : "political_and_social"
+        sex_symbols : "love_affairs_scandals"
+      }
+
+      merchandise : {
+        figurines : "driver_and_horse_statues"
+        oil_lamps : "decorated_with_racing"
+        jewelry : "faction_color_gems"
+        mosaics : "commission_racing_scenes"
+      }
+
+      endorsements : {
+        products : "endorse_olive_oil_wine"
+        public_appearances : "paid_to_attend_events"
+        testimonials : "lend_name_to_causes"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    management_mode : {
+      faction_ownership : {
+        purchase : "buy_into_faction"
+        or_found : "create_new_faction"
+        investment : "ongoing_funding"
+
+        decisions : {
+          hire_drivers : {
+            scouting : "find_talent"
+            negotiation : "salary_demands"
+            training : "improve_skills"
+            retention : "keep_stars_happy"
+          }
+
+          acquire_horses : {
+            purchase : "buy_proven_champions"
+            breeding : "long_term_program"
+            trade : "with_other_factions"
+            import : "from_spain_africa"
+          }
+
+          equipment : {
+            chariots : "quality_vs_cost"
+            maintenance : "repair_and_replace"
+            innovation : "new_designs"
+          }
+
+          strategy : {
+            race_tactics : "instruct_drivers"
+            training_focus : "what_to_practice"
+            risk_tolerance : "aggressive_or_safe"
+          }
+
+          finances : {
+            budget : "allocate_resources"
+            sponsorships : "seek_patrons"
+            betting : "insider_wagering"
+            merchandise : "sell_faction_gear"
+          }
+        }
+      }
+
+      racing_mode : {
+        race_simulation : {
+          3d_racing : "immersive_chariot_view"
+          or_cinematic : "overhead_strategic"
+          or_auto : "ai_controlled_skip_to_results"
+        }
+
+        controls : {
+          steer : "left_right"
+          whip : "speed_boost"
+          brake : "slow_for_turns"
+          aggressive : "ram_opponents"
+          jump : "abandon_chariot_if_crashing"
+        }
+
+        physics : {
+          momentum : "realistic_weight_and_speed"
+          collisions : "dynamic_crash_outcomes"
+          horse_stamina : "depletes_over_laps"
+          track_conditions : "dust_weather_surface"
+        }
+
+        excitement : {
+          close_racing : "tight_competition"
+          dramatic_crashes : "spectacular_wrecks"
+          photo_finishes : "nail_biting_ends"
+          comeback_victories : "from_behind_wins"
+        }
+      }
+    }
+
+    integration_with_city : {
+      circus_construction : {
+        build : "circus_maximus_in_engineering_marvels"
+        cost : "8000000_denarii"
+        benefits : "enable_racing_events"
+      }
+
+      scheduling : {
+        race_days : "66_per_year_historically"
+        festivals : "tied_to_religious_calendar"
+        special_events : "imperial_celebrations"
+      }
+
+      citizen_attendance : {
+        free_admission : "citizens_flock_to_races"
+        happiness_boost : "races_increase_morale"
+        work_stoppage : "productivity_loss_on_race_days"
+      }
+
+      economic_impact : {
+        tourism : "visitors_from_other_cities"
+        commerce : "merchants_sell_during_events"
+        betting_economy : "money_changes_hands"
+        employment : "thousands_of_jobs"
+      }
+
+      political_impact : {
+        popularity : "successful_games_boost_approval"
+        unrest : "riots_damage_reputation"
+        faction_power : "racing_faction_political_faction"
+      }
+    }
+
+    progression : {
+      start_small : {
+        sponsor_races : "pay_for_events"
+        bet_on_races : "win_money"
+        watch : "enjoy_spectacle"
+      }
+
+      build_up : {
+        invest_in_driver : "sponsor_individual"
+        buy_horses : "small_stable"
+        minor_faction : "local_team"
+      }
+
+      major_player : {
+        own_faction : "reds_blues_greens_whites"
+        empire_wide : "race_in_multiple_cities"
+        dynasty : "multi_generational_success"
+      }
+    }
+
+    events : {
+      champion_retires : "find_replacement"
+      horse_breeding_success : "superstar_foal_born"
+      driver_death : "tragedy_and_mourning"
+      fixed_race_exposed : "scandal"
+      faction_merge : "two_factions_combine"
+      emperor_demands_win : "political_pressure"
+      riot : "violence_after_race"
+      curse_discovered : "magical_sabotage"
+    }
+
+    achievements : {
+      faction_owner : "own_racing_faction"
+      champion_breeder : "breed_100_win_horse"
+      dynasty : "win_100_races_with_faction"
+      betting_master : "win_1000000_denarii_betting"
+      survived_crash : "driver_survives_naufragium"
+      legendary_charioteer : "driver_reaches_legendary_status"
+      immortal : "driver_retires_wealthy_age_30"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    based_on : {
+      primary_sources : ["Pliny", "Martial", "Juvenal", "Ovid"]
+      archaeology : ["curse_tablets", "mosaics", "epitaphs"]
+      inscriptions : "driver_career_statistics"
+      circus_remains : "track_layouts"
+    }
+
+    accurately_depicted : {
+      four_factions : "reds_whites_blues_greens"
+      driver_status : "slaves_and_freedmen"
+      wealth : "top_drivers_extraordinarily_rich"
+      danger : "high_fatality_rate"
+      obsession : "dominated_roman_culture"
+      betting : "massive_industry"
+      riots : "real_and_deadly"
+      curse_tablets : "hundreds_found"
+    }
+
+    famous_figures : {
+      diocles : "wealthiest_athlete_ever"
+      scorpus : "2000_plus_wins"
+      crescens : "youngest_champion"
+    }
+
+    scale : {
+      circus_maximus : "250000_capacity_real"
+      frequency : "66_days_per_year"
+      races_per_day : "24_races"
+      total : "1584_races_per_year_in_rome"
+    }
+
+    legacy : {
+      influenced : "modern_horse_racing"
+      metaphor : "circus_in_language"
+      archaeology : "major_research_subject"
+      popular_culture : "ben_hur_chariot_race"
+    }
+
+    educational : {
+      encyclopedia : "detailed_racing_history"
+      driver_biographies : "real_charioteers"
+      faction_history : "political_connections"
+      virtual_circus : "explore_reconstructed_track"
+    }
+  }
+}
