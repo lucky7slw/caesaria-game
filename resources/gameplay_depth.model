@@ -1,0 +1,528 @@
+{
+  version : "0.6.0"
+  name : "CaesarIA Advanced Gameplay Depth System"
+  description : "Enhanced strategic depth and complexity for engaging long-term gameplay"
+
+  // ========================================
+  // ADVANCED ECONOMIC SIMULATION
+  // ========================================
+
+  advanced_economy : {
+    // Dynamic market pricing based on supply/demand
+    market_dynamics : {
+      enabled : true
+      price_volatility : "medium"
+      supply_demand_curves : true
+      seasonal_price_fluctuations : true
+      trade_route_competition : true
+
+      // Market events
+      market_crashes : {
+        enabled : true
+        frequency : "rare"
+        severity_range : [0.3, 0.8]
+      }
+
+      commodity_speculation : {
+        enabled : true
+        ai_traders : true
+        insider_trading_events : false
+      }
+    }
+
+    // Complex resource chains
+    production_chains : {
+      multi_tier_production : true
+      quality_levels : ["poor", "average", "good", "excellent", "luxury"]
+
+      // Resources degrade over time
+      resource_degradation : {
+        enabled : true
+        food_spoilage : true
+        material_weathering : true
+        storage_affects_quality : true
+      }
+
+      // Specialized workshops
+      artisan_goods : {
+        enabled : true
+        master_craftsmen : true
+        apprenticeship_system : true
+        reputation_affects_sales : true
+      }
+    }
+
+    // Advanced taxation system
+    taxation : {
+      progressive_tax_brackets : true
+      tax_evasion_mechanics : {
+        enabled : true
+        wealth_level_affects_evasion : true
+        corruption_increases_evasion : true
+        inspector_effectiveness : "medium"
+      }
+
+      tariffs_and_duties : {
+        import_taxes : true
+        export_subsidies : true
+        trade_agreements_modify_rates : true
+      }
+
+      special_taxes : {
+        luxury_tax : true
+        inheritance_tax : true
+        property_tax : true
+        business_licenses : true
+      }
+    }
+
+    // Banking and finance
+    financial_system : {
+      enabled : true
+
+      loans_and_credit : {
+        take_loans : true
+        interest_rates : "dynamic"
+        credit_rating : true
+        default_consequences : true
+      }
+
+      investments : {
+        infrastructure_bonds : true
+        merchant_ventures : true
+        risk_reward_ratios : true
+        return_on_investment_tracking : true
+      }
+
+      currency_system : {
+        inflation : true
+        deflation : true
+        monetary_policy : ["tight", "balanced", "loose"]
+      }
+    }
+  }
+
+  // ========================================
+  // COMPLEX CITIZEN SIMULATION
+  // ========================================
+
+  citizen_depth : {
+    // Individual citizen tracking
+    citizen_ai : {
+      personality_traits : true
+      memory_of_events : true
+      relationship_networks : true
+      family_dynasties : true
+
+      traits : [
+        "ambitious", "lazy", "loyal", "rebellious",
+        "innovative", "traditional", "greedy", "charitable",
+        "brave", "cowardly", "industrious", "artistic"
+      ]
+
+      // Citizens remember city history
+      historical_memory : {
+        remember_disasters : true
+        remember_golden_ages : true
+        generational_stories : true
+        monuments_preserve_memory : true
+      }
+    }
+
+    // Social classes and mobility
+    social_stratification : {
+      enabled : true
+
+      classes : {
+        slaves : { mobility : 0.1, revolt_risk : "high" }
+        plebeians : { mobility : 0.3, voting_power : 0.3 }
+        equites : { mobility : 0.5, business_bonus : 1.5 }
+        patricians : { mobility : 0.2, political_power : 2.0 }
+        senators : { mobility : 0.1, corruption_access : true }
+      }
+
+      class_mobility : {
+        education_improves_mobility : true
+        wealth_enables_advancement : true
+        merit_based_promotion : true
+        nepotism_factor : "medium"
+      }
+    }
+
+    // Advanced needs hierarchy
+    citizen_needs : {
+      basic_survival : ["food", "water", "shelter"]
+      safety : ["security", "healthcare", "fire_protection"]
+      social : ["entertainment", "religion", "community"]
+      esteem : ["status", "recognition", "achievement"]
+      self_actualization : ["education", "culture", "philosophy"]
+
+      // Needs affect behavior
+      unmet_needs_consequences : {
+        crime : { triggered_by : ["poverty", "unemployment", "inequality"] }
+        protest : { triggered_by : ["oppression", "taxation", "corruption"] }
+        emigration : { triggered_by : ["no_opportunity", "danger", "poor_quality_of_life"] }
+        revolution : { triggered_by : ["severe_inequality", "tyranny", "economic_collapse"] }
+      }
+    }
+
+    // Crime and justice system
+    crime_system : {
+      enabled : true
+
+      crime_types : {
+        petty_theft : { severity : 1, causes : ["poverty", "opportunity"] }
+        organized_crime : { severity : 5, causes : ["corruption", "weak_law"] }
+        fraud : { severity : 3, causes : ["greed", "lax_regulation"] }
+        murder : { severity : 10, causes : ["desperation", "revenge", "madness"] }
+        treason : { severity : 10, causes : ["foreign_influence", "oppression"] }
+      }
+
+      law_enforcement : {
+        investigation_system : true
+        court_trials : true
+        punishments : ["fine", "prison", "exile", "execution"]
+        wrongful_convictions : "possible"
+        mob_justice : "if_law_weak"
+      }
+    }
+
+    // Disease and health
+    advanced_health : {
+      disease_spread : {
+        enabled : true
+        contagion_model : "realistic"
+        incubation_periods : true
+        asymptomatic_carriers : true
+
+        diseases : {
+          plague : { mortality : 0.6, spread_rate : "very_high", source : "rats" }
+          cholera : { mortality : 0.5, spread_rate : "high", source : "bad_water" }
+          malaria : { mortality : 0.3, spread_rate : "medium", source : "mosquitos" }
+          influenza : { mortality : 0.1, spread_rate : "very_high", source : "people" }
+        }
+      }
+
+      healthcare_system : {
+        hospitals : { effectiveness : 0.7, capacity_limits : true }
+        quarantine : { stops_spread : 0.8, economic_impact : "severe" }
+        medicine_quality : { affects_survival : true, costs_money : true }
+        public_health_education : { reduces_spread : 0.3 }
+      }
+
+      mental_health : {
+        enabled : true
+        stress_factors : ["overwork", "poverty", "war", "disaster"]
+        affects_productivity : true
+        affects_crime_rate : true
+      }
+    }
+  }
+
+  // ========================================
+  // POLITICAL & DIPLOMATIC DEPTH
+  // ========================================
+
+  political_system : {
+    // Internal politics
+    internal_politics : {
+      enabled : true
+
+      factions : {
+        military : { wants : ["conquest", "defense_spending", "glory"] }
+        merchants : { wants : ["trade", "low_taxes", "infrastructure"] }
+        religious : { wants : ["temples", "festivals", "moral_laws"] }
+        populares : { wants : ["welfare", "land_reform", "democracy"] }
+        optimates : { wants : ["tradition", "aristocracy", "stability"] }
+      }
+
+      political_intrigue : {
+        conspiracies : true
+        assassinations : "rare"
+        coups : "if_unstable"
+        bribes : true
+        blackmail : true
+      }
+
+      elections : {
+        enabled : true
+        vote_buying : "possible"
+        propaganda : true
+        debates : true
+        rigging : "if_corrupt"
+      }
+    }
+
+    // Diplomacy and foreign relations
+    diplomacy : {
+      enabled : true
+
+      relationship_factors : {
+        trade_volume : 0.2
+        cultural_similarity : 0.15
+        military_threat : -0.3
+        historical_conflicts : -0.25
+        gifts_and_tributes : 0.2
+        shared_enemies : 0.3
+      }
+
+      diplomatic_actions : {
+        treaties : {
+          trade_agreements : { benefits : ["reduced_tariffs", "exclusive_goods"] }
+          military_alliances : { benefits : ["mutual_defense", "shared_intel"] }
+          non_aggression_pacts : { benefits : ["peace", "reduced_military_cost"] }
+          cultural_exchanges : { benefits : ["knowledge", "prestige", "tourism"] }
+        }
+
+        espionage : {
+          intelligence_gathering : true
+          sabotage : true
+          assassination : "risky"
+          steal_technology : true
+          counter_intelligence : true
+        }
+
+        warfare : {
+          casus_belli_required : true
+          war_exhaustion : true
+          sieges : { duration : "long", attrition : true }
+          naval_warfare : true
+          guerrilla_resistance : true
+          war_crimes_affect_reputation : true
+        }
+      }
+    }
+
+    // Empire relations
+    empire_dynamics : {
+      favor_system : {
+        imperial_requests_harder : true
+        failure_consequences_severe : true
+        exceptional_service_rewarded : true
+
+        rewards : {
+          titles : ["proconsul", "legate", "prefect"]
+          land_grants : true
+          trade_monopolies : true
+          political_appointments : true
+        }
+
+        punishments : {
+          reduced_autonomy : true
+          higher_tribute : true
+          garrison_imposed : true
+          governor_replaced : "if_severe"
+        }
+      }
+
+      imperial_succession : {
+        enabled : true
+        new_emperor_changes_policy : true
+        civil_wars : "possible"
+        choose_sides : "risky_but_rewarding"
+      }
+    }
+  }
+
+  // ========================================
+  // STRATEGIC DEPTH & CHALLENGE
+  // ========================================
+
+  strategic_systems : {
+    // Long-term planning requirements
+    infrastructure : {
+      maintenance_required : {
+        enabled : true
+        roads_deteriorate : true
+        aqueducts_need_repair : true
+        buildings_age : true
+        neglect_causes_failure : true
+      }
+
+      upgrades : {
+        roads : ["dirt", "paved", "stone", "marble"]
+        aqueducts : ["basic", "improved", "advanced"]
+        walls : ["wooden", "stone", "reinforced"]
+        each_level_more_expensive : true
+      }
+    }
+
+    // Technology and innovation
+    technology_tree : {
+      enabled : true
+
+      research : {
+        requires_libraries : true
+        requires_funding : true
+        random_breakthroughs : "rare"
+        tech_diffusion_from_trade : true
+      }
+
+      technologies : {
+        agriculture : ["crop_rotation", "irrigation", "fertilization", "selective_breeding"]
+        construction : ["concrete", "arches", "domes", "urban_planning"]
+        military : ["tactics", "siege_weapons", "armor", "logistics"]
+        medicine : ["surgery", "pharmacology", "sanitation", "anatomy"]
+        administration : ["bureaucracy", "census", "law_codes", "postal_system"]
+      }
+
+      technological_advantage : {
+        better_productivity : true
+        unique_buildings : true
+        military_superiority : true
+        attracts_immigrants : true
+      }
+    }
+
+    // Environmental challenges
+    environment : {
+      climate : {
+        seasons_affect_farming : true
+        droughts : { frequency : "occasional", severity : "variable" }
+        floods : { frequency : "seasonal", can_be_beneficial : true }
+        harsh_winters : { increased_fuel_needs : true }
+      }
+
+      natural_disasters : {
+        earthquakes : { destroys_buildings : true, unpredictable : true }
+        fires : { spreads : true, preventable : "partially" }
+        locust_swarms : { destroys_crops : true, forewarned : "sometimes" }
+        volcanic_eruptions : { rare : true, devastating : true }
+      }
+
+      environmental_degradation : {
+        enabled : true
+        deforestation : { causes_soil_erosion : true, reduces_rainfall : true }
+        overfishing : { depletes_stocks : true, recovers_slowly : true }
+        pollution : { affects_health : true, reduces_appeal : true }
+
+        sustainability : {
+          renewable_resources : true
+          conservation_policies : true
+          long_term_vs_short_term_tradeoffs : true
+        }
+      }
+    }
+
+    // Random events and narrative
+    dynamic_events : {
+      enabled : true
+
+      event_frequency : "medium"
+      event_chains : true
+      player_choices_matter : true
+
+      event_categories : {
+        political : { weight : 0.2 }
+        economic : { weight : 0.25 }
+        social : { weight : 0.2 }
+        military : { weight : 0.15 }
+        supernatural : { weight : 0.1 }
+        personal : { weight : 0.1 }
+      }
+
+      consequences : {
+        immediate : true
+        delayed : true
+        cascading : true
+        unexpected : "sometimes"
+      }
+    }
+
+    // Victory conditions (multiple paths)
+    win_conditions : {
+      economic_victory : {
+        treasury_threshold : 100000
+        trade_dominance : true
+        wealth_per_capita : 1000
+      }
+
+      military_victory : {
+        conquer_rivals : true
+        reputation : "feared"
+        legions : 5
+      }
+
+      cultural_victory : {
+        monuments : 10
+        prosperity_rating : 90
+        cultural_influence_spreads : true
+      }
+
+      political_victory : {
+        become_emperor : true
+        reform_empire : true
+        found_dynasty : true
+      }
+
+      // Can pursue multiple paths simultaneously
+      hybrid_victories : true
+    }
+  }
+
+  // ========================================
+  // DIFFICULTY & BALANCE
+  // ========================================
+
+  difficulty_settings : {
+    story_mode : {
+      description : "Balanced experience with guided progression"
+      challenge_rating : "medium"
+      tutorial_hints : true
+      forgiving_failures : true
+    }
+
+    survival_mode : {
+      description : "Start with minimal resources, hostile environment"
+      challenge_rating : "hard"
+      random_starting_conditions : true
+      permadeath : "optional"
+    }
+
+    sandbox_mode : {
+      description : "Creative freedom with optional challenges"
+      challenge_rating : "custom"
+      unlimited_resources : "optional"
+      disasters : "optional"
+    }
+
+    grand_strategy : {
+      description : "Deep simulation with all systems active"
+      challenge_rating : "very_hard"
+      complex_ai : true
+      long_term_planning_required : true
+      multiple_cities : "optional"
+    }
+  }
+
+  // ========================================
+  // META-GAME PROGRESSION
+  // ========================================
+
+  progression : {
+    // Unlock features through play
+    unlockables : {
+      enabled : true
+
+      buildings : { unlock_through : "achievements" }
+      technologies : { unlock_through : "research" }
+      policies : { unlock_through : "experience" }
+      scenarios : { unlock_through : "completion" }
+    }
+
+    // Persistent bonuses between playthroughs
+    legacy_system : {
+      enabled : false
+      carry_over_some_bonuses : false
+      new_game_plus : true
+    }
+
+    // Achievements and challenges
+    achievements : {
+      enabled : true
+      difficulty_based : true
+      hidden_achievements : true
+      track_statistics : true
+    }
+  }
+}

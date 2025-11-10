@@ -8,7 +8,7 @@ Master: ![Build Status](https://travis-ci.org/dalerank/caesaria-game.svg?branch=
 
 Work for CaesarIA began in 2009, it was a wide screen mod for Caesar III. In 2012 development moved to a standalone game with its own engine. In 2014, the game was released on Steam, but remained open-source software. It is an open-source remake of the popular citybuilder/economic strategy game Caesar III by Impressions Games.
 
-**2025 Update:** This version includes modern platform support (iOS/iPadOS), enhanced touch controls, improved UI/UX, and quality-of-life gameplay improvements while staying true to the original Caesar III experience.
+**2025 Update:** This version includes modern platform support (iOS/iPadOS), enhanced touch controls, improved UI/UX, and quality-of-life improvements. Most importantly, it adds **unprecedented strategic depth** with dynamic economics, complex citizen simulation, political intrigue, technology trees, and branching narrative events—transforming CaesarIA into a rich grand strategy experience while honoring the Caesar III legacy.
 
 CaesarIA is playable and actively maintained. You can download and test the game on Windows, Linux, macOS, Android, iOS, and iPadOS. Information about releases will be posted on our repository.
 
@@ -53,6 +53,21 @@ and affect any old or new savegame.
 For more details please check the [wiki](https://bitbucket.org/dalerank/caesaria/wiki/Configuration%20files).
 
 ## 2025 Edition Features
+
+### Strategic Depth & Complexity
+
+CaesarIA 2025 is more than a city builder—it's a **grand strategy simulation**:
+
+- **Advanced Economics**: Dynamic markets, supply/demand pricing, quality tiers, banking, loans, investments, inflation, market crashes
+- **Living Citizens**: Individual personalities, social classes, family dynasties, crime & justice, disease outbreaks, mental health
+- **Political Intrigue**: Competing factions, elections, conspiracies, coups, assassinations, espionage
+- **Deep Diplomacy**: Treaties, trade agreements, military alliances, espionage, realistic warfare
+- **Technology Research**: Unlock innovations in agriculture, construction, military, medicine, and administration
+- **Environmental Challenges**: Seasons, disasters, climate, resource degradation, sustainability
+- **Branching Narratives**: Dynamic event chains where your choices have lasting consequences
+- **Multiple Victory Paths**: Win through economics, military conquest, culture, or political power
+
+See **docs/GAMEPLAY_DEPTH_GUIDE.md** for the complete strategy guide!
 
 ### iOS and iPadOS Support
 CaesarIA now runs natively on iPhone and iPad with optimized touch controls:

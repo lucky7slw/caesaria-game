@@ -1,0 +1,486 @@
+{
+  "scenario_pack": {
+    "name": "CaesarIA 2025 Dynamic Events",
+    "version": "0.6.0",
+    "description": "Rich, branching event chains that add narrative depth and strategic choices"
+  },
+
+  "event_chains": [
+    {
+      "id": "merchant_conspiracy",
+      "name": "The Merchant's Gambit",
+      "category": "economic",
+      "trigger": {
+        "conditions": ["treasury > 50000", "merchant_faction_influence > 60"],
+        "probability": 0.15
+      },
+      "events": [
+        {
+          "id": "merchant_conspiracy_1",
+          "title": "A Lucrative Proposal",
+          "description": "A wealthy merchant consortium approaches you with a proposal: they'll fund new infrastructure in exchange for exclusive trade rights for certain goods. They claim it will boost the economy, but you suspect they're seeking a monopoly.",
+          "choices": [
+            {
+              "text": "Accept their offer",
+              "immediate": { "treasury": 20000, "merchant_favor": 30 },
+              "triggers_event": "merchant_conspiracy_2a"
+            },
+            {
+              "text": "Politely decline",
+              "immediate": { "merchant_favor": -10, "plebeian_favor": 10 },
+              "triggers_event": "merchant_conspiracy_2b"
+            },
+            {
+              "text": "Investigate their motives first",
+              "immediate": { "espionage_cost": -5000 },
+              "triggers_event": "merchant_conspiracy_2c"
+            }
+          ]
+        },
+        {
+          "id": "merchant_conspiracy_2a",
+          "delay_months": 6,
+          "title": "The Price of Monopoly",
+          "description": "The merchants have honored their agreement, funding impressive infrastructure. However, prices for their controlled goods have risen 40%, and small traders are being pushed out of business. Citizens grumble about the cost of living.",
+          "choices": [
+            {
+              "text": "Regulate prices and break the monopoly",
+              "immediate": {
+                "merchant_favor": -50,
+                "plebeian_favor": 30,
+                "treasury": -15000
+              },
+              "long_term": { "inflation": -0.2 }
+            },
+            {
+              "text": "Maintain the arrangement",
+              "immediate": { "merchant_favor": 20 },
+              "long_term": {
+                "inflation": 0.3,
+                "unrest": 15,
+                "merchant_power": "increased"
+              }
+            }
+          ]
+        },
+        {
+          "id": "merchant_conspiracy_2b",
+          "delay_months": 3,
+          "title": "Merchant Retaliation",
+          "description": "The merchants, insulted by your refusal, have quietly organized a trade embargo. Goods are scarce, and prices are rising. Your economic advisors warn of recession.",
+          "choices": [
+            {
+              "text": "Negotiate and compromise",
+              "immediate": { "treasury": -10000, "merchant_favor": 15 }
+            },
+            {
+              "text": "Break them with military force",
+              "immediate": { "merchant_favor": -40, "military_favor": 20 },
+              "triggers_event": "merchant_war"
+            },
+            {
+              "text": "Seek alternative trade partners",
+              "immediate": { "diplomacy_cost": -8000 },
+              "delay_months": 4,
+              "long_term": { "trade_routes": 3, "economic_independence": true }
+            }
+          ]
+        },
+        {
+          "id": "merchant_conspiracy_2c",
+          "delay_months": 2,
+          "title": "Conspiracy Revealed",
+          "description": "Your spies have uncovered the truth: the merchants planned to create a monopoly, then gradually take control of city finances. With this evidence, you hold the power.",
+          "choices": [
+            {
+              "text": "Publicly expose and prosecute them",
+              "immediate": {
+                "treasury": 25000,
+                "merchant_favor": -60,
+                "plebeian_favor": 40,
+                "justice_rating": 15
+              }
+            },
+            {
+              "text": "Blackmail them for ongoing payments",
+              "immediate": { "corruption": 20 },
+              "long_term": { "monthly_tribute": 2000, "merchant_favor": -20 }
+            },
+            {
+              "text": "Accept their deal, but on your terms",
+              "immediate": { "treasury": 15000, "merchant_favor": 10 },
+              "long_term": { "fair_trade": true }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "plague_outbreak",
+      "name": "The Shadow of Death",
+      "category": "health",
+      "trigger": {
+        "conditions": ["population > 5000", "health_rating < 60"],
+        "probability": 0.1
+      },
+      "events": [
+        {
+          "id": "plague_1",
+          "title": "Rumors of Sickness",
+          "description": "Traders from the east speak of a terrible plague ravaging distant cities. Your medical advisors warn it could reach your city within months. What precautions will you take?",
+          "choices": [
+            {
+              "text": "Quarantine all incoming travelers",
+              "immediate": { "trade_income": -0.4, "safety": 0.6 },
+              "triggers_event": "plague_2_prevented"
+            },
+            {
+              "text": "Stock medicine and prepare hospitals",
+              "immediate": { "treasury": -15000, "medical_capacity": 2.0 },
+              "triggers_event": "plague_2_prepared"
+            },
+            {
+              "text": "Ignore the rumors—they're probably exaggerated",
+              "immediate": { "nothing": true },
+              "triggers_event": "plague_2_outbreak"
+            },
+            {
+              "text": "Pray to the gods and hold festivals",
+              "immediate": { "treasury": -8000, "religion_favor": 20, "safety": 0.1 },
+              "triggers_event": "plague_2_outbreak"
+            }
+          ]
+        },
+        {
+          "id": "plague_2_prevented",
+          "delay_months": 4,
+          "title": "Crisis Averted",
+          "description": "The plague swept through neighboring cities, but your quarantine measures kept it out. Trade has resumed. However, merchants complain of lost profits, and some citizens resent the hardship.",
+          "immediate": {
+            "deaths": 0,
+            "merchant_favor": -15,
+            "reputation": 20,
+            "achievement_unlocked": "The Wise Healer"
+          }
+        },
+        {
+          "id": "plague_2_prepared",
+          "delay_months": 3,
+          "title": "The Plague Arrives",
+          "description": "Despite your preparations, the plague has reached your city. However, your well-stocked hospitals are saving lives. Deaths are occurring, but far fewer than in unprepared cities.",
+          "immediate": {
+            "population_loss": 0.15,
+            "hospital_effectiveness": "proven"
+          },
+          "triggers_event": "plague_3_managed"
+        },
+        {
+          "id": "plague_2_outbreak",
+          "delay_months": 3,
+          "title": "Pestilence Unleashed",
+          "description": "The plague has struck with terrible fury! Bodies pile in the streets. Citizens flee in panic. Your physicians are overwhelmed and dying themselves. The gods seem to have abandoned you.",
+          "immediate": {
+            "population_loss": 0.4,
+            "economic_collapse": true,
+            "unrest": 60
+          },
+          "choices": [
+            {
+              "text": "Implement emergency quarantine NOW",
+              "immediate": { "treasury": -20000, "additional_deaths": 0.1 },
+              "triggers_event": "plague_3_contained"
+            },
+            {
+              "text": "Burn the infected districts",
+              "immediate": {
+                "population_loss": 0.15,
+                "buildings_destroyed": 30,
+                "plague_spread": -0.8,
+                "horror": true
+              },
+              "triggers_event": "plague_3_brutal"
+            },
+            {
+              "text": "Do nothing—let it run its course",
+              "immediate": { "population_loss": 0.3, "anarchy": true },
+              "triggers_event": "plague_3_devastation"
+            }
+          ]
+        },
+        {
+          "id": "plague_3_devastation",
+          "delay_months": 6,
+          "title": "City of Ghosts",
+          "description": "The plague finally burned itself out, but at a terrible cost. Half your population is dead. Empty houses stand as monuments to your failure. It will take decades to recover, if you can survive at all.",
+          "immediate": {
+            "population_loss": 0.5,
+            "all_ratings": -50,
+            "reputation": "cursed",
+            "emigration": "massive",
+            "achievement_unlocked": "The Hollow City"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "political_uprising",
+      "name": "The Voice of the People",
+      "category": "political",
+      "trigger": {
+        "conditions": ["unrest > 50", "inequality > 60", "population > 8000"],
+        "probability": 0.2
+      },
+      "events": [
+        {
+          "id": "uprising_1",
+          "title": "A Demagogue Rises",
+          "description": "A charismatic plebeian named Marcus Flavius has been giving speeches in the forum, decrying inequality and corruption. He demands land reform, debt forgiveness, and democratic elections. The crowds love him. The patricians fear him.",
+          "choices": [
+            {
+              "text": "Arrest him for sedition",
+              "immediate": { "unrest": 30, "patrician_favor": 20 },
+              "triggers_event": "uprising_2_martyr"
+            },
+            {
+              "text": "Meet with him and consider reforms",
+              "immediate": { "patrician_favor": -20, "plebeian_favor": 30 },
+              "triggers_event": "uprising_2_negotiate"
+            },
+            {
+              "text": "Assassinate him quietly",
+              "immediate": { "corruption": 30, "espionage_cost": -10000 },
+              "triggers_event": "uprising_2_conspiracy"
+            },
+            {
+              "text": "Implement his reforms yourself",
+              "immediate": {
+                "treasury": -30000,
+                "land_redistribution": true,
+                "plebeian_favor": 50,
+                "patrician_favor": -40
+              },
+              "triggers_event": "uprising_2_reform"
+            }
+          ]
+        },
+        {
+          "id": "uprising_2_martyr",
+          "delay_months": 1,
+          "title": "Blood in the Forum",
+          "description": "Your soldiers arrested Marcus Flavius while he was speaking. When the crowd tried to protect him, violence erupted. Dozens are dead. Now his followers call him a martyr and demand revolution. Riots spread through plebeian districts.",
+          "choices": [
+            {
+              "text": "Crush the uprising with military force",
+              "immediate": {
+                "population_loss": 0.1,
+                "military_favor": 10,
+                "plebeian_favor": -60,
+                "reputation": "tyrant"
+              },
+              "triggers_event": "civil_war"
+            },
+            {
+              "text": "Release him and grant concessions",
+              "immediate": {
+                "patrician_favor": -30,
+                "plebeian_favor": 40,
+                "political_power": -20
+              }
+            }
+          ]
+        },
+        {
+          "id": "uprising_2_negotiate",
+          "delay_months": 2,
+          "title": "The Price of Peace",
+          "description": "After lengthy negotiations, Marcus Flavius has agreed to a compromise: modest land reforms, a grain dole for the poor, and limited elections for city offices. The patricians are furious but the plebeians are satisfied—for now.",
+          "immediate": {
+            "treasury": -25000,
+            "unrest": -30,
+            "political_system": "mixed_republic",
+            "achievement_unlocked": "The Great Compromiser"
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "divine_intervention",
+      "name": "Signs and Wonders",
+      "category": "supernatural",
+      "trigger": {
+        "conditions": ["religion_rating > 70", "random_chance > 0.9"],
+        "probability": 0.05
+      },
+      "events": [
+        {
+          "id": "divine_1",
+          "title": "An Omen in the Sky",
+          "description": "A brilliant comet blazes across the night sky for seven nights. Priests proclaim it an omen—but of what? Some say it heralds great fortune. Others warn of disaster. What do you make of it?",
+          "choices": [
+            {
+              "text": "It's a sign of the gods' favor—celebrate!",
+              "immediate": { "treasury": -10000, "morale": 20 },
+              "outcome_random": [
+                {
+                  "probability": 0.6,
+                  "triggers_event": "divine_blessing"
+                },
+                {
+                  "probability": 0.4,
+                  "triggers_event": "divine_curse"
+                }
+              ]
+            },
+            {
+              "text": "Omens are superstition—ignore it",
+              "immediate": { "religion_favor": -20, "rationality": 10 },
+              "outcome": "nothing_happens"
+            },
+            {
+              "text": "Consult the augurs for guidance",
+              "immediate": { "treasury": -5000 },
+              "outcome_random": [
+                {
+                  "probability": 0.7,
+                  "result": "The augurs advise caution and piety",
+                  "effect": { "safety": 0.3 }
+                },
+                {
+                  "probability": 0.3,
+                  "result": "The augurs give contradictory readings",
+                  "effect": { "confusion": true }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "divine_blessing",
+          "delay_months": 3,
+          "title": "Fortune Smiles",
+          "description": "In the months since the comet, everything has gone right. Harvests are abundant, trade flourishes, no disasters strike. Citizens whisper that the gods themselves protect your city. Your reputation spreads across the empire.",
+          "immediate": {
+            "all_production": 1.5,
+            "prosperity": 30,
+            "immigration": "massive",
+            "reputation": "blessed",
+            "duration_months": 12
+          }
+        },
+        {
+          "id": "divine_curse",
+          "delay_months": 2,
+          "title": "The Gods' Displeasure",
+          "description": "The comet was a warning you failed to heed! Now disaster strikes: earthquakes, fires, and strange illnesses. Priests say you have angered the gods. Only grand offerings can appease them.",
+          "choices": [
+            {
+              "text": "Build a magnificent temple",
+              "immediate": { "treasury": -50000, "religion_favor": 60 },
+              "delay_months": 12,
+              "effect": { "curse_lifted": true }
+            },
+            {
+              "text": "Hold the greatest games ever seen",
+              "immediate": { "treasury": -30000, "entertainment": 40 },
+              "delay_months": 6,
+              "effect": { "curse_reduced": 0.5 }
+            },
+            {
+              "text": "Endure the gods' wrath",
+              "immediate": { "stoicism": true },
+              "duration_months": 24,
+              "effect": { "ongoing_disasters": true, "reputation": -40 }
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "technological_breakthrough",
+      "name": "Eureka!",
+      "category": "innovation",
+      "trigger": {
+        "conditions": ["libraries > 2", "research_funding > 50000_lifetime"],
+        "probability": 0.12
+      },
+      "events": [
+        {
+          "id": "tech_1",
+          "title": "The Inventor's Claim",
+          "description": "A brilliant engineer has developed a revolutionary new construction technique that could transform your city. However, he demands exclusive rights and a substantial payment. Your advisors are skeptical—but what if he's right?",
+          "choices": [
+            {
+              "text": "Fund his research generously",
+              "immediate": { "treasury": -25000 },
+              "outcome_random": [
+                {
+                  "probability": 0.7,
+                  "triggers_event": "tech_success"
+                },
+                {
+                  "probability": 0.3,
+                  "triggers_event": "tech_failure"
+                }
+              ]
+            },
+            {
+              "text": "Offer modest support",
+              "immediate": { "treasury": -10000 },
+              "outcome_random": [
+                {
+                  "probability": 0.4,
+                  "triggers_event": "tech_success"
+                },
+                {
+                  "probability": 0.6,
+                  "result": "He continues his work slowly"
+                }
+              ]
+            },
+            {
+              "text": "Decline—it's too risky",
+              "immediate": { "innovation_favor": -10 },
+              "triggers_event": "tech_stolen"
+            }
+          ]
+        },
+        {
+          "id": "tech_success",
+          "delay_months": 8,
+          "title": "Revolutionary Discovery",
+          "description": "The engineer has done it! His new technique allows buildings to be constructed 50% faster and with greater durability. Your city will be the envy of the empire!",
+          "immediate": {
+            "construction_speed": 1.5,
+            "building_durability": 1.3,
+            "prestige": 40,
+            "technology_unlocked": "advanced_construction",
+            "achievement_unlocked": "Patron of Innovation"
+          }
+        },
+        {
+          "id": "tech_stolen",
+          "delay_months": 12,
+          "title": "The One That Got Away",
+          "description": "News arrives that a rival city has unveiled amazing new construction techniques—techniques developed by the very engineer you dismissed! They're now building wonders while you lag behind.",
+          "immediate": {
+            "prestige": -30,
+            "rival_power": "increased",
+            "regret": true
+          }
+        }
+      ]
+    }
+  ],
+
+  "global_event_settings": {
+    "event_frequency": "medium",
+    "allow_simultaneous_events": false,
+    "player_choices_remembered": true,
+    "reputation_affects_event_outcomes": true,
+    "difficulty_scales_consequences": true
+  }
+}

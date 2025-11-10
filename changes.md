@@ -3,6 +3,7 @@ Releases:
 ##### 2025-01-10 (v0.6 - 2025 Edition)
   * **Platform Support**: Added iOS and iPadOS support with native touch controls
   * **Modern Build System**: Updated to Ubuntu 22.04 (Jammy), GCC 11/12, Clang 14/15
+  * **Deep Strategic Gameplay**: Major gameplay depth enhancements that transform CaesarIA into a rich grand strategy experience
   * **iOS/iPadOS Features**:
     - Native iOS build configuration with CMake toolchain
     - Optimized touch controls for iPhone and iPad
@@ -48,10 +49,50 @@ Releases:
     - Context-sensitive help system
     - Interactive tutorials
     - Achievement tracking foundation
+  * **Advanced Economic Simulation**:
+    - Dynamic market pricing with supply/demand curves
+    - Resource quality system (poor to luxury grades)
+    - Production chain complexity with artisan goods
+    - Advanced taxation (progressive, evasion, corruption, special taxes)
+    - Banking system (loans, investments, credit rating, inflation/deflation)
+    - Market crashes and commodity speculation
+    - Resource degradation and spoilage
+  * **Complex Citizen AI**:
+    - Individual citizens with unique personality traits
+    - Historical memory and generational dynasties
+    - Social class system with mobility mechanics
+    - Hierarchy of needs (survival to self-actualization)
+    - Advanced crime & justice system with investigations and trials
+    - Realistic disease spread with multiple diseases and healthcare responses
+    - Mental health system affecting productivity
+  * **Political & Diplomatic Depth**:
+    - Internal faction system (military, merchants, religious, populares, optimates)
+    - Political intrigue (conspiracies, assassinations, coups, elections)
+    - Comprehensive diplomacy (treaties, espionage, warfare)
+    - Imperial favor system with succession events
+    - Complex relationship factors with neighboring cities
+    - War exhaustion and guerrilla resistance
+  * **Strategic Systems**:
+    - Infrastructure maintenance and upgrade paths
+    - Technology research tree (agriculture, construction, military, medicine, administration)
+    - Environmental challenges (climate, disasters, degradation)
+    - Sustainability mechanics
+    - Multiple victory conditions (economic, military, cultural, political)
+    - Four difficulty modes (Story, Survival, Sandbox, Grand Strategy)
+  * **Dynamic Events System**:
+    - Branching narrative event chains with meaningful choices
+    - Six event categories (political, economic, social, military, supernatural, personal)
+    - Long-term consequences and cascading effects
+    - Player choices remembered and referenced in future events
+    - Random elements keep each playthrough unique
+    - Example scenarios: merchant conspiracies, plague outbreaks, political uprisings, divine interventions, technological breakthroughs
   * **Developer Improvements**:
     - iOS CMake toolchain file
     - Comprehensive iOS build documentation (INSTALL_IOS)
     - Enhanced configuration system (2025_enhancements.model)
+    - Gameplay depth configuration (gameplay_depth.model)
+    - 150-page gameplay depth guide (docs/GAMEPLAY_DEPTH_GUIDE.md)
+    - Dynamic events JSON system (resources/events/dynamic_scenarios.json)
     - Updated copyright notices to 2025
     - Version bumped to 0.6 build 100
 
