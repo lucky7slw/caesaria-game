@@ -1,0 +1,1627 @@
+// CaesarIA 2025 - Engineering Marvels System
+// Monumental construction projects and architectural wonders
+
+engineering_marvels : {
+  // ==========================================
+  // MEGA-PROJECTS
+  // ==========================================
+  wonders : {
+    colosseum : {
+      name : "Amphitheatrum_Flavium"
+      type : "entertainment_monument"
+      historical_name : "Colosseum"
+
+      requirements : {
+        technology : "advanced_architecture"
+        resources : {
+          stone : "100000_tons"
+          marble : "50000_tons"
+          timber : "10000_cubic_meters"
+          iron : "300_tons"
+          concrete : "unlimited_roman_concrete"
+        }
+
+        workforce : {
+          architects : 10
+          engineers : 50
+          master_builders : 100
+          skilled_workers : 1000
+          laborers : 10000
+          slaves : "optional_speeds_construction"
+        }
+
+        site : {
+          space : "6_acres"
+          terrain : "flat_or_prepared"
+          water_access : "for_naval_battles"
+          drainage : "underground_system"
+        }
+
+        time : "8_to_10_years"
+        cost : "5000000_denarii"
+      }
+
+      construction_phases : {
+        phase_1_foundation : {
+          duration : "1_year"
+          activities : {
+            excavation : "dig_30_feet_deep"
+            drainage : "install_sewers"
+            foundation : "concrete_and_stone"
+            hypogeum : "underground_chambers"
+          }
+          workforce : "5000_workers"
+          cost : "500000_denarii"
+        }
+
+        phase_2_structure : {
+          duration : "4_years"
+          activities : {
+            walls : "travertine_blocks"
+            arches : "80_arches_per_level"
+            vaults : "concrete_barrel_vaults"
+            columns : "doric_ionic_corinthian"
+          }
+          workforce : "10000_workers"
+          cost : "2000000_denarii"
+        }
+
+        phase_3_seating : {
+          duration : "2_years"
+          activities : {
+            tiers : "50000_seats_on_marble"
+            boxes : "emperor_senators_vestal_virgins"
+            awning : "velarium_sun_protection"
+            stairs : "vomitoria_quick_exit"
+          }
+          workforce : "3000_workers"
+          cost : "1000000_denarii"
+        }
+
+        phase_4_systems : {
+          duration : "1_year"
+          activities : {
+            hypogeum_complete : "elevators_and_trapdoors"
+            water_system : "flood_arena_for_naval_battles"
+            drainage : "remove_water_quickly"
+            machinery : "animal_cages_scenery"
+          }
+          workforce : "2000_engineers_and_workers"
+          cost : "1000000_denarii"
+        }
+
+        phase_5_decoration : {
+          duration : "1_year"
+          activities : {
+            statues : "hundreds_of_sculptures"
+            frescoes : "painted_decorations"
+            mosaics : "detailed_floor_work"
+            gold_leaf : "emperor_box"
+          }
+          workforce : "500_artists"
+          cost : "500000_denarii"
+        }
+      }
+
+      features : {
+        capacity : "50000_to_80000_spectators"
+        arena_floor : "272_x_157_feet"
+        height : "157_feet_tall"
+        perimeter : "1788_feet"
+
+        hypogeum : {
+          levels : 2
+          rooms : 80
+          passages : "complex_network"
+          elevators : 28
+          trapdoors : "for_dramatic_entries"
+        }
+
+        velarium : {
+          description : "retractable_awning"
+          material : "canvas"
+          operation : "240_masts_and_ropes"
+          crew : "roman_sailors_operate"
+        }
+
+        flooding_system : {
+          capacity : "fill_3_feet_deep"
+          time_to_fill : "7_hours"
+          time_to_drain : "4_hours"
+          uses : "naval_battle_reenactments"
+        }
+      }
+
+      gameplay : {
+        events : {
+          gladiator_games : "revenue_100000_per_event"
+          animal_hunts : "exotic_beasts"
+          executions : "criminals_and_prisoners"
+          naval_battles : "naumachiae"
+          theatrical : "plays_and_performances"
+        }
+
+        revenue : {
+          ticket_sales : "50000_denarii_per_day"
+          concessions : "food_and_drink"
+          gambling : "betting_on_fights"
+          tourism : "empire_wide_attraction"
+        }
+
+        maintenance : {
+          repairs : "10000_denarii_per_month"
+          staff : "500_permanent_employees"
+          animals : "feeding_and_care"
+          gladiators : "training_facilities"
+        }
+
+        prestige : {
+          city : "+500_prestige"
+          empire : "known_throughout_world"
+          tourism : "10000_visitors_per_month"
+          wonder_status : "one_of_greatest_buildings"
+        }
+      }
+    }
+
+    pantheon : {
+      name : "Pantheon"
+      type : "temple_monument"
+
+      requirements : {
+        technology : "dome_construction"
+        resources : {
+          concrete : "4535_tons"
+          marble : "1000_tons"
+          bronze : "20_tons_for_doors_and_roof"
+          granite : "16_columns"
+        }
+
+        workforce : {
+          architects : 5
+          engineers : 20
+          master_builders : 50
+          skilled_workers : 500
+          laborers : 2000
+        }
+
+        time : "5_years"
+        cost : "2000000_denarii"
+      }
+
+      innovation : {
+        dome : {
+          diameter : "142_feet"
+          height : "142_feet_perfect_sphere"
+          oculus : "27_feet_diameter_open_to_sky"
+          concrete : "layers_of_different_aggregates"
+          coffering : "reduces_weight"
+          unreinforced : "largest_for_1800_years"
+        }
+
+        engineering : {
+          foundations : "25_feet_deep"
+          walls : "20_feet_thick_at_base"
+          weight_reduction : {
+            aggregate : "lighter_pumice_near_top"
+            coffering : "aesthetic_and_structural"
+            oculus : "reduces_apex_weight"
+          }
+
+          revolutionary : "changed_architecture_forever"
+        }
+      }
+
+      features : {
+        portico : {
+          columns : "16_corinthian_granite"
+          height : "46_feet"
+          inscription : "M_AGRIPPA_L_F_COS_TERTIUM_FECIT"
+        }
+
+        rotunda : {
+          diameter : "142_feet"
+          perfectly_circular : true
+          floor : "marble_in_geometric_patterns"
+          niches : "7_for_statues_of_gods"
+        }
+
+        oculus : {
+          function : "only_light_source"
+          rain : "floor_drains_handle_it"
+          symbolism : "connection_to_heavens"
+          sundial : "light_moves_throughout_day"
+        }
+      }
+
+      gameplay : {
+        functions : {
+          worship : "all_gods_honored"
+          state_ceremonies : "imperial_events"
+          architecture_school : "teaches_dome_building"
+          tourism : "architectural_pilgrimage"
+        }
+
+        benefits : {
+          all_gods_favor : "+10_to_all_deities"
+          prestige : "+300"
+          tourism : "5000_visitors_per_month"
+          technology : "unlocks_advanced_domes"
+        }
+
+        legacy : {
+          influence : "inspires_buildings_for_millennia"
+          architectural_school : "trains_engineers"
+          world_wonder : "truly_eternal"
+        }
+      }
+    }
+
+    circus_maximus : {
+      name : "Circus_Maximus"
+      type : "chariot_racing_monument"
+
+      requirements : {
+        resources : {
+          stone : "200000_tons"
+          marble : "30000_tons"
+          timber : "5000_cubic_meters"
+        }
+
+        workforce : {
+          workers : "15000"
+          time : "12_years_continuous_expansion"
+        }
+
+        cost : "8000000_denarii"
+      }
+
+      dimensions : {
+        length : "2037_feet"
+        width : "387_feet"
+        capacity : "250000_spectators"
+        track_length : "1968_feet_per_lap"
+        standard_race : "7_laps"
+      }
+
+      features : {
+        spina : {
+          description : "central_barrier"
+          length : "1135_feet"
+          decorations : ["obelisks", "shrines", "statues", "lap_counters"]
+        }
+
+        starting_gates : {
+          carceres : 12
+          mechanism : "spring_loaded_doors"
+          fairness : "staggered_distances"
+        }
+
+        turning_posts : {
+          metae : "three_conical_pillars_each_end"
+          danger : "site_of_most_crashes"
+          skill : "tight_turns_at_speed"
+        }
+
+        imperial_box : {
+          pulvinar : "emperor_viewing_platform"
+          location : "palatine_hill_side"
+          capacity : "imperial_family_and_guests"
+        }
+      }
+
+      gameplay : {
+        events : {
+          chariot_races : "24_races_per_day"
+          frequency : "66_days_per_year"
+          attendance : "200000_average"
+        }
+
+        revenue : {
+          betting : "massive_gambling_industry"
+          concessions : "food_drink_souvenirs"
+          faction_sponsorships : "reds_whites_blues_greens"
+          total : "500000_denarii_per_race_day"
+        }
+
+        social : {
+          political_importance : "where_people_voice_opinions"
+          faction_riots : "sometimes_deadly"
+          emperor_approval : "measured_by_crowd_reaction"
+        }
+
+        prestige : "+600"
+      }
+    }
+
+    aqueduct_maximus : {
+      name : "Aqua_Augusta"
+      type : "water_supply_monument"
+
+      requirements : {
+        technology : "hydraulic_engineering"
+        resources : {
+          stone : "500000_tons"
+          concrete : "200000_tons"
+          lead_pipes : "10000_tons"
+        }
+
+        workforce : {
+          engineers : 100
+          surveyors : 50
+          workers : "20000"
+          time : "15_years"
+        }
+
+        cost : "10000000_denarii"
+      }
+
+      specifications : {
+        length : "50_miles"
+        elevation_drop : "100_feet_total"
+        gradient : "1_foot_per_2640_feet"
+        flow_rate : "1000_liters_per_second"
+        daily_capacity : "86_million_liters"
+
+        construction : {
+          underground : {
+            tunnels : "35_miles"
+            depth : "up_to_100_feet"
+            maintenance_shafts : "every_240_feet"
+            lining : "waterproof_cement"
+          }
+
+          bridges : {
+            count : 15
+            tallest : "160_feet_high"
+            arches : {
+              multiple_tiers : "up_to_3_levels"
+              engineering : "progressive_narrowing"
+              beauty : "architectural_masterpiece"
+            }
+          }
+
+          channels : {
+            width : "4_feet"
+            height : "6_feet"
+            material : "stone_lined_with_waterproof_mortar"
+            inspection : "workers_can_walk_through"
+          }
+        }
+      }
+
+      distribution : {
+        castellum : {
+          description : "distribution_tank"
+          location : "city_entry"
+          function : "split_water_to_channels"
+          branches : 3
+        }
+
+        priority : {
+          first : "public_fountains_basic_needs"
+          second : "baths_and_latrines"
+          third : "private_homes_wealthy"
+        }
+
+        network : {
+          public_fountains : 500
+          bath_complexes : 50
+          private_connections : 10000
+          total_served : "1_million_people"
+        }
+      }
+
+      gameplay : {
+        benefits : {
+          water_supply : "unlimited_clean_water"
+          health : "+50_public_health"
+          hygiene : "disease_prevention"
+          baths : "support_massive_bath_complexes"
+          industry : "mills_and_workshops"
+          prestige : "+400"
+        }
+
+        maintenance : {
+          inspectors : "aquarii_maintain_system"
+          cleaning : "annual_shutdown_and_scrubbing"
+          repairs : "constant_work"
+          cost : "50000_denarii_per_year"
+        }
+
+        sabotage_risk : {
+          vulnerability : "critical_infrastructure"
+          protection : "guards_at_key_points"
+          enemy_target : "during_sieges"
+        }
+      }
+    }
+
+    basilica_maxima : {
+      name : "Basilica_Julia"
+      type : "civic_monument"
+
+      requirements : {
+        resources : {
+          marble : "20000_tons"
+          granite : "5000_tons"
+          gold_leaf : "100_kilos"
+        }
+
+        workforce : {
+          workers : "5000"
+          time : "8_years"
+        }
+
+        cost : "3000000_denarii"
+      }
+
+      dimensions : {
+        length : "350_feet"
+        width : "180_feet"
+        height : "80_feet"
+        columns : "192_corinthian"
+      }
+
+      features : {
+        central_hall : {
+          open_space : "massive_public_area"
+          natural_light : "clerestory_windows"
+          acoustics : "excellent_for_oratory"
+        }
+
+        courts : {
+          civil_tribunals : 4
+          simultaneous_trials : true
+          seating : "judges_on_raised_platforms"
+          audience : "public_can_watch"
+        }
+
+        shops : {
+          tabernae : "ground_floor_shops"
+          count : 50
+          rent : "revenue_for_city"
+        }
+
+        offices : {
+          administrative : "city_government"
+          financial : "tax_collection"
+          legal : "lawyers_and_scribes"
+        }
+      }
+
+      gameplay : {
+        functions : {
+          courts : "legal_proceedings"
+          commerce : "business_deals"
+          socializing : "meeting_place"
+          shelter : "from_weather"
+        }
+
+        benefits : {
+          legal_efficiency : "faster_trials"
+          commerce_boost : "+20_percent_trade"
+          prestige : "+250"
+          capacity : "3000_people_inside"
+        }
+
+        events : {
+          major_trials : "public_spectacle"
+          markets : "during_festivals"
+          speeches : "political_rallies"
+        }
+      }
+    }
+
+    forum_maximum : {
+      name : "Forum_Imperium"
+      type : "civic_complex_monument"
+
+      requirements : {
+        space : "50_acres"
+        resources : {
+          marble : "100000_tons"
+          granite : "30000_tons"
+          bronze : "500_tons"
+          gold : "1000_kilos"
+        }
+
+        workforce : {
+          workers : "30000"
+          time : "20_years"
+        }
+
+        cost : "20000000_denarii"
+      }
+
+      components : {
+        main_square : {
+          size : "660_x_330_feet"
+          paving : "marble_slabs"
+          statues : "100_bronze_and_marble"
+          fountains : 12
+        }
+
+        basilica : "see_basilica_maxima"
+
+        temples : {
+          count : 5
+          major_gods : "Jupiter_Venus_Mars_etc"
+          architecture : "finest_examples"
+        }
+
+        senate_house : {
+          curia : "meeting_chamber"
+          capacity : "600_senators"
+          decoration : "gilded_and_frescoed"
+        }
+
+        triumphal_arches : {
+          count : 3
+          commemorating : "military_victories"
+          reliefs : "detailed_battle_scenes"
+        }
+
+        colonnades : {
+          porticos : "covered_walkways"
+          length : "2_miles_total"
+          shops : "300_tabernae"
+        }
+
+        libraries : {
+          latin : "western_literature"
+          greek : "eastern_literature"
+          scrolls : "500000_combined"
+        }
+      }
+
+      gameplay : {
+        functions : {
+          political : "heart_of_government"
+          commercial : "major_trading_center"
+          religious : "multiple_temples"
+          educational : "libraries_and_schools"
+          social : "meeting_place_for_all"
+        }
+
+        benefits : {
+          prestige : "+1000"
+          commerce : "+50_percent"
+          culture : "+100"
+          tourism : "50000_visitors_per_month"
+          efficiency : "all_government_in_one_place"
+        }
+
+        events : {
+          triumphs : "victory_parades_end_here"
+          elections : "political_rallies"
+          trials : "famous_cases"
+          markets : "special_trade_fairs"
+          festivals : "religious_celebrations"
+        }
+      }
+    }
+
+    thermae_imperialis : {
+      name : "Baths_of_Caracalla"
+      type : "bath_complex_monument"
+
+      requirements : {
+        space : "33_acres"
+        resources : {
+          marble : "50000_tons"
+          concrete : "100000_tons"
+          mosaics : "10000_square_meters"
+          sculptures : 500
+        }
+
+        workforce : {
+          workers : "10000"
+          time : "6_years"
+        }
+
+        cost : "6000000_denarii"
+      }
+
+      dimensions : {
+        main_building : "750_x_380_feet"
+        height : "125_feet"
+        capacity : "1600_bathers_simultaneously"
+        daily_visitors : "8000"
+      }
+
+      facilities : {
+        frigidarium : {
+          description : "cold_room"
+          size : "183_x_79_feet"
+          pools : "cold_water_plunge"
+          temperature : "60_degrees_F"
+        }
+
+        tepidarium : {
+          description : "warm_room"
+          temperature : "80_degrees_F"
+          acclimatization : "between_hot_and_cold"
+        }
+
+        caldarium : {
+          description : "hot_room"
+          size : "115_feet_diameter"
+          temperature : "110_degrees_F"
+          steam : "from_hypocaust"
+        }
+
+        natatio : {
+          description : "swimming_pool"
+          size : "164_x_69_feet"
+          depth : "5_feet"
+          open_air : "outdoor_pool"
+        }
+
+        palaestra : {
+          description : "exercise_grounds"
+          activities : ["wrestling", "boxing", "ball_games"]
+          size : "two_large_courtyards"
+        }
+
+        libraries : {
+          count : 2
+          scrolls : "20000"
+          reading_rooms : "quiet_study"
+        }
+
+        gardens : {
+          landscaped : "beautiful_grounds"
+          fountains : 20
+          statues : 200
+        }
+
+        shops : {
+          food : "snacks_and_meals"
+          massage : "oil_and_massage"
+          grooming : "barbers_and_beauticians"
+          count : 30
+        }
+      }
+
+      engineering : {
+        hypocaust : {
+          description : "underfloor_heating"
+          furnaces : 50
+          wood_consumption : "10_tons_per_day"
+          temperature_control : "adjustable_by_room"
+        }
+
+        water_system : {
+          supply : "dedicated_aqueduct"
+          volume : "8_million_liters_per_day"
+          temperature : "cold_tepid_hot_maintained"
+          drainage : "complex_sewer_system"
+        }
+
+        ventilation : {
+          hot_air : "rises_through_wall_cavities"
+          fresh_air : "windows_and_vents"
+          smoke : "chimney_system"
+        }
+      }
+
+      gameplay : {
+        functions : {
+          hygiene : "public_bathing"
+          health : "exercise_and_wellness"
+          social : "meeting_place_all_classes"
+          education : "libraries"
+          leisure : "relaxation"
+        }
+
+        benefits : {
+          health : "+30_public_health"
+          happiness : "+40_citizen_satisfaction"
+          culture : "+50"
+          prestige : "+400"
+          tourism : "20000_visitors_per_month"
+        }
+
+        operations : {
+          admission : {
+            cost : "1_as_very_cheap"
+            free_days : "imperial_birthdays"
+            hours : "dawn_to_dusk"
+            segregation : "men_and_women_separate_times"
+          }
+
+          staff : {
+            capsarii : "clothes_attendants"
+            masseurs : "massage_therapists"
+            unctores : "oil_appliers"
+            alipilarii : "hair_removers"
+            furnace_workers : "maintain_heating"
+            cleaners : "night_shift_cleaning"
+            total : "500_employees"
+          }
+
+          maintenance : {
+            daily_cleaning : "essential"
+            water_changes : "regular"
+            repairs : "ongoing"
+            fuel : "massive_wood_supply"
+            cost : "30000_denarii_per_month"
+          }
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // ENGINEERING INNOVATIONS
+  // ==========================================
+  innovations : {
+    roman_concrete : {
+      name : "opus_caementicium"
+      revolution : "enables_unprecedented_construction"
+
+      composition : {
+        ingredients : {
+          lime : "calcium_oxide_from_limestone"
+          volcanic_ash : "pozzolana_from_vesuvius"
+          aggregate : ["rubble", "brick", "stone"]
+          water : "catalyst"
+        }
+
+        proportions : {
+          lime : "1_part"
+          pozzolana : "2_parts"
+          aggregate : "4_parts"
+        }
+      }
+
+      properties : {
+        strength : "stronger_than_modern_concrete"
+        durability : "lasts_2000_plus_years"
+        waterproof : "sets_underwater"
+        versatile : "any_shape_possible"
+        economical : "cheaper_than_all_stone"
+      }
+
+      applications : {
+        foundations : "massive_support"
+        walls : "thick_and_strong"
+        vaults : "spanning_large_spaces"
+        domes : "including_pantheon"
+        aqueducts : "waterproof_channels"
+        harbors : "underwater_construction"
+      }
+
+      gameplay : {
+        research : {
+          discovery : "early_game_technology"
+          improvements : "better_formulas_unlocked"
+        }
+
+        production : {
+          facilities : "concrete_mixing_yards"
+          workers : "skilled_and_unskilled"
+          output : "tons_per_day"
+        }
+
+        advantages : {
+          speed : "faster_than_stone_cutting"
+          cost : "cheaper_than_marble"
+          possibilities : "new_building_types"
+        }
+      }
+    }
+
+    arch : {
+      description : "curved_structure_bearing_weight"
+      revolution : "enables_large_spans"
+
+      types : {
+        semicircular : {
+          description : "classic_roman_arch"
+          span : "up_to_100_feet"
+          strength : "excellent_compression"
+        }
+
+        segmental : {
+          description : "flatter_arch"
+          span : "shorter"
+          aesthetics : "less_dramatic"
+        }
+      }
+
+      construction : {
+        centering : {
+          description : "wooden_support_during_construction"
+          critical : "holds_until_keystone"
+          removal : "after_mortar_sets"
+          reusable : "move_to_next_arch"
+        }
+
+        voussoirs : {
+          description : "wedge_shaped_stones"
+          precision : "exact_cutting_required"
+          keystone : "final_central_piece"
+        }
+      }
+
+      applications : {
+        bridges : "span_rivers"
+        aqueducts : "cross_valleys"
+        buildings : "large_openings"
+        triumphal_arches : "monuments"
+        amphitheaters : "tiered_seating"
+      }
+    }
+
+    vault : {
+      description : "extended_arch"
+      types : {
+        barrel_vault : {
+          description : "continuous_arch"
+          span : "width_of_space"
+          height : "dramatic_ceilings"
+          weight : "requires_thick_walls"
+        }
+
+        groin_vault : {
+          description : "two_barrel_vaults_intersecting"
+          advantages : "weight_on_four_corners"
+          allows : "thinner_walls_more_windows"
+          complex : "difficult_construction"
+        }
+
+        cross_vault : {
+          description : "advanced_groin_vault"
+          applications : "large_halls"
+          aesthetics : "beautiful_ceiling_patterns"
+        }
+      }
+
+      applications : {
+        basilicas : "wide_open_spaces"
+        baths : "large_halls"
+        underground : "sewers_and_crypts"
+      }
+    }
+
+    dome : {
+      description : "hemispherical_roof"
+      pinnacle : "pantheon_142_feet_diameter"
+
+      construction : {
+        formwork : {
+          centering : "temporary_support"
+          complex : "hemispherical_scaffolding"
+          expensive : "massive_timber_required"
+        }
+
+        layers : {
+          base : "heavy_stone_and_concrete"
+          middle : "progressively_lighter_aggregate"
+          top : "pumice_very_light"
+        }
+
+        coffering : {
+          function : "reduce_weight"
+          aesthetic : "beautiful_pattern"
+          dimensions : "140_coffers_5_rings"
+        }
+
+        oculus : {
+          function : "keystone_of_dome"
+          size : "27_feet_diameter"
+          benefit : "reduces_apex_weight"
+        }
+      }
+
+      engineering : {
+        compression : "all_forces_toward_base"
+        hoop_stress : "tensile_ring_at_base"
+        thickness : "varies_20_feet_to_5_feet"
+        miracle : "no_reinforcement_still_standing"
+      }
+
+      applications : {
+        temples : "connection_to_heaven"
+        baths : "caldarium_ceilings"
+        tombs : "mausoleums"
+      }
+    }
+
+    hypocaust : {
+      description : "underfloor_heating_system"
+      genius : "central_heating_invented"
+
+      construction : {
+        floor : {
+          raised : "on_brick_pillars"
+          height : "2_to_3_feet_clearance"
+          supports : "pilae_stacks"
+          flooring : "tiles_or_marble_on_top"
+        }
+
+        furnace : {
+          praefurnium : "external_firebox"
+          fuel : "wood_charcoal"
+          operation : "continuous_burning"
+          workers : "stoke_day_and_night"
+        }
+
+        circulation : {
+          hot_air : "flows_under_floor"
+          wall_cavities : "tubuli_hollow_tiles"
+          rises : "through_walls_to_roof"
+          chimney : "exits_at_top"
+        }
+      }
+
+      applications : {
+        baths : "essential_for_hot_rooms"
+        homes : "wealthy_villas"
+        public_buildings : "comfort"
+      }
+
+      efficiency : {
+        heat_retention : "excellent"
+        even_distribution : "no_hot_spots"
+        adjustable : "control_by_furnace"
+      }
+
+      gameplay : {
+        unlock : "mid_game_technology"
+        benefits : {
+          comfort : "winter_functionality"
+          health : "dry_warm_spaces"
+          prestige : "luxury_feature"
+        }
+
+        costs : {
+          construction : "expensive_specialized"
+          operation : "constant_fuel_supply"
+          maintenance : "clean_soot"
+        }
+      }
+    }
+
+    surveying : {
+      description : "precise_measurement_and_leveling"
+      critical : "aqueducts_require_exact_gradients"
+
+      instruments : {
+        groma : {
+          description : "cross_shaped_sighting_device"
+          function : "establish_right_angles"
+          accuracy : "very_precise"
+        }
+
+        chorobates : {
+          description : "20_foot_leveling_instrument"
+          function : "establish_horizontal"
+          precision : "1_inch_in_20_feet"
+        }
+
+        dioptra : {
+          description : "sighting_tube_on_stand"
+          function : "measure_angles_and_distances"
+          versatility : "multiple_uses"
+        }
+
+        libra_aquaria : {
+          description : "water_level"
+          function : "leveling"
+          simple : "effective"
+        }
+      }
+
+      techniques : {
+        triangulation : "measure_distances"
+        leveling : "establish_gradients"
+        sighting : "maintain_straight_lines"
+        calculation : "geometry_and_mathematics"
+      }
+
+      professionals : {
+        agrimensores : {
+          title : "land_surveyors"
+          training : "mathematical_and_practical"
+          status : "respected_professionals"
+          pay : "well_compensated"
+        }
+      }
+
+      applications : {
+        aqueducts : "0.5_degree_gradient_over_miles"
+        roads : "straight_as_possible"
+        city_planning : "grid_layouts"
+        property : "boundaries"
+        military : "fort_layouts"
+      }
+
+      gameplay : {
+        hire_surveyors : "for_major_projects"
+        accuracy : "affects_construction_success"
+        errors : "can_cause_failures"
+      }
+    }
+  }
+
+  // ==========================================
+  // INFRASTRUCTURE PROJECTS
+  // ==========================================
+  infrastructure : {
+    roads : {
+      via_appia_style : {
+        name : "Queen_of_Roads"
+        construction : {
+          layers : {
+            foundation : {
+              statumen : "large_stones"
+              depth : "3_feet"
+              purpose : "stability"
+            }
+
+            base : {
+              rudus : "broken_stones_and_mortar"
+              depth : "1_foot"
+              compaction : "rolled_flat"
+            }
+
+            intermediate : {
+              nucleus : "gravel_and_sand"
+              depth : "1_foot"
+              smoothing : "level_surface"
+            }
+
+            surface : {
+              summa_crusta : "fitted_paving_stones"
+              material : "basalt_or_granite"
+              thickness : "6_inches"
+              fit : "tight_precise"
+            }
+          }
+
+          width : "14_feet_standard"
+          drainage : {
+            crown : "slightly_higher_in_center"
+            ditches : "both_sides"
+            culverts : "under_crossings"
+          }
+
+          milestones : {
+            interval : "every_roman_mile"
+            information : "distance_to_rome"
+            propaganda : "emperor_who_built"
+          }
+        }
+
+        benefits : {
+          military : "rapid_legion_movement"
+          trade : "merchant_travel"
+          communication : "courier_speed"
+          durability : "lasts_2000_years"
+        }
+
+        gameplay : {
+          construction : {
+            time : "1_mile_per_month"
+            workers : "1000_per_mile"
+            cost : "50000_denarii_per_mile"
+          }
+
+          benefits : {
+            trade_routes : "connect_cities"
+            military_speed : "+50_percent"
+            revenue : "toll_roads_optional"
+          }
+        }
+      }
+    }
+
+    bridges : {
+      stone_arch_bridge : {
+        construction : {
+          foundations : {
+            coffer_dams : "temporary_water_exclusion"
+            piles : "driven_deep"
+            concrete : "poured_underwater"
+          }
+
+          piers : {
+            shape : "pointed_upstream_rounded_downstream"
+            function : "break_water_flow"
+            strength : "massive_stone_or_concrete"
+          }
+
+          arches : {
+            span : "50_to_100_feet_each"
+            multiple : "for_wide_rivers"
+            centering : "removed_after_construction"
+          }
+
+          roadway : {
+            width : "road_width"
+            parapets : "low_walls"
+            drainage : "spouts_to_river"
+          }
+        }
+
+        examples : {
+          pons_fabricius : {
+            location : "tiber_island_rome"
+            age : "built_62_BC_still_in_use"
+            span : "two_arches_80_feet_each"
+          }
+
+          alcantara : {
+            location : "spain"
+            height : "160_feet_above_river"
+            length : "600_feet"
+            inscription : "built_to_last_forever"
+          }
+        }
+
+        gameplay : {
+          essential : "cross_rivers"
+          trade : "maintain_routes"
+          military : "strategic_value"
+          cost : "200000_denarii_typical"
+        }
+      }
+    }
+
+    harbors : {
+      artificial_harbor : {
+        construction : {
+          breakwaters : {
+            underwater : "concrete_poured_in_seawater"
+            technique : "wooden_forms_filled_with_concrete"
+            revolutionary : "creates_calm_water"
+          }
+
+          quays : {
+            docks : "stone_or_concrete_wharves"
+            capacity : "multiple_ships"
+            cranes : "load_and_unload"
+          }
+
+          warehouses : {
+            horrea : "massive_storage"
+            security : "thick_walls_locked"
+            capacity : "thousands_of_tons"
+          }
+
+          lighthouse : {
+            pharos : "guide_ships"
+            height : "100_feet_plus"
+            fire : "visible_for_miles"
+          }
+        }
+
+        example : {
+          portus : {
+            location : "near_ostia"
+            built : "emperor_claudius_and_trajan"
+            hexagonal_basin : "innovative_design"
+            capacity : "200_ships"
+          }
+        }
+
+        gameplay : {
+          trade_capacity : "massive_increase"
+          navy : "fleet_base"
+          revenue : "port_fees"
+          cost : "5000000_denarii"
+        }
+      }
+    }
+
+    tunnels : {
+      mountain_tunnel : {
+        construction : {
+          method : {
+            fire_quench : "heat_rock_then_water_cracks_it"
+            hammer_and_chisel : "slow_but_sure"
+            counter_tunneling : "start_from_both_ends"
+          }
+
+          support : {
+            timber : "temporary_ceiling"
+            masonry : "permanent_lining"
+            arch : "strongest_shape"
+          }
+
+          ventilation : {
+            shafts : "air_circulation"
+            fires : "draw_fresh_air"
+          }
+        }
+
+        challenges : {
+          accuracy : "meeting_in_middle"
+          water : "drainage_systems"
+          collapse : "constant_danger"
+          time : "very_slow_progress"
+        }
+
+        applications : {
+          aqueducts : "through_mountains"
+          roads : "avoid_long_detours"
+          mining : "extract_ore"
+        }
+
+        gameplay : {
+          unlock : "advanced_engineering"
+          cost : "extremely_expensive"
+          time : "years_of_work"
+          risk : "worker_deaths_common"
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // CONSTRUCTION MANAGEMENT
+  // ==========================================
+  construction : {
+    planning : {
+      design : {
+        architect : {
+          role : "overall_design"
+          training : "years_of_study"
+          reference : ["Vitruvius", "pattern_books"]
+          payment : "percentage_of_cost"
+        }
+
+        engineering : {
+          structural : "ensure_stability"
+          calculations : "load_bearing"
+          materials : "specify_requirements"
+        }
+
+        approval : {
+          patron : "who_pays"
+          religious : "if_temple_augury"
+          state : "if_public_building"
+        }
+      }
+
+      logistics : {
+        materials : {
+          sourcing : {
+            quarries : "stone_extraction"
+            forests : "timber_harvesting"
+            production : "brick_and_tile_kilns"
+            import : "exotic_materials"
+          }
+
+          transportation : {
+            by_water : "cheapest_for_heavy_loads"
+            by_road : "ox_carts"
+            by_rail : "simple_track_systems"
+            cost : "often_exceeds_material_cost"
+          }
+
+          storage : {
+            on_site : "secure_yards"
+            weatherproofing : "protect_materials"
+            inventory : "track_quantities"
+          }
+        }
+
+        workforce : {
+          recruitment : {
+            skilled : "stonecutters_carpenters"
+            semi_skilled : "laborers_with_training"
+            unskilled : "simple_labor"
+            slaves : "supplemental_force"
+          }
+
+          organization : {
+            contractors : "manage_work_gangs"
+            foremen : "supervise_daily"
+            specialists : "unique_skills"
+          }
+
+          conditions : {
+            hours : "dawn_to_dusk"
+            breaks : "rest_periods"
+            safety : "minimal_by_modern_standards"
+            fatalities : "common_on_large_projects"
+          }
+
+          payment : {
+            skilled : "5_to_10_denarii_per_day"
+            unskilled : "1_to_3_denarii_per_day"
+            specialists : "negotiated"
+            slaves : "none_but_fed_and_housed"
+          }
+        }
+
+        site : {
+          preparation : {
+            clearing : "remove_obstacles"
+            leveling : "grade_terrain"
+            drainage : "prevent_flooding"
+            access : "roads_for_transport"
+          }
+
+          facilities : {
+            workshops : "on_site_fabrication"
+            storage : "materials_and_tools"
+            housing : "worker_barracks"
+            water_supply : "essential"
+          }
+        }
+      }
+    }
+
+    execution : {
+      phases : {
+        foundation : {
+          excavation : "dig_to_bedrock_or_stable_soil"
+          piles : "if_soft_ground"
+          concrete_pour : "mass_concrete_base"
+          curing : "allow_to_harden"
+        }
+
+        structure : {
+          walls : "rise_in_courses"
+          columns : "erected_with_cranes"
+          arches : "centering_then_voussoirs"
+          floors : "concrete_or_timber"
+        }
+
+        roofing : {
+          vaults_or_domes : "complex_formwork"
+          timber_trusses : "for_pitched_roofs"
+          tiles : "waterproofing"
+        }
+
+        finishing : {
+          plastering : "smooth_surfaces"
+          painting : "frescoes"
+          mosaics : "floors_and_walls"
+          sculpture : "decorative_elements"
+        }
+      }
+
+      technology : {
+        cranes : {
+          treadwheel : "human_powered_lifting"
+          capacity : "up_to_6_tons"
+          height : "can_build_very_tall"
+        }
+
+        scaffolding : {
+          timber : "temporary_platforms"
+          holes : "putlog_holes_in_walls"
+          reusable : "dismantle_and_move"
+        }
+
+        formwork : {
+          centering : "support_for_arches"
+          precision : "exact_shapes"
+          expense : "significant_material"
+        }
+      }
+
+      challenges : {
+        weather : {
+          rain : "delays_concrete_work"
+          winter : "limited_construction"
+          summer : "heat_exhaustion"
+        }
+
+        accidents : {
+          falls : "from_height"
+          collapses : "structural_failure"
+          crane_failures : "dropping_loads"
+          fires : "on_site"
+        }
+
+        delays : {
+          material_shortages : "supply_chain"
+          labor_disputes : "strikes_rare_but_happen"
+          funding_gaps : "patron_runs_out_of_money"
+          political : "changes_in_government"
+        }
+
+        quality_control : {
+          inspection : "architect_checks_work"
+          standards : "vitruvian_principles"
+          rework : "tear_down_and_rebuild_if_poor"
+        }
+      }
+    }
+
+    completion : {
+      final_inspection : "architect_certifies"
+      punch_list : "minor_corrections"
+      dedication : {
+        religious : "sacrifice_and_prayers"
+        political : "speeches_and_ceremony"
+        public : "grand_opening"
+      }
+
+      handover : {
+        to_patron : "ownership_transfer"
+        maintenance_plan : "ongoing_care"
+        warranty : "architect_liable_for_failures"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    construction_screen : {
+      monument_selection : {
+        available : "unlocked_wonders"
+        requirements : "tech_resources_space"
+        benefits : "preview_effects"
+        cost : "total_investment"
+      }
+
+      planning_phase : {
+        site_selection : "choose_location"
+        resource_allocation : "assign_materials"
+        workforce_assignment : "hire_workers"
+        timeline : "estimated_completion"
+      }
+
+      construction_phase : {
+        progress_bar : "percent_complete"
+        current_stage : "foundation_structure_etc"
+        workforce_display : "active_workers"
+        material_consumption : "real_time_tracking"
+        events : "random_challenges"
+      }
+
+      completion_celebration : {
+        ceremony : "grand_unveiling"
+        benefits_activated : "immediate_effects"
+        tourism_begins : "visitors_arrive"
+        legacy : "permanent_wonder"
+      }
+    }
+
+    decisions : {
+      quality_vs_speed : {
+        rushed : {
+          time : "50_percent_faster"
+          risk : "20_percent_failure_chance"
+          quality : "reduced_benefits"
+        }
+
+        standard : {
+          time : "as_estimated"
+          risk : "5_percent_failure_chance"
+          quality : "full_benefits"
+        }
+
+        masterpiece : {
+          time : "50_percent_longer"
+          risk : "1_percent_failure_chance"
+          quality : "enhanced_benefits"
+          cost : "double_materials"
+        }
+      }
+
+      workforce_composition : {
+        all_free : {
+          cost : "highest_wages"
+          speed : "standard"
+          quality : "best"
+          morale : "population_approves"
+        }
+
+        mixed : {
+          cost : "moderate"
+          speed : "standard"
+          quality : "good"
+          morale : "neutral"
+        }
+
+        mostly_slaves : {
+          cost : "lowest_wages"
+          speed : "slower"
+          quality : "variable"
+          morale : "population_divided"
+        }
+      }
+
+      materials : {
+        basic : {
+          stone : "functional"
+          cost : "cheap"
+          prestige : "low"
+        }
+
+        standard : {
+          marble : "beautiful"
+          cost : "moderate"
+          prestige : "good"
+        }
+
+        luxury : {
+          exotic_marble_gold : "spectacular"
+          cost : "very_expensive"
+          prestige : "maximum"
+        }
+      }
+    }
+
+    events : {
+      during_construction : {
+        discovery : "ancient_ruins_found_delay"
+        accident : "worker_deaths_morale_hit"
+        genius : "engineer_innovation_speed_boost"
+        sabotage : "enemy_agents_damage"
+        funding_crisis : "need_more_money"
+        weather : "storm_delays_work"
+        inspection : "quality_check_pass_or_fail"
+      }
+
+      post_completion : {
+        tourist_boom : "visitors_flock"
+        rival_jealousy : "other_cities_envious"
+        maintenance_issues : "ongoing_costs"
+        additions : "expansions_possible"
+        disasters : "earthquakes_fires_damage"
+      }
+    }
+
+    achievements : {
+      master_builder : "complete_5_wonders"
+      colossus : "build_colosseum"
+      engineer : "build_mega_aqueduct"
+      architect : "build_pantheon"
+      city_of_wonders : "10_monuments_in_one_city"
+      eternal_city : "buildings_last_100_years"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    based_on : {
+      actual_buildings : "colosseum_pantheon_circus_maximus"
+      vitruvius : "de_architectura"
+      archaeology : "modern_research"
+      engineering_analysis : "how_they_really_worked"
+    }
+
+    innovations_were_real : {
+      concrete : "revolutionized_construction"
+      arches : "enabled_large_structures"
+      domes : "architectural_breakthrough"
+      aqueducts : "engineering_marvels"
+      hypocaust : "central_heating_invented"
+    }
+
+    scale : {
+      massive_projects : "employed_tens_of_thousands"
+      decades_long : "major_buildings_took_years"
+      expensive : "bankrupted_cities_enriched_contractors"
+      deadly : "worker_deaths_common"
+    }
+
+    legacy : {
+      still_standing : "many_survive_today"
+      influenced_world : "renaissance_learned_from_rome"
+      modern_use : "some_still_functional"
+      tourist_attractions : "millions_visit_annually"
+    }
+
+    educational : {
+      encyclopedia : "detailed_construction_methods"
+      biographies : "famous_architects_engineers"
+      virtual_tours : "explore_completed_wonders"
+      evolution : "how_techniques_developed"
+    }
+  }
+}
