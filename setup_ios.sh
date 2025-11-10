@@ -112,6 +112,10 @@ fi
 # ========================================
 echo ""
 echo -e "${BLUE}[4/7] Searching for Caesar III resources...${NC}"
+echo ""
+print_info "CaesarIA needs Caesar III resource files (graphics, sounds, videos)"
+print_info "These files work from ANY platform - Windows, Mac, Linux!"
+echo ""
 
 CAESAR3_PATH=""
 
@@ -124,16 +128,27 @@ SEARCH_PATHS=(
     "/Applications/Caesar3"
     "$HOME/Games/Caesar 3"
     "$HOME/Games/Caesar3"
+    "/Volumes"  # Check mounted drives (USB, network)
 )
 
 # Search for Caesar III
 for path in "${SEARCH_PATHS[@]}"; do
     if [[ -d "$path" ]]; then
         # Check if it has the required files
-        if ls "$path"/*.sg2 &> /dev/null; then
+        if ls "$path"/*.sg2 &> /dev/null 2>&1; then
             CAESAR3_PATH="$path"
             print_status "Found Caesar III at: $path"
             break
+        fi
+        # Also search subdirectories (for USB drives)
+        if [[ "$path" == "/Volumes" ]]; then
+            for subdir in "$path"/*; do
+                if [[ -d "$subdir" ]] && ls "$subdir"/*.sg2 &> /dev/null 2>&1; then
+                    CAESAR3_PATH="$subdir"
+                    print_status "Found Caesar III on external drive: $subdir"
+                    break 2
+                fi
+            done
         fi
     fi
 done
@@ -142,8 +157,17 @@ done
 if [[ -z "$CAESAR3_PATH" ]]; then
     print_warning "Caesar III not found automatically"
     echo ""
-    echo "Please enter the path to your Caesar III installation:"
-    echo "(Drag the Caesar III folder into this Terminal window)"
+    echo -e "${YELLOW}Where are your Caesar III files?${NC}"
+    echo ""
+    echo "Options:"
+    echo "  1) On this Mac (Steam/GOG)"
+    echo "  2) On USB drive or external drive"
+    echo "  3) Copied from Windows PC"
+    echo "  4) On network share"
+    echo ""
+    echo "Please enter the path to the folder containing Caesar III files:"
+    echo -e "${BLUE}Tip: Drag the folder into this Terminal window!${NC}"
+    echo ""
     read -p "Path: " CAESAR3_PATH
 
     # Remove quotes and trim
@@ -153,11 +177,23 @@ if [[ -z "$CAESAR3_PATH" ]]; then
 
     if [[ ! -d "$CAESAR3_PATH" ]]; then
         print_error "Directory not found: $CAESAR3_PATH"
+        echo ""
+        print_info "Make sure the folder exists and is accessible"
         exit 1
     fi
 
-    if ! ls "$CAESAR3_PATH"/*.sg2 &> /dev/null; then
+    if ! ls "$CAESAR3_PATH"/*.sg2 &> /dev/null 2>&1; then
         print_error "No Caesar III .sg2 files found in that directory"
+        echo ""
+        print_info "The folder should contain files like:"
+        print_info "  - C3.sg2, C3_North.sg2, etc. (graphics)"
+        print_info "  - C3.555, C3_North.555, etc. (more graphics)"
+        print_info "  - Wavs01.smk, Wavs02.smk, etc. (videos)"
+        print_info "  - Various .wav files (sounds)"
+        echo ""
+        print_info "Where to find these:"
+        print_info "  Windows: C:\\Program Files (x86)\\Steam\\steamapps\\common\\Caesar 3"
+        print_info "  Mac: ~/Library/Application Support/Steam/steamapps/common/Caesar 3"
         exit 1
     fi
 fi

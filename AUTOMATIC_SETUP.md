@@ -17,8 +17,19 @@ This automated script will:
 
 1. **Mac computer** (any Mac from 2018+)
 2. **Xcode installed** from App Store (free, but ~12GB download)
-3. **Caesar III installed** (Steam or GOG)
+3. **Caesar III resource files** (from Steam, GOG, or Windows PC)
+   - **Mac users**: Buy/install Caesar III on Mac ($6)
+   - **Windows users**: Copy resource files from your Windows installation
+   - See [Getting Caesar III Files Guide](docs/GETTING_CAESAR3_FILES.md)
 4. **iPhone/iPad** with USB cable
+
+### About Caesar III
+
+**You only need the resource files** (graphics, sounds), NOT the game itself!
+
+- Files from **Windows work perfectly** on Mac/iOS
+- Script accepts files from: USB drive, network share, Windows PC, anywhere!
+- See detailed instructions: [GETTING_CAESAR3_FILES.md](docs/GETTING_CAESAR3_FILES.md)
 
 ---
 
