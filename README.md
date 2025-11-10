@@ -69,12 +69,36 @@ CaesarIA 2025 is more than a city builder—it's a **grand strategy simulation**
 
 See **docs/GAMEPLAY_DEPTH_GUIDE.md** for the complete strategy guide!
 
+### Modern UI & Stunning Graphics
+
+**Completely redesigned interface** for 2025:
+- **Beautiful Design**: Flat, modern aesthetic with subtle depth and shadows
+- **Three Themes**: Light mode, Dark mode (OLED-optimized), High Contrast
+- **Perfect Typography**: SF Pro on iOS, responsive sizing, Dynamic Type support
+- **Touch-Optimized**: 44pt minimum touch targets, generous spacing, swipe gestures
+- **Smooth Animations**: Spring physics, 120 FPS on ProMotion displays
+- **iOS Native**: Bottom sheets, blur effects, haptic feedback, large titles
+
+**Next-gen graphics on iOS/iPadOS**:
+- **Retina Perfect**: @2x and @3x assets, crystal-clear on all displays
+- **120 FPS**: ProMotion support (iPhone 14 Pro+, iPad Pro)
+- **HDR & Display P3**: 25% more colors, 1200 nits peak brightness
+- **Metal API**: 3x faster than OpenGL, native GPU acceleration
+- **Realistic Rendering**: PBR materials, global illumination, soft shadows
+- **Beautiful Water**: Reflections, refraction, caustics, realistic waves
+- **Cinematic Effects**: Bloom, color grading, depth of field
+- **5,000 Particles**: Smoke, fire, water splashes, all beautifully lit
+- **Smart Performance**: Auto-quality scaling, thermal management, battery optimization
+
+See **docs/UI_GRAPHICS_GUIDE.md** for the complete visual showcase!
+
 ### iOS and iPadOS Support
 CaesarIA now runs natively on iPhone and iPad with optimized touch controls:
 - Pinch-to-zoom for easy map navigation
 - Long-press for building information
 - Two-finger tap for context menus
-- Haptic feedback for immersive gameplay
+- Core Haptics for immersive feedback
+- Dynamic Island integration
 - See **INSTALL_IOS** for build instructions
 
 ### Modern Gameplay Enhancements

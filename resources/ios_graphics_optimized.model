@@ -1,0 +1,615 @@
+{
+  version : "0.6.0"
+  name : "CaesarIA iOS/iPadOS Graphics Optimization"
+  description : "Retina-optimized, performance-tuned graphics settings for iOS devices"
+
+  // ========================================
+  // DISPLAY SETTINGS
+  // ========================================
+
+  display : {
+    // Retina Display Support
+    retina : {
+      enabled : true
+      scale_factor : "auto"  // Auto-detect @2x or @3x
+
+      iphone : {
+        standard : { scale: 2.0, dpi: 326 }   // iPhone 11, 12, 13, 14
+        plus : { scale: 3.0, dpi: 458 }       // iPhone 14 Plus, 15 Plus
+        pro : { scale: 3.0, dpi: 460 }        // iPhone Pro
+        pro_max : { scale: 3.0, dpi: 460 }    // iPhone Pro Max
+      }
+
+      ipad : {
+        standard : { scale: 2.0, dpi: 264 }   // iPad Air, iPad 10
+        mini : { scale: 2.0, dpi: 326 }       // iPad mini
+        pro_11 : { scale: 2.0, dpi: 264 }     // iPad Pro 11"
+        pro_13 : { scale: 2.0, dpi: 264 }     // iPad Pro 12.9"
+      }
+
+      // Asset loading strategy
+      asset_strategy : {
+        prefer_vector : true              // Use SVG when possible
+        fallback_raster : ["@3x", "@2x", "@1x"]
+        cache_strategy : "aggressive"
+        preload_common : true
+      }
+    }
+
+    // Dynamic Island support (iPhone 14 Pro+)
+    dynamic_island : {
+      aware : true
+      reserve_space : true
+      adaptive_ui : true
+    }
+
+    // ProMotion (120Hz) support
+    promotion : {
+      enabled : true
+      adaptive_refresh_rate : true
+
+      modes : {
+        gameplay : 120        // Full 120Hz during gameplay
+        menu : 60            // 60Hz in menus (power saving)
+        static : 10          // 10Hz for static screens
+      }
+
+      // Frame pacing
+      frame_pacing : {
+        vsync : true
+        cap_to_display_rate : true
+        allow_variable : true
+      }
+    }
+
+    // HDR support (iPhone 12+, iPad Pro)
+    hdr : {
+      enabled : "auto"
+      max_brightness : 1200   // nits
+      tone_mapping : "aces"
+      color_space : "display_p3"
+    }
+
+    // True Tone
+    true_tone : {
+      respect_system : true
+      adjust_color_temperature : true
+    }
+
+    // Resolution settings
+    resolution : {
+      mode : "native"  // native, scaled_down, performance
+
+      render_scale : {
+        quality : 1.0          // Full res
+        balanced : 0.85        // 85% (good balance)
+        performance : 0.75     // 75% (best performance)
+        power_saver : 0.6      // 60% (maximize battery)
+      }
+
+      dynamic_resolution : {
+        enabled : true
+        target_fps : 60
+        min_scale : 0.6
+        max_scale : 1.0
+        adjust_speed : "moderate"
+      }
+    }
+  }
+
+  // ========================================
+  // TEXTURE SETTINGS
+  // ========================================
+
+  textures : {
+    // High-quality textures for retina
+    quality : "ultra"
+
+    formats : {
+      primary : "pvr"        // PowerVR optimized
+      fallback : "png"
+      compression : "pvrtc"  // iOS native compression
+
+      support_formats : ["pvr", "png", "jpg", "astc"]
+    }
+
+    filtering : {
+      min_filter : "trilinear"
+      mag_filter : "bilinear"
+      anisotropic : 16           // Max anisotropic filtering
+      mipmap : true
+      mipmap_levels : "auto"
+    }
+
+    // Texture streaming
+    streaming : {
+      enabled : true
+      budget_mb : 512            // 512MB texture budget
+      priority_system : true
+
+      lod_bias : {
+        buildings : 0              // Full quality
+        terrain : 0
+        decorations : -0.5         // Slight reduction OK
+        background : -1.0          // Can reduce more
+      }
+    }
+
+    // Retina texture variants
+    retina_variants : {
+      buildings_2x : "buildings@2x.pvr"
+      buildings_3x : "buildings@3x.pvr"
+      ui_2x : "ui@2x.pvr"
+      ui_3x : "ui@3x.pvr"
+      terrain_2x : "terrain@2x.pvr"
+      terrain_3x : "terrain@3x.pvr"
+    }
+  }
+
+  // ========================================
+  // RENDERING SETTINGS
+  // ========================================
+
+  rendering : {
+    // Graphics API
+    api : "metal"  // iOS uses Metal, not OpenGL
+    metal_version : "3.0"
+
+    // Anti-aliasing
+    anti_aliasing : {
+      method : "msaa"  // MSAA or TAA
+      samples : 4      // 4x MSAA (good balance)
+
+      options : {
+        none : { samples: 1, performance: "best", quality: "low" }
+        fxaa : { samples: 1, performance: "great", quality: "medium" }
+        msaa_2x : { samples: 2, performance: "good", quality: "good" }
+        msaa_4x : { samples: 4, performance: "balanced", quality: "high" }
+        msaa_8x : { samples: 8, performance: "demanding", quality: "ultra" }
+      }
+    }
+
+    // Shadows
+    shadows : {
+      enabled : true
+      quality : "high"
+      resolution : 2048
+      cascade_count : 3
+      soft_shadows : true
+      shadow_distance : 150
+
+      pcf_samples : 16  // Percentage Closer Filtering
+    }
+
+    // Lighting
+    lighting : {
+      model : "pbr"  // Physically Based Rendering
+      dynamic_lights : 8
+      ambient_occlusion : true
+
+      ao_quality : {
+        samples : 16
+        radius : 1.0
+        intensity : 1.0
+      }
+
+      global_illumination : {
+        enabled : true
+        bounces : 2
+        quality : "medium"
+      }
+
+      // Time of day lighting
+      dynamic_tod : {
+        enabled : true
+        sun_position : "calculated"
+        atmospheric_scattering : true
+        god_rays : true
+      }
+    }
+
+    // Post-processing
+    post_processing : {
+      enabled : true
+
+      bloom : {
+        enabled : true
+        threshold : 1.2
+        intensity : 0.4
+        radius : 0.8
+      }
+
+      color_grading : {
+        enabled : true
+        lut_size : 32
+        temperature : 6500
+        tint : 0
+        saturation : 1.1
+        contrast : 1.05
+      }
+
+      depth_of_field : {
+        enabled : true
+        focus_distance : "auto"
+        aperture : 5.6
+        bokeh_quality : "high"
+      }
+
+      motion_blur : {
+        enabled : false  // Usually off for strategy games
+        samples : 8
+        shutter_angle : 180
+      }
+
+      vignette : {
+        enabled : true
+        intensity : 0.2
+        smoothness : 0.8
+      }
+
+      chromatic_aberration : {
+        enabled : false
+        intensity : 0.0
+      }
+
+      film_grain : {
+        enabled : true
+        intensity : 0.05  // Very subtle
+        response : 0.8
+      }
+    }
+
+    // Particles
+    particles : {
+      max_particles : 5000
+      quality : "high"
+      soft_particles : true
+      particle_lighting : true
+
+      effects : {
+        smoke : { particles: 100, quality: "high" }
+        fire : { particles: 80, quality: "high" }
+        water_splash : { particles: 50, quality: "medium" }
+        dust : { particles: 60, quality: "medium" }
+      }
+    }
+
+    // Water rendering
+    water : {
+      quality : "ultra"
+      reflections : true
+      refraction : true
+      caustics : true
+      foam : true
+
+      wave_simulation : {
+        enabled : true
+        fft_resolution : 256
+        choppy_waves : true
+      }
+
+      reflection_resolution : 1024
+    }
+
+    // Terrain
+    terrain : {
+      tessellation : true
+      displacement_mapping : true
+      triplanar_mapping : true
+      detail_textures : true
+
+      lod : {
+        enabled : true
+        levels : 4
+        distance_multiplier : 1.5
+      }
+    }
+  }
+
+  // ========================================
+  // PERFORMANCE OPTIMIZATION
+  // ========================================
+
+  performance : {
+    // Target performance
+    targets : {
+      iphone_11_13 : { fps: 60, resolution_scale: 0.85 }
+      iphone_14_plus : { fps: 60, resolution_scale: 1.0 }
+      iphone_14_pro : { fps: 120, resolution_scale: 1.0 }
+      iphone_15_pro : { fps: 120, resolution_scale: 1.0 }
+      ipad_air : { fps: 60, resolution_scale: 1.0 }
+      ipad_pro : { fps: 120, resolution_scale: 1.0 }
+    }
+
+    // Automatic quality scaling
+    auto_quality : {
+      enabled : true
+      target_fps : 60
+      adjust_interval_seconds : 2
+
+      quality_levels : {
+        ultra : { render_scale: 1.0, effects: "max", shadows: "ultra" }
+        high : { render_scale: 0.9, effects: "high", shadows: "high" }
+        medium : { render_scale: 0.8, effects: "medium", shadows: "medium" }
+        low : { render_scale: 0.7, effects: "low", shadows: "low" }
+        minimum : { render_scale: 0.6, effects: "minimal", shadows: "off" }
+      }
+    }
+
+    // Occlusion culling
+    occlusion_culling : {
+      enabled : true
+      method : "hierarchical_z"
+      aggressive : true
+    }
+
+    // Level of Detail (LOD)
+    lod : {
+      enabled : true
+      bias : 0.0
+
+      distances : {
+        buildings : [0, 50, 100, 200]
+        citizens : [0, 30, 60, 120]
+        decorations : [0, 40, 80, 150]
+        terrain : [0, 100, 200, 400]
+      }
+
+      // Impostor rendering for distant objects
+      impostors : {
+        enabled : true
+        distance : 150
+        update_frequency : 30  // frames
+      }
+    }
+
+    // Draw call optimization
+    batching : {
+      static_batching : true
+      dynamic_batching : true
+      instancing : true
+      max_batch_size : 1000
+    }
+
+    // Memory management
+    memory : {
+      texture_budget_mb : 512
+      mesh_budget_mb : 256
+      audio_budget_mb : 128
+
+      streaming : {
+        enabled : true
+        aggressive : true
+        priority_system : true
+      }
+
+      // Garbage collection
+      gc : {
+        incremental : true
+        time_slice_ms : 2
+      }
+    }
+
+    // Thermal management
+    thermal : {
+      monitoring : true
+
+      throttle_on_heat : {
+        enabled : true
+        temperature_threshold : "nominal"  // nominal, fair, serious, critical
+
+        actions : {
+          nominal : { quality: "high", fps: 60 }
+          fair : { quality: "medium", fps: 60 }
+          serious : { quality: "low", fps: 30 }
+          critical : { quality: "minimum", fps: 30 }
+        }
+      }
+    }
+
+    // Battery optimization
+    battery : {
+      low_power_mode : {
+        detect_system : true
+        auto_enable : true
+
+        settings : {
+          fps : 30
+          resolution_scale : 0.7
+          reduce_effects : true
+          disable_post_processing : true
+          reduce_particles : 0.5
+        }
+      }
+
+      background_behavior : {
+        pause_rendering : true
+        reduce_updates : true
+        save_state : true
+      }
+    }
+  }
+
+  // ========================================
+  // VISUAL EFFECTS (iOS-SPECIFIC)
+  // ========================================
+
+  ios_effects : {
+    // Blur effects (iOS native)
+    blur : {
+      enabled : true
+      style : "system"  // Uses UIVisualEffectView
+
+      modes : {
+        light : { style: "extraLight", tint: "rgba(255,255,255,0.7)" }
+        dark : { style: "dark", tint: "rgba(0,0,0,0.7)" }
+        vibrant : { style: "prominent", vibrancy: true }
+      }
+
+      performance : "optimized"  // Uses Metal acceleration
+    }
+
+    // Haptic feedback
+    haptics : {
+      enabled : true
+      engine : "core_haptics"
+
+      feedback_types : {
+        selection : "light"
+        impact_light : "light"
+        impact_medium : "medium"
+        impact_heavy : "heavy"
+        notification_success : "success"
+        notification_warning : "warning"
+        notification_error : "error"
+      }
+
+      custom_patterns : true
+      audio_coupled : true
+    }
+
+    // Vibrancy
+    vibrancy : {
+      enabled : true
+      materials : ["ultraThinMaterial", "thinMaterial", "regularMaterial", "thickMaterial"]
+      blur_radius : "auto"
+    }
+
+    // Parallax (for depth effect)
+    parallax : {
+      enabled : true
+      intensity : 0.3
+      layers : ["background", "midground", "foreground"]
+      respects_reduce_motion : true
+    }
+
+    // Live backgrounds
+    live_backgrounds : {
+      enabled : true
+      video_format : "hevc"  // H.265 for efficiency
+      max_resolution : "1080p"
+      loop : true
+      audio : false
+    }
+  }
+
+  // ========================================
+  // PRESETS
+  // ========================================
+
+  presets : {
+    // iPhone presets
+    iphone_ultra : {
+      name : "iPhone 15 Pro Max - Ultra"
+      resolution_scale : 1.0
+      fps : 120
+      anti_aliasing : "msaa_4x"
+      shadows : "ultra"
+      effects : "max"
+      post_processing : "full"
+    }
+
+    iphone_high : {
+      name : "iPhone 14 - High"
+      resolution_scale : 0.9
+      fps : 60
+      anti_aliasing : "msaa_4x"
+      shadows : "high"
+      effects : "high"
+      post_processing : "full"
+    }
+
+    iphone_balanced : {
+      name : "iPhone 11-13 - Balanced"
+      resolution_scale : 0.8
+      fps : 60
+      anti_aliasing : "fxaa"
+      shadows : "medium"
+      effects : "medium"
+      post_processing : "selective"
+    }
+
+    iphone_performance : {
+      name : "iPhone SE - Performance"
+      resolution_scale : 0.7
+      fps : 60
+      anti_aliasing : "fxaa"
+      shadows : "low"
+      effects : "low"
+      post_processing : "minimal"
+    }
+
+    // iPad presets
+    ipad_pro_max : {
+      name : "iPad Pro - Maximum"
+      resolution_scale : 1.0
+      fps : 120
+      anti_aliasing : "msaa_8x"
+      shadows : "ultra"
+      effects : "max"
+      post_processing : "full"
+      particles : "max"
+    }
+
+    ipad_high : {
+      name : "iPad Air - High"
+      resolution_scale : 1.0
+      fps : 60
+      anti_aliasing : "msaa_4x"
+      shadows : "high"
+      effects : "high"
+      post_processing : "full"
+    }
+
+    // Battery saver
+    battery_saver : {
+      name : "Battery Saver"
+      resolution_scale : 0.6
+      fps : 30
+      anti_aliasing : "none"
+      shadows : "off"
+      effects : "minimal"
+      post_processing : "off"
+      reduce_animations : true
+    }
+  }
+
+  // ========================================
+  // AUTO-DETECTION
+  // ========================================
+
+  auto_detection : {
+    enabled : true
+
+    // Detect device and apply appropriate preset
+    device_detection : {
+      method : "system_info"
+
+      mappings : {
+        "iPhone15,3" : "iphone_ultra"      // iPhone 15 Pro Max
+        "iPhone15,2" : "iphone_ultra"      // iPhone 15 Pro
+        "iPhone14,8" : "iphone_high"       // iPhone 14 Plus
+        "iPhone14,7" : "iphone_high"       // iPhone 14
+        "iPad14,6" : "ipad_pro_max"        // iPad Pro 12.9" M2
+        "iPad14,3" : "ipad_pro_max"        // iPad Pro 11" M2
+        "iPad13,18" : "ipad_high"          // iPad Air M1
+      }
+
+      fallback : "iphone_balanced"
+    }
+
+    // Benchmark on first run
+    auto_benchmark : {
+      enabled : true
+      run_on_first_launch : true
+      duration_seconds : 10
+
+      tests : [
+        "rendering_complex_scene",
+        "particle_stress",
+        "shadow_quality",
+        "post_processing"
+      ]
+    }
+  }
+}

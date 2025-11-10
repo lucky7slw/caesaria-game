@@ -1,0 +1,696 @@
+{
+  version : "0.6.0"
+  name : "CaesarIA 2025 Modern UI Design System"
+  description : "Clean, modern, touch-optimized interface for 2025"
+
+  // ========================================
+  // DESIGN PHILOSOPHY
+  // ========================================
+
+  design_principles : {
+    style : "modern_clean"
+    approach : "flat_with_subtle_depth"
+    inspiration : ["material_design", "ios_human_interface", "minimalism"]
+    accessibility_first : true
+    touch_optimized : true
+  }
+
+  // ========================================
+  // COLOR SYSTEM
+  // ========================================
+
+  color_schemes : {
+    // Light mode (default)
+    light : {
+      primary : "#2C5F9E"           // Rich Roman blue
+      primary_light : "#4A7FBE"     // Lighter blue for hover
+      primary_dark : "#1A3D6E"      // Darker blue for active
+
+      secondary : "#C9A961"         // Roman gold
+      secondary_light : "#DFC481"   // Light gold
+      secondary_dark : "#A98941"    // Dark gold
+
+      accent : "#E74C3C"            // Alert red (warnings, important)
+      success : "#27AE60"           // Success green
+      warning : "#F39C12"           // Warning orange
+      info : "#3498DB"              // Info blue
+
+      background : "#F5F5F5"        // Soft white background
+      surface : "#FFFFFF"           // Pure white for cards
+      surface_variant : "#FAFAFA"   // Slightly off-white
+
+      text_primary : "#212121"      // Almost black
+      text_secondary : "#757575"    // Gray
+      text_hint : "#9E9E9E"         // Light gray
+
+      border : "#E0E0E0"            // Light border
+      divider : "#EEEEEE"           // Subtle divider
+
+      overlay : "rgba(0, 0, 0, 0.5)" // Modal overlay
+      shadow : "rgba(0, 0, 0, 0.1)"  // Soft shadow
+    }
+
+    // Dark mode
+    dark : {
+      primary : "#4A7FBE"
+      primary_light : "#6B9FDE"
+      primary_dark : "#2C5F9E"
+
+      secondary : "#DFC481"
+      secondary_light : "#EFD4A1"
+      secondary_dark : "#C9A961"
+
+      accent : "#E74C3C"
+      success : "#2ECC71"
+      warning : "#F1C40F"
+      info : "#5DADE2"
+
+      background : "#121212"        // True dark
+      surface : "#1E1E1E"           // Card dark
+      surface_variant : "#2C2C2C"   // Variant dark
+
+      text_primary : "#FFFFFF"      // White text
+      text_secondary : "#B0B0B0"    // Light gray
+      text_hint : "#757575"         // Gray hint
+
+      border : "#2C2C2C"
+      divider : "#1E1E1E"
+
+      overlay : "rgba(0, 0, 0, 0.7)"
+      shadow : "rgba(0, 0, 0, 0.3)"
+    }
+
+    // High contrast mode (accessibility)
+    high_contrast : {
+      primary : "#0050D0"
+      background : "#FFFFFF"
+      text_primary : "#000000"
+      accent : "#FF0000"
+      border : "#000000"
+      contrast_ratio : "7:1_minimum"
+    }
+  }
+
+  // ========================================
+  // TYPOGRAPHY
+  // ========================================
+
+  typography : {
+    font_families : {
+      primary : "SF Pro Display, -apple-system, Roboto, Segoe UI, sans-serif"
+      secondary : "SF Pro Text, -apple-system, Roboto, Segoe UI, sans-serif"
+      monospace : "SF Mono, Consolas, Monaco, monospace"
+      decorative : "Trajan Pro, Cinzel, serif"  // For titles, Roman feel
+    }
+
+    font_sizes : {
+      // Mobile-first sizing
+      h1 : { mobile: "28px", tablet: "34px", desktop: "40px" }
+      h2 : { mobile: "24px", tablet: "28px", desktop: "32px" }
+      h3 : { mobile: "20px", tablet: "24px", desktop: "28px" }
+      h4 : { mobile: "18px", tablet: "20px", desktop: "24px" }
+      h5 : { mobile: "16px", tablet: "18px", desktop: "20px" }
+      h6 : { mobile: "14px", tablet: "16px", desktop: "18px" }
+
+      body_large : { mobile: "17px", tablet: "18px", desktop: "18px" }
+      body : { mobile: "15px", tablet: "16px", desktop: "16px" }
+      body_small : { mobile: "13px", tablet: "14px", desktop: "14px" }
+
+      caption : { mobile: "12px", tablet: "12px", desktop: "12px" }
+      button : { mobile: "16px", tablet: "16px", desktop: "16px" }
+
+      // iOS uses Dynamic Type
+      supports_dynamic_type : true
+      min_scale : 0.8
+      max_scale : 2.0
+    }
+
+    font_weights : {
+      light : 300
+      regular : 400
+      medium : 500
+      semibold : 600
+      bold : 700
+      heavy : 800
+    }
+
+    line_heights : {
+      tight : 1.2
+      normal : 1.5
+      relaxed : 1.75
+      loose : 2.0
+    }
+
+    letter_spacing : {
+      tight : "-0.02em"
+      normal : "0"
+      wide : "0.05em"
+      wider : "0.1em"
+    }
+  }
+
+  // ========================================
+  // SPACING & LAYOUT
+  // ========================================
+
+  spacing : {
+    // 8px base unit system
+    unit : 8
+
+    scale : {
+      xs : 4      // 4px
+      sm : 8      // 8px
+      md : 16     // 16px
+      lg : 24     // 24px
+      xl : 32     // 32px
+      xxl : 48    // 48px
+      xxxl : 64   // 64px
+    }
+
+    // Touch targets (iOS Human Interface Guidelines)
+    touch_target : {
+      minimum : 44      // 44x44 minimum
+      comfortable : 56  // 56x56 comfortable
+      large : 72        // 72x72 large
+    }
+
+    // Safe areas for iOS
+    safe_areas : {
+      enabled : true
+      respect_notch : true
+      respect_home_indicator : true
+      respect_dynamic_island : true
+    }
+  }
+
+  // ========================================
+  // UI COMPONENTS
+  // ========================================
+
+  components : {
+    // Buttons
+    buttons : {
+      style : "filled_rounded"
+
+      primary : {
+        background : "primary"
+        text : "white"
+        border_radius : 12
+        padding : { vertical: 12, horizontal: 24 }
+        elevation : 2
+        ripple_effect : true
+        haptic_feedback : "light"
+      }
+
+      secondary : {
+        background : "transparent"
+        text : "primary"
+        border : "2px solid primary"
+        border_radius : 12
+        padding : { vertical: 12, horizontal: 24 }
+        elevation : 0
+        ripple_effect : true
+        haptic_feedback : "light"
+      }
+
+      icon : {
+        size : 44
+        border_radius : 22
+        background : "surface"
+        elevation : 1
+        haptic_feedback : "light"
+      }
+
+      fab : {
+        size : 56
+        border_radius : 28
+        background : "primary"
+        elevation : 6
+        haptic_feedback : "medium"
+        position : "bottom_right"
+        margin : 16
+      }
+
+      states : {
+        hover : { opacity: 0.9, scale: 1.02 }
+        active : { opacity: 0.8, scale: 0.98 }
+        disabled : { opacity: 0.4 }
+      }
+    }
+
+    // Cards
+    cards : {
+      style : "modern_elevated"
+
+      default : {
+        background : "surface"
+        border_radius : 16
+        padding : 16
+        elevation : 2
+        shadow : "0 2px 8px rgba(0,0,0,0.1)"
+        border : "none"
+      }
+
+      interactive : {
+        hover_elevation : 4
+        transition : "all 0.2s ease"
+        cursor : "pointer"
+        haptic_feedback : "light"
+      }
+
+      info_panel : {
+        background : "surface_variant"
+        border_radius : 12
+        padding : 12
+        border_left : "4px solid accent"
+      }
+    }
+
+    // Dialogs/Modals
+    dialogs : {
+      style : "modern_sheet"
+
+      default : {
+        background : "surface"
+        border_radius : { top: 24, bottom: 0 }
+        max_width : 600
+        padding : 24
+        overlay : "overlay"
+        animation : "slide_up"
+        backdrop_blur : true
+      }
+
+      ios_sheet : {
+        style : "bottom_sheet"
+        background : "surface"
+        border_radius : { top: 16, bottom: 0 }
+        handle : true
+        handle_color : "divider"
+        swipe_to_dismiss : true
+        spring_animation : true
+      }
+
+      fullscreen : {
+        padding : 0
+        border_radius : 0
+        safe_area_aware : true
+      }
+    }
+
+    // Inputs
+    inputs : {
+      style : "outlined_rounded"
+
+      text_field : {
+        height : 48
+        border_radius : 12
+        border : "1px solid border"
+        padding : { horizontal: 16 }
+        font_size : "body"
+
+        focus : {
+          border_color : "primary"
+          border_width : 2
+          outline : "none"
+        }
+
+        error : {
+          border_color : "accent"
+          helper_text_color : "accent"
+        }
+      }
+
+      slider : {
+        track_height : 4
+        thumb_size : 24
+        active_track : "primary"
+        inactive_track : "border"
+        haptic_feedback : "selection"
+      }
+
+      switch : {
+        width : 51
+        height : 31
+        border_radius : 16
+        animation : "spring"
+        haptic_feedback : "light"
+      }
+
+      checkbox : {
+        size : 24
+        border_radius : 6
+        border : "2px solid border"
+        checked_background : "primary"
+        checkmark_color : "white"
+        animation : "scale_in"
+      }
+    }
+
+    // Navigation
+    navigation : {
+      // Top navigation bar
+      navbar : {
+        height : { compact: 44, regular: 56 }
+        background : "surface"
+        elevation : 0
+        border_bottom : "1px solid divider"
+        backdrop_blur : true
+        sticky : true
+
+        ios_large_title : {
+          enabled : true
+          height : 96
+          font_size : 34
+          font_weight : "bold"
+          collapse_on_scroll : true
+        }
+      }
+
+      // Bottom tab bar (iOS style)
+      tab_bar : {
+        height : 50
+        safe_area_bottom : 34  // iOS home indicator
+        background : "surface"
+        border_top : "1px solid divider"
+        backdrop_blur : true
+        icon_size : 24
+        label_font_size : 10
+
+        item : {
+          active_color : "primary"
+          inactive_color : "text_secondary"
+          badge_support : true
+          haptic_feedback : "selection"
+        }
+      }
+
+      // Sidebar (iPad)
+      sidebar : {
+        width : { collapsed: 72, expanded: 280 }
+        background : "surface"
+        border_right : "1px solid divider"
+        collapsible : true
+        auto_hide_on_small : true
+      }
+
+      // Breadcrumbs
+      breadcrumbs : {
+        separator : "/"
+        font_size : "body_small"
+        color : "text_secondary"
+        active_color : "text_primary"
+      }
+    }
+
+    // Lists
+    lists : {
+      item : {
+        height : { compact: 48, regular: 56, comfortable: 64 }
+        padding : { horizontal: 16, vertical: 8 }
+        border_bottom : "1px solid divider"
+
+        hover : {
+          background : "surface_variant"
+        }
+
+        active : {
+          background : "primary"
+          background_opacity : 0.1
+          border_left : "4px solid primary"
+        }
+      }
+
+      section_header : {
+        height : 32
+        padding : { horizontal: 16 }
+        background : "background"
+        font_size : "body_small"
+        font_weight : "semibold"
+        color : "text_secondary"
+        sticky : true
+      }
+    }
+
+    // Notifications/Toasts
+    notifications : {
+      style : "floating_banner"
+
+      toast : {
+        min_height : 48
+        max_width : 400
+        border_radius : 12
+        padding : { horizontal: 16, vertical: 12 }
+        elevation : 6
+        position : "top_center"
+        animation : "slide_down"
+        duration : 3000
+        backdrop_blur : true
+
+        types : {
+          success : { background: "success", icon: "checkmark" }
+          error : { background: "accent", icon: "exclamation" }
+          warning : { background: "warning", icon: "warning" }
+          info : { background: "info", icon: "info" }
+        }
+      }
+
+      banner : {
+        height : 64
+        background : "primary"
+        text_color : "white"
+        position : "top"
+        full_width : true
+        dismissible : true
+      }
+    }
+
+    // Tooltips
+    tooltips : {
+      max_width : 300
+      background : "rgba(0, 0, 0, 0.85)"
+      text_color : "white"
+      padding : { horizontal: 12, vertical: 8 }
+      border_radius : 8
+      font_size : "body_small"
+      arrow : true
+      delay : 300
+      backdrop_blur : true
+    }
+
+    // Progress indicators
+    progress : {
+      linear : {
+        height : 4
+        border_radius : 2
+        background : "border"
+        progress_color : "primary"
+        animation : "smooth"
+      }
+
+      circular : {
+        size : { small: 20, medium: 40, large: 60 }
+        stroke_width : 4
+        color : "primary"
+        animation : "spin"
+      }
+
+      skeleton : {
+        background : "border"
+        highlight : "surface"
+        animation : "shimmer"
+        border_radius : 8
+      }
+    }
+  }
+
+  // ========================================
+  // ANIMATIONS & TRANSITIONS
+  // ========================================
+
+  animations : {
+    timing_functions : {
+      ease_out : "cubic-bezier(0.0, 0.0, 0.2, 1)"
+      ease_in : "cubic-bezier(0.4, 0.0, 1, 1)"
+      ease_in_out : "cubic-bezier(0.4, 0.0, 0.2, 1)"
+      sharp : "cubic-bezier(0.4, 0.0, 0.6, 1)"
+      spring : "cubic-bezier(0.34, 1.56, 0.64, 1)"  // Bouncy spring
+    }
+
+    durations : {
+      instant : 0
+      fast : 150
+      normal : 250
+      slow : 400
+      very_slow : 600
+    }
+
+    // iOS-style spring animations
+    spring : {
+      enabled : true
+      damping : 0.8
+      stiffness : 300
+      mass : 1.0
+    }
+
+    // Common animations
+    presets : {
+      fade_in : {
+        from : { opacity: 0 }
+        to : { opacity: 1 }
+        duration : "fast"
+      }
+
+      slide_up : {
+        from : { transform: "translateY(100%)", opacity: 0 }
+        to : { transform: "translateY(0)", opacity: 1 }
+        duration : "normal"
+        timing : "ease_out"
+      }
+
+      scale_in : {
+        from : { transform: "scale(0.8)", opacity: 0 }
+        to : { transform: "scale(1)", opacity: 1 }
+        duration : "fast"
+        timing : "spring"
+      }
+
+      shimmer : {
+        animation : "shimmer 1.5s infinite"
+        gradient : "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)"
+      }
+    }
+
+    // Reduce motion support
+    reduce_motion : {
+      respect_system_preference : true
+      fallback : "fade_only"
+      disable_parallax : true
+    }
+  }
+
+  // ========================================
+  // ICONS & GRAPHICS
+  // ========================================
+
+  iconography : {
+    system : "sf_symbols_ios"  // iOS native icons
+    fallback : "material_icons"
+
+    sizes : {
+      xs : 16
+      sm : 20
+      md : 24
+      lg : 32
+      xl : 48
+      xxl : 64
+    }
+
+    style : "outlined"  // outlined, filled, or rounded
+    stroke_width : 2
+
+    // Custom game icons
+    building_icons : {
+      style : "isometric_modern"
+      size : 64
+      retina : true
+      formats : ["svg", "png_2x", "png_3x"]
+    }
+  }
+
+  // ========================================
+  // ELEVATION & SHADOWS
+  // ========================================
+
+  elevation : {
+    // Material Design inspired elevation
+    levels : {
+      0 : "none"
+      1 : "0 1px 2px rgba(0,0,0,0.05)"
+      2 : "0 2px 4px rgba(0,0,0,0.08)"
+      3 : "0 4px 8px rgba(0,0,0,0.12)"
+      4 : "0 8px 16px rgba(0,0,0,0.15)"
+      6 : "0 12px 24px rgba(0,0,0,0.18)"
+      8 : "0 16px 32px rgba(0,0,0,0.20)"
+      12 : "0 24px 48px rgba(0,0,0,0.24)"
+      16 : "0 32px 64px rgba(0,0,0,0.28)"
+      24 : "0 48px 96px rgba(0,0,0,0.32)"
+    }
+
+    // iOS-style shadows (more subtle)
+    ios : {
+      subtle : "0 2px 8px rgba(0,0,0,0.04)"
+      moderate : "0 4px 12px rgba(0,0,0,0.08)"
+      strong : "0 8px 24px rgba(0,0,0,0.12)"
+    }
+  }
+
+  // ========================================
+  // RESPONSIVE BREAKPOINTS
+  // ========================================
+
+  breakpoints : {
+    // iPhone sizes
+    xs : 375    // iPhone SE, small phones
+    sm : 414    // iPhone Pro
+    md : 768    // iPad mini, iPad
+    lg : 1024   // iPad Pro, large tablets
+    xl : 1366   // iPad Pro 12.9", desktop
+    xxl : 1920  // Large desktop
+
+    // Device-specific
+    iphone_se : 375
+    iphone_standard : 390
+    iphone_pro : 393
+    iphone_pro_max : 430
+    ipad_mini : 744
+    ipad : 820
+    ipad_pro_11 : 834
+    ipad_pro_13 : 1024
+  }
+
+  // ========================================
+  // ACCESSIBILITY
+  // ========================================
+
+  accessibility : {
+    focus_indicators : {
+      enabled : true
+      style : "outline"
+      color : "primary"
+      width : 2
+      offset : 2
+      border_radius : 4
+    }
+
+    // WCAG 2.1 compliance
+    contrast : {
+      minimum : "4.5:1"  // AA standard
+      enhanced : "7:1"   // AAA standard
+      large_text : "3:1"
+    }
+
+    // Screen reader optimization
+    screen_reader : {
+      descriptive_labels : true
+      landmark_roles : true
+      live_regions : true
+      skip_navigation : true
+    }
+
+    // Keyboard navigation
+    keyboard : {
+      focus_visible : true
+      tab_order : "logical"
+      shortcuts : true
+      escape_closes_modals : true
+    }
+
+    // Touch accessibility
+    touch : {
+      minimum_target_size : 44
+      spacing_between_targets : 8
+      long_press_duration : 500
+      double_tap_timeout : 300
+    }
+  }
+}
