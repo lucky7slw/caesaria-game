@@ -1,0 +1,1175 @@
+// CaesarIA 2025 - Slavery & Manumission System
+// Historically accurate portrayal of Roman slavery with educational context
+// Not glorifying - showing the brutal reality and path to freedom
+
+slavery_system : {
+  // ==========================================
+  // EDUCATIONAL DISCLAIMER
+  // ==========================================
+  disclaimer : {
+    purpose : "historical_accuracy_and_education"
+
+    statements : {
+      not_endorsing : "This system portrays historical slavery to educate about ancient Rome. It does not endorse or glorify slavery in any form."
+
+      brutal_reality : "Roman slavery was fundamentally inhumane - treating human beings as property. This system shows that reality."
+
+      historical_context : "30-40% of Rome's population were enslaved. Understanding this is essential to understanding Roman society."
+
+      moral_choices : "Players can choose humane treatment. The game rewards compassion and manumission."
+
+      modern_slavery : "Modern slavery still exists. Learn more at endslaverynow.org"
+    }
+
+    toggle : "players_can_disable_this_system_entirely"
+  }
+
+  // ==========================================
+  // ACQUISITION OF SLAVES
+  // ==========================================
+  acquisition : {
+    sources : {
+      war_captives : {
+        description : "largest_source_of_slaves"
+        process : "conquered_peoples_enslaved_en_masse"
+
+        scale : {
+          entire_cities : "populations_of_tens_of_thousands"
+          selective : "young_healthy_valuable_taken"
+          executed : "old_sick_troublesome_killed"
+        }
+
+        famous_examples : {
+          caesar_gallic_wars : {
+            enslaved : "estimated_1_million_gauls"
+            period : "58_to_50_BC"
+            impact : "flooded_slave_markets"
+            prices_dropped : "oversupply"
+          }
+
+          jewish_wars : {
+            first_revolt : "70_AD_jerusalem_destroyed"
+            enslaved : "97000_people_josephus"
+            titus : "sold_captives_throughout_empire"
+          }
+
+          dacian_wars : {
+            trajan : "106_AD_conquered_dacia"
+            enslaved : "hundreds_of_thousands"
+            triumph : "displayed_captives_in_rome"
+          }
+        }
+
+        treatment_of_captives : {
+          march : "forced_march_to_coast_or_market"
+          mortality : "weak_die_on_journey"
+          branding : "sometimes_marked_on_forehead"
+          chains : "shackled_together"
+          separation : "families_torn_apart"
+        }
+      }
+
+      piracy : {
+        description : "kidnapping_for_profit"
+
+        operations : {
+          cilician_pirates : {
+            period : "1st_century_BC"
+            scale : "massive_organized_operation"
+            targets : ["coastal_villages", "ships", "travelers"]
+            markets : "sold_to_slave_dealers"
+          }
+
+          suppression : {
+            pompey : "67_BC_cleared_mediterranean"
+            impact : "reduced_piracy_slave_supply"
+          }
+        }
+
+        victims : {
+          coastal_dwellers : "raids_on_villages"
+          travelers : "kidnapped_on_roads"
+          shipwreck_survivors : "captured_and_sold"
+          children : "especially_valuable"
+        }
+      }
+
+      birth : {
+        vernae : {
+          description : "slaves_born_in_household"
+          status : "born_into_slavery"
+
+          advantages_to_owner : {
+            trained_from_birth : "molded_to_household"
+            loyalty : "higher_than_purchased_slaves"
+            language : "native_latin_speakers"
+            no_cost : "except_raising"
+          }
+
+          treatment : "often_better_than_purchased"
+
+          breeding : {
+            encouraged : "owners_profit_from_births"
+            rewards : "mothers_given_better_conditions"
+            forced : "arranged_breeding_common"
+            children_as_property : "born_enslaved_belong_to_master"
+          }
+        }
+      }
+
+      debt_slavery : {
+        nexum : {
+          description : "debt_bondage"
+
+          citizens : {
+            early_republic : "could_be_enslaved_for_debt"
+            reforms : "326_BC_lex_poetelia_abolished_for_citizens"
+            later : "illegal_for_roman_citizens"
+          }
+
+          foreigners : {
+            vulnerable : "no_protection"
+            common : "throughout_empire"
+            terms : "work_off_debt_rarely_succeed"
+          }
+        }
+
+        self_sale : {
+          desperate : "sell_self_or_family_to_survive"
+          famine : "during_food_crises"
+          legal : "binding_contract"
+          rare : "but_happened"
+        }
+      }
+
+      exposure : {
+        description : "abandoned_infants"
+
+        practice : {
+          infant_exposure : {
+            common : "unwanted_babies_abandoned"
+            reasons : ["poverty", "illegitimacy", "disability", "wrong_sex"]
+            locations : "trash_heaps_or_public_places"
+          }
+
+          slavers : {
+            collect_infants : "rescue_to_enslave"
+            raise : "as_slaves"
+            profit : "sell_when_old_enough"
+          }
+        }
+
+        legal_status : "exposed_children_became_property"
+      }
+
+      legal_punishment : {
+        criminals : "sentenced_to_slavery"
+
+        crimes : {
+          serious : "murder_treason_etc"
+          alternative : "to_death_penalty"
+          mines : "damnatio_ad_metalla_to_the_mines"
+          gladiators : "damnatio_ad_gladium_to_the_sword"
+        }
+      }
+
+      slave_trade : {
+        dealers : {
+          mangones : "slave_traders"
+          networks : "throughout_empire"
+          markets : "regular_auctions"
+        }
+
+        see_banking_system : "slave_trade_economics_detailed"
+      }
+    }
+  }
+
+  // ==========================================
+  // TYPES AND USES OF SLAVES
+  // ==========================================
+  uses : {
+    domestic_slaves : {
+      familia_urbana : "urban_household_slaves"
+
+      roles : {
+        atriensis : {
+          description : "house_steward"
+          responsibilities : "manage_household_staff"
+          status : "highest_ranking_slave"
+          trust : "complete_access_to_home"
+        }
+
+        cook : {
+          cocus : "chef"
+          specialized : "elaborate_roman_cuisine"
+          valuable : "good_cooks_expensive"
+        }
+
+        nurses : {
+          nutrix : "wet_nurse_and_nanny"
+          intimate : "raise_master_children"
+          attachment : "emotional_bonds_form"
+          manumission : "often_freed_in_old_age"
+        }
+
+        pedagogues : {
+          description : "child_supervisors_tutors"
+          educated : "usually_greek"
+          expensive : "10000_to_50000_denarii"
+          influence : "shape_children_education"
+        }
+
+        personal_attendants : {
+          ornatrix : "hairdresser_makeup_artist"
+          cubicularius : "bedroom_attendant"
+          vestiplica : "wardrobe_keeper"
+          multiple : "wealthy_have_dozens"
+        }
+
+        sexual_slaves : {
+          concubinae : {
+            description : "female_sexual_slaves"
+            purpose : "master_pleasure"
+            no_consent : "rape_by_definition"
+            pregnancy : "children_born_enslaved"
+            jealousy : "wife_may_be_hostile"
+          }
+
+          puer_delicatus : {
+            description : "young_male_sexual_slave"
+            age : "prepubescent_to_adolescent"
+            purpose : "master_pleasure"
+            abuse : "systematic_child_sexual_abuse"
+            disposable : "aged_out_discarded_or_freed"
+          }
+        }
+
+        entertainment : {
+          musicians : "play_at_banquets"
+          dancers : "perform"
+          jesters : "amuse_guests"
+          readers : "anagnostae_read_aloud"
+        }
+
+        laborers : {
+          cleaners : "maintain_house"
+          porters : "carry_goods"
+          messengers : "run_errands"
+          gardeners : "tend_grounds"
+        }
+      }
+
+      conditions : {
+        range : "from_near_family_to_brutally_exploited"
+
+        best_case : {
+          treated_well : "part_of_household"
+          fed_adequately : "same_food_as_family"
+          housed_decently : "slave_quarters_attached"
+          minimal_violence : "rare_punishments"
+          hope : "manumission_possible"
+        }
+
+        worst_case : {
+          sexual_abuse : "routine"
+          beatings : "for_minor_infractions"
+          starvation : "inadequate_food"
+          chains : "locked_at_night"
+          no_hope : "trapped_forever"
+        }
+      }
+    }
+
+    agricultural_slaves : {
+      familia_rustica : "rural_estate_slaves"
+
+      scale : {
+        latifundia : {
+          description : "large_slave_estates"
+          size : "thousands_of_acres"
+          slaves : "hundreds_to_thousands"
+          economic_backbone : "roman_agriculture"
+        }
+      }
+
+      work : {
+        field_labor : {
+          plowing : "oxen_and_manual"
+          planting : "sowing_seeds"
+          weeding : "constant_maintenance"
+          harvesting : "backbreaking_work"
+          hours : "sunrise_to_sunset"
+          seasons : "varies_by_crop"
+        }
+
+        viticulture : "vineyard_workers_vinitores"
+        olive_cultivation : "olive_grove_labor"
+        animal_husbandry : "tend_livestock"
+        specialized : "skilled_agricultural_work"
+      }
+
+      conditions : {
+        harsh : {
+          exposure : "work_in_all_weather"
+          exhaustion : "long_hours_hard_labor"
+          inadequate_food : "just_enough_to_work"
+          brutal_overseers : "vilici_use_whips"
+          chains : "shackled_while_working"
+          ergastula : {
+            description : "underground_slave_prisons"
+            locked : "at_night_in_cells"
+            dark : "windowless_dungeons"
+            conditions : "horrific"
+          }
+        }
+
+        mortality : "high_from_overwork_and_maltreatment"
+
+        slight_better : {
+          some_estates : "more_humane_management"
+          peculium : "small_earnings_possible"
+          family : "allowed_to_form_relationships"
+        }
+      }
+    }
+
+    industrial_slaves : {
+      mining : {
+        damnati_ad_metalla : "condemned_to_the_mines"
+
+        conditions : {
+          worst_possible : "death_sentence_in_practice"
+          underground : "deep_dark_tunnels"
+          dangerous : "cave_ins_common"
+          toxic : "lead_mercury_poisoning"
+          no_escape : "chained_in_place"
+          lifespan : "months_to_few_years"
+        }
+
+        mines : {
+          gold : "spain_dacia"
+          silver : "spain_laurion"
+          copper : "cyprus"
+          iron : "various"
+          salt : "throughout_empire"
+        }
+
+        workers : {
+          criminals : "sentenced_to_mines"
+          war_captives : "disposable_labor"
+          troublesome_slaves : "sent_as_punishment"
+        }
+      }
+
+      quarries : {
+        stone_cutting : "marble_granite_limestone"
+        heavy_labor : "moving_massive_blocks"
+        dangerous : "accidents_common"
+        exposure : "sun_and_elements"
+      }
+
+      workshops : {
+        pottery : "mass_production"
+        textiles : "weaving_dyeing"
+        metalwork : "forges_and_smithies"
+        construction : "building_labor"
+
+        conditions : "better_than_mines_still_harsh"
+        skilled : "some_craftsmen_valued"
+      }
+    }
+
+    skilled_slaves : {
+      doctors : {
+        medici_servi : "enslaved_physicians"
+        educated : "often_greek"
+        valuable : "50000_plus_denarii"
+        trusted : "care_for_family_health"
+        practice : "may_treat_free_patients_too"
+      }
+
+      teachers : {
+        grammaticus : "literature_teacher"
+        rhetor : "rhetoric_instructor"
+        greek_tutors : "language_and_philosophy"
+        expensive : "education_highly_valued"
+      }
+
+      accountants : {
+        dispensator : "financial_manager"
+        calculators : "bookkeepers"
+        responsibility : "manage_master_finances"
+        embezzlement : "temptation_and_opportunity"
+      }
+
+      architects_engineers : {
+        design_buildings : "create_projects"
+        skilled : "highly_educated"
+        greek_often : "technical_expertise"
+      }
+
+      secretaries : {
+        scribes : "write_correspondence"
+        librarians : "manage_collections"
+        literate : "educated_slaves"
+      }
+    }
+
+    gladiators : {
+      see_separate_system : "gladiator_combat_detailed"
+
+      summary : {
+        condemned : "damnati_sentenced_to_arena"
+        enslaved : "purchased_for_combat"
+        training : "intensive_gladiator_schools"
+        mortality : "high_but_some_survive_fame"
+        freedom : "wooden_sword_rudis_grants_freedom"
+      }
+    }
+
+    prostitutes : {
+      see_wine_olive_system : "lupanares_and_bath_culture"
+
+      summary : {
+        enslaved : "forced_into_sex_work"
+        owner_profits : "pimp_or_lupanar_owner"
+        no_consent : "sexual_slavery"
+        disease : "high_rates_no_treatment"
+        escape_rare : "trapped_in_system"
+      }
+    }
+
+    public_slaves : {
+      servi_publici : "owned_by_state"
+
+      uses : {
+        clerks : "government_administration"
+        messengers : "official_communications"
+        maintenance : "aqueducts_roads_sewers"
+        executioners : "carnifex_perform_executions"
+        torturers : "extract_confessions"
+      }
+
+      conditions : "generally_better_than_private"
+      stability : "less_risk_of_bad_master"
+    }
+  }
+
+  // ==========================================
+  // TREATMENT AND CONDITIONS
+  // ==========================================
+  treatment : {
+    legal_status : {
+      property : "res_not_persona"
+      no_rights : "at_will_of_master"
+
+      master_power : {
+        absolute : "life_and_death_vitae_necisque_potestas"
+        punishment : "any_method"
+        sexual_use : "no_concept_of_consent"
+        sale : "can_sell_at_any_time"
+        separation : "can_break_up_families"
+        killing : {
+          legal : "master_can_kill_slave"
+          restrictions : {
+            later_empire : "some_limits_imposed"
+            hadrian : "prohibited_arbitrary_killing_but_rarely_enforced"
+          }
+        }
+      }
+
+      no_legal_personhood : {
+        cannot_own_property : "technically"
+        cannot_marry : "no_legal_marriage"
+        cannot_testify : "except_under_torture"
+        no_inheritance : "cannot_pass_on_property"
+      }
+
+      peculium : {
+        description : "personal_savings_allowance"
+        technically_master_property : "but_de_facto_slave_money"
+        accumulation : {
+          tips : "for_good_service"
+          bribes : "from_petitioners"
+          side_work : "if_allowed"
+          gifts : "from_master"
+        }
+
+        uses : {
+          comfort : "better_food_clothing"
+          family : "support_enslaved_loved_ones"
+          freedom : {
+            purchase_manumission : "buy_own_freedom"
+            cost : "market_value_or_negotiated"
+            motivation : "powerful_incentive"
+          }
+        }
+
+        revocable : "master_can_seize_at_any_time"
+      }
+    }
+
+    punishments : {
+      minor_infractions : {
+        scolding : "verbal_rebuke"
+        extra_work : "additional_duties"
+        food_reduction : "smaller_rations"
+        confined : "locked_in_room"
+      }
+
+      serious_infractions : {
+        beating : {
+          whipping : "most_common_punishment"
+          implements : ["whip", "cane", "rod"]
+          severity : "from_strokes_to_flaying"
+          permanent_scars : "visible_marks"
+        }
+
+        branding : {
+          forehead : "fugitivus_runaway"
+          permanent_mark : "cannot_hide"
+          degrading : "publicly_visible_shame"
+        }
+
+        shackling : {
+          chains : "iron_fetters"
+          weights : "heavy_to_prevent_escape"
+          constant : "wear_while_working"
+        }
+
+        solitary_confinement : "dark_cell"
+        starvation : "deprivation_of_food"
+      }
+
+      extreme_punishments : {
+        crucifixion : {
+          reserved_for : "slaves_and_non_citizens"
+
+          spartacus_revolt : {
+            aftermath : "6000_slaves_crucified"
+            location : "appian_way_rome_to_capua"
+            display : "warning_to_others"
+            slow_death : "days_of_agony"
+          }
+
+          jesus_of_nazareth : "crucified_as_troublemaker"
+        }
+
+        damnatio_ad_bestias : {
+          description : "thrown_to_wild_beasts"
+          arena : "public_spectacle"
+          torn_apart : "by_lions_or_bears"
+          entertainment : "for_crowds"
+        }
+
+        worked_to_death : {
+          mines : "sent_to_die_slowly"
+          quarries : "brutal_labor_until_death"
+        }
+      }
+
+      collective_punishment : {
+        household_execution : {
+          law : "if_master_murdered_by_slave"
+          all_executed : "entire_household_of_slaves_killed"
+
+          famous_case : {
+            pedanius_secundus : "61_AD_murdered_by_slave"
+            result : "400_household_slaves_executed"
+            public_outcry : "but_law_upheld"
+          }
+
+          terror : "ensure_slaves_protect_master"
+        }
+      }
+    }
+
+    rewards : {
+      positive_reinforcement : {
+        better_food : "special_meals"
+        better_clothing : "quality_garments"
+        gifts : "money_or_items"
+        praise : "public_recognition"
+        privileges : "trusted_with_more"
+      }
+
+      family_formation : {
+        contubernium : {
+          description : "slave_marriage_not_legal_but_recognized"
+          allowed : "if_master_permits"
+          children : "born_enslaved_to_master"
+          separation : "master_can_break_up"
+        }
+      }
+
+      promise_of_freedom : {
+        manumission : "ultimate_reward"
+        motivation : "powerful_incentive_for_loyalty"
+        years_of_service : "work_toward_freedom"
+      }
+    }
+
+    resistance : {
+      passive : {
+        working_slowly : "deliberate_inefficiency"
+        feigned_illness : "avoid_work"
+        minor_sabotage : "break_tools_spoil_goods"
+        theft : "steal_from_master"
+      }
+
+      escape : {
+        fugitivi : "runaway_slaves"
+
+        methods : {
+          night_flight : "run_under_cover_of_darkness"
+          disguise : "pretend_to_be_free"
+          forged_papers : "fake_manumission_documents"
+          help : "from_other_slaves_or_sympathizers"
+        }
+
+        challenges : {
+          no_papers : "free_people_have_documents"
+          branded : "if_marked_as_slave"
+          language : "foreign_accent_suspicious"
+          no_resources : "where_to_go_how_to_survive"
+        }
+
+        capture : {
+          slave_catchers : "bounty_hunters"
+          punishment : {
+            branding : "F_for_fugitivus"
+            severe_beating : "example_to_others"
+            death : "if_repeated_or_violent"
+            mines : "sent_to_die_slowly"
+          }
+        }
+
+        success : {
+          rare : "most_recaptured"
+          hide : "in_cities_or_remote_areas"
+          new_life : "some_manage_to_pass_as_free"
+        }
+      }
+
+      rebellion : {
+        see_below : "major_slave_revolts"
+      }
+    }
+  }
+
+  // ==========================================
+  // MANUMISSION (FREEDOM)
+  // ==========================================
+  manumission : {
+    description : "freeing_of_slaves"
+    frequency : "common_in_rome_compared_to_other_slave_societies"
+
+    motivations : {
+      reward : "for_loyal_service"
+      profit : "slave_buys_freedom_with_peculium"
+      public_display : "show_generosity_gain_prestige"
+      death_bed : "free_in_will_good_deed"
+      political : "create_loyal_voting_clients"
+      love : "free_concubine_or_favorite"
+    }
+
+    methods : {
+      manumissio_vindicta : {
+        description : "formal_legal_ceremony"
+        procedure : {
+          before_magistrate : "praetor_or_consul"
+          assertor_libertatis : "witness_claims_person_free"
+          master_agrees : "does_not_contest"
+          touch_with_rod : "vindicta_symbolic_gesture"
+          declaration : "you_are_free"
+        }
+
+        effect : "full_roman_citizenship_with_limitations"
+      }
+
+      manumissio_censu : {
+        description : "census_registration"
+        procedure : "master_registers_slave_as_free_on_census"
+        timing : "every_5_years_at_census"
+        effect : "full_citizenship"
+      }
+
+      manumissio_testamento : {
+        description : "freedom_in_will"
+        timing : "after_master_death"
+
+        purposes : {
+          reward : "faithful_service"
+          family : "vernae_raised_in_household"
+          funeral : "freed_slaves_wear_liberty_cap_at_funeral"
+        }
+
+        delay : "sometimes_conditional_serve_heir_first"
+      }
+
+      informal_manumission : {
+        inter_amicos : "among_friends_declaration"
+        no_citizenship : "but_de_facto_free"
+        precarious : "legally_still_slave_can_be_reclaimed"
+      }
+    }
+
+    restrictions : {
+      lex_fufia_caninia : {
+        date : "2_BC"
+        limit : "restrict_testamentary_manumissions"
+        scale : "percentage_of_estate_freed"
+        purpose : "prevent_mass_manumissions_at_death"
+      }
+
+      lex_aelia_sentia : {
+        date : "4_AD"
+        requirements : {
+          master_age : "must_be_20_or_older"
+          slave_age : "must_be_30_or_older"
+          exceptions : "good_cause_before_council"
+        }
+
+        purpose : "control_new_citizens"
+      }
+
+      manumission_tax : {
+        vicesima_libertatis : "5_percent_tax_on_slave_value"
+        paid_by : "master_usually"
+        revenue : "to_state_treasury"
+      }
+    }
+
+    status_after_freedom : {
+      libertus_liberta : "freedman_freedwoman"
+
+      rights : {
+        citizenship : {
+          roman : "if_formal_manumission"
+          vote : "can_vote_in_assemblies"
+          limited : "cannot_hold_high_office"
+          children : "born_full_citizens_no_restrictions"
+        }
+
+        property : "can_own_and_inherit"
+        marriage : "can_legally_marry"
+        business : "can_engage_in_commerce"
+        will : "can_make_testament"
+      }
+
+      obligations : {
+        to_patron : {
+          former_master : "becomes_patron"
+          client_duties : {
+            salutatio : "morning_greeting_daily"
+            operae : "labor_services_certain_days"
+            obsequium : "respect_and_deference"
+            political_support : "vote_as_patron_directs"
+          }
+
+          breach : "patron_can_sue_for_ingratitude"
+        }
+
+        name : {
+          praenomen : "choose_own_first_name"
+          nomen : "take_patron_family_name"
+          cognomen : "former_slave_name_often"
+
+          example : "Marcus_Tullius_Tiro_freedman_of_Cicero"
+        }
+      }
+
+      stigma : {
+        social : "never_fully_equal_to_freeborn"
+        marriage : "to_upper_class_difficult"
+        mockery : "origin_as_slave_remembered"
+
+        but_success_possible : "wealth_and_achievement_overcome"
+      }
+    }
+
+    freedmen_success : {
+      economic : {
+        business : "many_become_wealthy_merchants"
+        imperial_service : "bureaucracy_dominated_by_freedmen"
+
+        famous_examples : {
+          trimalchio : {
+            fictional : "petronius_satyricon"
+            but_realistic : "nouveau_riche_freedman"
+            wealth : "absurdly_wealthy"
+            vulgarity : "bad_taste_but_rich"
+          }
+
+          pallas : {
+            freedman_of : "antonia_minor"
+            position : "imperial_secretary_under_claudius"
+            wealth : "300_million_sesterces"
+            power : "immense_political_influence"
+          }
+
+          narcissus : {
+            freedman : "claudius"
+            wealth : "400_million_sesterces"
+            power : "effectively_ruled_with_emperor"
+          }
+
+          tiro : {
+            freedman_of : "cicero"
+            educated : "invented_shorthand_tironean_notes"
+            legacy : "published_cicero_letters"
+          }
+        }
+      }
+
+      social_mobility : {
+        children : "born_fully_free"
+        grandchildren : "no_stigma_of_slavery"
+        wealth : "can_buy_way_into_equestrian_class"
+        rare : "but_attainable_climb_to_respectability"
+      }
+    }
+  }
+
+  // ==========================================
+  // SLAVE REBELLIONS
+  // ==========================================
+  rebellions : {
+    description : "violent_uprisings_against_slavery"
+    roman_fear : "constant_terror_of_slave_revolt"
+
+    servile_wars : {
+      first_servile_war : {
+        dates : "135_to_132_BC"
+        location : "sicily"
+        leader : "eunus_syrian_slave"
+        forces : "70000_to_200000_slaves"
+        outcome : "suppressed_by_rome_20000_crucified"
+      }
+
+      second_servile_war : {
+        dates : "104_to_100_BC"
+        location : "sicily"
+        leader : "salvius_tryphon"
+        forces : "tens_of_thousands"
+        outcome : "suppressed_after_years"
+      }
+
+      third_servile_war : {
+        dates : "73_to_71_BC"
+        leader : "spartacus"
+
+        detailed : {
+          spartacus : {
+            origin : "thracian_gladiator"
+            location : "capua_gladiator_school"
+            breakout : "73_BC_70_gladiators_escape"
+
+            army : {
+              growth : "slaves_flock_to_rebellion"
+              peak : "70000_to_120000_rebels"
+              composition : ["escaped_slaves", "gladiators", "rural_slaves"]
+              discipline : "spartacus_organized_military"
+            }
+
+            victories : {
+              multiple : "defeated_roman_armies_repeatedly"
+              shock : "rome_terrified"
+              plunder : "southern_italy_ravaged"
+            }
+
+            goal : {
+              unclear : "escape_italy_or_overthrow_rome"
+              crossed_alps : "could_have_escaped"
+              returned : "marched_back_to_fight"
+            }
+
+            defeat : {
+              crassus : "led_roman_army"
+              decimation : "used_on_his_own_cowardly_troops"
+              final_battle : "71_BC_lucania"
+              spartacus_death : "killed_in_battle_body_never_found"
+
+              prisoners : {
+                6000_captured : "survivors"
+                crucified : "all_along_appian_way"
+                distance : "120_miles_rome_to_capua"
+                display : "crucifixes_every_40_meters"
+                warning : "to_all_slaves_never_rebel"
+                hung_for_months : "bodies_left_to_rot"
+              }
+            }
+
+            legacy : {
+              inspiration : "symbol_of_resistance"
+              terror : "rome_never_forgot"
+              modern : "celebrated_as_freedom_fighter"
+            }
+          }
+        }
+      }
+    }
+
+    smaller_uprisings : {
+      frequent : "minor_revolts_common"
+      suppressed : "brutally_crushed"
+      unreported : "many_lost_to_history"
+    }
+
+    prevention : {
+      divide_and_conquer : {
+        mixed_ethnicities : "prevent_communication"
+        different_languages : "cannot_organize"
+        mutual_suspicion : "informants_rewarded"
+      }
+
+      terror : {
+        collective_punishment : "all_suffer_for_one"
+        public_executions : "spectacles_of_violence"
+        constant_surveillance : "spies_everywhere"
+      }
+
+      rewards : {
+        manumission_promise : "loyalty_bought"
+        privileges : "divide_slave_population"
+        informants : "rewarded_for_betrayal"
+      }
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    slave_management : {
+      acquisition : {
+        war_captives : "after_conquests_enslave_defeated"
+        slave_markets : "purchase_at_auction"
+        breeding : "vernae_born_in_household"
+      }
+
+      assignment : {
+        domestic : "household_servants"
+        agricultural : "farm_labor"
+        industrial : "workshops_and_mines"
+        skilled : "educated_positions"
+      }
+
+      treatment_slider : {
+        humane : {
+          description : "treat_well_fed_housed_minimal_violence"
+          effects : {
+            productivity : "moderate_steady_output"
+            morale : "high_low_rebellion_risk"
+            cost : "higher_upkeep"
+            mortality : "low_death_rate"
+            manumission : "more_likely_to_free"
+          }
+
+          reputation : "known_as_kind_master"
+          karma : "positive_moral_standing"
+        }
+
+        balanced : {
+          description : "reward_good_punish_bad"
+          effects : {
+            productivity : "good_incentivized"
+            morale : "moderate"
+            cost : "moderate"
+            mortality : "moderate"
+          }
+
+          historical_norm : "most_common_approach"
+        }
+
+        harsh : {
+          description : "brutal_minimal_care_maximum_exploitation"
+          effects : {
+            productivity : "high_short_term_fear_driven"
+            morale : "very_low"
+            cost : "low_upkeep_expendable"
+            mortality : "high_worked_to_death"
+            rebellion_risk : "very_high_dangerous"
+          }
+
+          reputation : "feared_and_hated"
+          karma : "negative_moral_consequences"
+        }
+      }
+
+      manumission_system : {
+        grant_freedom : {
+          individual : "free_specific_slave"
+          mass : "free_multiple_in_will"
+
+          effects : {
+            freedmen_clients : "loyal_supporters"
+            prestige : "generosity_rewarded"
+            political : "voting_bloc"
+            economic : "freedmen_contribute_to_economy"
+          }
+        }
+
+        purchase_own_freedom : {
+          peculium : "slave_saves_money"
+          negotiation : "agree_on_price"
+          payment : "slave_buys_freedom"
+
+          motivation : "powerful_incentive_system"
+        }
+      }
+    }
+
+    economic_integration : {
+      labor_costs : {
+        purchase : "initial_investment_500_to_50000_denarii"
+        upkeep : "food_shelter_clothing_minimal"
+        replacement : "if_die_or_escape"
+
+        vs_free_labor : {
+          slaves : "cheaper_long_term"
+          free : "higher_wages_but_skilled"
+        }
+      }
+
+      production_chains : {
+        agriculture : "slaves_work_farms_produce_food_wine_oil"
+        manufacturing : "slaves_in_workshops_create_goods"
+        mining : "slaves_extract_resources"
+        construction : "slave_labor_build_projects"
+      }
+    }
+
+    moral_dimension : {
+      karma_system : {
+        compassion : {
+          actions : ["humane_treatment", "manumission", "educate_slaves"]
+          rewards : {
+            loyalty : "slaves_and_freedmen_loyal"
+            reputation : "known_as_good_person"
+            divine_favor : "gods_approve"
+            legacy : "remembered_kindly"
+          }
+        }
+
+        cruelty : {
+          actions : ["brutal_punishment", "sexual_abuse", "worked_to_death"]
+          consequences : {
+            rebellion : "slaves_revolt_more_likely"
+            reputation : "hated_and_feared"
+            divine_disfavor : "gods_disapprove"
+            karma : "bad_things_happen_to_cruel_masters"
+            legacy : "remembered_as_monster"
+          }
+        }
+      }
+
+      educational_moments : {
+        popups : "historical_context_about_slavery"
+        consequences : "show_human_cost_of_slavery"
+        redemption : "path_to_better_treatment"
+        abolition : "rare_but_player_can_minimize_slavery"
+      }
+    }
+
+    events : {
+      slave_revolt : {
+        trigger : "harsh_treatment_or_random"
+        scale : "minor_uprising_to_spartacus_level"
+
+        player_response : {
+          negotiate : "address_grievances_offer_freedom"
+          suppress : "military_force_brutal_punishment"
+          flee : "abandon_estate_save_self"
+        }
+
+        outcomes : {
+          suppressed : "restore_order_execute_leaders"
+          successful : "slaves_escape_or_kill_master"
+          compromise : "grant_concessions_avoid_bloodshed"
+        }
+      }
+
+      escape_attempt : {
+        trigger : "individual_or_small_group_flee"
+        detection : "immediately_or_delayed"
+        pursuit : "send_slave_catchers"
+        outcome : "recaptured_escaped_or_killed"
+      }
+
+      manumission_request : {
+        loyal_slave : "asks_for_freedom"
+        offered_price : "peculium_saved"
+        player_choice : "accept_refuse_or_negotiate"
+      }
+
+      freedmen_success : {
+        former_slave : "becomes_wealthy_or_influential"
+        gratitude : "helps_former_master"
+        or_revenge : "if_treated_poorly"
+      }
+    }
+
+    achievements : {
+      liberator : "free_1000_slaves"
+      kind_master : "zero_slave_rebellions_in_50_years"
+      freedmen_empire : "100_freedmen_clients"
+      harsh_reality : "suppress_major_slave_revolt"
+      peculium_path : "allow_100_slaves_to_buy_freedom"
+      spartacus_nightmare : "survive_massive_slave_rebellion"
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    sources : {
+      legal : ["Digest_of_Justinian", "Twelve_Tables"]
+      literary : ["Varro_De_Re_Rustica", "Columella", "Pliny_letters", "Seneca"]
+      historical : ["Appian_Civil_Wars_Spartacus", "Plutarch_Crassus"]
+      inscriptions : "freedmen_epitaphs"
+    }
+
+    scale : {
+      population : "30_to_40_percent_of_italy_enslaved"
+      rome_city : "estimated_300000_to_400000_slaves"
+      empire_total : "estimated_10_million_throughout_empire"
+    }
+
+    treatment : {
+      varied_enormously : "from_family_member_to_torture_victim"
+      no_single_experience : "depended_on_master_role_luck"
+      legal_powerlessness : "absolute_throughout"
+    }
+
+    manumission : {
+      common : "uniquely_high_rate_in_roman_world"
+      estimates : "many_slaves_freed_in_lifetime"
+      freedmen_class : "significant_population_of_liberti"
+      integration : "children_became_full_citizens"
+    }
+
+    rebellions : {
+      rare_but_massive : "when_occurred_threatened_rome"
+      spartacus : "most_famous_never_forgotten"
+      fear : "constant_roman_anxiety_about_revolt"
+    }
+
+    educational_resources : {
+      recommended_reading : ["Slavery_in_Ancient_Rome_Bradley", "Cambridge_World_History_of_Slavery"]
+      documentaries : "links_to_scholarly_resources"
+      primary_sources : "quote_ancient_texts_in_context"
+      modern_slavery : "information_about_contemporary_slavery_abolitionism"
+    }
+
+    content_warnings : {
+      mature_themes : "slavery_violence_sexual_abuse"
+      historical_accuracy : "showing_brutal_reality"
+      not_glorifying : "educational_purpose_only"
+      trigger_warnings : "slavery_content_can_be_disturbing"
+      toggle_off : "players_can_disable_entirely"
+    }
+  }
+}
