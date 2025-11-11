@@ -1,0 +1,1296 @@
+// CaesarIA 2025 - Banking, Finance & Dynasty Management
+// Complete economic system with multi-generational family empire building
+
+banking_finance_dynasty : {
+  // ==========================================
+  // DYNASTY & FAMILY SYSTEM
+  // ==========================================
+  dynasty : {
+    description : "multi_generational_family_empire_crusader_kings_style"
+
+    family_tree : {
+      tracking : {
+        generations : "unlimited_track_forever"
+        branches : "all_family_members_tracked"
+        relationships : ["parent", "child", "sibling", "spouse", "cousin", "grandparent", "aunt_uncle"]
+
+        visualization : {
+          tree_view : "interactive_family_tree"
+          portraits : "generated_or_custom_faces"
+          coat_of_arms : "family_symbols_and_colors"
+          timeline : "birth_death_major_events"
+        }
+      }
+
+      family_members : {
+        patriarch_matriarch : {
+          role : "head_of_family"
+          authority : "final_decisions"
+          inheritance : "controls_family_wealth"
+          age_range : "40_to_80"
+        }
+
+        heirs : {
+          primary_heir : {
+            designation : "eldest_son_usually"
+            or_chosen : "patriarch_can_designate_different"
+            training : "groomed_for_leadership"
+            expectations : "high_pressure"
+          }
+
+          secondary_heirs : {
+            spare : "in_case_primary_dies"
+            inheritance : "smaller_portions"
+            opportunities : ["military", "politics", "church", "marriage_alliance"]
+          }
+
+          daughters : {
+            marriage_tools : "political_alliances"
+            dowries : "expensive_but_necessary"
+            rare_heirs : "if_no_sons_can_inherit"
+            powerful_matches : "marry_into_other_dynasties"
+          }
+        }
+
+        extended_family : {
+          siblings : "brothers_sisters_of_head"
+          cousins : "varying_degrees"
+          in_laws : "spouses_families"
+          bastards : {
+            illegitimate_children : "acknowledged_or_secret"
+            rights : "limited_or_none"
+            scandal : "if_revealed"
+            legitimization : "possible_but_rare"
+          }
+        }
+
+        attributes : {
+          inherited : {
+            genetics : "physical_appearance_partially_inherited"
+            traits : "some_personality_from_parents"
+            intelligence : "tendency_runs_in_families"
+            health : "hereditary_conditions"
+          }
+
+          developed : {
+            education : "based_on_upbringing"
+            skills : "training_and_experience"
+            reputation : "earned_through_actions"
+            wealth : "accumulated_or_inherited"
+          }
+        }
+      }
+    }
+
+    succession : {
+      laws : {
+        primogeniture : {
+          description : "eldest_son_inherits_everything"
+          traditional : "most_common_in_rome"
+          advantages : "clear_succession_no_division"
+          disadvantages : "younger_sons_resentful"
+        }
+
+        equal_division : {
+          description : "split_among_all_children"
+          roman_law : "intestate_succession"
+          advantages : "fair_to_all"
+          disadvantages : "fragments_wealth_and_power"
+        }
+
+        designated_heir : {
+          description : "patriarch_chooses_in_will"
+          freedom : "can_pick_anyone"
+          advantages : "choose_most_capable"
+          disadvantages : "family_conflicts_disputes"
+        }
+
+        adoption : {
+          description : "adopt_heir_if_no_sons"
+          common : "octavian_adopted_by_caesar"
+          creates_dynasty : "continue_family_name"
+          politics : "strategic_alliances"
+        }
+      }
+
+      succession_crisis : {
+        triggers : {
+          no_clear_heir : "all_sons_dead_or_incompetent"
+          disputed_will : "multiple_claimants"
+          illegitimate_claims : "bastards_claiming_rights"
+          external_pressure : "creditors_or_enemies_interfere"
+        }
+
+        consequences : {
+          family_split : "branches_go_separate_ways"
+          civil_conflict : "cousins_fight_for_control"
+          property_seizure : "state_or_creditors_take_assets"
+          dynasty_end : "family_name_dies_out"
+        }
+
+        resolution : {
+          court_case : "legal_battle_over_inheritance"
+          compromise : "divide_assets_peacefully"
+          violence : "eliminate_rivals"
+          merger : "marry_into_another_family"
+        }
+      }
+
+      regency : {
+        child_heir : {
+          age_of_majority : "14_to_16_years"
+          guardian : "appointed_to_manage_until_adult"
+          regent_types : ["mother", "uncle", "trusted_friend", "state_appointed"]
+
+          dangers : {
+            embezzlement : "guardian_steals_inheritance"
+            murder : "eliminate_child_take_over"
+            manipulation : "control_even_after_majority"
+            incompetence : "poor_management_squanders_wealth"
+          }
+        }
+
+        incapacity : {
+          mental_illness : "head_of_family_mad"
+          senility : "old_age_dementia"
+          illness : "temporarily_incapacitated"
+          family_takes_over : "or_exploits_situation"
+        }
+      }
+    }
+
+    marriage : {
+      purposes : {
+        alliance : "unite_powerful_families"
+        wealth : "marry_rich_heir_or_heiress"
+        legitimacy : "elevate_social_status"
+        love : "rare_but_happens"
+        political : "support_in_senate"
+      }
+
+      arrangement : {
+        negotiations : {
+          families_discuss : "terms_and_conditions"
+          dowry : {
+            from_bride_family : "payment_to_groom"
+            amount : "10000_to_1000000_denarii"
+            negotiable : "based_on_social_status"
+            return : "if_marriage_dissolved_sometimes"
+          }
+
+          marriage_contract : {
+            property_rights : "who_owns_what"
+            inheritance : "for_children"
+            divorce_terms : "pre_negotiated"
+            witnessed : "legal_document"
+          }
+        }
+
+        ceremony : {
+          confarreatio : {
+            description : "most_solemn_patrician_ceremony"
+            religious : "sacred_bread_offering"
+            binding : "difficult_to_divorce"
+            rare : "only_elite"
+          }
+
+          coemptio : {
+            description : "purchase_bride"
+            symbolic : "nominal_payment"
+            common : "middle_class"
+          }
+
+          usus : {
+            description : "cohabitation_for_one_year"
+            automatic : "becomes_legal_marriage"
+            simple : "no_ceremony_needed"
+          }
+        }
+
+        wedding : {
+          celebration : {
+            feast : "lavish_banquet"
+            guests : "hundreds_for_wealthy"
+            music : "and_entertainment"
+            procession : "bride_to_groom_house"
+            duration : "multi_day_festivities"
+          }
+
+          consummation : {
+            expected : "first_night"
+            proof : "bloody_sheet_tradition"
+            failure : "grounds_for_annulment"
+          }
+        }
+      }
+
+      strategic_marriages : {
+        political_alliance : {
+          example : "pompey_married_caesar_daughter_julia"
+          benefit : "united_political_factions"
+          fragile : "marriage_dissolved_if_politics_change"
+        }
+
+        business_merger : {
+          combine_fortunes : "two_merchant_families"
+          monopoly : "control_industry"
+          partnership : "shared_ventures"
+        }
+
+        social_climbing : {
+          nouveau_riche : "marry_into_old_aristocracy"
+          patrician_poor : "marry_wealthy_plebeian"
+          exchange : "money_for_status"
+        }
+
+        foreign_alliance : {
+          marry_provincial : "cement_loyalty"
+          exotic_spouse : "cleopatra_and_antony"
+          diplomatic : "prevent_wars"
+        }
+      }
+
+      multiple_marriages : {
+        serial_monogamy : "divorce_and_remarry_often"
+        widowhood : "remarriage_expected_especially_women"
+        political_tool : "divorce_to_make_new_alliance"
+
+        famous_example : {
+          octavia : {
+            married : "first_to_marcellus_then_mark_antony"
+            political : "seal_alliance_between_octavian_and_antony"
+            tragic : "antony_left_her_for_cleopatra"
+          }
+        }
+      }
+
+      divorce : {
+        ease : "simple_declaration_by_husband"
+        grounds : {
+          adultery : "wife_only_serious"
+          barrenness : "no_male_heirs"
+          incompatibility : "vague_acceptable"
+          political : "alliance_no_longer_useful"
+        }
+
+        consequences : {
+          dowry_return : "usually_returned_to_wife_family"
+          children : "belong_to_father"
+          scandal : "or_routine_depending_on_reason"
+          remarriage : "both_parties_can_remarry"
+        }
+      }
+
+      adultery : {
+        double_standard : {
+          men : "concubines_and_affairs_tolerated"
+          women : {
+            citizen_wives : "adultery_serious_crime"
+            punishment : "exile_or_death"
+            father_can_kill : "if_caught_in_act"
+          }
+        }
+
+        bastards : "see_illegitimate_children_above"
+      }
+    }
+
+    family_prestige : {
+      calculation : {
+        factors : {
+          antiquity : "old_families_more_prestigious"
+          consulships : "how_many_ancestors_held_office"
+          military_glory : "triumphs_and_victories"
+          wealth : "visible_prosperity"
+          patronage : "number_of_clients"
+          monuments : "public_works_family_funded"
+        }
+
+        formula : "weighted_sum_of_achievements"
+        range : "0_to_10000_prestige_points"
+      }
+
+      benefits : {
+        high_prestige : {
+          political : "easier_to_win_elections"
+          social : "invitations_to_elite_events"
+          marriage : "attractive_to_other_families"
+          business : "better_deals_and_credit"
+          legal : "juries_biased_in_favor"
+        }
+
+        low_prestige : {
+          novi_homines : "new_men_struggle"
+          social_exclusion : "elite_circles_closed"
+          suspicion : "where_did_money_come_from"
+        }
+      }
+
+      increasing_prestige : {
+        hold_office : "consulship_worth_500_points"
+        military_triumph : "1000_points"
+        public_works : "build_forum_or_temple"
+        patronage : "sponsor_games_and_festivals"
+        marriages : "into_prestigious_families"
+        longevity : "simply_surviving_generations"
+      }
+
+      losing_prestige : {
+        scandal : "sexual_financial_political"
+        bankruptcy : "lose_wealth_lose_prestige"
+        criminality : "convicted_of_crimes"
+        cowardice : "fleeing_battle"
+        failure : "spectacular_public_failures"
+      }
+    }
+
+    family_wealth : {
+      generational_accumulation : {
+        starting_capital : "initial_inheritance"
+        growth : "through_business_politics_war"
+        compounding : "wealth_creates_more_wealth"
+
+        millionaire_families : {
+          crassus_family : "richest_man_in_rome_200_million_sesterces"
+          built_over : "generations_of_accumulation"
+        }
+      }
+
+      inheritance : {
+        estate : {
+          real_property : ["villas", "farms", "urban_buildings"]
+          business_interests : ["trade_routes", "workshops", "mines"]
+          liquid_assets : ["cash", "precious_metals", "gems"]
+          slaves : "major_capital_asset"
+          debts_owed_to_estate : "receivables"
+          debts_owed_by_estate : "liabilities"
+        }
+
+        will : {
+          testamentum : "legal_document"
+
+          provisions : {
+            primary_heir : "bulk_of_estate"
+            secondary_heirs : "smaller_portions"
+            daughters : "dowry_amounts"
+            slaves : "manumission_grants_freedom"
+            clients : "small_bequests"
+            public : "monuments_or_games"
+          }
+
+          execution : {
+            executor : "trusted_friend_or_family"
+            reading : "public_ceremony"
+            disputes : "common_taken_to_court"
+            forgery : "frequent_problem"
+          }
+
+          famous_wills : {
+            caesar : {
+              heir : "octavian_adopted_as_son"
+              public_bequest : "gardens_to_people_of_rome"
+              cash : "300_sesterces_to_every_citizen"
+              impact : "secured_octavian_position"
+            }
+
+            wealthy_freedman : {
+              monument : "elaborate_tomb"
+              feast : "perpetual_annual_banquet_at_grave"
+              manumissions : "free_remaining_slaves"
+            }
+          }
+        }
+
+        intestate : {
+          no_will : "estate_divided_by_law"
+          twelve_tables : "ancient_roman_law"
+          division : "equal_among_children_usually"
+          chaos : "family_fights_over_scraps"
+        }
+
+        taxation : {
+          inheritance_tax : {
+            vicesima_hereditatium : "5_percent_tax"
+            introduced : "augustus_to_fund_military"
+            exemptions : "close_family_sometimes_exempt"
+            evasion : "creative_legal_structures"
+          }
+        }
+      }
+
+      family_businesses : {
+        types : {
+          agricultural : "latifundia_large_estates"
+          commercial : "import_export_trading"
+          manufacturing : "pottery_textiles_metalwork"
+          financial : "banking_and_moneylending"
+          real_estate : "rental_properties"
+          mining : "gold_silver_copper_tin"
+        }
+
+        management : {
+          direct : "family_member_runs_business"
+          procurator : {
+            description : "hired_manager_usually_freedman"
+            trusted : "often_former_family_slave"
+            incentive : "percentage_of_profits"
+            risk : "embezzlement_common"
+          }
+
+          partnership : {
+            societas : "business_partnership"
+            multiple_families : "share_risk_and_reward"
+            contracts : "detailed_agreements"
+          }
+        }
+      }
+    }
+
+    gameplay : {
+      dynasty_mode : {
+        start : "create_family_patriarch_matriarch"
+        goal : "build_family_empire_across_generations"
+
+        mechanics : {
+          aging : "characters_age_in_real_time_or_accelerated"
+          death : "natural_disease_accident_murder"
+          succession : "heir_takes_over_gameplay_continues"
+          family_tree : "track_all_descendants"
+          marriage_management : "arrange_strategic_marriages"
+          heir_education : "train_children_in_skills"
+        }
+      }
+
+      challenges : {
+        succession_crises : "heir_dies_unexpectedly"
+        family_feuds : "relatives_fight_for_control"
+        bankruptcy : "bad_investments_wipe_out_fortune"
+        scandal : "family_member_causes_disgrace"
+        extinction : "family_line_dies_out"
+      }
+
+      victory_conditions : {
+        wealth : "accumulate_100_million_denarii"
+        prestige : "10000_prestige_points"
+        political : "three_generations_of_consuls"
+        longevity : "survive_10_generations"
+        empire : "control_vast_business_network"
+      }
+    }
+  }
+
+  // ==========================================
+  // BANKING SYSTEM
+  // ==========================================
+  banking : {
+    institutions : {
+      argentarii : {
+        description : "professional_bankers_money_changers"
+        location : "forum_and_markets"
+
+        services : {
+          money_changing : {
+            currencies : "dozens_of_different_coinages"
+            exchange_rates : "fluctuate_based_on_supply"
+            commission : "1_to_5_percent"
+          }
+
+          deposits : {
+            accept_deposits : "for_safekeeping"
+            no_interest : "paid_to_depositors"
+            use_funds : "for_loans_and_investments"
+            risk : "bank_failure_loses_money"
+          }
+
+          loans : {
+            personal_loans : "for_consumption_or_business"
+            commercial_loans : "finance_trade_ventures"
+            real_estate_loans : "property_purchases"
+
+            interest_rates : {
+              secured : "6_to_12_percent_annual"
+              unsecured : "12_to_48_percent_annual"
+              usury : "excessive_rates_over_48_percent"
+            }
+
+            collateral : {
+              property : "land_or_buildings"
+              slaves : "human_collateral"
+              goods : "inventory_or_commodities"
+              guarantor : "co_signer_with_wealth"
+            }
+
+            default : {
+              seizure : "collateral_taken"
+              enslavement : "debt_slavery_for_citizens_rare_but_possible"
+              dishonor : "reputation_ruined"
+            }
+          }
+
+          transfers : {
+            permutatio : "cashless_transfer_between_cities"
+            letters_of_credit : "avoid_transporting_cash"
+            agent_networks : "correspondents_in_major_cities"
+          }
+
+          auctioning : {
+            public_auctions : "bankers_conduct_sales"
+            estates : "bankrupt_or_deceased"
+            goods : "seized_or_consigned"
+            slaves : "major_auction_business"
+          }
+        }
+
+        regulation : {
+          minimal : "little_government_oversight"
+          reputation : "key_to_success"
+          failures : "common_no_deposit_insurance"
+          fraud : "frequent_prosecutions"
+        }
+
+        famous_bankers : {
+          lucius_caecilius_jucundus : {
+            location : "pompeii"
+            evidence : "wax_tablets_preserved"
+            business : "loans_auctions_property"
+            wealth : "substantial_estate"
+          }
+        }
+      }
+
+      temple_banking : {
+        description : "temples_act_as_banks"
+
+        advantages : {
+          sacred : "violating_temple_money_sacrilege"
+          secure : "well_guarded"
+          trustworthy : "religious_authority"
+          widespread : "temples_everywhere"
+        }
+
+        services : {
+          deposits : "wealthy_store_money_in_temples"
+          loans : "temples_lend_at_lower_rates"
+          trusts : "manage_estates_and_inheritances"
+        }
+
+        famous : {
+          temple_of_juno_moneta : {
+            location : "capitoline_hill_rome"
+            mint : "housed_roman_mint"
+            banking : "financial_center"
+          }
+
+          delphi : "greek_but_famous_banking_temple"
+        }
+      }
+
+      private_moneylenders : {
+        faeneratores : {
+          description : "professional_usurers"
+          reputation : "disreputable_but_necessary"
+          rates : "very_high_12_to_48_percent"
+          clientele : "desperate_borrowers"
+          enforcement : "hired_muscle"
+        }
+
+        wealthy_individuals : {
+          personal_lending : "patricians_lend_to_clients"
+          political_tool : "create_obligations"
+          rates : "favor_to_friends_high_to_others"
+        }
+      }
+    }
+
+    financial_instruments : {
+      contracts : {
+        stipulatio : {
+          description : "formal_verbal_contract"
+          witnesses : "required"
+          binding : "legally_enforceable"
+        }
+
+        mutuum : {
+          description : "loan_of_fungible_goods"
+          repay : "same_type_not_same_item"
+          interest : "can_be_added"
+        }
+
+        societas : {
+          description : "partnership_agreement"
+          profit_sharing : "specified_percentages"
+          liability : "partners_share_risks"
+          duration : "can_be_perpetual"
+        }
+      }
+
+      guarantees : {
+        fideiussio : "personal_guarantee_by_third_party"
+        pignus : "pledge_of_property"
+        hypotheca : "mortgage_without_possession"
+      }
+
+      speculation : {
+        commodities : {
+          grain_futures : "buy_future_harvest"
+          profit : "price_differences"
+          risk : "crop_failure_or_glut"
+        }
+
+        currency : {
+          arbitrage : "profit_from_exchange_rates"
+          hoarding : "buy_good_coins_sell_bad"
+        }
+
+        property : {
+          buy_distressed : "foreclosures_and_bankruptcies"
+          improve : "renovate_or_develop"
+          flip : "sell_at_profit"
+
+          crassus_model : {
+            fire_brigade : "show_up_at_fires"
+            buy_burning_building : "cheap_from_panicked_owner"
+            extinguish : "using_private_fire_brigade"
+            rebuild : "and_sell_or_rent"
+            fortune : "made_vast_wealth_this_way"
+          }
+        }
+      }
+    }
+
+    credit_and_debt : {
+      creditworthiness : {
+        factors : {
+          wealth : "visible_assets"
+          reputation : "fama_crediticia"
+          family : "prestige_and_history"
+          connections : "patronage_networks"
+        }
+
+        assessment : "banker_judgment_call"
+      }
+
+      debt_crisis : {
+        causes : {
+          overspending : "living_beyond_means"
+          bad_investments : "failed_ventures"
+          political_campaigns : "elections_bankrupting"
+          disasters : "fire_flood_war"
+          gambling : "addiction"
+        }
+
+        consequences : {
+          personal : {
+            pressure : "creditors_demanding_payment"
+            seizure : "assets_confiscated"
+            legal_action : "sued_in_court"
+            social_ruin : "reputation_destroyed"
+            suicide : "escape_dishonor"
+          }
+
+          family : {
+            inheritance_lost : "creditors_take_everything"
+            dynasty_ends : "family_name_disgraced"
+            children_enslaved : "extreme_cases"
+          }
+
+          political : {
+            bribery : "of_magistrates_to_delay"
+            legislation : "debt_forgiveness_populist"
+            revolution : "debt_cancellation_demand"
+            catiline_conspiracy : "partly_motivated_by_debt"
+          }
+        }
+
+        solutions : {
+          refinancing : "new_loan_to_pay_old"
+          asset_sales : "liquidate_property"
+          patron_bailout : "wealthy_friend_pays"
+          bankruptcy : "legal_declaration_divide_assets"
+          flee : "leave_rome_escape_creditors"
+        }
+      }
+
+      famous_debt_crises : {
+        caesar : {
+          early_career : "massively_in_debt"
+          amount : "25_million_sesterces"
+          solution : "military_conquests_paid_off"
+        }
+
+        catiline : {
+          debt_ridden : "noble_bankrupt"
+          conspiracy : "overthrow_republic_cancel_debts"
+          failed : "executed"
+        }
+
+        many_senators : "chronic_indebtedness_normal"
+      }
+    }
+  }
+
+  // ==========================================
+  // TRADE & COMMERCE
+  // ==========================================
+  commerce : {
+    merchants : {
+      types : {
+        negotiatores : {
+          description : "large_scale_international_traders"
+          wealth : "can_become_very_rich"
+          status : "equestrian_class"
+          operations : "multiple_ships_and_warehouses"
+        }
+
+        mercatores : {
+          description : "local_and_regional_traders"
+          scale : "smaller_operations"
+          specialization : "specific_goods"
+        }
+
+        institores : {
+          description : "retail_shopkeepers"
+          tabernae : "small_shops"
+          local : "neighborhood_businesses"
+        }
+
+        ambulantes : {
+          description : "street_vendors_peddlers"
+          mobile : "sell_from_carts_or_baskets"
+          goods : "food_trinkets_small_items"
+        }
+      }
+
+      guilds : {
+        collegia : {
+          description : "trade_associations"
+          functions : ["mutual_aid", "political_lobbying", "social_events", "burial_insurance"]
+          powerful : "grain_merchants_especially"
+
+          examples : {
+            navicularii : "ship_owners"
+            olearii : "oil_merchants"
+            vinarii : "wine_dealers"
+            pistores : "bakers"
+          }
+        }
+      }
+    }
+
+    trade_goods : {
+      imports : {
+        grain : {
+          from : ["egypt", "sicily", "africa"]
+          essential : "feed_rome_population"
+          annona : "state_managed_grain_supply"
+          merchants : "grain_trade_most_profitable"
+        }
+
+        olive_oil : {
+          from : ["spain", "africa"]
+          uses : "cooking_lighting_bathing"
+          massive_volume : "millions_of_amphorae"
+        }
+
+        wine : {
+          from : ["greece", "spain", "gaul"]
+          quality_varies : "cheap_to_premium"
+          roman_preference : "aged_expensive_vintages"
+        }
+
+        spices : {
+          from : ["india", "arabia", "africa"]
+          expensive : "worth_weight_in_gold"
+          types : ["pepper", "cinnamon", "saffron", "frankincense", "myrrh"]
+        }
+
+        silk : {
+          from : "china_via_silk_road"
+          luxury : "extremely_expensive"
+          demand : "wealthy_women"
+          drain : "gold_leaving_empire"
+        }
+
+        slaves : {
+          from : "everywhere_rome_conquers"
+          massive_trade : "millions_enslaved"
+          prices : "500_to_50000_denarii"
+          markets : "major_slave_auctions"
+        }
+
+        exotic_animals : {
+          from : ["africa", "asia"]
+          for : "games_and_spectacles"
+          types : ["lions", "elephants", "crocodiles", "rhinos"]
+          dangerous : "many_die_in_transport"
+        }
+
+        papyrus : {
+          from : "egypt"
+          monopoly : "only_source"
+          essential : "writing_material"
+        }
+
+        precious_metals : {
+          gold : ["spain", "dacia"]
+          silver : ["spain", "asia_minor"]
+          mining : "state_and_private_operations"
+        }
+      }
+
+      exports : {
+        manufactured_goods : {
+          pottery : "terra_sigillata_red_gloss"
+          glassware : "roman_glass_famous"
+          metalwork : "bronze_and_iron_goods"
+          textiles : "wool_and_linen"
+        }
+
+        wine : {
+          italian : "premium_falernian_exported"
+          provinces : "develop_own_vineyards_later"
+        }
+
+        olive_oil : {
+          italian : "early_empire"
+          spain_takes_over : "later_dominates"
+        }
+
+        weapons_and_armor : "legionary_equipment"
+      }
+    }
+
+    trade_routes : {
+      maritime : {
+        mediterranean : {
+          routes : ["ostia_to_alexandria", "spain_to_rome", "africa_to_italy"]
+          season : "march_to_november_sailing"
+          winter : "mare_clausum_closed_sea"
+          dangers : ["storms", "pirates", "shipwreck"]
+        }
+
+        ships : {
+          corbita : {
+            description : "merchant_ship"
+            capacity : "100_to_500_tons"
+            crew : "small_mostly_sails"
+          }
+
+          navis_oneraria : "large_cargo_vessel"
+
+          grain_ships : {
+            massive : "up_to_1000_tons"
+            egypt_to_rome : "critical_route"
+            state_subsidized : "ensure_grain_supply"
+          }
+        }
+
+        ports : {
+          ostia : "port_of_rome"
+          alexandria : "largest_in_east"
+          carthage : "rebuilt_major_port"
+          see_engineering_marvels : "artificial_harbors"
+        }
+      }
+
+      overland : {
+        roads : {
+          via_appia : "queen_of_roads"
+          network : "60000_miles_of_paved_roads"
+          speed : "25_miles_per_day_loaded_wagon"
+          cost : "expensive_compared_to_sea"
+        }
+
+        caravans : {
+          silk_road : "from_china_to_rome"
+          incense_road : "from_arabia"
+          organization : "merchant_consortia"
+          dangers : ["bandits", "desert", "mountains"]
+        }
+      }
+
+      protection : {
+        navy : {
+          anti_piracy : "patrol_mediterranean"
+          convoy_escort : "for_grain_ships"
+        }
+
+        soldiers : "guard_caravans"
+
+        insurance : {
+          bottomry : {
+            description : "loan_secured_by_ship"
+            if_ship_lost : "lender_loses_money"
+            high_interest : "compensate_for_risk"
+          }
+
+          merchant_consortia : "pool_risk"
+        }
+      }
+    }
+
+    markets : {
+      types : {
+        forum : {
+          description : "main_marketplace"
+          permanent : "shops_and_stalls"
+          daily : "open_every_day"
+          social : "meeting_place"
+        }
+
+        macellum : {
+          description : "food_market"
+          covered : "building_with_stalls"
+          specialization : "meat_fish_produce"
+        }
+
+        nundinae : {
+          description : "market_day_every_9_days"
+          rural : "farmers_bring_goods_to_town"
+          social : "meet_neighbors_hear_news"
+        }
+      }
+
+      regulation : {
+        aediles : {
+          role : "market_inspectors"
+          duties : ["check_weights_and_measures", "quality_control", "price_fixing_prevention"]
+          corrupt : "bribes_common"
+        }
+
+        price_controls : {
+          maximum_prices : "diocletian_edict_301_AD"
+          failure : "black_markets_emerge"
+          shortages : "sellers_withdraw_goods"
+        }
+      }
+    }
+
+    slave_trade : {
+      sources : {
+        war_captives : {
+          largest_source : "conquered_peoples"
+          mass_enslavement : "entire_populations"
+
+          famous : {
+            caesar_gaul : "enslaved_1_million_gauls"
+            jewish_wars : "hundreds_of_thousands"
+          }
+        }
+
+        piracy : {
+          kidnapping : "raids_on_coasts"
+          cilician_pirates : "major_operation"
+          pompey : "cleared_mediterranean_67_BC"
+        }
+
+        breeding : {
+          vernae : "slaves_born_in_household"
+          value : "trained_from_birth"
+          loyalty : "higher_than_purchased"
+        }
+
+        debt : {
+          debt_slavery : "sell_self_or_family"
+          illegal : "for_citizens_after_reforms"
+          foreigners : "still_vulnerable"
+        }
+
+        exposure : {
+          infant_exposure : "abandoned_babies"
+          rescued_by_slavers : "raised_as_slaves"
+          common : "unwanted_children"
+        }
+      }
+
+      markets : {
+        locations : {
+          rome : "multiple_slave_markets"
+          delos : "largest_in_mediterranean_10000_per_day"
+          major_cities : "regular_auctions"
+        }
+
+        procedure : {
+          display : {
+            platform : "slaves_stand_on_catasta"
+            nude_or_minimal : "buyers_inspect_body"
+            placard : {
+              titulus : "sign_around_neck"
+              information : ["origin", "age", "skills", "health", "defects"]
+              guarantee : "seller_liable_for_false_info"
+            }
+          }
+
+          inspection : {
+            physical : "check_teeth_muscles_scars"
+            questions : "about_skills_and_background"
+            demonstration : "show_abilities"
+            humiliating : "treated_as_livestock"
+          }
+
+          bidding : {
+            auction : "competitive_bidding"
+            private_sale : "negotiated_price"
+            bulk_purchase : "lots_of_slaves_cheaper"
+          }
+
+          sale : {
+            payment : "cash_or_credit"
+            transfer : "ownership_document"
+            take_possession : "immediate"
+          }
+        }
+      }
+
+      pricing : {
+        factors : {
+          age : "prime_working_age_20_to_30_most_valuable"
+          sex : "males_usually_more_expensive"
+          skills : "educated_skilled_worth_much_more"
+          appearance : "beauty_premium_for_domestic_and_sexual"
+          health : "defects_reduce_value"
+          temperament : "docile_more_valuable"
+          origin : "certain_ethnicities_stereotyped"
+        }
+
+        price_ranges : {
+          unskilled_laborer : "500_to_1500_denarii"
+          skilled_worker : "2000_to_5000_denarii"
+          educated_tutor : "5000_to_20000_denarii"
+          beautiful_domestic : "5000_to_50000_denarii"
+          highly_skilled_doctor : "50000_plus_denarii"
+          exceptional : "100000_plus_denarii_rare"
+        }
+
+        profitability : {
+          markup : "200_to_500_percent_from_capture_to_sale"
+          volume : "millions_of_slaves_over_centuries"
+          economic_foundation : "roman_economy_dependent"
+        }
+      }
+
+      economic_impact : {
+        labor_force : "30_to_40_percent_of_population"
+
+        uses : {
+          agriculture : "latifundia_slave_labor"
+          mining : "brutal_conditions_high_mortality"
+          domestic : "household_servants"
+          skilled : "doctors_teachers_accountants"
+          entertainment : "gladiators_charioteers_prostitutes"
+          public : "city_owned_infrastructure_workers"
+        }
+
+        competition : {
+          free_labor : "slaves_depress_wages"
+          unemployment : "free_poor_struggle"
+          social_tension : "resentment_of_slave_owners"
+        }
+
+        manumission_economy : {
+          freedmen : "become_economic_actors"
+          success_stories : "some_freedmen_very_wealthy"
+          loyalty : "freedmen_clients_of_former_masters"
+        }
+      }
+
+      see_separate_system : "detailed_slavery_and_manumission_model"
+    }
+  }
+
+  // ==========================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================
+  gameplay : {
+    dynasty_management : {
+      interface : {
+        family_tree_screen : "interactive_genealogy"
+        character_sheets : "detailed_stats_for_each_member"
+        marriage_planner : "arrange_strategic_unions"
+        heir_designation : "choose_successor"
+        education_system : "train_children"
+      }
+
+      events : {
+        births : "new_family_members"
+        deaths : "succession_triggers"
+        marriages : "alliance_formed"
+        divorces : "alliance_broken"
+        scandals : "reputation_damage"
+        achievements : "family_prestige_boost"
+      }
+
+      goals : {
+        survive_generations : "keep_dynasty_alive"
+        accumulate_wealth : "build_fortune"
+        gain_prestige : "noble_family"
+        political_power : "multiple_consuls"
+        business_empire : "control_trade"
+      }
+    }
+
+    banking_operations : {
+      player_as_banker : {
+        establish_bank : "open_argentarius_business"
+        accept_deposits : "build_capital"
+        make_loans : "earn_interest"
+        currency_exchange : "commission_profits"
+        manage_risk : "defaults_and_failures"
+      }
+
+      player_as_borrower : {
+        take_loans : "finance_expansion"
+        repay : "with_interest_avoid_default"
+        consequences : "failure_ruins_dynasty"
+      }
+
+      temple_banking : "use_temples_for_secure_deposits"
+    }
+
+    trade_operations : {
+      merchant_career : {
+        start_small : "single_cart_or_stall"
+        grow : "multiple_shops_or_ships"
+        specialize : "grain_wine_slaves_etc"
+        trade_routes : "establish_networks"
+        risks : "shipwreck_banditry_competition"
+        rewards : "immense_wealth_possible"
+      }
+
+      trade_screen : {
+        import_export : "manage_goods"
+        prices : "fluctuate_based_on_supply_demand"
+        routes : "establish_and_protect"
+        contracts : "negotiate_deals"
+      }
+
+      guilds : "join_collegium_for_benefits"
+    }
+
+    slave_trade_mechanics : {
+      purchase_slaves : {
+        markets : "attend_auctions"
+        inspect : "check_attributes"
+        bid : "compete_with_others"
+        price : "based_on_skills_and_condition"
+      }
+
+      use_slaves : {
+        assign_work : "agriculture_industry_domestic"
+        productivity : "affects_output"
+        treatment : {
+          humane : "higher_morale_lower_output"
+          harsh : "higher_output_rebellion_risk"
+          balanced : "optimal_approach"
+        }
+      }
+
+      manumission : {
+        free_slaves : "grant_freedom"
+        freedmen : "become_clients_loyal"
+        prestige : "generosity_valued"
+      }
+
+      risks : {
+        rebellion : "mistreated_slaves_revolt"
+        escape : "run_away_if_oppressive"
+        death : "harsh_conditions_mortality"
+      }
+
+      moral_dimension : {
+        historical_accuracy : "show_reality"
+        educational_context : "explain_inhumanity"
+        player_choice : "humane_vs_exploitative"
+        consequences : "karma_system_affects_dynasty"
+      }
+    }
+
+    economic_simulation : {
+      supply_and_demand : "prices_fluctuate"
+      seasons : "affect_availability"
+      events : "droughts_wars_disasters"
+      competition : "ai_merchants_and_banks"
+
+      economic_crises : {
+        inflation : "currency_devaluation"
+        recession : "trade_slowdown"
+        bank_runs : "panic_withdrawals"
+        debt_crises : "widespread_defaults"
+      }
+    }
+
+    achievements : {
+      dynasty_achievements : {
+        ten_generations : "survive_10_generations"
+        emperor_maker : "family_member_becomes_emperor"
+        ancient_nobility : "prestige_10000"
+        billionaire : "100_million_denarii"
+      }
+
+      banking_achievements : {
+        too_big_to_fail : "control_50_percent_of_banking"
+        venture_capitalist : "fund_100_successful_businesses"
+        temple_treasurer : "manage_temple_banking"
+      }
+
+      trade_achievements : {
+        silk_road_master : "control_eastern_trade"
+        grain_baron : "feed_rome"
+        slave_magnate : "largest_slave_trader"
+        merchant_prince : "richest_non_noble"
+      }
+    }
+  }
+
+  // ==========================================
+  // HISTORICAL ACCURACY
+  // ==========================================
+  historical_notes : {
+    sources : {
+      legal : ["Twelve_Tables", "Justinian_Digest", "Gaius_Institutes"]
+      literary : ["Cicero_letters", "Pliny_letters", "Petronius_Satyricon"]
+      business : ["Pompeii_wax_tablets", "ostraca", "papyri"]
+      inscriptions : "tombstones_with_career_details"
+    }
+
+    famous_families : {
+      julii : "caesar_family"
+      claudii : "multiple_emperors"
+      cornelii : "scipios_and_sullae"
+      aemilii : "ancient_noble_family"
+    }
+
+    famous_bankers : {
+      lucius_caecilius_jucundus : "pompeii_banker_tablets_preserved"
+      pythius : "richest_man_in_asia_minor"
+    }
+
+    famous_merchants : {
+      trimalchio : "fictional_but_realistic_wealthy_freedman"
+      c_novius_eunus : "oil_merchant_inscription"
+    }
+
+    economic_data : {
+      prices : "documented_in_diocletian_edict"
+      interest_rates : "legal_and_actual_known"
+      trade_volumes : "amphora_counts_archaeological"
+      slave_prices : "from_legal_cases_and_sales"
+    }
+
+    disclaimers : {
+      slavery : {
+        historical_reality : "integral_to_roman_economy"
+        not_glorifying : "showing_inhumanity"
+        educational : "learn_from_history"
+        moral_choices : "player_can_choose_humane_path"
+        consequences : "game_mechanics_reward_better_treatment"
+      }
+
+      economics : {
+        simplified : "complex_reality_made_playable"
+      based_on_research : "scholarly_sources"
+        approximations : "estimates_where_exact_data_lacking"
+      }
+    }
+  }
+}
