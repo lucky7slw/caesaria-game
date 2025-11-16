@@ -1,0 +1,110 @@
+// ============================================================================
+// SOCIAL FEATURES, STREAMING & CONTENT CREATION
+// ============================================================================
+// Tourism, live streaming (Twitch/TikTok), content creation, community features
+// Transform CaesarIA into a social platform for virtual Roman tourism and streaming
+// ============================================================================
+
+social_features : {
+
+  tourism : {
+    visit_other_cities : {
+      browse : "browse_public_cities_from_other_players"
+      filters : ["most_visited", "highest_rated", "largest_population", "most_beautiful"]
+
+      visit_modes : {
+        spectator : "fly_around_city_as_ghost_no_interaction"
+        guided_tour : "player_created_guided_tours"
+        live_visit : "if_owner_online_see_city_being_built_in_real_time"
+      }
+
+      ratings_reviews : {
+        rate : "5_star_rating_system"
+        review : "write_text_review"
+        photos : "share_photos_taken_during_visit"
+      }
+    }
+
+    host_tourists : {
+      make_public : "make_your_city_publicly_visitable"
+      analytics : "see_how_many_visitors_where_they_from"
+      featured : "featured_city_of_the_week"
+      monetization : "optional_tips_for_exceptional_cities"
+    }
+
+    virtual_tours : {
+      create : "create_scripted_tours_of_your_city"
+      narration : "add_voiceover_or_text_narration"
+      waypoints : "set_camera_waypoints"
+      share : "share_tour_link"
+    }
+  }
+
+  streaming : {
+    twitch_integration : {
+      stream_directly : "stream_directly_to_twitch_from_game"
+      overlays : "custom_streaming_overlays_with_city_stats"
+      chat_interaction : {
+        viewer_votes : "twitch_chat_votes_on_decisions"
+        polls : "create_polls_for_what_to_build_next"
+        events : "channel_points_trigger_in_game_events"
+      }
+    }
+
+    tiktok_integration : {
+      quick_clips : "capture_15_60_second_clips"
+      highlights : "ai_suggests_highlight_moments"
+      effects : "tiktok_style_effects_and_transitions"
+      direct_upload : "upload_directly_to_tiktok"
+      trends : "participate_in_trending_challenges"
+    }
+
+    youtube : {
+      recording : "built_in_recording_for_youtube_videos"
+      chapters : "automatic_chapter_markers"
+      thumbnails : "generate_thumbnail_suggestions"
+    }
+  }
+
+  content_creation : {
+    in_game_tools : {
+      video_editor : "basic_video_editing_tools"
+      transitions : "cuts_fades_wipes"
+      music : "royalty_free_music_library"
+      effects : "filters_and_effects"
+    }
+
+    templates : {
+      city_showcase : "template_for_showcasing_your_city"
+      timelapse : "timelapse_template"
+      tutorial : "template_for_creating_tutorials"
+      storytelling : "narrative_template"
+    }
+
+    creator_tools : {
+      analytics : "track_views_likes_engagement"
+      community : "build_follower_base"
+      collaborations : "collaborate_with_other_creators"
+    }
+  }
+
+  multiplayer : {
+    cooperative : {
+      shared_city : "up_to_4_players_build_same_city"
+      roles : "divide_responsibilities_economy_military_construction"
+      synchronous : "real_time_co_op"
+    }
+
+    competitive : {
+      scenarios : "compete_on_same_scenario"
+      leaderboards : "see_who_builds_best_city"
+      versus : "direct_competition_mode"
+    }
+
+    asynchronous : {
+      trade : "trade_resources_with_other_players"
+      gifts : "send_gifts_and_aid"
+      alliances : "form_alliances"
+    }
+  }
+}

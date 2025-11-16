@@ -1,0 +1,159 @@
+// ============================================================================
+// FANTASY MODS - NON-HISTORICAL CONTENT
+// ============================================================================
+// Separated fantasy content as requested: "if items aren't realistic,
+// make them into a mod area or something like aliens, robots, etc."
+// All of this is optional, mod-only content, clearly separate from historical game
+// ============================================================================
+
+fantasy_mods : {
+
+  disclaimer : {
+    clearly_labeled : "ALL_FANTASY_CONTENT_CLEARLY_LABELED_AS_NON_HISTORICAL"
+    optional : "completely_optional_separate_from_main_game"
+    toggle : "can_be_completely_disabled"
+    educational_note : "note_explaining_what_is_fantasy_vs_historical"
+  }
+
+  // ==========================================================================
+  // ZOMBIE APOCALYPSE MOD
+  // ==========================================================================
+
+  zombie_mod : {
+    scenario : "roman_empire_plagued_by_zombie_outbreak"
+
+    zombies : {
+      types : {
+        shambler : "slow_weak_but_numerous"
+        runner : "fast_aggressive"
+        armored : "wearing_legionnaire_armor_harder_to_kill"
+        exploder : "explodes_spreading_infection"
+      }
+
+      infection : {
+        spread : "citizens_turn_into_zombies_if_bitten"
+        quarantine : "quarantine_infected_districts"
+        cure : "research_cure_to_save_citizens"
+      }
+    }
+
+    defenses : {
+      walls : "fortified_zombie_proof_walls"
+      traps : "pit_traps_fire_traps"
+      vigiles_zombie_hunters : "vigiles_become_zombie_hunters"
+      legion_tactics : "testudo_formation_vs_zombie_hordes"
+    }
+
+    goal : "survive_and_cure_the_plague"
+  }
+
+  // ==========================================================================
+  // STEAMPUNK ROME MOD
+  // ==========================================================================
+
+  steampunk_mod : {
+    scenario : "alternate_history_rome_discovers_steam_power"
+
+    technology : {
+      steam_engines : "power_factories_and_machines"
+      automatons : "steam_powered_robots_as_labor"
+      airships : "roman_airship_fleet"
+      mechs : "steam_powered_walking_mechs_for_military"
+    }
+
+    aesthetics : {
+      architecture : "brass_gears_smokestacks_victorian_roman_fusion"
+      clothing : "togas_with_goggles_and_leather"
+      atmosphere : "smog_filled_industrial_rome"
+    }
+
+    gameplay : {
+      industrialization : "build_factories_and_refineries"
+      pollution : "manage_pollution_and_worker_conditions"
+      inventions : "research_steampunk_technologies"
+    }
+  }
+
+  // ==========================================================================
+  // SPACE ROME MOD
+  // ==========================================================================
+
+  space_rome_mod : {
+    scenario : "roman_empire_in_space_galactic_empire"
+
+    setting : {
+      planets : "each_planet_is_a_province"
+      space_stations : "orbital_cities"
+      terraform : "terraform_planets_for_roman_colonization"
+    }
+
+    technology : {
+      faster_than_light : "ftl_travel_between_star_systems"
+      energy_weapons : "gladius_replaced_by_energy_blades"
+      force_fields : "protective_shields"
+    }
+
+    aliens : {
+      species : "alien_species_as_allies_or_enemies"
+      diplomacy : "galactic_senate"
+      integration : "alien_citizens_in_roman_society"
+    }
+  }
+
+  // ==========================================================================
+  // MYTHOLOGICAL REALITY MOD
+  // ==========================================================================
+
+  mythology_real_mod : {
+    scenario : "gods_monsters_and_myths_are_literally_real"
+
+    gods : {
+      manifestation : "gods_physically_appear_and_intervene"
+      favor : "earn_divine_favor_for_miracles"
+      wrath : "anger_gods_face_supernatural_disasters"
+    }
+
+    monsters : {
+      creatures : {
+        minotaur : "minotaurs_in_labyrinth_under_city"
+        hydra : "multi_headed_serpent_threatens_city"
+        cyclops : "cyclopean_builders_construct_monuments"
+        harpies : "flying_creatures_steal_food"
+      }
+
+      quests : "heroic_quests_to_defeat_monsters"
+    }
+
+    magic : {
+      priests : "priests_wield_actual_divine_magic"
+      curses : "curses_and_blessings_have_real_effects"
+      prophecy : "oracles_predict_future_accurately"
+    }
+
+    heroes : {
+      hercules : "hire_legendary_heroes"
+      perseus : "heroes_with_superhuman_abilities"
+      achilles : "nearly_invincible_warriors"
+    }
+  }
+
+  // ==========================================================================
+  // ADDITIONAL FANTASY MODS
+  // ==========================================================================
+
+  other_fantasy : {
+    time_travel_mod : "travel_between_different_eras_of_rome"
+    vampires_mod : "vampire_nobility_rule_rome_from_shadows"
+    dragons_mod : "dragon_riders_as_elite_military_unit"
+    magic_system_mod : "elemental_magic_system"
+    post_apocalyptic_mod : "rome_after_nuclear_apocalypse"
+    cyberpunk_mod : "neon_lit_cyber_rome"
+    lovecraftian_mod : "cosmic_horror_in_ancient_rome"
+  }
+
+  mod_creation_tools : {
+    fantasy_assets : "library_of_fantasy_assets_for_modders"
+    templates : "templates_for_creating_fantasy_mods"
+    tutorials : "tutorials_on_creating_fantasy_content"
+  }
+}

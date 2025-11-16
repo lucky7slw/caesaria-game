@@ -1,0 +1,73 @@
+// ============================================================================
+// MOD FRAMEWORK & COMMUNITY CONTENT
+// ============================================================================
+// Comprehensive modding system for community-created content
+// Separate realistic mods from fantasy mods as requested by user
+// ============================================================================
+
+mod_framework : {
+
+  architecture : {
+    mod_types : {
+      content_mods : "new_buildings_units_resources"
+      gameplay_mods : "rule_changes_mechanics"
+      visual_mods : "graphics_ui_themes"
+      audio_mods : "music_sound_effects_voices"
+      total_conversions : "complete_game_overhauls"
+    }
+
+    mod_structure : {
+      mod_package : "self_contained_mod_packages"
+      metadata : "name_author_version_description"
+      dependencies : "declare_dependencies_on_other_mods"
+      compatibility : "compatibility_tags"
+    }
+
+    modding_tools : {
+      in_game_editor : "built_in_mod_creation_tools"
+      scripting : "lua_or_javascript_scripting"
+      asset_pipeline : "import_3d_models_textures_sounds"
+      testing : "test_mods_without_affecting_main_game"
+    }
+  }
+
+  distribution : {
+    mod_hub : {
+      browse : "browse_thousands_of_community_mods"
+      categories : ["realistic_historical", "fantasy", "gameplay", "visual", "total_conversion"]
+      ratings : "rate_and_review_mods"
+      one_click_install : "install_mods_with_one_tap"
+    }
+
+    creation : {
+      upload : "upload_mods_to_community"
+      versioning : "manage_mod_versions"
+      updates : "automatic_updates_for_installed_mods"
+      monetization : "optional_paid_mods_revenue_share"
+    }
+
+    moderation : {
+      quality_control : "mods_reviewed_for_quality_and_safety"
+      reporting : "report_broken_or_inappropriate_mods"
+      featured : "curated_featured_mods"
+    }
+  }
+
+  realistic_mods_section : {
+    description : "historically_accurate_or_plausible_mods"
+
+    examples : {
+      "Extended Timeline" : "play_from_753_bc_to_1453_ad"
+      "More Buildings" : "hundreds_of_new_historical_buildings"
+      "Detailed Economics" : "complex_economic_simulation"
+      "Expanded Diplomacy" : "deeper_diplomatic_options"
+    }
+  }
+
+  fantasy_mods_section : {
+    description : "fantastical_non_historical_content"
+    note : "clearly_separated_from_realistic_gameplay_as_user_requested"
+
+    // See fantasy_mods.model for extensive fantasy mod content
+  }
+}

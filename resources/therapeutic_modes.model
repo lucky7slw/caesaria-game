@@ -1,0 +1,98 @@
+// ============================================================================
+// THERAPEUTIC & ACCESSIBILITY MODES
+// ============================================================================
+// Modes designed for neurodivergent players and cognitive rehabilitation
+// ADHD, Autism, Cognitive rehabilitation, Therapeutic gameplay
+// ============================================================================
+
+therapeutic : {
+
+  adhd_mode : {
+    focus_assistance : {
+      reduced_distractions : "minimize_visual_clutter"
+      clear_objectives : "single_clear_objective_at_a_time"
+      progress_tracking : "visible_progress_bars"
+      frequent_rewards : "small_frequent_rewards"
+      variety : "switch_between_tasks_to_maintain_interest"
+    }
+
+    time_management : {
+      timers : "visual_and_audio_timers"
+      breaks : "scheduled_breaks_with_reminders"
+      pomodoro : "pomodoro_technique_integration"
+    }
+
+    executive_function_support : {
+      planning_tools : "built_in_planning_and_organization_tools"
+      checklists : "interactive_checklists"
+      reminders : "contextual_reminders"
+    }
+  }
+
+  autism_mode : {
+    sensory_considerations : {
+      adjustable_stimulation : "reduce_or_increase_sensory_input"
+      predictability : "reduce_unpredictable_events"
+      warnings : "warn_before_loud_sounds_or_bright_flashes"
+      calming : "calming_color_palettes_and_sounds"
+    }
+
+    social_comfort : {
+      no_pressure : "no_forced_social_interaction"
+      scripted_dialogue : "predictable_dialogue_options"
+      clear_communication : "literal_clear_language"
+    }
+
+    routine_structure : {
+      patterns : "gameplay_follows_clear_patterns"
+      schedules : "consistent_schedules"
+      expectations : "clearly_communicated_expectations"
+    }
+
+    special_interests : {
+      deep_dives : "support_for_deep_diving_into_specific_topics"
+      encyclopedia : "extensive_information_databases"
+      collection : "collect_and_catalog_items"
+    }
+  }
+
+  cognitive_rehabilitation : {
+    memory : {
+      exercises : "memory_building_exercises"
+      spatial_memory : "navigate_and_remember_locations"
+      pattern_recognition : "identify_patterns"
+    }
+
+    attention : {
+      sustained_attention : "tasks_requiring_sustained_focus"
+      selective_attention : "filter_relevant_from_irrelevant"
+      divided_attention : "manage_multiple_things_simultaneously"
+    }
+
+    problem_solving : {
+      logical_puzzles : "logical_reasoning_challenges"
+      planning : "plan_multi_step_strategies"
+      flexibility : "adapt_to_changing_situations"
+    }
+
+    tracking_progress : {
+      baselines : "establish_cognitive_baselines"
+      improvements : "track_improvements_over_time"
+      reports : "generate_progress_reports_for_therapists"
+    }
+  }
+
+  mindfulness_mode : {
+    relaxation : {
+      no_pressure : "no_time_limits_or_failure_states"
+      peaceful : "focus_on_beauty_and_calm"
+      ambient : "calming_music_and_sounds"
+    }
+
+    stress_relief : {
+      satisfying : "satisfying_building_and_creation"
+      control : "feeling_of_control_and_accomplishment"
+      escape : "escape_from_real_world_stress"
+    }
+  }
+}

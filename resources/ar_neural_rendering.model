@@ -1,0 +1,67 @@
+// ============================================================================
+// AUGMENTED REALITY & NEURAL RENDERING
+// ============================================================================
+// AR experiences and cutting-edge neural rendering technology
+// ============================================================================
+
+ar_neural : {
+
+  augmented_reality : {
+    ar_mode : {
+      table_top : {
+        description : "place_entire_city_on_table"
+        scale : "city_fits_on_standard_table"
+        interaction : "walk_around_view_from_all_angles"
+        multi_player : "multiple_people_view_same_city"
+      }
+
+      room_scale : {
+        description : "city_fills_entire_room"
+        exploration : "walk_through_streets"
+        citizens : "life_sized_citizens_walk_around"
+        immersive : "feel_like_you're_in_ancient_rome"
+      }
+
+      world_scale : {
+        description : "place_buildings_in_real_world"
+        example : "place_colosseum_in_your_backyard"
+        accurate_scale : "actual_size_of_buildings"
+        educational : "understand_true_scale"
+      }
+    }
+
+    lidar_scanning : {
+      environment : "use_ipad_pro_lidar_to_scan_environment"
+      placement : "buildings_placed_on_real_surfaces"
+      occlusion : "buildings_hidden_behind_real_objects"
+      lighting : "buildings_lit_by_real_lighting"
+    }
+
+    hand_tracking : {
+      gesture_controls : "control_game_with_hand_gestures"
+      manipulation : "pick_up_and_move_buildings_with_hands"
+      natural : "intuitive_natural_interaction"
+    }
+  }
+
+  neural_rendering : {
+    radiance_fields : {
+      nerfs : "neural_radiance_fields_for_photorealistic_rendering"
+      quality : "approaching_photorealism"
+      performance : "optimized_for_apple_silicon"
+    }
+
+    neural_upscaling : {
+      description : "ai_upscales_graphics_in_real_time"
+      render_low_display_high : "render_at_lower_resolution_upscale_to_4k_8k"
+      quality : "indistinguishable_from_native"
+      performance : "60fps_on_mobile"
+    }
+
+    procedural_details : {
+      ai_generated : "ai_generates_fine_details_procedurally"
+      infinite_detail : "zoom_in_infinitely_ai_creates_detail"
+      realistic : "realistic_textures_and_materials"
+    }
+  }
+}
