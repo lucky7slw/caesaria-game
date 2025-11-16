@@ -1,0 +1,1021 @@
+// ============================================================================
+// TIME MACHINE & REPLAY SYSTEM
+// ============================================================================
+// Comprehensive replay and time-travel system for reviewing city history
+// Inspired by: racing game replays, RTS replays, video editing timelines
+// Goal: Let players explore their city's entire history like a time traveler
+// ============================================================================
+
+time_machine : {
+
+  // ==========================================================================
+  // CORE REPLAY SYSTEM
+  // ==========================================================================
+  // Recording and playback of entire game session
+
+  recording : {
+
+    automatic_recording : {
+      always_on : "continuously_record_everything_that_happens"
+
+      what_is_recorded : {
+        city_state : {
+          buildings : "all_buildings_positions_types_state"
+          citizens : "every_citizen_position_action_state"
+          resources : "stockpiles_production_consumption"
+          economy : "treasury_income_expenses_transactions"
+          population : "births_deaths_migrations"
+          events : "fires_riots_invasions_festivals_all_events"
+        }
+
+        player_actions : {
+          construction : "every_building_placed_or_demolished"
+          orders : "all_player_commands_and_decisions"
+          camera : "where_player_looked_and_focused"
+          pauses : "when_game_was_paused"
+        }
+
+        world_state : {
+          time_of_day : "lighting_conditions"
+          weather : "weather_patterns"
+          seasons : "seasonal_changes"
+        }
+
+        metadata : {
+          timestamps : "exact_game_time_and_real_time"
+          snapshots : "periodic_full_state_snapshots"
+          key_events : "tagged_important_moments"
+        }
+      }
+
+      optimization : {
+        delta_compression : "only_record_changes_not_full_state"
+        periodic_snapshots : "full_snapshot_every_5_minutes_for_quick_seeking"
+        selective_detail : "high_detail_near_camera_low_detail_far_away"
+
+        storage : {
+          efficient : "highly_compressed_replay_data"
+          typical_size : "1_hour_gameplay_approximately_50_to_100_mb"
+          cloud_save : "optional_save_replays_to_icloud"
+        }
+      }
+
+      session_management : {
+        continuous : "one_replay_file_per_game_session"
+        auto_save : "periodically_save_replay_to_prevent_loss"
+        retention : {
+          configurable : "keep_replays_for_7_days_30_days_forever"
+          auto_delete : "delete_old_replays_to_save_space"
+          protect : "mark_important_replays_to_never_delete"
+        }
+      }
+    }
+
+    manual_recording : {
+      bookmarks : {
+        create : "player_can_manually_mark_important_moments"
+        name : "give_descriptive_name_to_bookmark"
+        category : ["construction", "disaster", "battle", "achievement", "other"]
+        thumbnail : "auto_generate_thumbnail_screenshot"
+      }
+
+      highlights : {
+        auto_detect : {
+          important_events : "ai_detects_and_marks_highlights"
+          examples : [
+            "Monument completed",
+            "Major fire outbreak",
+            "Enemy invasion",
+            "Population milestone (100k citizens)",
+            "Economic crash or boom",
+            "Heir born",
+            "Emperor died"
+          ]
+        }
+
+        manual_mark : "player_can_also_manually_mark_highlights"
+      }
+
+      clips : {
+        extract : "extract_specific_time_range_as_clip"
+        duration : "5_seconds_to_10_minutes"
+        export : "save_clip_separately_for_sharing"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // PLAYBACK CONTROLS
+  // ==========================================================================
+  // VCR-style controls for navigating through time
+
+  playback : {
+
+    timeline : {
+      visualization : {
+        scrubber : "horizontal_timeline_showing_entire_game_history"
+        current_position : "playhead_indicator"
+
+        tick_marks : {
+          hours : "major_tick_every_game_hour"
+          days : "day_boundaries_marked"
+          years : "year_boundaries_highlighted"
+        }
+
+        events_overlay : {
+          icons : "icons_on_timeline_for_major_events"
+          color_coding : {
+            green : "positive_events_achievements"
+            yellow : "warnings_minor_problems"
+            red : "disasters_catastrophes"
+            blue : "construction_completions"
+            purple : "political_events"
+          }
+
+          hover : "hover_over_event_to_see_details"
+          jump : "tap_event_to_jump_to_that_moment"
+        }
+
+        resource_graphs : {
+          overlay_graphs : {
+            population : "population_over_time_graph"
+            treasury : "denarii_balance_over_time"
+            food : "grain_stockpile_over_time"
+            approval : "citizen_approval_over_time"
+          }
+
+          correlation : "see_how_events_affected_metrics"
+          toggle : "show_hide_specific_graphs"
+        }
+
+        thumbnail_preview : {
+          scrub : "drag_playhead_see_thumbnail_preview"
+          size : "adjustable_thumbnail_size"
+          update : "real_time_thumbnail_as_you_scrub"
+        }
+
+        zoom : {
+          levels : {
+            overview : "entire_session_visible"
+            hour : "one_hour_view"
+            minute : "one_minute_detailed_view"
+            second : "frame_by_frame_precision"
+          }
+
+          pinch_zoom : "pinch_to_zoom_timeline"
+        }
+      }
+
+      navigation : {
+        seek : {
+          drag_playhead : "drag_to_any_point_in_time"
+          tap_timeline : "tap_anywhere_to_jump"
+          type_time : "enter_specific_time_code_to_jump"
+        }
+
+        jump_to : {
+          bookmarks : "jump_directly_to_saved_bookmarks"
+          events : "jump_to_next_previous_event"
+          highlights : "jump_between_highlights_only"
+          start_end : "jump_to_beginning_or_end"
+        }
+
+        frame_stepping : {
+          next_frame : "advance_one_frame_at_a_time"
+          previous_frame : "go_back_one_frame"
+          frame_rate : "30_or_60_fps_frame_stepping"
+        }
+      }
+    }
+
+    controls : {
+      play_pause : {
+        play : "play_replay_forward_at_normal_speed"
+        pause : "freeze_at_current_moment"
+        toggle : "spacebar_or_tap_to_toggle"
+      }
+
+      speed_control : {
+        speeds : {
+          slowmo : ["0.1x", "0.25x", "0.5x"]
+          normal : "1x_real_time"
+          fast : ["2x", "5x", "10x", "50x", "100x", "1000x"]
+          max : "unlimited_as_fast_as_hardware_allows"
+        }
+
+        variable_speed : {
+          slider : "continuous_speed_slider"
+          presets : "quick_buttons_for_common_speeds"
+        }
+
+        direction : {
+          forward : "play_forward_in_time"
+          reverse : "play_backwards_in_time"
+          ping_pong : "alternate_forward_and_backward"
+        }
+
+        smooth_ramping : {
+          acceleration : "smoothly_accelerate_to_target_speed"
+          deceleration : "smoothly_decelerate_when_stopping"
+        }
+      }
+
+      loop : {
+        enable : "loop_playback"
+        region : {
+          in_point : "set_loop_start_point"
+          out_point : "set_loop_end_point"
+          duration : "loop_a_specific_time_range"
+        }
+
+        use_cases : {
+          study : "study_specific_event_by_looping"
+          presentation : "loop_dramatic_moment_for_showcase"
+        }
+      }
+
+      step_through : {
+        events : {
+          next_event : "skip_to_next_significant_event"
+          previous_event : "go_back_to_previous_event"
+          event_type_filter : "skip_only_specific_event_types"
+        }
+
+        time_increments : {
+          hour : "skip_forward_backward_by_hour"
+          day : "skip_forward_backward_by_day"
+          month : "skip_forward_backward_by_month"
+          year : "skip_forward_backward_by_year"
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // CAMERA CONTROLS IN REPLAY
+  // ==========================================================================
+  // Free camera movement while watching replay
+
+  camera : {
+
+    modes : {
+      follow_original : {
+        description : "follow_player's_original_camera_movements"
+        use : "see_exactly_what_player_saw_during_gameplay"
+        smooth : "option_to_smooth_out_jerky_movements"
+      }
+
+      free_camera : {
+        description : "completely_free_camera_movement"
+        controls : "same_as_photo_mode_camera"
+        fly_anywhere : "explore_city_from_any_angle_any_time"
+
+        autopilot : {
+          orbit : "orbit_around_specific_building_or_citizen"
+          path : "define_camera_path_for_cinematic_fly_through"
+          tracking : "track_specific_citizen_or_object"
+        }
+      }
+
+      predefined_views : {
+        overview : "high_overhead_view_of_entire_city"
+        street_level : "ground_level_citizen_perspective"
+        landmark : "views_centered_on_major_monuments"
+        event_location : "auto_frame_where_event_is_happening"
+      }
+
+      smart_camera : {
+        auto_focus : "ai_automatically_frames_interesting_action"
+        multi_camera : "multiple_camera_angles_of_same_moment"
+        director_mode : "ai_directs_like_movie_director"
+      }
+    }
+
+    animation : {
+      keyframes : {
+        set : "set_keyframe_at_current_time_and_camera_position"
+        interpolation : "smoothly_animate_between_keyframes"
+        types : ["linear", "ease_in", "ease_out", "ease_in_out", "bezier"]
+      }
+
+      camera_path : {
+        create : "draw_path_for_camera_to_follow"
+        speed : "constant_speed_or_variable"
+        orientation : "camera_faces_path_or_locks_to_target"
+      }
+
+      shake : {
+        enable : "add_camera_shake_for_dramatic_effect"
+        intensity : "subtle_to_violent"
+        triggers : "auto_shake_during_earthquakes_explosions"
+      }
+    }
+
+    photo_mode_integration : {
+      pause_and_photograph : "pause_replay_at_any_moment_enter_photo_mode"
+      capture_moment : "capture_perfect_screenshot_from_history"
+      use_case : "recreate_epic_moments_you_missed_first_time"
+    }
+  }
+
+  // ==========================================================================
+  // ANALYSIS & STATISTICS
+  // ==========================================================================
+  // Dive deep into your city's data over time
+
+  analysis : {
+
+    timeline_statistics : {
+      population_analytics : {
+        graph : "population_growth_over_time"
+        breakdown : {
+          births_vs_deaths : "birth_and_death_rates"
+          immigration_emigration : "migration_patterns"
+          demographics : "age_distribution_over_time"
+          employment : "employment_rate_over_time"
+        }
+
+        correlations : {
+          events : "how_events_affected_population"
+          policies : "impact_of_player_decisions"
+        }
+      }
+
+      economic_analytics : {
+        treasury : {
+          balance_over_time : "denarii_balance_graph"
+          income_expenses : "revenue_vs_spending"
+          breakdown : "where_money_came_from_and_went_to"
+        }
+
+        trade : {
+          volume : "trade_volume_over_time"
+          routes : "which_routes_most_profitable"
+          goods : "what_goods_traded_most"
+        }
+
+        wealth_distribution : {
+          inequality : "wealth_gap_between_rich_and_poor"
+          trends : "how_inequality_changed"
+        }
+      }
+
+      resource_management : {
+        food_supply : {
+          stockpile : "grain_reserves_over_time"
+          production_vs_consumption : "how_close_to_shortage"
+          crises : "identify_when_nearly_starved"
+        }
+
+        production_chains : {
+          efficiency : "how_efficiently_resources_produced"
+          bottlenecks : "identify_production_bottlenecks"
+        }
+      }
+
+      approval_and_morale : {
+        citizen_approval : "approval_rating_over_time"
+
+        factors : {
+          breakdown : "what_affected_approval_when"
+          positive : "events_that_boosted_morale"
+          negative : "events_that_hurt_morale"
+        }
+
+        riots_unrest : {
+          frequency : "how_often_riots_occurred"
+          causes : "what_triggered_unrest"
+          resolution : "how_quickly_resolved"
+        }
+      }
+
+      construction_timeline : {
+        buildings_built : "timeline_of_all_construction"
+        construction_speed : "how_fast_city_grew"
+        demolitions : "what_was_torn_down_when"
+
+        cost_analysis : {
+          total_invested : "total_denarii_spent_on_construction"
+          roi : "return_on_investment_for_buildings"
+        }
+      }
+
+      disaster_log : {
+        all_disasters : "comprehensive_log_of_all_disasters"
+        frequency : "how_often_disasters_struck"
+        impact : {
+          casualties : "deaths_from_each_disaster"
+          economic : "cost_of_each_disaster"
+          recovery_time : "how_long_to_recover"
+        }
+
+        response_effectiveness : {
+          vigiles : "how_effective_fire_response_was"
+          preparation : "did_investments_in_prevention_help"
+        }
+      }
+
+      military_history : {
+        battles : "all_battles_fought"
+        outcomes : "wins_losses_casualties"
+        cost : "cost_of_military_expenditures"
+      }
+    }
+
+    heatmaps : {
+      traffic_heatmap : {
+        visualization : "show_where_citizens_walked_most"
+        time_range : "heatmap_for_specific_time_period"
+        insights : "identify_busy_areas_underused_areas"
+      }
+
+      fire_hazard_heatmap : {
+        visualization : "areas_most_prone_to_fires"
+        historical : "based_on_actual_fire_history"
+        predictive : "identify_high_risk_zones"
+      }
+
+      economic_activity_heatmap : {
+        visualization : "where_most_economic_activity_occurred"
+        types : ["trade", "production", "consumption"]
+      }
+
+      crime_heatmap : {
+        visualization : "where_crimes_occurred"
+        patterns : "identify_high_crime_areas"
+      }
+    }
+
+    comparison : {
+      before_after : {
+        events : "compare_city_state_before_and_after_major_event"
+        examples : ["before_fire_vs_after", "before_aqueduct_vs_after"]
+        metrics : "quantify_impact_of_event"
+      }
+
+      alternative_timelines : {
+        what_if : "compare_actual_timeline_to_hypothetical"
+        note : "if_save_states_allow_branching"
+      }
+    }
+
+    ai_insights : {
+      analysis : "ai_analyzes_replay_provides_insights"
+
+      suggestions : {
+        missed_opportunities : "You could have built a granary here to prevent the food shortage"
+        mistakes : "Raising taxes at this moment caused the riot"
+        best_moments : "Your most efficient period was days 45-60"
+      }
+
+      lessons_learned : {
+        what_worked : "strategies_that_succeeded"
+        what_didnt : "strategies_that_failed"
+        recommendations : "suggestions_for_next_playthrough"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // TIME MANIPULATION
+  // ==========================================================================
+  // Advanced time control features
+
+  time_control : {
+
+    compare_mode : {
+      side_by_side : {
+        split_screen : "show_two_different_times_side_by_side"
+        synchronized : "both_playheads_move_together"
+        time_offset : "or_offset_by_specific_duration"
+
+        use_cases : {
+          growth : "compare_early_city_to_mature_city"
+          disaster_recovery : "before_disaster_vs_after_reconstruction"
+          seasons : "summer_vs_winter_comparison"
+        }
+      }
+
+      overlay : {
+        ghost_overlay : "overlay_past_state_as_ghost_image"
+        opacity : "adjust_transparency_of_overlay"
+
+        use_cases : {
+          construction : "see_building_progress_overlaid"
+          destruction : "see_what_was_destroyed_in_disaster"
+        }
+      }
+
+      multi_timeline : {
+        view : "view_4_or_9_different_times_simultaneously"
+        grid : "tiled_grid_layout"
+        time_lapse : "each_tile_shows_different_era"
+      }
+    }
+
+    branching_timelines : {
+      concept : "explore_what_if_scenarios"
+
+      create_branch : {
+        from_moment : "pause_at_any_moment_in_replay"
+        fork : "create_new_timeline_from_that_point"
+        play : "make_different_decisions_see_alternate_outcome"
+      }
+
+      manage_branches : {
+        tree_view : "visualize_branching_timeline_tree"
+        switch_between : "switch_between_different_timelines"
+        compare : "compare_outcomes_of_different_choices"
+        merge : "impossible_but_can_analyze_both"
+      }
+
+      use_cases : {
+        learning : "try_different_strategies_without_commitment"
+        experimentation : "what_if_I_built_aqueduct_sooner"
+        challenge : "can_I_prevent_this_disaster_with_foreknowledge"
+      }
+
+      storage : {
+        efficient : "branches_share_common_history_save_space"
+        limit : "practical_limit_of_5_to_10_active_branches"
+      }
+    }
+
+    time_warp : {
+      select_time_range : "select_start_and_end_points"
+
+      operations : {
+        extract : "extract_time_range_as_separate_replay"
+        delete : "remove_time_range_from_replay"
+        insert : "insert_time_from_another_replay"
+        duplicate : "repeat_time_range_for_looping_effect"
+      }
+
+      creative_editing : {
+        montage : "create_montage_of_highlights"
+        compilation : "compile_best_moments_into_one_video"
+      }
+    }
+
+    freeze_frame : {
+      pause : "pause_at_exact_moment"
+      explore : "walk_around_frozen_scene_in_3d"
+      matrix_effect : "camera_rotates_around_frozen_action"
+
+      details : {
+        zoom_in : "examine_tiny_details_at_frozen_moment"
+        transparency : "make_buildings_transparent_to_see_inside"
+        information : "tap_any_citizen_or_building_for_info_at_that_moment"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // CINEMATIC TOOLS
+  // ==========================================================================
+  // Create movies and presentations from replays
+
+  cinematics : {
+
+    director_mode : {
+      multi_camera_editing : {
+        cameras : "set_up_multiple_camera_angles"
+        cut_between : "cut_between_cameras_at_specific_times"
+        transitions : ["cut", "dissolve", "wipe", "fade"]
+      }
+
+      shot_types : {
+        establishing_shot : "wide_shot_of_entire_city"
+        medium_shot : "district_or_neighborhood"
+        close_up : "individual_citizen_or_building"
+        extreme_close_up : "tiny_detail"
+        aerial : "bird's_eye_view"
+        tracking_shot : "follow_citizen_or_cart"
+      }
+
+      timing : {
+        pacing : "slow_meditative_or_fast_energetic"
+        rhythm : "cuts_timed_to_music_beat"
+        buildup : "slow_buildup_to_climax"
+      }
+    }
+
+    effects : {
+      slow_motion : {
+        speed : "0.1x_to_0.5x_for_dramatic_effect"
+        ramping : "speed_ramps_smoothly_in_and_out_of_slowmo"
+        use : "highlight_dramatic_moments"
+      }
+
+      fast_motion : {
+        timelapse : "10x_to_1000x_speed"
+        use : "show_construction_or_day_night_cycle"
+      }
+
+      color_grading : {
+        look : "apply_cinematic_color_grade"
+        presets : ["epic", "dramatic", "nostalgic", "vibrant", "muted"]
+        timeline : "color_grade_can_change_over_time"
+      }
+
+      filters : {
+        vignette : "focus_attention_on_center"
+        lens_flare : "dramatic_sun_flares"
+        film_grain : "vintage_film_look"
+        letterbox : "black_bars_top_bottom_for_widescreen"
+      }
+
+      titles_overlays : {
+        text : "add_title_cards_and_captions"
+        fonts : "roman_style_fonts_or_modern"
+        animation : "animated_text_entrance_exit"
+
+        information_overlays : {
+          statistics : "overlay_population_or_treasury_graphs"
+          labels : "label_buildings_or_districts"
+          narration_subtitles : "subtitles_for_voiceover"
+        }
+      }
+    }
+
+    audio : {
+      soundtrack : {
+        game_music : "use_in_game_music_tracks"
+        custom_music : "import_custom_music_from_apple_music_or_files"
+        multiple_tracks : "layer_music_and_sound_effects"
+      }
+
+      sound_effects : {
+        gameplay_audio : "original_audio_from_gameplay"
+        enhanced : "add_additional_sound_effects"
+        foley : "custom_sound_effects_for_emphasis"
+      }
+
+      voiceover : {
+        record : "record_voiceover_narration"
+        text_to_speech : "ai_generated_voiceover"
+        timing : "sync_voiceover_to_video"
+      }
+
+      mixing : {
+        levels : "adjust_volume_of_music_effects_voice"
+        fade : "fade_in_out_audio_tracks"
+        ducking : "auto_lower_music_when_voice_plays"
+      }
+    }
+
+    export : {
+      render : {
+        resolution : ["1080p", "1440p", "4K", "8K"]
+        frame_rate : ["24fps_cinematic", "30fps_standard", "60fps_smooth"]
+        quality : "bitrate_and_compression_settings"
+
+        rendering_time : {
+          estimate : "show_estimated_render_time"
+          progress : "progress_bar_during_render"
+          background : "render_in_background_continue_playing"
+        }
+      }
+
+      format : {
+        video : ["MP4 (H.264)", "MOV (ProRes)", "HEVC (H.265)"]
+        quality_presets : ["High Quality", "Medium", "YouTube Optimized", "Instagram Optimized"]
+      }
+
+      destinations : {
+        save_to_photos : "save_to_ios_photos_library"
+        save_to_files : "save_to_files_app_specific_location"
+        direct_upload : "upload_directly_to_youtube_vimeo"
+        share : "ios_share_sheet_to_any_destination"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // EDUCATIONAL USE
+  // ==========================================================================
+  // Use replays for learning and teaching
+
+  education : {
+
+    analysis_mode : {
+      annotate : {
+        text_notes : "add_text_annotations_to_timeline"
+        voiceover : "record_audio_commentary"
+        arrows_highlights : "draw_arrows_and_circles_to_highlight"
+      }
+
+      explain : {
+        cause_and_effect : "show_how_one_event_led_to_another"
+        systems_thinking : "demonstrate_interconnected_systems"
+
+        examples : {
+          "How low food caused riot" : "trace_chain_of_events"
+          "Economic boom from aqueduct" : "show_ripple_effects_of_infrastructure"
+        }
+      }
+
+      share_analysis : {
+        export : "export_annotated_replay"
+        educational_platform : "upload_to_learning_platform"
+        classroom : "use_in_classroom_setting"
+      }
+    }
+
+    historical_lessons : {
+      compare_to_history : {
+        real_events : "compare_gameplay_to_actual_roman_history"
+        what_if : "what_if_romans_had_done_this_differently"
+      }
+
+      documentaries : {
+        create : "create_documentary_style_videos_from_gameplay"
+        narration : "add_historical_narration"
+        education : "teach_roman_history_through_gameplay"
+      }
+    }
+
+    challenges : {
+      beat_the_replay : {
+        ghost_playthrough : "try_to_beat_your_previous_performance"
+        metrics : "compare_stats_to_previous_attempt"
+      }
+
+      speedrun : {
+        record : "record_speedrun_attempts"
+        compare : "compare_to_community_speedruns"
+        leaderboard : "upload_time_to_leaderboard"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // COMMUNITY FEATURES
+  // ==========================================================================
+  // Share and watch replays from other players
+
+  community : {
+
+    sharing : {
+      upload_replay : {
+        to_cloud : "upload_replay_file_to_community_server"
+        metadata : {
+          title : "give_replay_descriptive_title"
+          description : "explain_what_happens_in_replay"
+          tags : "tag_with_keywords_for_discovery"
+          thumbnail : "choose_or_upload_custom_thumbnail"
+        }
+
+        privacy : {
+          public : "anyone_can_watch"
+          unlisted : "only_people_with_link"
+          friends_only : "only_game_center_friends"
+          private : "only_you"
+        }
+
+        size_limits : {
+          full_replay : "entire_replay_can_be_large"
+          highlight_clip : "extract_highlights_for_smaller_file"
+          compressed : "additional_compression_for_upload"
+        }
+      }
+
+      rendered_video : {
+        alternative : "instead_of_replay_file_upload_rendered_video"
+        benefit : "smaller_file_size_playable_anywhere"
+        limitation : "cannot_free_cam_or_re_edit"
+      }
+    }
+
+    discovery : {
+      browse : {
+        categories : ["Epic Moments", "Disasters", "City Showcases", "Timelapse", "Funny", "Educational"]
+        sorting : ["Most Viewed", "Most Liked", "Recent", "Top Rated"]
+        search : "search_by_keywords_or_tags"
+      }
+
+      featured : {
+        staff_picks : "featured_by_game_developers"
+        community_picks : "voted_by_community"
+        trending : "currently_popular_replays"
+      }
+
+      recommendations : {
+        similar : "replays_similar_to_what_you_watched"
+        followed_users : "replays_from_users_you_follow"
+      }
+    }
+
+    interaction : {
+      watch : {
+        streaming : "stream_replay_like_video"
+        download : "download_full_replay_file_for_offline_analysis"
+
+        playback_options : {
+          follow_creator_camera : "see_exactly_what_creator_saw"
+          free_camera : "explore_with_your_own_camera"
+          ai_director : "let_ai_find_best_angles"
+        }
+      }
+
+      engagement : {
+        like : "like_favorite_replays"
+        comment : "leave_comments"
+        share : "share_to_social_media"
+
+        analytics_for_creator : {
+          views : "how_many_people_watched"
+          likes : "how_many_likes"
+          watch_time : "average_watch_duration"
+          demographics : "where_viewers_from"
+        }
+      }
+
+      follow : {
+        creators : "follow_favorite_replay_creators"
+        notifications : "get_notified_of_new_uploads"
+      }
+    }
+
+    competitions : {
+      replay_contests : {
+        themes : "monthly_themed_replay_contests"
+        examples : ["Best Disaster Recovery", "Most Beautiful City", "Fastest Growth"]
+        voting : "community_votes_on_submissions"
+        prizes : "in_game_rewards_or_recognition"
+      }
+
+      speedruns : {
+        categories : ["Fastest to 100k population", "Fastest Colosseum build"]
+        verification : "replay_files_verified_for_legitimacy"
+        leaderboards : "global_and_friends_leaderboards"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // INTEGRATION WITH OTHER FEATURES
+  // ==========================================================================
+
+  integration : {
+
+    with_photo_mode : {
+      perfect_moment : {
+        find : "scrub_through_replay_to_find_perfect_moment"
+        enter_photo_mode : "pause_and_enter_photo_mode"
+        capture : "take_screenshot_with_full_photo_mode_controls"
+      }
+
+      impossibles_shots : {
+        benefit : "get_shots_impossible_during_live_gameplay"
+        examples : ["Pause at exact moment of lightning strike", "Perfect framing of moving chariot race"]
+      }
+    }
+
+    with_documentary_mode : {
+      footage : "use_replay_as_footage_for_documentaries"
+      multiple_angles : "film_same_event_from_different_angles"
+    }
+
+    with_timelapse : {
+      full_history : "create_timelapse_of_entire_city_history"
+      accelerated : "thousands_of_years_in_minutes"
+    }
+
+    with_mod_framework : {
+      modded_replays : {
+        compatibility : "replays_recorded_with_mods_active"
+        playback : "requires_same_mods_to_playback"
+        vanilla_mode : "option_to_playback_without_mods_if_possible"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // TECHNICAL IMPLEMENTATION
+  // ==========================================================================
+
+  technical : {
+
+    replay_file_format : {
+      structure : {
+        header : "metadata_version_info"
+        snapshots : "periodic_full_state_snapshots"
+        deltas : "changes_between_snapshots"
+        events : "tagged_important_events"
+        index : "index_for_fast_seeking"
+      }
+
+      compression : {
+        algorithm : "efficient_delta_compression"
+        typical_ratio : "100_mb_gameplay_data_compressed_to_10_mb"
+      }
+
+      version_compatibility : {
+        backward : "newer_game_versions_can_read_old_replays"
+        forward : "attempt_to_handle_future_versions_gracefully"
+      }
+    }
+
+    playback_engine : {
+      deterministic_simulation : {
+        requirement : "game_must_be_deterministic_for_accurate_replay"
+        random_seed : "record_random_seed_for_reproducibility"
+      }
+
+      performance : {
+        optimization : "optimize_for_fast_forward_playback"
+        lod : "level_of_detail_based_on_playback_speed"
+        culling : "aggressive_culling_when_not_in_view"
+      }
+
+      accuracy : {
+        perfect_recreation : "replay_recreates_exactly_what_happened"
+        divergence_detection : "detect_and_warn_if_replay_diverges"
+      }
+    }
+
+    storage : {
+      local : {
+        location : "app_documents_directory"
+        management : "user_can_manage_delete_replays"
+      }
+
+      cloud : {
+        icloud_drive : "optional_backup_to_icloud"
+        community_server : "uploaded_public_replays"
+      }
+
+      space_management : {
+        auto_cleanup : "delete_old_replays_based_on_settings"
+        compression : "compress_old_replays_more_aggressively"
+        archive : "archive_important_replays"
+      }
+    }
+
+    rendering : {
+      real_time : "playback_at_normal_speed_is_real_time"
+      fast_forward : "optimize_rendering_for_fast_speeds"
+      export : {
+        offline_render : "export_at_highest_quality_slower_than_real_time"
+        gpu_acceleration : "use_metal_for_fast_rendering"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // USER INTERFACE
+  // ==========================================================================
+
+  ui : {
+
+    replay_browser : {
+      library : {
+        list_view : "list_of_all_saved_replays"
+        grid_view : "thumbnail_grid"
+        sort_filter : "sort_by_date_duration_city_name"
+        search : "search_replays_by_name_or_tags"
+      }
+
+      details : {
+        info : "session_duration_date_city_name_population"
+        thumbnail : "preview_screenshot"
+        stats : "key_statistics_from_session"
+        highlights : "list_of_key_moments"
+      }
+
+      actions : {
+        watch : "open_replay_for_playback"
+        edit : "open_in_director_mode"
+        share : "share_replay_or_export_video"
+        delete : "delete_replay_file"
+        protect : "mark_as_protected_from_auto_deletion"
+      }
+    }
+
+    playback_interface : {
+      layout : {
+        fullscreen_replay : "replay_video_takes_full_screen"
+        timeline_at_bottom : "timeline_scrubber_at_bottom"
+        controls_overlay : "controls_appear_on_tap_auto_hide"
+      }
+
+      minimal_mode : {
+        clean_view : "hide_all_ui_for_immersive_watching"
+        tap_to_show : "tap_to_temporarily_show_controls"
+      }
+
+      picture_in_picture : {
+        support : "pip_support_for_ios"
+        use_case : "watch_replay_while_doing_something_else"
+      }
+    }
+
+    gestures : {
+      swipe : "swipe_left_right_to_scrub_timeline"
+      pinch : "pinch_to_zoom_timeline"
+      double_tap : "double_tap_to_play_pause"
+      two_finger_tap : "two_finger_tap_to_toggle_info_overlay"
+    }
+  }
+}
