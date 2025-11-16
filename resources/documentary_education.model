@@ -1,0 +1,1018 @@
+// ============================================================================
+// DOCUMENTARY & EDUCATION MODE
+// ============================================================================
+// Transform CaesarIA into interactive documentary and educational platform
+// Learn Roman history, culture, architecture, society through gameplay
+// Inspired by: Assassin's Creed Discovery Tours, educational games, documentaries
+// Goal: Make learning Roman history engaging and immersive
+// ============================================================================
+
+documentary_education : {
+
+  // ==========================================================================
+  // DISCOVERY TOUR MODE
+  // ==========================================================================
+  // Explore Rome without gameplay pressure - pure learning and discovery
+
+  discovery_tour : {
+
+    access : {
+      separate_mode : "distinct_mode_from_main_game"
+      no_gameplay : "no_resource_management_or_time_pressure"
+      no_consequences : "cannot_fail_or_lose"
+      free_exploration : "wander_and_learn_at_own_pace"
+    }
+
+    guided_tours : {
+      curated_experiences : {
+        tour_catalog : "library_of_professional_guided_tours"
+
+        categories : {
+          daily_life : {
+            "A Day in Ancient Rome" : {
+              duration : "30_minutes"
+              path : "follow_typical_citizen_through_day"
+              stops : [
+                "Wake at dawn in insula",
+                "Visit public latrine and baths",
+                "Buy breakfast from thermopolium (snack bar)",
+                "Work in workshop or shop",
+                "Lunch and siesta",
+                "Visit forum for business",
+                "Attend games at Colosseum",
+                "Dinner and evening entertainment"
+              ]
+              educational_content : "narration_text_visuals_at_each_stop"
+            }
+
+            "Life of a Roman Woman" : {
+              perspective : "experience_constraints_and_roles"
+              topics : ["marriage", "motherhood", "property_rights", "limited_public_life"]
+            }
+
+            "Childhood in Rome" : {
+              perspective : "roman_child's_life"
+              topics : ["education", "play", "coming_of_age_ceremonies"]
+            }
+          }
+
+          architecture : {
+            "Wonders of Roman Engineering" : {
+              duration : "45_minutes"
+              monuments : ["Pantheon", "Colosseum", "Aqueducts", "Circus_Maximus", "Baths_of_Caracalla"]
+              technical : "how_they_were_built"
+            }
+
+            "The Roman House" : {
+              explore : "domus_and_villa_architecture"
+              rooms : "atrium_peristyle_triclinium_cubiculum"
+              decoration : "frescoes_mosaics_furniture"
+            }
+
+            "Public Spaces" : {
+              locations : ["forum", "basilica", "temples", "markets"]
+              functions : "how_romans_used_these_spaces"
+            }
+          }
+
+          religion_mythology : {
+            "Gods and Goddesses" : {
+              temples : "visit_temples_to_each_major_deity"
+              rituals : "see_priests_performing_rites"
+              festivals : "experience_major_religious_festivals"
+            }
+
+            "Mystery Cults" : {
+              secret_religions : "Mithraism_Isis_worship_Christianity_early"
+              underground : "visit_underground_temples_and_catacombs"
+            }
+          }
+
+          entertainment : {
+            "Bread and Circuses" : {
+              games : "gladiatorial_combat_chariot_racing_theater"
+              politics : "how_entertainment_controlled_masses"
+            }
+
+            "Roman Baths" : {
+              experience : "full_bathing_sequence"
+              social : "baths_as_social_center"
+            }
+          }
+
+          military : {
+            "The Roman Legion" : {
+              training : "gladius_training_formations"
+              tactics : "battle_strategies"
+              camp : "life_in_military_camp"
+            }
+
+            "Conquest and Empire" : {
+              expansion : "how_rome_conquered_mediterranean"
+              occupation : "ruling_conquered_territories"
+            }
+          }
+
+          politics : {
+            "The Roman Republic" : {
+              government : "senate_consuls_tribunes_assemblies"
+              elections : "how_elections_worked"
+              corruption : "bribery_and_political_machines"
+            }
+
+            "The Roman Empire" : {
+              emperors : "transition_from_republic_to_empire"
+              augustus : "first_emperor_and_his_reforms"
+              succession : "problems_of_imperial_succession"
+            }
+          }
+
+          economy : {
+            "Trade and Commerce" : {
+              routes : "silk_road_mediterranean_trade"
+              goods : "what_was_traded"
+              currency : "roman_money_system"
+            }
+
+            "Slavery in Rome" : {
+              educational : "unflinching_look_at_slavery"
+              sources : "how_people_became_enslaved"
+              impact : "economic_and_social_impact"
+              note : "presented_historically_not_glorified"
+            }
+          }
+
+          science_technology : {
+            "Roman Innovation" : {
+              concrete : "revolutionary_building_material"
+              aqueducts : "water_engineering"
+              roads : "transportation_infrastructure"
+              medicine : "medical_knowledge"
+            }
+          }
+
+          culture : {
+            "Art and Literature" : {
+              authors : "Virgil_Ovid_Cicero_Horace"
+              art : "sculpture_painting_mosaics"
+            }
+
+            "Food and Dining" : {
+              ingredients : "what_romans_ate"
+              garum : "fish_sauce_ubiquitous_condiment"
+              banquets : "elaborate_dinner_parties"
+            }
+          }
+
+          decline : {
+            "Fall of Rome" : {
+              factors : "political_economic_military_causes"
+              timeline : "crisis_of_third_century_to_476_AD"
+              legacy : "what_survived"
+            }
+          }
+        }
+      }
+
+      tour_structure : {
+        waypoints : {
+          automatic : "camera_automatically_moves_to_next_stop"
+          manual : "or_player_manually_proceeds"
+          pause_anytime : "pause_tour_to_explore_freely"
+        }
+
+        content_at_stops : {
+          narration : {
+            voiceover : "professional_voice_actor_narration"
+            text : "subtitles_for_accessibility"
+            language : "multiple_languages_available"
+          }
+
+          visuals : {
+            highlight : "highlight_relevant_features"
+            animations : "animated_explanations_of_processes"
+            comparisons : "before_after_or_cutaway_views"
+          }
+
+          information_panels : {
+            text : "detailed_text_information"
+            images : "historical_images_and_reconstructions"
+            maps : "maps_showing_context"
+            timelines : "timelines_of_events"
+          }
+
+          interactions : {
+            questions : "quiz_questions_to_test_understanding"
+            choices : "choose_topics_for_deeper_dive"
+            activities : "hands_on_activities_like_mosaic_making"
+          }
+        }
+
+        pacing : {
+          estimated_duration : "tours_range_15_minutes_to_2_hours"
+          skip_ahead : "skip_to_next_section"
+          repeat : "replay_section"
+          save_progress : "save_and_resume_later"
+        }
+      }
+
+      custom_tours : {
+        create_own : {
+          tools : "players_can_create_custom_tours"
+          waypoints : "set_camera_positions_and_waypoints"
+          narration : "record_own_narration_or_use_text_to_speech"
+          annotations : "add_text_labels_and_information"
+        }
+
+        share : {
+          community : "share_custom_tours_with_community"
+          education : "teachers_create_tours_for_students"
+        }
+
+        curated : {
+          featured : "best_custom_tours_featured_officially"
+          verified : "tours_verified_for_historical_accuracy"
+        }
+      }
+    }
+
+    free_exploration : {
+      wander_mode : {
+        no_constraints : "explore_city_with_no_guidance"
+        first_person : "optional_first_person_perspective"
+
+        interactions : {
+          citizens : "talk_to_citizens_learn_about_them"
+          buildings : "enter_buildings_explore_interiors"
+          objects : "examine_objects_for_information"
+        }
+
+        information_popups : {
+          contextual : "tap_anything_to_learn_about_it"
+          encyclopedia : "link_to_full_encyclopedia_entry"
+        }
+      }
+
+      photography : {
+        photo_mode : "full_photo_mode_available"
+        educational_use : "capture_screenshots_for_school_projects"
+      }
+
+      time_control : {
+        time_of_day : "change_time_to_see_how_city_looks"
+        seasons : "see_seasonal_variations"
+        historical_eras : "jump_between_different_time_periods"
+      }
+    }
+
+    achievements : {
+      learning_badges : {
+        earned_by_completing : "complete_tours_earn_badges"
+        categories : ["Explorer", "Architect", "Historian", "Archaeologist", "Scholar"]
+
+        examples : {
+          "Aspiring Archaeologist" : "complete_5_architecture_tours"
+          "Social Historian" : "complete_all_daily_life_tours"
+          "Master Scholar" : "complete_all_tours"
+        }
+      }
+
+      knowledge_tracking : {
+        progress : "track_what_you've_learned"
+        gaps : "identify_topics_not_yet_explored"
+        recommendations : "suggest_next_tours_based_on_interests"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // ENCYCLOPEDIA
+  // ==========================================================================
+  // Comprehensive database of Roman history and culture
+
+  encyclopedia : {
+
+    content_database : {
+      entries : {
+        count : "500_plus_detailed_encyclopedia_entries"
+
+        categories : {
+          people : {
+            emperors : "all_roman_emperors_with_biographies"
+            famous_figures : "Cicero_Caesar_Virgil_Cleopatra_Spartacus"
+            social_classes : "patricians_plebeians_slaves_freedmen"
+          }
+
+          places : {
+            rome : "detailed_history_of_rome_itself"
+            provinces : "all_roman_provinces"
+            cities : "major_cities_of_empire"
+            buildings : "specific_monuments_and_structures"
+          }
+
+          events : {
+            battles : "major_battles_and_wars"
+            disasters : "great_fire_pompeii_etc"
+            reforms : "political_and_social_reforms"
+            successions : "emperor_successions_year_of_four_emperors"
+          }
+
+          concepts : {
+            government : "republic_empire_cursus_honorum"
+            society : "familia_clientela_patronage"
+            economy : "trade_taxation_currency"
+            military : "legions_tactics_equipment"
+            religion : "gods_festivals_rituals"
+            culture : "art_literature_philosophy"
+            technology : "engineering_agriculture_medicine"
+            law : "roman_law_twelve_tables"
+          }
+
+          daily_life : {
+            clothing : "togas_tunics_stolas"
+            food : "what_romans_ate_and_drank"
+            housing : "insulae_domus_villas"
+            family : "marriage_children_slaves"
+            work : "occupations_and_trades"
+            leisure : "entertainment_games_baths"
+          }
+
+          artifacts : {
+            objects : "common_objects_tools_utensils"
+            art : "sculptures_paintings_mosaics"
+            coins : "roman_currency_and_denominations"
+            weapons : "gladius_pilum_shields"
+          }
+        }
+      }
+
+      entry_structure : {
+        title : "name_of_entry"
+        summary : "brief_overview_paragraph"
+
+        detailed_sections : {
+          description : "comprehensive_explanation"
+          history : "historical_context_and_development"
+          significance : "why_it_matters"
+          related_entries : "links_to_related_topics"
+        }
+
+        media : {
+          images : "historical_photos_reconstructions_artwork"
+          3d_models : "interactive_3d_models_if_applicable"
+          videos : "short_explanatory_videos"
+          audio : "pronunciation_guides_for_latin_names"
+        }
+
+        sources : {
+          primary : "citations_from_ancient_sources"
+          secondary : "modern_scholarly_sources"
+          further_reading : "books_and_articles_for_deep_dive"
+        }
+
+        in_game_connection : {
+          link : "how_this_appears_in_game"
+          location : "jump_to_location_in_game_if_applicable"
+        }
+      }
+    }
+
+    access : {
+      from_game : {
+        inspect_mode : "tap_anything_in_game_open_encyclopedia_entry"
+        search : "search_bar_for_finding_entries"
+        browse : "browse_by_category"
+      }
+
+      standalone : {
+        app_section : "encyclopedia_accessible_without_entering_game"
+        offline : "available_offline"
+      }
+
+      integration : {
+        tours : "encyclopedia_linked_from_discovery_tours"
+        gameplay : "encyclopedia_linked_from_advisor_messages"
+      }
+    }
+
+    interactivity : {
+      bookmarks : "bookmark_favorite_entries"
+      notes : "add_personal_notes_to_entries"
+      highlights : "highlight_text_in_entries"
+
+      sharing : {
+        specific_entry : "share_link_to_specific_entry"
+        export : "export_entry_as_pdf_for_school_assignment"
+      }
+
+      quizzes : {
+        after_reading : "optional_quiz_after_entry"
+        mastery : "track_mastery_of_topics"
+      }
+    }
+
+    updates : {
+      living_document : "encyclopedia_updated_with_new_discoveries"
+      archaeological : "incorporate_latest_archaeological_findings"
+      scholarly : "revise_based_on_latest_scholarship"
+    }
+  }
+
+  // ==========================================================================
+  // INTERACTIVE LESSONS
+  // ==========================================================================
+  // Structured educational content for classroom or self-study
+
+  lessons : {
+
+    curriculum : {
+      grade_levels : {
+        elementary : {
+          ages : "8_to_11"
+          topics : ["daily_life", "simple_architecture", "gods_and_myths", "famous_people"]
+          approach : "fun_engaging_simplified"
+        }
+
+        middle_school : {
+          ages : "12_to_14"
+          topics : ["government", "military", "expansion", "culture", "fall_of_rome"]
+          approach : "balance_fun_and_rigor"
+        }
+
+        high_school : {
+          ages : "15_to_18"
+          topics : ["complex_politics", "economics", "philosophy", "historiography"]
+          approach : "rigorous_critical_thinking"
+        }
+
+        college : {
+          ages : "18_plus"
+          topics : ["advanced_topics", "primary_source_analysis", "scholarly_debates"]
+          approach : "academic_depth"
+        }
+
+        lifelong_learning : {
+          ages : "adult_learners"
+          topics : "all_topics_at_various_depths"
+          approach : "self_paced_interest_driven"
+        }
+      }
+
+      units : {
+        structure : {
+          introduction : "overview_of_unit_topic"
+          lessons : "5_to_10_lessons_per_unit"
+          activities : "hands_on_interactive_activities"
+          assessment : "quiz_or_project_to_demonstrate_learning"
+          resources : "additional_reading_and_materials"
+        }
+
+        examples : {
+          "The Roman Republic" : {
+            lesson_1 : "Origins of Rome - Myth and Reality"
+            lesson_2 : "The Roman Constitution"
+            lesson_3 : "Expansion and the Punic Wars"
+            lesson_4 : "Social Conflict - Patricians vs Plebeians"
+            lesson_5 : "Fall of the Republic - Caesar to Augustus"
+            activity : "Simulate a Roman election"
+            assessment : "Essay on causes of Republic's fall"
+          }
+
+          "Daily Life in Ancient Rome" : {
+            lesson_1 : "Social Classes"
+            lesson_2 : "Housing and Home Life"
+            lesson_3 : "Food and Dining"
+            lesson_4 : "Work and Occupations"
+            lesson_5 : "Entertainment and Leisure"
+            activity : "Design a Roman domus"
+            assessment : "Create a 'day in the life' diary entry"
+          }
+        }
+      }
+
+      learning_objectives : {
+        explicit : "clear_learning_objectives_for_each_lesson"
+        standards_aligned : "aligned_with_educational_standards"
+        measurable : "students_can_demonstrate_mastery"
+      }
+    }
+
+    lesson_delivery : {
+      multimedia : {
+        video : "short_video_lectures_5_to_10_minutes"
+        interactive_3d : "explore_3d_environments_and_models"
+        animations : "animated_explanations_of_concepts"
+        primary_sources : "read_translated_ancient_texts"
+      }
+
+      engagement : {
+        storytelling : "narrative_approach_to_history"
+        role_play : "step_into_role_of_historical_figure"
+        simulations : "simulate_historical_events"
+        games : "educational_mini_games"
+      }
+
+      differentiation : {
+        multiple_paths : "choose_depth_and_complexity"
+        scaffolding : "support_for_struggling_learners"
+        enrichment : "advanced_content_for_advanced_learners"
+        accommodations : "accessibility_features"
+      }
+    }
+
+    activities : {
+      hands_on : {
+        "Build a Roman Aqueduct" : {
+          simulation : "design_and_build_working_aqueduct"
+          physics : "learn_about_gradients_and_water_flow"
+          challenge : "supply_city_with_adequate_water"
+        }
+
+        "Design a Mosaic" : {
+          tool : "mosaic_design_tool"
+          patterns : "learn_about_roman_mosaic_patterns"
+          history : "famous_mosaics_and_their_meanings"
+        }
+
+        "Plan a Roman Feast" : {
+          menu : "create_menu_using_historical_ingredients"
+          budget : "work_within_budget_constraints"
+          social : "understand_social_dynamics_of_dining"
+        }
+
+        "Command a Legion" : {
+          strategy : "tactical_battle_simulation"
+          formations : "use_roman_military_tactics"
+          historical_battles : "reenact_famous_battles"
+        }
+      }
+
+      creative : {
+        "Write as a Roman" : {
+          prompts : "creative_writing_prompts"
+          genres : ["letter", "speech", "diary_entry", "inscription"]
+        }
+
+        "Create a Campaign Poster" : {
+          politics : "design_election_campaign_for_roman_office"
+          persuasion : "use_rhetorical_techniques"
+        }
+
+        "Document Pompeii" : {
+          archaeology : "roleplay_as_archaeologist"
+          excavation : "document_findings_from_pompeii"
+        }
+      }
+
+      analytical : {
+        "Primary Source Analysis" : {
+          texts : "analyze_excerpts_from_ancient_authors"
+          questions : "guided_questions_for_analysis"
+          discussion : "discussion_prompts"
+        }
+
+        "Archaeological Interpretation" : {
+          artifacts : "interpret_meaning_of_artifacts"
+          context : "understand_archaeological_context"
+        }
+
+        "Compare Civilizations" : {
+          rome_vs_others : "compare_rome_to_other_civilizations"
+          themes : ["government", "technology", "culture"]
+        }
+      }
+    }
+
+    assessment : {
+      formative : {
+        quiz_questions : "embedded_throughout_lessons"
+        self_checks : "check_your_understanding"
+        reflection : "reflection_prompts"
+      }
+
+      summative : {
+        unit_tests : "comprehensive_tests_at_end_of_units"
+        projects : "culminating_projects"
+        essays : "written_assessments"
+        presentations : "oral_presentations"
+      }
+
+      feedback : {
+        immediate : "instant_feedback_on_quizzes"
+        explanations : "why_answers_correct_or_incorrect"
+        hints : "hints_for_wrong_answers"
+        remediation : "additional_resources_for_missed_concepts"
+      }
+
+      progress_tracking : {
+        mastery : "track_mastery_of_standards"
+        reports : "progress_reports_for_students_teachers"
+        badges : "earn_badges_for_achievements"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // CLASSROOM INTEGRATION
+  // ==========================================================================
+  // Tools for teachers to use CaesarIA in classrooms
+
+  classroom : {
+
+    teacher_tools : {
+      dashboard : {
+        class_management : "create_and_manage_classes"
+        student_accounts : "add_students_to_class"
+        assignments : "assign_tours_lessons_activities"
+
+        monitoring : {
+          real_time : "see_what_students_working_on"
+          progress : "track_student_progress"
+          time_spent : "how_long_students_engaged"
+        }
+
+        grading : {
+          automatic : "quizzes_automatically_graded"
+          rubrics : "rubrics_for_projects"
+          gradebook : "integrated_gradebook"
+        }
+      }
+
+      lesson_planning : {
+        templates : "lesson_plan_templates"
+        curriculum_maps : "scope_and_sequence_documents"
+        resources : "supplementary_materials"
+
+        customization : {
+          adapt : "adapt_existing_lessons_to_classroom_needs"
+          create : "create_custom_lessons_and_tours"
+          share : "share_with_other_teachers"
+        }
+      }
+
+      presentation_mode : {
+        screen_share : "project_game_to_classroom_screen"
+        controls : "teacher_controls_while_students_watch"
+        annotation : "annotate_screen_in_real_time"
+      }
+    }
+
+    student_features : {
+      student_accounts : {
+        safe : "restricted_safe_environment_for_students"
+        privacy : "coppa_ferpa_compliant"
+        no_ads : "no_advertisements"
+      }
+
+      collaboration : {
+        group_activities : "students_work_together_in_groups"
+        shared_projects : "collaborate_on_projects"
+        discussions : "moderated_discussion_forums"
+      }
+
+      portfolios : {
+        digital_portfolio : "students_collect_work_in_portfolio"
+        showcase : "showcase_best_work"
+        reflection : "reflect_on_learning"
+      }
+    }
+
+    institutional : {
+      licensing : {
+        site_license : "school_or_district_wide_licenses"
+        pricing : "affordable_educational_pricing"
+      }
+
+      support : {
+        training : "professional_development_for_teachers"
+        documentation : "comprehensive_teacher_guides"
+        tech_support : "dedicated_support_for_educators"
+      }
+
+      integration : {
+        lms : "integrate_with_learning_management_systems"
+        platforms : ["Google Classroom", "Canvas", "Schoology", "Blackboard"]
+        sso : "single_sign_on_for_easy_access"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // HISTORICAL ACCURACY & SCHOLARSHIP
+  // ==========================================================================
+
+  accuracy : {
+
+    advisory_board : {
+      experts : "consultation_with_professional_historians_and_archaeologists"
+
+      members : {
+        classical_historians : "PhDs_in_Roman_history"
+        archaeologists : "field_archaeologists_with_Roman_expertise"
+        educators : "experienced_history_teachers"
+      }
+
+      role : {
+        review : "review_all_educational_content"
+        advise : "advise_on_historical_accuracy"
+        update : "provide_updates_on_new_discoveries"
+      }
+    }
+
+    sources : {
+      primary : {
+        texts : "based_on_actual_ancient_texts"
+        authors : ["Pliny", "Tacitus", "Livy", "Plutarch", "Suetonius", "Cicero", "Caesar"]
+        citations : "cite_sources_in_encyclopedia"
+      }
+
+      archaeological : {
+        evidence : "based_on_archaeological_evidence"
+        sites : ["Rome", "Pompeii", "Herculaneum", "Ostia", "throughout_empire"]
+        museums : "collaboration_with_museums"
+      }
+
+      scholarly : {
+        research : "incorporate_latest_scholarly_research"
+        peer_review : "educational_content_peer_reviewed"
+      }
+    }
+
+    limitations : {
+      acknowledge : {
+        gaps : "acknowledge_gaps_in_knowledge"
+        debates : "present_scholarly_debates_fairly"
+        speculation : "clearly_mark_speculative_content"
+      }
+
+      interpretation : {
+        multiple_viewpoints : "present_multiple_interpretations_where_appropriate"
+        nuance : "avoid_oversimplification"
+      }
+    }
+
+    updates : {
+      ongoing : "content_updated_as_scholarship_evolves"
+      corrections : "errors_corrected_promptly"
+      transparency : "changelog_of_updates"
+    }
+  }
+
+  // ==========================================================================
+  // ACCESSIBILITY & INCLUSION
+  // ==========================================================================
+
+  accessibility : {
+
+    universal_design : {
+      principles : "designed_for_all_learners_from_start"
+      multiple_means : {
+        representation : "information_presented_multiple_ways"
+        engagement : "multiple_ways_to_engage_with_content"
+        action_expression : "multiple_ways_to_demonstrate_learning"
+      }
+    }
+
+    specific_accommodations : {
+      visual : {
+        screen_reader : "full_screen_reader_support"
+        high_contrast : "high_contrast_modes"
+        text_size : "adjustable_text_size"
+        color_blind : "color_blind_friendly_palettes"
+      }
+
+      auditory : {
+        captions : "closed_captions_for_all_audio"
+        transcripts : "transcripts_of_narration"
+        visual_alerts : "visual_alerts_for_sounds"
+      }
+
+      motor : {
+        keyboard_navigation : "full_keyboard_navigation"
+        voice_control : "voice_control_via_siri"
+        simplified_controls : "simplified_control_schemes"
+      }
+
+      cognitive : {
+        simplified_language : "option_for_simplified_text"
+        extended_time : "no_time_limits_on_activities"
+        chunking : "content_broken_into_manageable_chunks"
+        scaffolding : "extensive_scaffolding_and_support"
+      }
+    }
+
+    languages : {
+      multilingual : {
+        interface : "interface_in_multiple_languages"
+        content : "educational_content_translated"
+
+        languages : [
+          "English", "Spanish", "French", "German", "Italian", "Portuguese",
+          "Chinese", "Japanese", "Korean", "Arabic", "Latin (for_authenticity)"
+        ]
+      }
+
+      esl_support : {
+        vocabulary : "vocabulary_support_for_ESL_learners"
+        simplification : "simplified_english_option"
+      }
+    }
+
+    cultural_sensitivity : {
+      inclusive : "inclusive_representation_in_content"
+      context : "provide_historical_context_for_sensitive_topics"
+      slavery : "handle_slavery_with_appropriate_seriousness"
+      violence : "age_appropriate_handling_of_violence"
+    }
+  }
+
+  // ==========================================================================
+  // GAMIFICATION OF LEARNING
+  // ==========================================================================
+
+  gamification : {
+
+    progression : {
+      levels : {
+        experience_points : "earn_xp_for_learning_activities"
+        level_up : "level_up_as_you_learn_more"
+        titles : ["Novice Scholar", "Apprentice Historian", "Expert Classicist", "Master of Antiquity"]
+      }
+
+      unlocks : {
+        content : "unlock_new_tours_and_lessons"
+        customization : "unlock_cosmetic_items"
+        abilities : "unlock_new_features_in_discovery_mode"
+      }
+    }
+
+    achievements : {
+      variety : "hundreds_of_achievements_to_earn"
+
+      categories : {
+        completion : "complete_tours_lessons_units"
+        mastery : "demonstrate_mastery_on_assessments"
+        exploration : "discover_hidden_content"
+        creativity : "create_excellent_projects"
+        social : "collaborate_with_others"
+      }
+
+      rewards : {
+        badges : "visual_badges_for_display"
+        titles : "special_titles"
+        certificates : "printable_certificates_of_achievement"
+      }
+    }
+
+    challenges : {
+      daily : "daily_trivia_or_mini_challenges"
+      weekly : "weekly_learning_challenges"
+      special_events : "limited_time_events_tied_to_real_history"
+
+      example : {
+        "Ides of March Challenge" : {
+          date : "march_15_every_year"
+          theme : "learn_about_julius_caesar_assassination"
+          reward : "special_caesar_themed_items"
+        }
+      }
+    }
+
+    leaderboards : {
+      class : "compete_with_classmates_optional"
+      school : "school_wide_leaderboards"
+      global : "global_learning_leaderboards"
+
+      metrics : ["xp_earned", "achievements_unlocked", "tours_completed", "quiz_scores"]
+
+      opt_in : "completely_optional_privacy_respecting"
+    }
+  }
+
+  // ==========================================================================
+  // PARENTAL CONTROLS & SAFETY
+  // ==========================================================================
+
+  safety : {
+
+    content_filtering : {
+      age_appropriate : {
+        ratings : "content_rated_by_age_appropriateness"
+        filter : "parents_filter_based_on_child_age"
+
+        topics : {
+          violence : "filter_graphic_violence_descriptions"
+          adult_themes : "filter_adult_themes_like_detailed_sexuality"
+          slavery : "option_to_filter_but_encourage_age_appropriate_inclusion"
+        }
+      }
+
+      customize : "granular_control_over_specific_topics"
+    }
+
+    privacy : {
+      coppa_compliant : "fully_compliant_with_coppa"
+      ferpa_compliant : "educational_records_protected"
+
+      data_collection : {
+        minimal : "collect_only_necessary_data"
+        no_third_party : "no_third_party_advertising_or_tracking"
+        parental_consent : "parental_consent_for_children_under_13"
+      }
+
+      child_accounts : {
+        restricted : "restricted_features_for_child_accounts"
+        no_social : "no_public_social_features_for_children"
+        moderation : "all_user_generated_content_moderated"
+      }
+    }
+
+    parental_dashboard : {
+      monitor : "parents_monitor_child_progress"
+      reports : "weekly_learning_reports"
+      time_limits : "set_time_limits_via_screen_time"
+      approve : "approve_or_block_specific_content"
+    }
+  }
+
+  // ==========================================================================
+  // INTEGRATION WITH MAIN GAME
+  // ==========================================================================
+
+  integration : {
+
+    cross_mode : {
+      seamless_transition : "easily_switch_between_game_and_education"
+
+      learning_in_game : {
+        advisor_tips : "educational_tips_from_advisors_during_gameplay"
+        historical_events : "pop_up_historical_info_when_relevant_event_occurs"
+        tooltips : "educational_tooltips_on_ui_elements"
+      }
+
+      gameplay_from_education : {
+        try_it_yourself : "from_tour_jump_into_relevant_scenario"
+        challenge_scenarios : "historical_challenge_scenarios_to_play"
+      }
+    }
+
+    unlocks : {
+      educational_unlocks : {
+        concept : "learning_unlocks_content_in_main_game"
+        example : "complete_aqueduct_tour_unlock_advanced_aqueduct_designs"
+      }
+
+      gameplay_unlocks : {
+        concept : "achievements_in_game_unlock_educational_content"
+        example : "build_pantheon_unlock_tour_about_pantheon_construction"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // PARTNERSHIPS & COLLABORATIONS
+  // ==========================================================================
+
+  partnerships : {
+
+    museums : {
+      collaborations : {
+        "British Museum" : "access_to_roman_collection_images_and_expertise"
+        "Louvre" : "classical_antiquities_department"
+        "Vatican Museums" : "roman_artifacts_and_art"
+        "Museums in Rome" : "capitoline_national_roman_museum"
+      }
+
+      virtual_exhibitions : {
+        in_game : "virtual_exhibitions_of_museum_collections"
+        artifacts : "high_resolution_3d_scans_of_artifacts"
+        curators : "curator_commentary"
+      }
+    }
+
+    universities : {
+      research : {
+        collaboration : "collaborate_with_university_classics_departments"
+        latest_scholarship : "incorporate_cutting_edge_research"
+      }
+
+      student_projects : {
+        intern_contributions : "classics_students_contribute_content"
+        thesis_projects : "game_as_platform_for_thesis_projects"
+      }
+    }
+
+    educational_organizations : {
+      "National Geographic" : "partnership_for_content_and_reach"
+      "Archaeological Institute of America" : "expertise_and_credibility"
+      "American Classical League" : "latin_and_classics_education"
+    }
+
+    media : {
+      documentaries : {
+        tie_ins : "tie_in_with_history_channel_bbc_documentaries"
+        exclusive : "exclusive_content_from_documentary_producers"
+      }
+    }
+  }
+}
