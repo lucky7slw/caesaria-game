@@ -1,0 +1,1518 @@
+// ============================================================================
+// PROFESSIONAL PHOTO MODE
+// ============================================================================
+// Advanced photography system for capturing stunning images of ancient Rome
+// Inspired by: Ghost of Tsushima, Horizon, Spider-Man, The Last of Us Part II
+// Goal: Turn players into virtual photographers of the Roman world
+// ============================================================================
+
+photo_mode : {
+
+  // ==========================================================================
+  // CAMERA CONTROLS
+  // ==========================================================================
+  // Professional-grade camera controls for perfect shots
+
+  camera : {
+
+    positioning : {
+      free_camera : {
+        movement : {
+          pan : {
+            horizontal : "move_camera_left_right"
+            vertical : "move_camera_up_down"
+            depth : "move_camera_forward_backward"
+
+            controls : {
+              touch : "swipe_to_pan"
+              keyboard : "wasd_or_arrow_keys"
+              gamepad : "left_stick"
+            }
+
+            speed : {
+              slow : "precise_positioning_for_detail_shots"
+              normal : "standard_speed"
+              fast : "quick_repositioning"
+              custom : "adjustable_sensitivity_slider"
+            }
+          }
+
+          rotation : {
+            yaw : "rotate_camera_left_right"
+            pitch : "tilt_camera_up_down"
+            roll : "tilt_horizon_dutch_angle"
+
+            controls : {
+              touch : "two_finger_rotate"
+              mouse : "drag_to_rotate"
+              gamepad : "right_stick"
+            }
+
+            snap : {
+              horizon_level : "auto_level_horizon"
+              cardinal_directions : "snap_to_north_south_east_west"
+              rule_of_thirds : "snap_camera_to_rule_of_thirds_positions"
+            }
+          }
+
+          zoom : {
+            range : "ultra_wide_to_extreme_telephoto"
+            focal_lengths : {
+              ultra_wide : "14mm_equivalent"
+              wide : "24mm_equivalent"
+              normal : "50mm_equivalent"
+              portrait : "85mm_equivalent"
+              telephoto : "135mm_equivalent"
+              super_telephoto : "300mm_equivalent"
+            }
+
+            controls : {
+              pinch : "pinch_to_zoom"
+              scroll : "scroll_wheel"
+              slider : "zoom_slider_ui"
+              buttons : "zoom_in_out_buttons"
+            }
+
+            smooth_zoom : "cinematic_smooth_zoom_transition"
+          }
+        }
+
+        collision : {
+          clipping : {
+            default : "camera_cannot_pass_through_objects"
+            toggle_off : "advanced_option_allow_clipping_for_unique_angles"
+          }
+
+          transparency : {
+            automatic : "walls_become_transparent_when_blocking_view"
+            manual : "hide_specific_objects_for_clean_shot"
+          }
+        }
+
+        bookmarks : {
+          save_position : {
+            slots : "10_camera_position_bookmarks"
+            quick_save : "press_button_to_save_current_position"
+            quick_load : "instantly_return_to_saved_position"
+            smooth_transition : "animate_between_positions"
+          }
+
+          auto_bookmarks : {
+            interesting_views : "game_suggests_cinematic_viewpoints"
+            landmarks : "bookmarks_for_major_buildings_monuments"
+            events : "suggested_angles_for_festivals_battles"
+          }
+        }
+      }
+
+      field_of_view : {
+        range : "30_to_120_degrees"
+        presets : {
+          narrow : "60_degrees_natural_perspective"
+          normal : "75_degrees_default"
+          wide : "90_degrees_expansive_vista"
+          ultra_wide : "110_degrees_dramatic_effect"
+        }
+
+        slider : "precise_adjustment"
+      }
+
+      aspect_ratio : {
+        presets : [
+          "16:9 (landscape)",
+          "4:3 (classic)",
+          "1:1 (square for Instagram)",
+          "9:16 (portrait for mobile)",
+          "21:9 (ultrawide cinematic)",
+          "2.39:1 (anamorphic widescreen)",
+          "custom"
+        ]
+
+        overlays : "show_crop_guides_for_target_ratio"
+      }
+    }
+
+    lens_effects : {
+      depth_of_field : {
+        enable : "toggle_dof_on_off"
+
+        aperture : {
+          range : "f/1.4_to_f/22"
+          effect : {
+            wide_open : "f1.4_very_shallow_dof_creamy_bokeh"
+            medium : "f5.6_moderate_dof"
+            stopped_down : "f16_deep_dof_everything_sharp"
+          }
+
+          slider : "precise_f_stop_adjustment"
+        }
+
+        focus : {
+          manual : {
+            slider : "adjust_focus_distance"
+            visualization : "focus_peaking_highlights_in_focus_areas"
+            colors : ["red", "green", "blue", "yellow", "white"]
+          }
+
+          auto_focus : {
+            tap : "tap_subject_to_focus"
+            tracking : "focus_follows_moving_subject"
+            face_detection : "auto_focus_on_citizen_faces"
+          }
+
+          focus_distance : {
+            macro : "focus_on_objects_inches_away"
+            portrait : "focus_3_to_10_feet_away"
+            landscape : "focus_to_infinity"
+          }
+        }
+
+        bokeh : {
+          shape : {
+            circular : "realistic_circular_bokeh"
+            hexagonal : "hexagonal_lens_aperture_shape"
+            octagonal : "octagonal_high_end_lens"
+            custom : "heart_star_shaped_bokeh_for_artistic_effect"
+          }
+
+          quality : {
+            realistic : "physically_accurate_bokeh"
+            artistic : "enhanced_smooth_creamy_bokeh"
+            extreme : "exaggerated_for_dramatic_effect"
+          }
+
+          chromatic_aberration : {
+            enable : "color_fringing_in_bokeh_realistic"
+            intensity : "subtle_to_pronounced"
+          }
+        }
+      }
+
+      lens_characteristics : {
+        distortion : {
+          barrel : "bulging_effect_wide_angle_lenses"
+          pincushion : "pinching_effect_telephoto_lenses"
+          fisheye : "extreme_barrel_distortion_180_degree_view"
+          none : "rectilinear_no_distortion"
+
+          slider : "adjust_distortion_amount"
+        }
+
+        vignette : {
+          enable : "darkening_of_corners"
+          intensity : "subtle_to_heavy"
+          feather : "soft_gradual_or_hard_edge"
+          color : "black_or_custom_color_tint"
+        }
+
+        chromatic_aberration : {
+          enable : "color_fringing_at_edges"
+          intensity : "realistic_subtle_or_artistic_strong"
+        }
+
+        lens_flare : {
+          enable : "flare_when_sun_in_frame"
+          type : {
+            anamorphic : "horizontal_blue_streaks"
+            classic : "circular_rainbow_rings"
+            modern : "minimal_ghosting"
+            vintage : "starburst_and_haze"
+          }
+
+          intensity : "subtle_to_dramatic"
+          color : "white_blue_gold_custom"
+        }
+
+        film_grain : {
+          enable : "add_texture_vintage_feel"
+          intensity : "fine_to_coarse"
+          color : "monochrome_or_color_grain"
+        }
+      }
+
+      tilt_shift : {
+        enable : "miniature_diorama_effect"
+
+        focus_plane : {
+          position : "adjust_focus_band_position"
+          width : "narrow_band_or_wide_band"
+          angle : "horizontal_vertical_or_angled"
+        }
+
+        blur_intensity : "subtle_to_extreme_blur_outside_focus"
+
+        enhancement : {
+          saturation_boost : "vivid_toy_like_colors"
+          contrast_increase : "punchy_miniature_look"
+        }
+      }
+
+      vintage_effects : {
+        sepia : "warm_brown_tones_old_photograph"
+        black_and_white : "classic_monochrome"
+        daguerreotype : "19th_century_photo_style"
+        tintype : "dark_vintage_metallic_look"
+        autochrome : "early_color_photography_1900s"
+      }
+    }
+
+    exposure : {
+      mode : {
+        auto : "automatic_exposure"
+        manual : "full_manual_control"
+        aperture_priority : "set_aperture_auto_adjust_shutter"
+        shutter_priority : "set_shutter_auto_adjust_aperture"
+      }
+
+      settings : {
+        iso : {
+          range : "100_to_6400"
+          effect : {
+            low_iso : "clean_image_less_sensitive"
+            high_iso : "more_sensitive_more_grain_noise"
+          }
+        }
+
+        shutter_speed : {
+          range : "1/8000s_to_30s"
+          effect : {
+            fast : "freeze_motion_sharp"
+            slow : "motion_blur_flowing_water_moving_crowds"
+          }
+
+          note : "affects_motion_blur_simulation_in_paused_game"
+        }
+
+        exposure_compensation : {
+          range : "-3_to_+3_ev"
+          use : "brighten_or_darken_image"
+        }
+      }
+
+      histogram : {
+        display : "rgb_histogram_show_exposure_distribution"
+        highlight_clipping : "red_overlay_on_overexposed_areas"
+        shadow_clipping : "blue_overlay_on_underexposed_areas"
+      }
+
+      hdr : {
+        enable : "high_dynamic_range_capture"
+        bracketing : "capture_multiple_exposures_merge"
+        tone_mapping : "realistic_or_artistic_hdr_look"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // COMPOSITION TOOLS
+  // ==========================================================================
+  // Guides and tools to help compose perfect photographs
+
+  composition : {
+
+    grid_overlays : {
+      rule_of_thirds : {
+        description : "3x3_grid_for_classic_composition"
+        use : "place_subjects_on_intersections_for_balance"
+      }
+
+      golden_ratio : {
+        description : "fibonacci_spiral_and_phi_grid"
+        use : "mathematically_pleasing_composition"
+      }
+
+      center_cross : {
+        description : "crosshairs_in_center"
+        use : "center_aligned_symmetric_shots"
+      }
+
+      diagonal_lines : {
+        description : "diagonal_from_corners"
+        use : "dynamic_energetic_composition"
+      }
+
+      golden_triangle : {
+        description : "triangular_composition_guide"
+        use : "lead_eye_through_image"
+      }
+
+      custom_grid : {
+        rows : "2_to_10_rows"
+        columns : "2_to_10_columns"
+        use : "custom_architectural_grid"
+      }
+
+      display : {
+        opacity : "adjustable_0_to_100_percent"
+        color : "white_black_yellow_custom"
+        toggle : "quick_on_off"
+      }
+    }
+
+    framing_aids : {
+      safe_areas : {
+        action_safe : "area_guaranteed_visible_all_screens"
+        title_safe : "area_safe_for_text_and_titles"
+      }
+
+      aspect_ratio_masks : {
+        dim_outside : "darken_area_outside_target_ratio"
+        crop_preview : "show_exactly_what_will_be_cropped"
+      }
+
+      headroom_guide : {
+        portrait : "show_ideal_headroom_for_portraits"
+        adjustable : "customize_to_preference"
+      }
+    }
+
+    smart_suggestions : {
+      ai_composition : {
+        analysis : "ai_analyzes_scene_suggests_improvements"
+        suggestions : [
+          "Move camera 2 feet left for better balance",
+          "Lower angle to make building more imposing",
+          "Include more foreground for depth",
+          "Rotate 15 degrees for aligned columns"
+        ]
+
+        toggle : "enable_disable_suggestions"
+      }
+
+      interesting_subjects : {
+        highlight : "ai_highlights_photogenic_elements"
+        examples : [
+          "Chariot race in progress",
+          "Senator giving speech",
+          "Beautiful sunset over Tiber",
+          "Dramatic fire in distance"
+        ]
+
+        auto_frame : "ai_suggests_perfect_framing_for_subject"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // SUBJECT CONTROLS
+  // ==========================================================================
+  // Control what appears in the photograph
+
+  subjects : {
+
+    citizen_posing : {
+      select_citizens : {
+        tap : "tap_citizen_to_select"
+        multiple : "select_up_to_20_citizens"
+      }
+
+      poses : {
+        categories : {
+          daily_life : ["walking", "talking", "working", "carrying", "resting"]
+          formal : ["standing_proud", "saluting", "praying", "speaking"]
+          social : ["conversing", "embracing", "celebrating", "dining"]
+          action : ["running", "fighting", "cheering", "fleeing"]
+          emotion : ["happy", "sad", "angry", "fearful", "surprised"]
+        }
+
+        control : {
+          pose_library : "browse_hundreds_of_poses"
+          apply : "apply_pose_to_selected_citizen"
+          blend : "blend_between_two_poses"
+          mirror : "flip_pose_left_right"
+        }
+
+        custom : {
+          save_pose : "save_current_animation_frame_as_custom_pose"
+          import : "import_community_created_poses"
+        }
+      }
+
+      expressions : {
+        facial : {
+          presets : ["neutral", "smile", "laugh", "frown", "scowl", "fear", "surprise", "contempt"]
+          sliders : {
+            eyebrows : "raised_to_furrowed"
+            eyes : "wide_to_squinting"
+            mouth : "smile_to_frown"
+          }
+        }
+      }
+
+      placement : {
+        nudge : "fine_position_adjustment_inches"
+        rotate : "rotate_citizen_to_face_camera_or_away"
+        height : "adjust_if_standing_on_elevation"
+      }
+
+      freeze : {
+        hold_pose : "citizen_holds_pose_indefinitely"
+        release : "return_to_normal_ai_behavior"
+      }
+    }
+
+    hide_show_elements : {
+      ui_elements : {
+        hide_all_ui : "completely_clean_screenshot"
+        selective : {
+          options : ["buttons", "menus", "notifications", "tooltips", "resource_bars"]
+          toggle_individual : "show_hide_specific_ui_elements"
+        }
+      }
+
+      world_elements : {
+        buildings : {
+          hide_specific : "hide_building_blocking_view"
+          show_only : "show_only_specific_buildings"
+          filter_by_type : "hide_all_insulae_show_only_monuments"
+        }
+
+        citizens : {
+          hide_all : "empty_streets_for_architectural_shots"
+          density : "reduce_or_increase_visible_citizen_density"
+          filter : "show_only_soldiers_or_only_nobles_etc"
+        }
+
+        vehicles : {
+          hide_carts : "remove_carts_wagons"
+          hide_chariots : "remove_chariots"
+        }
+
+        nature : {
+          trees : "hide_show_vegetation"
+          water : "toggle_water_visibility"
+        }
+
+        effects : {
+          smoke : "hide_show_smoke_from_buildings"
+          dust : "hide_show_dust_particles"
+          weather : "hide_rain_snow_effects"
+        }
+      }
+
+      overlays : {
+        roads : "hide_show_road_overlays"
+        zones : "hide_show_zoning_overlays"
+        borders : "hide_show_district_borders"
+      }
+    }
+
+    lighting_control : {
+      note : "see_lighting_section_below"
+    }
+  }
+
+  // ==========================================================================
+  // LIGHTING & TIME OF DAY
+  // ==========================================================================
+  // Control lighting for perfect illumination
+
+  lighting : {
+
+    time_of_day : {
+      control : {
+        time_slider : "24_hour_slider_to_set_exact_time"
+        quick_presets : ["sunrise", "golden_hour_morning", "noon", "golden_hour_evening", "sunset", "twilight", "midnight"]
+
+        speed : {
+          pause : "freeze_time_completely"
+          slow : "slow_time_to_see_light_changes"
+          normal : "real_time_passage"
+          fast : "timelapse_speed"
+        }
+
+        animate : {
+          enable : "automatically_animate_through_day"
+          duration : "10s_30s_1min_for_full_day_cycle"
+          loop : "continuous_loop_for_timelapse"
+        }
+      }
+
+      lighting_conditions : {
+        sunrise : {
+          time : "6am"
+          character : "soft_warm_golden_light_from_east"
+          shadows : "long_dramatic_shadows"
+          mood : "peaceful_hopeful_new_beginning"
+        }
+
+        golden_hour_morning : {
+          time : "7_to_8am"
+          character : "magical_warm_orange_glow"
+          shadows : "still_long_but_softer"
+          mood : "romantic_beautiful"
+        }
+
+        noon : {
+          time : "12pm"
+          character : "harsh_bright_white_light_from_above"
+          shadows : "short_hard_shadows_directly_below"
+          mood : "intense_stark_documentary"
+        }
+
+        golden_hour_evening : {
+          time : "5_to_6pm"
+          character : "warm_golden_amber_light_from_west"
+          shadows : "long_stretching_towards_east"
+          mood : "romantic_nostalgic_cinematic"
+        }
+
+        sunset : {
+          time : "6_to_7pm"
+          character : "orange_red_purple_hues_dramatic"
+          shadows : "very_long_dramatic"
+          mood : "epic_emotional_ending"
+        }
+
+        twilight : {
+          time : "7_to_8pm"
+          character : "blue_hour_soft_diffused_blue_light"
+          shadows : "minimal_soft"
+          mood : "mysterious_peaceful_contemplative"
+        }
+
+        night : {
+          time : "9pm_to_5am"
+          character : "moonlight_artificial_lights_torches"
+          shadows : "deep_blacks_pools_of_light"
+          mood : "dramatic_mysterious_intimate"
+        }
+      }
+    }
+
+    sun_position : {
+      override : {
+        enable : "override_realistic_sun_position"
+        azimuth : "0_to_360_degrees_horizontal_position"
+        elevation : "-10_to_90_degrees_vertical_angle"
+      }
+
+      use_cases : {
+        backlight : "position_sun_behind_subject_for_rim_light"
+        sidelight : "position_sun_to_side_for_dramatic_shadows"
+        frontlight : "position_sun_facing_subject_for_even_illumination"
+      }
+
+      visualization : {
+        sun_path : "show_arc_of_sun_across_sky"
+        sun_indicator : "visual_indicator_of_sun_position"
+      }
+    }
+
+    artificial_lights : {
+      torches_lamps : {
+        intensity : "adjust_brightness_of_torches_and_oil_lamps"
+        color : "warm_orange_flickering_light"
+        toggle : "turn_all_on_off_or_selective"
+      }
+
+      fire : {
+        intensity : "brightness_of_fires_braziers"
+        glow : "radius_of_firelight"
+      }
+
+      ambient_occlusion : {
+        intensity : "darken_crevices_and_corners"
+        effect : "increases_depth_and_realism"
+      }
+    }
+
+    weather_lighting : {
+      clear : "bright_direct_sunlight"
+      partly_cloudy : "softer_light_with_intermittent_sun"
+      overcast : "diffused_flat_light_no_hard_shadows"
+      stormy : "dark_dramatic_occasional_lightning"
+      fog : "soft_diffused_mysterious_limited_visibility"
+
+      slider : "adjust_cloudiness_0_to_100_percent"
+    }
+
+    mood_presets : {
+      cinematic : {
+        dawn_of_empire : "golden_sunrise_hopeful"
+        glory_of_rome : "bright_midday_triumphant"
+        twilight_of_gods : "purple_sunset_melancholic"
+        fall_of_rome : "dark_stormy_ominous"
+      }
+
+      artistic : {
+        renaissance_painting : "dramatic_chiaroscuro_lighting"
+        impressionist : "soft_dappled_light"
+        romantic : "golden_warm_glowing"
+        film_noir : "high_contrast_harsh_shadows"
+      }
+    }
+
+    custom_lights : {
+      add_light : {
+        type : ["point", "spot", "directional", "area"]
+        position : "place_anywhere_in_scene"
+        color : "full_rgb_color_picker"
+        intensity : "0_to_1000_percent"
+        radius : "range_of_light_influence"
+      }
+
+      up_to : "10_custom_lights_per_scene"
+
+      use_cases : {
+        fill_light : "brighten_shadows_on_subject"
+        rim_light : "backlight_for_edge_highlighting"
+        accent_light : "highlight_specific_detail"
+        atmospheric : "volumetric_god_rays"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // POST-PROCESSING & FILTERS
+  // ==========================================================================
+  // Edit and enhance captured images
+
+  post_processing : {
+
+    color_grading : {
+      presets : {
+        natural : "realistic_colors_no_grading"
+        vibrant : "boosted_saturation_punchy_colors"
+        muted : "desaturated_subtle_tones"
+        warm : "orange_amber_tones_nostalgic"
+        cool : "blue_teal_tones_modern"
+        cinematic : "teal_and_orange_hollywood_look"
+        vintage : "faded_retro_colors"
+        monochrome : "black_and_white"
+        sepia : "brown_tones_old_photograph"
+        custom : "full_manual_control"
+      }
+
+      manual_controls : {
+        temperature : {
+          range : "warm_to_cool"
+          effect : "2000k_to_10000k_color_temperature"
+        }
+
+        tint : {
+          range : "green_to_magenta"
+          effect : "fine_tune_color_balance"
+        }
+
+        exposure : {
+          range : "-3_to_+3_ev"
+          effect : "overall_brightness"
+        }
+
+        contrast : {
+          range : "-100_to_+100"
+          effect : "difference_between_light_and_dark"
+        }
+
+        highlights : {
+          range : "-100_to_+100"
+          effect : "brighten_or_darken_bright_areas"
+        }
+
+        shadows : {
+          range : "-100_to_+100"
+          effect : "brighten_or_darken_dark_areas"
+        }
+
+        whites : {
+          range : "-100_to_+100"
+          effect : "adjust_white_point"
+        }
+
+        blacks : {
+          range : "-100_to_+100"
+          effect : "adjust_black_point"
+        }
+
+        saturation : {
+          range : "-100_to_+100"
+          effect : "intensity_of_all_colors"
+        }
+
+        vibrance : {
+          range : "-100_to_+100"
+          effect : "intensity_of_muted_colors_only"
+        }
+
+        clarity : {
+          range : "-100_to_+100"
+          effect : "midtone_contrast_texture_detail"
+        }
+
+        dehaze : {
+          range : "0_to_100"
+          effect : "remove_atmospheric_haze"
+        }
+      }
+
+      curves : {
+        rgb_curve : "adjust_tonal_curve_for_all_channels"
+        red_curve : "adjust_red_channel"
+        green_curve : "adjust_green_channel"
+        blue_curve : "adjust_blue_channel"
+
+        control_points : "add_points_to_curve_for_precise_control"
+      }
+
+      hsl_sliders : {
+        hue : "shift_specific_color_hues"
+        saturation : "adjust_saturation_of_specific_colors"
+        luminance : "adjust_brightness_of_specific_colors"
+
+        channels : ["red", "orange", "yellow", "green", "aqua", "blue", "purple", "magenta"]
+      }
+
+      split_toning : {
+        highlights_color : "tint_bright_areas_with_color"
+        shadows_color : "tint_dark_areas_with_color"
+        balance : "blend_between_highlight_and_shadow_toning"
+      }
+    }
+
+    artistic_filters : {
+      oil_painting : {
+        effect : "painterly_oil_painting_look"
+        brush_size : "small_to_large_brushstrokes"
+      }
+
+      watercolor : {
+        effect : "soft_flowing_watercolor_painting"
+        intensity : "subtle_to_heavy"
+      }
+
+      pencil_sketch : {
+        effect : "graphite_pencil_drawing"
+        detail : "fine_lines_or_broad_strokes"
+      }
+
+      ink_drawing : {
+        effect : "black_ink_illustration"
+        style : "cross_hatch_or_stippling"
+      }
+
+      mosaic : {
+        effect : "roman_mosaic_tile_effect"
+        tile_size : "small_to_large_tiles"
+        historically_appropriate : "authentic_roman_mosaic_patterns"
+      }
+
+      fresco : {
+        effect : "ancient_roman_wall_fresco_look"
+        aging : "cracked_faded_weathered"
+      }
+
+      engraving : {
+        effect : "historical_engraving_style"
+        line_density : "fine_to_coarse_lines"
+      }
+
+      posterize : {
+        effect : "reduced_colors_poster_art"
+        levels : "2_to_32_color_levels"
+      }
+    }
+
+    effects : {
+      bloom : {
+        intensity : "soft_glow_around_highlights"
+        threshold : "brightness_threshold_for_bloom"
+        radius : "size_of_glow"
+      }
+
+      god_rays : {
+        enable : "volumetric_light_shafts"
+        intensity : "brightness_of_rays"
+        source : "sun_or_custom_light_sources"
+      }
+
+      fog : {
+        density : "thickness_of_fog"
+        color : "white_blue_or_custom"
+        height : "ground_fog_or_high_atmosphere"
+      }
+
+      rain : {
+        intensity : "light_to_heavy_rain"
+        droplets_on_lens : "water_droplets_on_camera"
+      }
+
+      snow : {
+        intensity : "light_flurries_to_blizzard"
+        accumulation : "visible_snow_on_surfaces"
+      }
+
+      dust_particles : {
+        density : "floating_dust_motes_in_air"
+        sunbeams : "visible_in_light_shafts"
+      }
+    }
+
+    sharpening_noise : {
+      sharpen : {
+        amount : "0_to_100_increase_sharpness"
+        radius : "size_of_sharpening_effect"
+        masking : "protect_smooth_areas_from_sharpening"
+      }
+
+      noise_reduction : {
+        luminance : "reduce_brightness_noise"
+        color : "reduce_color_noise"
+        detail : "preserve_fine_detail"
+      }
+
+      add_grain : {
+        amount : "add_film_grain_texture"
+        size : "fine_medium_coarse_grain"
+        roughness : "grain_pattern_irregularity"
+      }
+    }
+
+    borders_overlays : {
+      frames : {
+        styles : ["none", "simple_black", "white_mat", "ornate_gold", "roman_columns", "scroll", "mosaic_border"]
+        width : "thin_to_thick"
+        color : "customizable"
+      }
+
+      watermarks : {
+        text : {
+          custom_text : "add_photographer_name_or_caption"
+          font : "roman_serif_modern_handwriting"
+          size : "small_to_large"
+          position : "9_position_presets_or_custom"
+          opacity : "10_to_100_percent"
+          color : "white_black_custom"
+        }
+
+        logo : {
+          import_image : "add_personal_logo_or_seal"
+          position : "anywhere"
+          size : "adjustable"
+          opacity : "adjustable"
+        }
+      }
+
+      vignette : {
+        already_in_lens_effects : "see_camera_lens_vignette"
+        post_vignette : "additional_artistic_vignette"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // SPECIAL MODES
+  // ==========================================================================
+  // Unique photography modes
+
+  special_modes : {
+
+    panorama : {
+      capture : {
+        method : "stitch_multiple_photos"
+        orientation : ["horizontal_360", "vertical_180", "spherical_360x180"]
+
+        automatic : {
+          process : "player_pans_camera_game_auto_stitches"
+          indicator : "arrow_showing_direction_to_pan"
+        }
+
+        manual : {
+          process : "capture_individual_frames_manually_stitch"
+          overlap : "show_overlap_guides"
+        }
+      }
+
+      viewing : {
+        interactive : "view_panorama_by_panning_device_or_swiping"
+        vr_compatible : "export_for_vr_viewing"
+      }
+    }
+
+    timelapse : {
+      setup : {
+        duration : "1_minute_to_1_hour_real_time"
+        interval : "capture_frame_every_1s_to_60s"
+        speed : "1x_to_1000x_game_time_speed"
+      }
+
+      subject_ideas : {
+        construction : "monument_being_built_over_time"
+        day_cycle : "full_24_hour_day_lighting_changes"
+        seasons : "year_passing_seasonal_changes"
+        city_growth : "population_expanding_buildings_rising"
+        traffic : "citizens_flowing_through_streets"
+      }
+
+      output : {
+        video : "export_as_mp4_video"
+        gif : "export_as_animated_gif"
+        frame_sequence : "export_individual_frames"
+      }
+
+      playback : {
+        speed_control : "play_faster_or_slower"
+        reverse : "play_timelapse_backwards"
+        loop : "continuous_loop"
+      }
+    }
+
+    macro : {
+      focus : {
+        extreme_closeup : "zoom_in_on_tiny_details"
+        examples : [
+          "Mosaic tiles individual tesserae",
+          "Citizen's face pores and wrinkles",
+          "Coins and currency details",
+          "Food items bread texture",
+          "Weapons and armor engravings",
+          "Scrolls and text"
+        ]
+      }
+
+      depth_of_field : {
+        very_shallow : "f1.2_or_wider_equivalent"
+        focus_plane : "paper_thin_focus_area"
+      }
+    }
+
+    drone_view : {
+      perspective : {
+        height : "10_to_1000_feet_above_ground"
+        angle : "straight_down_to_45_degree_angle"
+      }
+
+      movement : {
+        orbit : "circle_around_subject"
+        dolly : "move_in_or_out_while_keeping_subject_centered"
+        reveal : "rise_up_to_reveal_landscape"
+      }
+
+      use_cases : {
+        city_planning : "see_entire_city_layout"
+        architecture : "overhead_view_of_buildings"
+        patterns : "geometric_patterns_from_above"
+        landscapes : "sweeping_vistas"
+      }
+    }
+
+    infrared : {
+      effect : "infrared_photography_look"
+      characteristics : {
+        foliage : "vegetation_appears_white"
+        sky : "darkened_dramatic_sky"
+        skin : "ethereal_glowing_skin_tones"
+      }
+
+      color_mapping : {
+        false_color : "map_infrared_to_visible_colors"
+        presets : ["classic_white_foliage", "color_ir_pink_foliage", "blue_sky_white_trees"]
+      }
+    }
+
+    x_ray : {
+      toggle : "see_through_walls_buildings"
+      use : {
+        architectural : "reveal_internal_structure"
+        layered : "show_multiple_floors_simultaneously"
+        educational : "see_how_buildings_constructed"
+      }
+
+      opacity : "adjust_transparency_level"
+    }
+  }
+
+  // ==========================================================================
+  // CAPTURE & SHARING
+  // ==========================================================================
+  // Save and share photographs
+
+  capture : {
+
+    resolution : {
+      presets : [
+        "Screen resolution (1080p, 1440p, 4K)",
+        "4K (3840x2160)",
+        "5K (5120x2880)",
+        "8K (7680x4320)",
+        "Print quality (300 DPI A4)",
+        "Print quality (300 DPI A3)",
+        "Print quality (300 DPI poster)",
+        "Custom resolution"
+      ]
+
+      upscaling : {
+        ai_upscale : "use_ai_to_upscale_beyond_native_resolution"
+        quality : "high_quality_machine_learning_upscaling"
+      }
+    }
+
+    format : {
+      image : ["JPEG (standard)", "PNG (lossless)", "HEIF (efficient)", "TIFF (professional)", "ProRAW (maximum editing)"]
+
+      quality : {
+        jpeg_quality : "60_to_100_percent"
+        compression : "balance_file_size_vs_quality"
+      }
+
+      metadata : {
+        exif : "include_camera_settings_in_metadata"
+        custom_tags : "add_title_description_keywords"
+      }
+    }
+
+    burst_mode : {
+      capture : "take_multiple_shots_rapidly"
+      use_cases : {
+        slight_variations : "capture_subtle_different_angles"
+        pick_best : "choose_best_from_series"
+      }
+
+      auto_suggest : "ai_suggests_best_photo_from_burst"
+    }
+
+    save_location : {
+      photos_library : "save_to_device_photos_app"
+      game_gallery : "save_to_in_game_photo_gallery"
+      icloud_photos : "sync_to_icloud_photos"
+      files_app : "save_to_specific_folder"
+
+      organization : {
+        automatic : "organize_by_date_city_subject"
+        albums : "create_custom_albums_collections"
+        tags : "tag_with_keywords_for_search"
+      }
+    }
+  }
+
+  sharing : {
+
+    built_in_sharing : {
+      social_media : {
+        direct_share : ["Instagram", "Twitter", "Facebook", "Pinterest", "Reddit"]
+
+        optimization : {
+          instagram : "auto_crop_and_optimize_for_instagram"
+          twitter : "correct_aspect_ratio_and_compression"
+          facebook : "high_quality_upload"
+        }
+
+        hashtags : {
+          auto_suggest : "suggest_relevant_hashtags"
+          examples : ["#CaesarIA", "#VirtualPhotography", "#RomanEmpire", "#PhotoMode"]
+        }
+
+        caption : {
+          auto_generate : "ai_generates_caption_based_on_scene"
+          editable : "player_can_edit_before_posting"
+        }
+      }
+
+      community : {
+        in_game_gallery : {
+          upload : "share_to_caesaria_community_gallery"
+          discover : "browse_photos_from_other_players"
+          like_comment : "interact_with_community"
+          follow : "follow_favorite_photographers"
+        }
+
+        competitions : {
+          weekly_themes : "participate_in_weekly_photo_challenges"
+          examples : ["Best Sunset", "Architectural Detail", "Street Life", "Dramatic Lighting"]
+          voting : "community_votes_on_favorites"
+          prizes : "in_game_rewards_for_winners"
+        }
+
+        featured : {
+          selection : "best_photos_featured_on_loading_screens"
+          credit : "photographer_name_displayed"
+          hall_of_fame : "permanent_gallery_of_best_photos"
+        }
+      }
+
+      export : {
+        ios_share_sheet : "use_native_ios_sharing"
+        destinations : [
+          "Messages",
+          "Mail",
+          "AirDrop",
+          "Save to Files",
+          "Print",
+          "Set as Wallpaper",
+          "Add to Shared Album",
+          "Copy"
+        ]
+      }
+    }
+
+    print_services : {
+      integration : {
+        apple_photos_print : "order_prints_through_photos_app"
+        third_party : "links_to_print_services"
+      }
+
+      products : {
+        prints : "4x6_to_poster_size"
+        canvas : "gallery_wrapped_canvas"
+        metal_print : "aluminum_metal_print"
+        photo_book : "create_photo_book_of_roman_city"
+        calendar : "roman_calendar_with_photos"
+      }
+
+      templates : {
+        historical : "frames_and_styles_appropriate_for_roman_subject"
+      }
+    }
+
+    collaborative : {
+      shared_albums : {
+        create : "create_shared_album_with_friends_family"
+        contribute : "multiple_players_add_photos"
+        theme : "collaborative_themes_like_our_roman_empire"
+      }
+
+      virtual_exhibition : {
+        gallery_mode : "curate_virtual_gallery_in_game"
+        invite : "invite_others_to_tour_your_exhibition"
+        VIP_opening : "host_virtual_opening_event"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // PHOTO GALLERY
+  // ==========================================================================
+  // Manage and view captured photographs
+
+  gallery : {
+
+    organization : {
+      views : {
+        grid : "thumbnail_grid_view"
+        list : "list_with_details"
+        timeline : "organized_by_date"
+        map : "photos_placed_on_city_map_where_taken"
+      }
+
+      sorting : {
+        options : ["date", "rating", "size", "name", "location", "subject"]
+        ascending_descending : "toggle_sort_order"
+      }
+
+      filtering : {
+        by_city : "filter_by_which_save_file"
+        by_date : "date_range_picker"
+        by_subject : "citizens_buildings_landscapes"
+        by_rating : "show_only_favorites"
+        by_tags : "filter_by_custom_tags"
+      }
+
+      search : {
+        text_search : "search_captions_and_tags"
+        ai_search : "search_by_content_find_all_sunsets"
+      }
+    }
+
+    viewing : {
+      slideshow : {
+        auto_play : "automatic_slideshow_of_photos"
+        transitions : ["fade", "dissolve", "slide", "zoom", "ken_burns"]
+        music : "background_music_from_game_soundtrack"
+        speed : "adjustable_timing"
+      }
+
+      fullscreen : {
+        immersive : "view_photo_fullscreen_no_ui"
+        controls : "swipe_to_next_previous"
+        zoom : "pinch_to_zoom_into_details"
+      }
+
+      info_overlay : {
+        metadata : "display_camera_settings_date_location"
+        caption : "show_title_and_description"
+        stats : "views_likes_from_community"
+      }
+
+      comparison : {
+        side_by_side : "compare_two_photos"
+        before_after : "slider_to_compare_edits"
+        multi_view : "grid_of_up_to_9_photos"
+      }
+    }
+
+    editing : {
+      re_edit : {
+        non_destructive : "original_always_preserved"
+        adjust : "re_open_photo_mode_adjust_settings"
+        post_processing : "edit_color_grading_filters"
+      }
+
+      versions : {
+        save_multiple : "save_different_edits_of_same_photo"
+        compare : "compare_versions"
+      }
+    }
+
+    curation : {
+      favorites : {
+        star_rating : "1_to_5_stars"
+        favorites : "mark_as_favorite"
+        reject : "mark_as_rejected_hide_from_view"
+      }
+
+      albums : {
+        create : "custom_albums_and_collections"
+        examples : ["Best Sunsets", "Architectural Details", "Citizens of Rome", "My Dynasty"]
+        smart_albums : "auto_populate_based_on_criteria"
+      }
+
+      export_album : {
+        whole_album : "export_entire_album_at_once"
+        zip : "download_as_zip_file"
+        slideshow_video : "export_album_as_video"
+      }
+    }
+
+    statistics : {
+      personal_stats : {
+        total_photos : "count"
+        favorite_time : "most_common_time_of_day"
+        favorite_subject : "buildings_citizens_landscapes"
+        average_rating : "from_community"
+      }
+
+      achievements : {
+        photographer_ranks : {
+          novice : "10_photos_captured"
+          amateur : "100_photos_captured"
+          professional : "500_photos_captured"
+          master : "1000_photos_captured"
+          legendary : "5000_photos_captured_and_100_community_favorites"
+        }
+
+        special_achievements : {
+          golden_hour_guru : "capture_100_photos_during_golden_hour"
+          night_owl : "capture_100_photos_at_night"
+          macro_master : "capture_50_macro_photos"
+          panorama_pro : "create_10_panoramas"
+          perfect_timing : "capture_photo_at_exact_moment_of_sunset"
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // TUTORIALS & LEARNING
+  // ==========================================================================
+  // Help players become better photographers
+
+  education : {
+
+    interactive_tutorials : {
+      basics : {
+        "Introduction to Photo Mode" : "basic_camera_controls"
+        "Rule of Thirds" : "composition_fundamentals"
+        "Understanding Exposure" : "aperture_shutter_iso"
+        "Depth of Field" : "bokeh_and_focus"
+      }
+
+      intermediate : {
+        "Golden Hour Photography" : "best_times_for_lighting"
+        "Portrait Photography" : "photographing_citizens"
+        "Architectural Photography" : "capturing_buildings"
+        "Night Photography" : "low_light_techniques"
+      }
+
+      advanced : {
+        "Color Grading Masterclass" : "professional_color_work"
+        "Advanced Composition" : "golden_ratio_leading_lines"
+        "Creating Mood" : "using_lighting_and_weather"
+        "Storytelling Through Images" : "narrative_photography"
+      }
+
+      step_by_step : {
+        guided : "step_by_step_instructions"
+        practice : "try_it_yourself_exercises"
+        feedback : "ai_evaluates_your_practice_photos"
+      }
+    }
+
+    inspiration : {
+      daily_challenges : {
+        prompt : "daily_photography_prompt"
+        examples : ["Capture a candid moment", "Find symmetry", "Use negative space"]
+        reward : "small_xp_or_achievement_progress"
+      }
+
+      featured_techniques : {
+        showcase : "highlight_specific_technique_each_week"
+        example_photos : "examples_from_developers_and_community"
+        how_to : "breakdown_of_how_photo_was_created"
+      }
+
+      real_world_photography : {
+        lessons : "learn_real_photography_concepts"
+        transfer : "skills_transfer_to_real_camera_photography"
+        history : "history_of_photography_through_the_ages"
+      }
+    }
+
+    reference : {
+      settings_guide : {
+        comprehensive : "detailed_explanation_of_every_setting"
+        examples : "before_after_comparisons"
+        use_cases : "when_to_use_each_setting"
+      }
+
+      glossary : {
+        terms : "photography_terminology_explained"
+        examples : ["Aperture", "Bokeh", "Exposure Triangle", "Rule of Thirds"]
+      }
+
+      tips_tricks : {
+        shortcuts : "keyboard_shortcuts_and_gestures"
+        workflow : "efficient_photography_workflow"
+        hidden_features : "lesser_known_advanced_features"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // INTEGRATION WITH GAMEPLAY
+  // ==========================================================================
+
+  gameplay_integration : {
+
+    photo_mode_access : {
+      trigger : {
+        button : "dedicated_photo_mode_button"
+        pause_menu : "option_in_pause_menu"
+        gesture : "three_finger_tap_shortcut"
+        voice : "hey_siri_open_photo_mode"
+      }
+
+      availability : {
+        always : "accessible_anytime_except_during_cutscenes"
+        pauses_game : "freezes_game_time_and_action"
+      }
+    }
+
+    photo_quests : {
+      assignments : {
+        senator_request : "Senator requests photo of new temple for records"
+        historian : "Document major event for posterity"
+        tourist : "Visiting dignitary wants photo at landmarks"
+        family : "Capture portrait of your dynasty family"
+      }
+
+      rewards : {
+        denarii : "payment_for_completing_photo_quest"
+        reputation : "increase_fame_as_photographer"
+        unlocks : "unlock_new_photo_mode_features"
+      }
+    }
+
+    discovery : {
+      photo_locations : {
+        hidden_vistas : "discover_scenic_viewpoints"
+        mark_on_map : "marked_as_photo_opportunity"
+        bonus : "first_to_photograph_gets_achievement"
+      }
+
+      historical_moments : {
+        special_events : "one_time_events_worth_photographing"
+        examples : ["Colosseum opening", "Triumph procession", "Eclipse"]
+        permanent_record : "photos_become_historical_record_in_game"
+      }
+    }
+
+    in_game_use : {
+      propaganda : {
+        use : "use_photos_for_propaganda_posters"
+        effect : "boost_citizen_morale"
+        customization : "add_text_slogans"
+      }
+
+      documentation : {
+        city_records : "official_city_documentation"
+        before_after : "document_construction_or_disaster"
+        archive : "maintain_visual_archive_of_city_history"
+      }
+
+      portraits : {
+        dynasty : "official_dynasty_portraits"
+        use : "displayed_in_palace_or_family_tree"
+        style : "formal_painted_portrait_look"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // ACCESSIBILITY
+  // ==========================================================================
+
+  accessibility : {
+
+    controls : {
+      customizable : "remap_all_controls"
+      sensitivity : "adjust_movement_rotation_sensitivity"
+      assist : {
+        auto_level : "camera_auto_levels_horizon"
+        snap_to_grid : "camera_snaps_to_grid_points"
+        stabilization : "smooth_camera_movement"
+      }
+    }
+
+    visual_aids : {
+      high_contrast_ui : "increase_ui_contrast"
+      larger_text : "increase_ui_text_size"
+      color_blind_modes : ["protanopia", "deuteranopia", "tritanopia"]
+      focus_peaking : "highlight_in_focus_areas"
+    }
+
+    audio : {
+      sound_cues : "audio_feedback_for_actions"
+      voiceover : "screen_reader_support"
+      haptics : "haptic_feedback_for_adjustments"
+    }
+  }
+
+  // ==========================================================================
+  // TECHNICAL IMPLEMENTATION
+  // ==========================================================================
+
+  technical : {
+
+    rendering : {
+      real_time : "all_adjustments_in_real_time"
+      quality : "maximum_rendering_quality_in_photo_mode"
+      upsampling : "temporal_anti_aliasing_for_clean_images"
+
+      optimizations : {
+        pause_gameplay : "free_up_resources_for_rendering"
+        lod_override : "max_detail_on_all_visible_objects"
+        draw_distance : "increase_draw_distance_for_vistas"
+      }
+    }
+
+    performance : {
+      frame_rate : "unlock_frame_rate_for_smooth_camera_movement"
+      resolution_scaling : "adaptive_resolution_for_smooth_performance"
+      device_optimization : {
+        iphone : "optimized_for_smaller_screen"
+        ipad_pro : "take_advantage_of_120hz_promotion"
+        older_devices : "graceful_degradation_on_older_hardware"
+      }
+    }
+
+    storage : {
+      photo_size : "typical_4k_photo_5_to_15_mb"
+      compression : "efficient_compression_algorithms"
+      management : {
+        cache : "cache_recently_viewed_photos"
+        cleanup : "option_to_bulk_delete_photos"
+        icloud_sync : "automatic_sync_to_icloud_photos"
+      }
+    }
+  }
+}
