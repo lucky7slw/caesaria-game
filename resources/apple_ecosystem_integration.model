@@ -1,0 +1,1406 @@
+// ============================================================================
+// APPLE ECOSYSTEM INTEGRATION
+// ============================================================================
+// Deep integration with Apple's ecosystem for premium iOS/iPadOS experience
+// Leveraging Apple Watch, HealthKit, HomePod, CarPlay, iCloud, Handoff, Widgets
+// Following Apple Human Interface Guidelines and best practices
+// ============================================================================
+
+apple_ecosystem : {
+
+  // ==========================================================================
+  // APPLE WATCH INTEGRATION
+  // ==========================================================================
+  // Companion app for city monitoring and management on the wrist
+
+  apple_watch : {
+
+    companion_app : {
+      independence : {
+        mode : "fully_independent_watch_app"
+        connectivity : "works_with_or_without_iphone_nearby"
+        cellular : "supports_apple_watch_cellular_models"
+      }
+
+      features : {
+        city_dashboard : {
+          glanceable_info : {
+            population : "current_population_and_trend"
+            treasury : "denarii_balance_and_income_rate"
+            food_supply : "grain_stockpile_months_remaining"
+            approval : "citizen_approval_rating"
+            threats : "active_threats_fires_invasions"
+          }
+
+          complications : {
+            modular : {
+              large_module : "city_overview_population_treasury_approval"
+              small_modules : ["population_count", "treasury_balance", "approval_rating", "threat_alert"]
+            }
+
+            infograph : {
+              circular : "approval_rating_circular_gauge"
+              corner : ["population", "treasury", "food", "threats"]
+              bezel : "ring_showing_resource_levels"
+            }
+
+            graphic_corner : "population_graph_trending"
+            graphic_circular : "approval_meter_with_emoji"
+            graphic_rectangular : "city_snapshot_multiple_stats"
+            graphic_extra_large : "detailed_city_overview_full_screen"
+          }
+
+          live_activities : {
+            ongoing_events : {
+              battle : "military_battle_progress"
+              construction : "monument_construction_percentage"
+              festival : "festival_countdown_and_status"
+              disaster : "fire_earthquake_response_status"
+            }
+
+            dynamic_island : {
+              compact : "icon_and_critical_alert"
+              minimal : "pulsing_indicator"
+              expanded : "detailed_event_info_and_actions"
+            }
+          }
+        }
+
+        notifications : {
+          alerts : {
+            critical : {
+              fire : "Fire outbreak in [district]! Vigiles responding."
+              invasion : "Enemy army spotted 10 miles from city!"
+              earthquake : "Earthquake! Buildings damaged, casualties reported."
+              riot : "Riot in forum! Citizens demand food!"
+              assassination : "Assassination attempt on your life!"
+            }
+
+            important : {
+              low_food : "Food supply critically low - only 2 months remaining"
+              low_treasury : "Treasury nearly empty - only 5000 denarii left"
+              approval_drop : "Citizen approval dropped below 30%"
+              disease : "Plague outbreak in residential district"
+              election : "Election in 7 days - time to campaign"
+            }
+
+            info : {
+              construction_complete : "Pantheon construction completed!"
+              trade_deal : "Trade agreement signed with Alexandria"
+              festival : "Saturnalia begins tomorrow"
+              birth : "Your heir has been born - it's a boy!"
+            }
+          }
+
+          haptic_feedback : {
+            critical : "strong_double_tap"
+            important : "prominent_single_tap"
+            info : "gentle_notification_tap"
+          }
+
+          actionable : {
+            fire : {
+              actions : ["dispatch_vigiles", "order_evacuation", "view_on_phone"]
+            }
+            riot : {
+              actions : ["distribute_grain", "send_guards", "view_demands"]
+            }
+            trade_offer : {
+              actions : ["accept_deal", "decline", "negotiate"]
+            }
+          }
+        }
+
+        quick_actions : {
+          from_watch_face : {
+            press_action : "view_city_dashboard"
+            force_touch_menu : ["distribute_grain", "hold_games", "check_military"]
+          }
+
+          common_tasks : {
+            distribute_grain : {
+              interface : "simple_yes_no_confirmation"
+              effect : "boost_approval_immediately"
+              cost : "displays_grain_cost"
+            }
+
+            hold_games : {
+              type_selector : ["chariot_race", "gladiator_combat", "theater"]
+              budget_picker : "digital_crown_scroll_budget"
+              confirm : "tap_to_schedule"
+            }
+
+            check_military : {
+              display : {
+                legion_status : "readiness_levels"
+                threats : "nearby_enemies"
+                quick_deploy : "send_legion_to_border"
+              }
+            }
+
+            emergency_response : {
+              fire : "dispatch_all_available_vigiles"
+              earthquake : "activate_emergency_protocols"
+              flood : "open_flood_gates_evacuate"
+            }
+          }
+        }
+
+        voice_control : {
+          siri : {
+            commands : {
+              status : {
+                "How is my city doing?" : "Responds with population, approval, treasury"
+                "What's my approval rating?" : "Current percentage and trend"
+                "How much money do I have?" : "Treasury balance"
+                "Is there any danger?" : "Lists active threats"
+              }
+
+              actions : {
+                "Distribute grain to the people" : "Execute grain distribution"
+                "Hold chariot races" : "Schedule games"
+                "Send my legion to the border" : "Deploy military"
+                "Check food supply" : "Report grain stockpile"
+              }
+
+              dynasty : {
+                "How is my heir?" : "Report on heir's age, health, traits"
+                "Who is in my family?" : "List family members"
+              }
+
+              shortcuts : {
+                custom : "Create Siri shortcuts for complex action sequences"
+                examples : [
+                  "Morning briefing": "Population, treasury, threats, today's events",
+                  "Emergency response": "Check all threats, dispatch services",
+                  "Economic report": "Income, expenses, trade balance"
+                ]
+              }
+            }
+          }
+        }
+
+        workouts : {
+          city_building_activity : {
+            type : "mindful_minutes_or_custom_workout"
+            tracking : {
+              duration : "session_length"
+              decisions_made : "count_as_metric"
+              problems_solved : "fires_riots_handled"
+            }
+
+            rings_contribution : {
+              move_ring : "minimal_contribution_sedentary_activity"
+              stand_ring : "reminder_to_stand_every_hour"
+              mindful_minutes : "strategic_thinking_counts_as_mindfulness"
+            }
+          }
+
+          gamification : {
+            achievements : {
+              "Urban Planner": "Plan for 1 hour"
+              "Crisis Manager": "Handle 10 emergencies"
+              "Dynasty Builder": "Play for 7 consecutive days"
+            }
+
+            awards : "unlock_apple_watch_awards"
+          }
+        }
+
+        health_integration : {
+          note : "See HealthKit section for detailed health tracking"
+
+          watch_sensors : {
+            heart_rate : "detect_stress_during_disasters"
+            breathing : "calm_breathing_during_crisis"
+          }
+        }
+      }
+
+      interface_design : {
+        watch_os_native : {
+          list_views : "scroll_through_districts_or_issues"
+          detail_views : "tap_for_detailed_information"
+          digital_crown : {
+            scrolling : "smooth_scrolling_through_lists"
+            zooming : "zoom_in_on_city_map"
+            value_adjustment : "adjust_budgets_sliders"
+          }
+
+          tap_gestures : {
+            single_tap : "select_item"
+            force_touch : "context_menu_legacy_support"
+            long_press : "additional_options"
+            swipe : "dismiss_or_navigate_back"
+          }
+        }
+
+        visual_design : {
+          always_on_display : {
+            support : "optimized_for_always_on_watch_faces"
+            low_power : "simplified_visuals_when_wrist_down"
+          }
+
+          dark_mode : "full_support_for_dark_mode"
+
+          color_coding : {
+            green : "positive_metrics_approval_high"
+            yellow : "warning_low_supplies"
+            red : "critical_threats_emergencies"
+            blue : "neutral_information"
+          }
+        }
+
+        performance : {
+          optimization : "lightweight_efficient_watchOS_app"
+          battery : "minimal_battery_impact"
+          responsiveness : "instant_feedback_to_taps"
+        }
+      }
+
+      connectivity : {
+        sync : {
+          icloud : "seamless_sync_with_iPhone_iPad"
+          real_time : "updates_reflect_immediately_across_devices"
+          offline : {
+            mode : "view_last_synced_data_when_offline"
+            actions_queue : "queue_actions_to_execute_when_connected"
+          }
+        }
+
+        handoff : {
+          continuity : "start_on_watch_continue_on_iPhone_iPad"
+          scenario : "receive_alert_on_watch_tap_to_open_full_game_on_iPhone"
+        }
+      }
+    }
+
+    watch_faces : {
+      custom_complications : {
+        families : [
+          "modular_compact",
+          "modular_large",
+          "infograph_modular",
+          "infograph",
+          "graphic_corner",
+          "graphic_circular",
+          "graphic_rectangular",
+          "graphic_extra_large"
+        ]
+
+        data_sources : {
+          population : "updated_in_real_time"
+          treasury : "denarii_balance"
+          approval : "percentage_with_trend_arrow"
+          food : "months_of_grain_remaining"
+          threats : "number_of_active_threats"
+          dynasty : "heir_age_or_portrait"
+        }
+
+        tinting : "supports_watch_face_tint_colors"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // HEALTHKIT INTEGRATION
+  // ==========================================================================
+  // Track player wellbeing and integrate with Health app
+
+  healthkit : {
+
+    health_tracking : {
+      mindful_minutes : {
+        activity_type : "strategic_city_planning_as_mindfulness"
+        tracking : "session_duration_logged_to_health"
+        benefits : {
+          player : "encourages_mindful_play"
+          health_app : "contributes_to_mindfulness_goals"
+        }
+      }
+
+      screen_time_awareness : {
+        integration : "logs_playtime_to_screen_time"
+        breaks : {
+          suggestions : "suggest_break_after_extended_play"
+          intervals : "every_60_to_90_minutes"
+          gentle : "non_intrusive_reminder"
+        }
+      }
+
+      stress_management : {
+        heart_rate_monitoring : {
+          detection : "detect_elevated_heart_rate_during_stressful_gameplay"
+          examples : "disasters_invasions_time_pressure_scenarios"
+        }
+
+        breathing_exercises : {
+          trigger : "offer_breathing_exercise_if_stress_detected"
+          integration : "launch_apple_watch_breathe_app"
+          in_game : "optional_calming_music_slow_motion_mode"
+        }
+      }
+
+      posture_reminders : {
+        stand_reminders : {
+          integration : "respect_apple_watch_stand_reminders"
+          pause : "game_auto_pauses_briefly_for_stand_reminder"
+        }
+
+        ergonomics : {
+          tips : "occasional_tips_for_healthy_gaming_posture"
+          stretches : "simple_stretches_for_gamers"
+        }
+      }
+
+      sleep_awareness : {
+        bedtime_detection : {
+          integration : "aware_of_user's_bedtime_from_health_app"
+          warning : "gentle_reminder_if_playing_close_to_bedtime"
+          message : "Your bedtime is in 30 minutes. Consider saving your progress."
+        }
+
+        sleep_quality : {
+          correlation : "optional_track_how_gaming_affects_sleep"
+          insights : "Notice worse sleep after late-night gaming? Consider earlier sessions."
+        }
+      }
+    }
+
+    gamification_of_health : {
+      health_challenges : {
+        concept : "tie_in_game_achievements_to_real_world_health"
+
+        examples : {
+          active_emperor : {
+            requirement : "Close all Activity rings for 7 days"
+            reward : "Unlock 'Healthy Empire' achievement, special toga for avatar"
+          }
+
+          mindful_leader : {
+            requirement : "Complete 30 mindful minutes through gameplay"
+            reward : "Unlock meditation garden building"
+          }
+
+          balanced_life : {
+            requirement : "Maintain healthy sleep schedule for 14 days"
+            reward : "Unlock 'Well-Rested' trait for your character, +10% efficiency"
+          }
+        }
+      }
+
+      health_based_bonuses : {
+        concept : "optional_small_in_game_bonuses_for_healthy_habits"
+
+        mechanic : {
+          daily_activity : {
+            if_rings_closed : "Small approval boost in game (+2%)"
+            message : "Your active lifestyle inspires your citizens!"
+          }
+
+          good_sleep : {
+            if_slept_well : "Start day with extra energy/focus resource"
+            message : "You're well-rested and ready to lead!"
+          }
+        }
+
+        opt_in : "completely_optional_can_disable"
+        never_punitive : "never_penalize_for_not_meeting_health_goals"
+      }
+    }
+
+    privacy : {
+      permissions : {
+        explicit_consent : "request_clear_permission_for_each_health_metric"
+        granular_control : "users_can_choose_which_metrics_to_share"
+        revocable : "can_revoke_access_anytime_in_settings"
+      }
+
+      data_usage : {
+        local_only : "health_data_stays_on_device_never_uploaded"
+        no_analytics : "health_metrics_never_sent_to_analytics"
+        transparency : "clear_privacy_policy_explaining_usage"
+      }
+
+      apple_guidelines : {
+        compliance : "full_compliance_with_apple_healthkit_guidelines"
+        review : "passes_app_review_health_data_requirements"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // HOMEPOD INTEGRATION
+  // ==========================================================================
+  // Audio experience and voice control through HomePod
+
+  homepod : {
+
+    audio_enhancement : {
+      spatial_audio : {
+        support : "full_spatial_audio_support_when_playing_on_ipad_with_homepod"
+        experience : {
+          soundscape : "immersive_3D_audio_city_sounds"
+          directionality : "sounds_positioned_in_3D_space"
+          examples : {
+            market : "bustling_market_to_your_left"
+            legion : "marching_legion_approaching_from_right"
+            fire : "crackling_fire_behind_you"
+            crowd : "cheering_crowd_surrounds_you"
+          }
+        }
+
+        head_tracking : {
+          ipad_camera : "uses_ipad_camera_for_head_tracking"
+          dynamic : "audio_adjusts_as_you_move_head"
+        }
+      }
+
+      adaptive_audio : {
+        room_correction : "homepod_automatically_tunes_for_room_acoustics"
+        balance : {
+          music : "orchestral_scores_and_ambient_music"
+          effects : "realistic_sound_effects"
+          voice : "clear_dialogue_and_narration"
+        }
+      }
+
+      stereo_pairing : {
+        two_homepods : {
+          setup : "pair_two_homepods_for_true_stereo"
+          benefit : "incredibly_immersive_left_right_separation"
+          experience : "feel_like_you're_in_ancient_rome"
+        }
+      }
+
+      music : {
+        dynamic_soundtrack : {
+          adaptive : "music_changes_based_on_game_situation"
+          themes : {
+            peaceful : "pastoral_lyre_and_flute_during_calm_times"
+            tension : "dramatic_strings_during_threats"
+            battle : "war_drums_and_horns_during_combat"
+            triumph : "victorious_fanfares_after_success"
+          }
+        }
+
+        apple_music_integration : {
+          curated_playlists : {
+            official : "Official CaesarIA Roman Music Playlist"
+            content : [
+              "Historical Roman music reconstructions",
+              "Classical compositions inspired by Rome",
+              "Epic orchestral scores",
+              "Ambient Roman soundscapes"
+            ]
+          }
+
+          play_from_game : {
+            option : "launch_playlist_from_game_menu"
+            handoff : "continues_playing_on_homepod_when_game_closed"
+          }
+        }
+      }
+    }
+
+    voice_control : {
+      siri_on_homepod : {
+        hands_free : {
+          scenario : "playing_on_ipad_control_with_voice_to_homepod"
+          commands : "same_siri_commands_as_apple_watch"
+        }
+
+        examples : {
+          "Hey Siri, how is my city doing?" : "Responds through HomePod"
+          "Hey Siri, distribute grain" : "Executes action in game"
+          "Hey Siri, pause the game" : "Pauses game"
+          "Hey Siri, what's happening in Rome?" : "Summarizes current events"
+        }
+
+        voice_feedback : {
+          responses : "siri_speaks_responses_through_homepod"
+          confirmation : "Action completed. Grain distributed to 50,000 citizens."
+          reports : "Your city has 125,000 citizens. Approval is at 78%. Treasury has 2.5 million denarii."
+        }
+      }
+
+      intercom : {
+        family_sharing : {
+          scenario : "family_members_can_send_messages_to_player"
+          example : "Mom: 'Dinner in 10 minutes!' - message announced through HomePod"
+          response : "player_can_reply_via_intercom"
+        }
+
+        game_integration : {
+          smart_pause : "game_auto_pauses_during_intercom_messages"
+          resume : "easy_resume_after_message"
+        }
+      }
+    }
+
+    ambient_mode : {
+      background_soundscape : {
+        feature : "play_ambient_roman_sounds_even_when_not_actively_playing"
+
+        sounds : {
+          forum : "bustling_marketplace_chatter_merchants"
+          baths : "water_fountains_echoing_voices"
+          streets : "footsteps_cart_wheels_distant_conversations"
+          harbor : "seagulls_waves_ship_creaking"
+          countryside : "birds_wind_through_olive_groves"
+        }
+
+        use_case : {
+          focus : "play_while_working_or_studying_for_ambiance"
+          relaxation : "calming_background_sounds"
+          immersion : "keep_connected_to_your_roman_world"
+        }
+
+        control : {
+          duration : "30_minutes_1_hour_2_hours_continuous"
+          fade_out : "gentle_fade_when_timer_ends"
+          mix_with_music : "can_layer_over_apple_music_low_volume"
+        }
+      }
+
+      sleep_sounds : {
+        nighttime : {
+          sounds : [
+            "Gentle night in Roman villa - crickets, distant fountain",
+            "Roman countryside - light breeze, rustling leaves",
+            "Distant ocean waves at Roman port"
+          ]
+
+          integration : "works_with_sleep_focus_mode"
+          timer : "fade_out_after_specified_duration"
+        }
+      }
+    }
+
+    multi_room_audio : {
+      airplay_2 : {
+        whole_home : "play_game_audio_throughout_house"
+        zones : "different_audio_in_different_rooms"
+
+        scenario : {
+          main_room : "full_game_audio_on_main_homepod"
+          other_rooms : "ambient_roman_sounds_on_other_homepods"
+          effect : "entire_home_transformed_into_roman_atmosphere"
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // CARPLAY INTEGRATION
+  // ==========================================================================
+  // Safe, limited interaction while driving
+
+  carplay : {
+
+    safety_first : {
+      philosophy : "extreme_limitations_for_driver_safety"
+      primary_use : "audio_entertainment_for_passengers"
+      driver_mode : "minimal_interaction_voice_only_when_driving"
+    }
+
+    features : {
+      audio_playback : {
+        soundtrack : {
+          access : "play_game_soundtrack_through_carplay"
+          controls : "standard_play_pause_skip"
+          display : "album_art_showing_roman_imagery"
+        }
+
+        ambient_sounds : {
+          access : "ambient_roman_soundscapes"
+          categories : ["Forum", "Baths", "Harbor", "Countryside", "Villa"]
+          relaxing : "calming_for_passengers_or_driver"
+        }
+
+        podcasts_integration : {
+          companion_podcast : {
+            name : "The Roman Hour"
+            content : "historical_deep_dives_related_to_game"
+            narration : "stories_from_roman_history"
+            educational : "learn_about_real_events_and_people"
+          }
+
+          playback : "through_carplay_like_any_podcast"
+        }
+      }
+
+      voice_reports : {
+        status_updates : {
+          request : "Hey Siri, how is my Roman city?"
+          response : "Audio only report of city status"
+          content : "population_approval_treasury_threats"
+          duration : "15_to_30_seconds_brief"
+        }
+
+        news_briefing : {
+          request : "Hey Siri, what's new in Rome?"
+          response : "Audio summary of recent events"
+          examples : [
+            "A fire was extinguished in the warehouse district",
+            "The Pantheon construction is 45% complete",
+            "A trade caravan arrived from Egypt with grain"
+          ]
+        }
+      }
+
+      minimal_visual : {
+        dashboard_widget : {
+          display : "simple_text_only_stats"
+          info : ["Population: 125,000", "Approval: 78%", "Treasury: 2.5M"]
+          updates : "refreshes_when_car_stopped_only"
+        }
+
+        no_gameplay : {
+          restriction : "absolutely_no_interactive_gameplay_in_carplay"
+          reason : "driver_safety_paramount"
+          enforcement : "gameplay_disabled_when_carplay_active"
+        }
+      }
+
+      parked_mode : {
+        detection : "when_car_parked_additional_features_unlock"
+
+        expanded_access : {
+          city_view : {
+            display : "view_city_on_car_screen"
+            interaction : "touch_controls_enabled_when_parked"
+            limited : "simplified_interface_for_car_screen"
+          }
+
+          quick_actions : {
+            available : ["distribute_grain", "hold_games", "check_status"]
+            interface : "large_buttons_easy_to_tap"
+          }
+
+          waiting_entertainment : {
+            scenario : "waiting_for_someone_play_game_on_car_screen"
+            engagement : "light_management_tasks"
+            auto_pause : "when_car_starts_moving_again"
+          }
+        }
+      }
+
+      passenger_mode : {
+        detection : "if_iphone_detects_passenger_seat"
+        full_access : {
+          gameplay : "full_game_on_iphone_audio_through_car"
+          screen : "iphone_screen_for_passenger_game_audio_through_carplay"
+        }
+      }
+    }
+
+    integration_scenarios : {
+      commute : {
+        morning : {
+          routine : "listen_to_city_status_update_on_drive_to_work"
+          soundtrack : "epic_roman_music_to_start_day"
+        }
+
+        evening : {
+          routine : "ambient_sounds_to_relax_on_drive_home"
+          briefing : "what_happened_in_city_during_work_day"
+        }
+      }
+
+      road_trip : {
+        passengers : {
+          entertainment : "passengers_play_game_on_their_iphones"
+          shared_audio : "everyone_hears_game_through_car_speakers"
+        }
+
+        stops : {
+          parked : "quick_session_during_rest_stop"
+        }
+      }
+
+      educational : {
+        family : {
+          podcast : "kids_listen_to_roman_history_podcast"
+          discussion : "talk_about_history_during_drive"
+        }
+      }
+    }
+
+    technical : {
+      carplay_framework : "uses_official_apple_carplay_apis"
+      categories : {
+        audio : "primary_category"
+        information : "secondary_for_status"
+      }
+
+      app_review : {
+        compliance : "follows_apple_carplay_guidelines"
+        safety : "prioritizes_driver_safety"
+        approval : "designed_to_pass_app_review"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // ICLOUD INTEGRATION
+  // ==========================================================================
+  // Seamless sync and backup across all Apple devices
+
+  icloud : {
+
+    cloudkit : {
+      save_data : {
+        automatic_sync : {
+          saves : "all_game_saves_synced_to_icloud"
+          realtime : "changes_sync_within_seconds"
+          devices : "play_on_ipad_continue_on_iphone_seamlessly"
+        }
+
+        save_slots : {
+          unlimited : "icloud_storage_permitting"
+          management : "user_can_delete_old_saves"
+          download : "saves_download_on_demand"
+        }
+
+        conflict_resolution : {
+          detection : "detects_if_played_on_two_devices_offline"
+          resolution : "keeps_both_versions_lets_user_choose"
+          merge : "smart_merge_if_no_conflicts"
+        }
+      }
+
+      settings_sync : {
+        preferences : {
+          synced : [
+            "graphics_quality",
+            "audio_settings",
+            "control_schemes",
+            "ui_preferences",
+            "notification_settings",
+            "health_integration_choices"
+          ]
+          instant : "changes_on_one_device_reflect_on_all"
+        }
+      }
+
+      achievements_progress : {
+        game_center : "achievements_synced_via_game_center"
+        milestones : {
+          tracked : [
+            "buildings_constructed",
+            "citizens_managed",
+            "crises_handled",
+            "dynasties_ruled",
+            "years_played"
+          ]
+        }
+
+        leaderboards : {
+          global : "compete_with_players_worldwide"
+          friends : "compare_with_game_center_friends"
+          categories : [
+            "Largest population",
+            "Longest dynasty",
+            "Highest approval",
+            "Most profitable city",
+            "Most crises survived"
+          ]
+        }
+      }
+
+      screenshots_recordings : {
+        photo_mode : {
+          icloud_photos : "screenshots_from_photo_mode_save_to_icloud_photos"
+          shared_albums : "share_favorite_screenshots_with_friends_family"
+          memories : "photos_app_creates_memories_from_roman_screenshots"
+        }
+
+        recordings : {
+          icloud_drive : "gameplay_recordings_can_save_to_icloud_drive"
+          size_management : "user_chooses_quality_vs_file_size"
+        }
+      }
+
+      user_created_content : {
+        custom_scenarios : {
+          storage : "save_custom_scenarios_to_icloud"
+          sharing : "share_via_icloud_links"
+        }
+
+        mods : {
+          storage : "user_installed_mods_synced"
+          per_device : "option_to_enable_disable_per_device"
+        }
+
+        dynasties : {
+          family_trees : "custom_family_trees_synced"
+          portraits : "custom_portraits_for_family_members"
+        }
+      }
+    }
+
+    icloud_drive : {
+      export : {
+        save_files : {
+          format : "export_saves_as_files"
+          location : "saves_to_icloud_drive_caesaria_folder"
+          backup : "manual_backup_option"
+        }
+
+        media : {
+          screenshots : "export_all_screenshots"
+          recordings : "export_gameplay_videos"
+          organize : "automatically_organized_by_date_city"
+        }
+      }
+
+      import : {
+        scenarios : "import_community_created_scenarios"
+        mods : "import_mod_files"
+        saves : "import_saves_from_others_for_challenges"
+      }
+    }
+
+    family_sharing : {
+      purchase : {
+        share : "one_purchase_entire_family_6_people"
+        individual_saves : "each_family_member_has_own_saves"
+      }
+
+      multiplayer : {
+        family : "special_family_multiplayer_mode"
+        cooperation : "work_together_on_same_city"
+        competition : "compete_for_best_city"
+      }
+
+      parental_controls : {
+        screen_time : "respects_screen_time_limits"
+        content : "age_appropriate_content_filtering"
+        purchases : "ask_to_buy_for_in_app_purchases"
+      }
+    }
+
+    privacy : {
+      encryption : {
+        end_to_end : "save_data_encrypted_end_to_end"
+        apple_cannot_read : "even_apple_cannot_access_save_data"
+      }
+
+      control : {
+        user_choice : "user_can_disable_icloud_sync"
+        local_only : "option_to_play_entirely_locally"
+        deletion : "delete_all_icloud_data_from_settings"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // HANDOFF & CONTINUITY
+  // ==========================================================================
+  // Seamless transitions between devices
+
+  handoff : {
+
+    device_transitions : {
+      iphone_to_ipad : {
+        scenario : "playing_on_iphone_during_commute"
+        handoff : "arrive_home_pick_up_ipad_continue_instantly"
+
+        mechanism : {
+          indicator : "caesaria_icon_appears_in_ipad_dock"
+          tap : "tap_to_open_game_exactly_where_left_off"
+          instant : "within_1_second_transition"
+        }
+      }
+
+      ipad_to_iphone : {
+        scenario : "playing_on_ipad_need_to_leave"
+        handoff : "pick_up_iphone_continue_on_go"
+
+        ui_adaptation : {
+          automatic : "ui_adapts_to_smaller_screen"
+          context_preserved : "exact_same_view_just_resized"
+        }
+      }
+
+      mac_to_iphone : {
+        note : "if_mac_version_exists_in_future"
+        scenario : "working_on_mac_continue_on_iphone"
+      }
+
+      watch_to_iphone : {
+        scenario : "see_alert_on_watch_tap_to_open_on_iphone"
+        context : "opens_to_relevant_screen_not_just_app_launch"
+        example : "Fire alert on watch -> tap -> iPhone opens to fire location on map"
+      }
+    }
+
+    universal_clipboard : {
+      copy_paste : {
+        feature : "copy_text_on_one_device_paste_on_another"
+        use_cases : {
+          city_name : "copy_city_name_on_iphone_paste_in_notes_on_mac"
+          stats : "copy_statistics_to_share"
+          dynasty_info : "copy_family_tree_data"
+        }
+      }
+    }
+
+    continuity_camera : {
+      use : "use_iphone_as_camera_for_ipad"
+      application : {
+        portraits : {
+          feature : "take_photo_of_family_use_as_dynasty_portrait"
+          process : "iphone_camera_-> ipad_game_imports_as_portrait"
+        }
+
+        scanning : {
+          documents : "scan_historical_documents_for_reference"
+          inspiration : "scan_roman_artifacts_for_custom_content"
+        }
+      }
+    }
+
+    universal_control : {
+      note : "ipados_15_plus_feature"
+
+      multi_device_setup : {
+        scenario : "ipad_and_mac_side_by_side"
+        control : "use_same_mouse_keyboard_across_devices"
+
+        gameplay : {
+          main_screen : "game_on_ipad"
+          reference : "historical_references_on_mac"
+          seamless : "move_cursor_between_devices"
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // WIDGETS
+  // ==========================================================================
+  // Home screen and Lock screen widgets
+
+  widgets : {
+
+    home_screen_widgets : {
+      sizes : {
+        small : {
+          content : {
+            city_status : {
+              population : "large_number_with_icon"
+              approval : "circular_gauge"
+              treasury : "denarii_amount"
+            }
+
+            single_metric : "focuses_on_one_key_stat"
+          }
+
+          interaction : "tap_to_open_game"
+        }
+
+        medium : {
+          content : {
+            city_dashboard : {
+              layout : "2x2_grid"
+              metrics : ["population", "approval", "treasury", "food"]
+              icons : "roman_themed_icons"
+            }
+
+            current_event : {
+              image : "relevant_illustration"
+              text : "Festival of Saturnalia begins tomorrow"
+              action : "tap_to_participate"
+            }
+          }
+        }
+
+        large : {
+          content : {
+            city_overview : {
+              minimap : "simplified_map_of_city"
+              stats : "key_metrics_overlay"
+              events : "list_of_current_events"
+            }
+
+            dynasty : {
+              family_tree : "visual_family_tree"
+              portraits : "current_ruler_and_heir"
+              stats : "age_traits_status"
+            }
+
+            construction : {
+              projects : "ongoing_construction_projects"
+              progress : "progress_bars_for_each"
+              completion : "estimated_completion_times"
+            }
+          }
+        }
+      }
+
+      smart_stacks : {
+        rotation : "widget_rotates_to_show_different_info"
+        intelligence : "shows_most_relevant_info_at_time"
+        examples : {
+          morning : "show_overnight_events"
+          evening : "show_daily_summary"
+          threats : "prioritize_showing_threats"
+        }
+      }
+
+      live_activities : {
+        ongoing_events : {
+          construction : {
+            display : "pantheon_construction_45_percent_complete"
+            progress_bar : "visual_progress_indicator"
+            update_frequency : "real_time_updates"
+          }
+
+          battle : {
+            display : "legion_xiii_vs_gauls_battle_in_progress"
+            status : "current_battle_status"
+            outcome : "updates_when_battle_concludes"
+          }
+
+          festival : {
+            display : "saturnalia_day_3_of_5"
+            countdown : "hours_until_next_event"
+          }
+
+          disaster : {
+            display : "fire_in_warehouse_district"
+            status : "vigiles_responding_30_percent_contained"
+            urgency : "critical_alert_styling"
+          }
+        }
+      }
+    }
+
+    lock_screen_widgets : {
+      ios_16_plus : {
+        above_time : {
+          circular : {
+            approval_gauge : "circular_approval_percentage"
+            treasury : "denarii_icon_with_amount"
+          }
+
+          inline : {
+            status_bar : "Population: 125K | Approval: 78%"
+          }
+        }
+
+        below_time : {
+          rectangular : {
+            next_event : "Next: Festival begins in 2 hours"
+            threat_alert : "ALERT: Fire in Forum district"
+          }
+
+          multi_metric : {
+            layout : "4_small_circular_gauges"
+            metrics : ["population", "approval", "treasury", "food"]
+          }
+        }
+      }
+
+      always_on_display : {
+        optimization : "minimal_power_usage"
+        updates : "sparse_updates_when_always_on"
+      }
+
+      notifications_integration : {
+        alerts : "lock_screen_widgets_update_with_notifications"
+        actions : "long_press_widget_quick_actions"
+      }
+    }
+
+    widget_interactivity : {
+      ios_17_plus : {
+        interactive_widgets : {
+          quick_actions : {
+            buttons : "tap_buttons_directly_on_widget"
+            examples : {
+              distribute_grain : "button_on_widget_executes_immediately"
+              dismiss_alert : "dismiss_notification_from_widget"
+              view_details : "open_specific_screen_in_app"
+            }
+          }
+
+          animations : {
+            updates : "smooth_animations_when_data_changes"
+            feedback : "haptic_feedback_on_interactions"
+          }
+        }
+      }
+    }
+
+    widget_customization : {
+      configuration : {
+        choose_metric : "user_chooses_which_stats_to_display"
+        multiple_cities : "widget_can_track_different_saves"
+        appearance : "light_dark_mode_variants"
+      }
+
+      widget_gallery : {
+        variety : "multiple_widget_designs_to_choose_from"
+        themes : ["Minimalist", "Detailed", "Artistic", "Historical"]
+      }
+    }
+  }
+
+  // ==========================================================================
+  // SHORTCUTS & AUTOMATION
+  // ==========================================================================
+  // Apple Shortcuts app integration for advanced automation
+
+  shortcuts : {
+
+    predefined_shortcuts : {
+      morning_briefing : {
+        actions : [
+          "Get overnight city status",
+          "List new events",
+          "Check threats",
+          "Report treasury balance",
+          "Speak summary"
+        ]
+
+        trigger : "run_automatically_at_8am"
+      }
+
+      evening_report : {
+        actions : [
+          "Summarize day's events",
+          "Report construction progress",
+          "List completed achievements",
+          "Save progress to iCloud",
+          "Speak summary"
+        ]
+
+        trigger : "run_at_bedtime"
+      }
+
+      emergency_response : {
+        actions : [
+          "Check for threats",
+          "If fire: dispatch vigiles",
+          "If riot: distribute grain",
+          "If invasion: mobilize legion",
+          "Send notification when resolved"
+        ]
+
+        trigger : "run_when_critical_notification_received"
+      }
+
+      weekly_dynasty_update : {
+        actions : [
+          "Generate family tree summary",
+          "List births, deaths, marriages",
+          "Report heir's development",
+          "Create photo album of dynasty portraits",
+          "Share via Messages to family group"
+        ]
+
+        trigger : "every_sunday_evening"
+      }
+    }
+
+    custom_shortcuts : {
+      building_shortcuts : {
+        user_created : "users_can_create_own_shortcuts"
+
+        examples : {
+          "Prepare for War" : {
+            actions : [
+              "Check legion readiness",
+              "Recruit more soldiers if needed",
+              "Stockpile food for siege",
+              "Repair city walls",
+              "Send notification when ready"
+            ]
+          }
+
+          "Economic Boost" : {
+            actions : [
+              "Open new trade routes",
+              "Build market stalls",
+              "Reduce taxes temporarily",
+              "Hold festival to attract merchants"
+            ]
+          }
+
+          "Recovery Protocol" : {
+            actions : [
+              "Assess damage from disaster",
+              "Allocate funds for repairs",
+              "Distribute food to affected citizens",
+              "Begin reconstruction",
+              "Report estimated recovery time"
+            ]
+          }
+        }
+      }
+
+      shortcuts_from_game : {
+        export : "game_can_suggest_shortcuts_based_on_play_style"
+        learning : "identifies_repeated_action_patterns"
+        suggestion : "suggests_automating_common_sequences"
+      }
+    }
+
+    automation_triggers : {
+      time_based : {
+        scheduled : "run_shortcuts_at_specific_times"
+        examples : [
+          "Daily login bonus at 9am",
+          "Nightly backup at 11pm"
+        ]
+      }
+
+      location_based : {
+        arrive_home : {
+          trigger : "when_arrive_home"
+          action : "open_game_load_last_save"
+        }
+
+        leave_work : {
+          trigger : "when_leave_work"
+          action : "send_city_status_update_to_carplay"
+        }
+      }
+
+      event_based : {
+        notification_received : {
+          trigger : "when_receive_critical_game_notification"
+          action : "run_emergency_response_shortcut"
+        }
+
+        battery_low : {
+          trigger : "when_battery_below_20_percent"
+          action : "auto_save_and_lower_graphics_quality"
+        }
+      }
+
+      focus_mode : {
+        work_focus : {
+          when_enabled : "mute_non_critical_game_notifications"
+          when_disabled : "resume_all_notifications"
+        }
+
+        gaming_focus : {
+          custom_focus : "create_dedicated_gaming_focus_mode"
+          settings : "allow_game_notifications_silence_everything_else"
+          dnd_while_gaming : "do_not_disturb_while_playing"
+        }
+      }
+    }
+
+    data_access : {
+      read_game_data : {
+        available : [
+          "current_population",
+          "approval_rating",
+          "treasury_balance",
+          "food_stockpile",
+          "active_threats",
+          "construction_progress",
+          "dynasty_info"
+        ]
+
+        use : "shortcuts_can_read_these_values"
+      }
+
+      execute_actions : {
+        available : [
+          "distribute_grain",
+          "hold_games",
+          "dispatch_legion",
+          "start_construction",
+          "save_game",
+          "change_settings"
+        ]
+
+        use : "shortcuts_can_trigger_these_actions"
+      }
+
+      conditions : {
+        if_then : "shortcuts_can_use_if_then_logic"
+        examples : {
+          "If approval < 50%, then distribute grain"
+          "If treasury > 1M, then start monument construction"
+          "If enemy spotted, then mobilize legion"
+        }
+      }
+    }
+
+    sharing : {
+      shortcut_library : {
+        in_game : "browse_shared_shortcuts_from_community"
+        download : "one_tap_install_of_shortcuts"
+        categories : ["Economic", "Military", "Crisis Management", "Dynasty"]
+      }
+
+      publish : {
+        share_yours : "users_can_share_their_shortcuts"
+        icloud_link : "generate_icloud_link_to_shortcut"
+        community : "build_library_of_useful_shortcuts"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // INTEGRATION SUMMARY
+  // ==========================================================================
+
+  ecosystem_benefits : {
+    seamless_experience : "game_feels_native_to_apple_ecosystem"
+    device_flexibility : "play_anywhere_on_any_apple_device"
+    continuity : "never_lose_progress_always_synced"
+    convenience : "control_game_with_voice_watch_widgets"
+    health_conscious : "promotes_healthy_gaming_habits"
+    premium_feel : "leverages_best_of_apple_technology"
+    future_proof : "adopts_latest_ios_features_annually"
+  }
+
+  technical_requirements : {
+    frameworks : [
+      "WatchKit",
+      "HealthKit",
+      "MediaPlayer",
+      "CarPlay Framework",
+      "CloudKit",
+      "HandoffKit",
+      "WidgetKit",
+      "AppIntents (for Shortcuts)",
+      "ActivityKit (for Live Activities)"
+    ]
+
+    minimum_versions : {
+      ios : "iOS 17.0 or later"
+      ipados : "iPadOS 17.0 or later"
+      watchos : "watchOS 10.0 or later"
+      tvos : "N/A (skipped per user request)"
+      macos : "Future consideration"
+    }
+
+    capabilities : [
+      "iCloud",
+      "HealthKit",
+      "Siri",
+      "Apple Pay (for in-app purchases)",
+      "Game Center",
+      "Push Notifications",
+      "Background App Refresh"
+    ]
+  }
+
+  privacy_and_security : {
+    data_minimization : "collect_only_necessary_data"
+    user_control : "users_control_all_integrations"
+    transparency : "clear_privacy_labels_in_app_store"
+    encryption : "all_synced_data_encrypted"
+    no_tracking : "no_third_party_tracking"
+    apple_guidelines : "full_compliance_with_apple_privacy_standards"
+  }
+}
