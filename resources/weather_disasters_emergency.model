@@ -1,0 +1,1975 @@
+// ============================================================================
+// DYNAMIC WEATHER, DISASTERS & EMERGENCY SERVICES SYSTEM
+// ============================================================================
+// A comprehensive environmental and disaster management system for CaesarIA
+// Features realistic Roman weather patterns, natural disasters, and emergency response
+// Historical accuracy based on: Pliny (Natural History), Tacitus (Annales),
+// Seneca (Natural Questions), Suetonius, archaeological evidence
+// ============================================================================
+
+weather_disasters_emergency : {
+
+  // ==========================================================================
+  // DYNAMIC WEATHER SYSTEM
+  // ==========================================================================
+  // Real-time weather affecting gameplay, agriculture, construction, morale
+
+  weather : {
+
+    // Mediterranean climate patterns
+    climate_system : {
+      base_climate : "mediterranean"
+      characteristics : {
+        hot_dry_summers : {
+          months : ["june", "july", "august", "september"]
+          temperature : {
+            day : "25_to_35_celsius" // 77-95F
+            night : "15_to_20_celsius" // 59-68F
+          }
+          precipitation : "minimal_rare_showers"
+          description : "Long dry season with intense sun"
+        }
+
+        mild_wet_winters : {
+          months : ["december", "january", "february"]
+          temperature : {
+            day : "10_to_15_celsius" // 50-59F
+            night : "5_to_10_celsius" // 41-50F
+          }
+          precipitation : "frequent_rain_storms"
+          description : "Cool rainy season, rare snow in Rome"
+        }
+
+        spring : {
+          months : ["march", "april", "may"]
+          temperature : {
+            day : "15_to_25_celsius" // 59-77F
+            night : "8_to_15_celsius"
+          }
+          precipitation : "moderate_spring_showers"
+          description : "Pleasant growing season"
+        }
+
+        autumn : {
+          months : ["october", "november"]
+          temperature : {
+            day : "18_to_25_celsius" // 64-77F
+            night : "10_to_15_celsius"
+          }
+          precipitation : "increasing_autumn_rains"
+          description : "Harvest season before winter"
+        }
+      }
+    }
+
+    // Real-time weather conditions
+    current_conditions : {
+      temperature : {
+        range : "-5_to_40_celsius" // 23-104F extreme range
+        update_frequency : "every_hour_game_time"
+        variation : {
+          day_night_cycle : "temperature_fluctuates"
+          seasonal : "follows_climate_patterns"
+          microclimate : "city_warmer_than_countryside"
+        }
+      }
+
+      precipitation : {
+        types : {
+          clear : {
+            probability : "60_percent_annual"
+            effects : "normal_operations"
+          }
+
+          light_rain : {
+            probability : "20_percent"
+            effects : {
+              construction : "slowed_10_percent"
+              morale : "slight_decrease"
+              agriculture : "beneficial_for_crops"
+              fire_risk : "reduced"
+            }
+          }
+
+          heavy_rain : {
+            probability : "10_percent"
+            effects : {
+              construction : "stopped"
+              roads : "muddy_slow_travel"
+              flooding_risk : "increases"
+              agriculture : "can_damage_crops_if_prolonged"
+            }
+            visual : {
+              puddles : "form_in_streets"
+              citizens : "seek_shelter_use_cloaks"
+            }
+          }
+
+          thunderstorm : {
+            probability : "5_percent"
+            effects : {
+              all_outdoor_work : "halted"
+              lightning_strikes : "can_start_fires"
+              morale : "citizens_fearful"
+              religious : "priests_perform_rituals_to_jupiter"
+            }
+            historical_note : "Romans saw lightning as omen from Jupiter"
+          }
+
+          snow : {
+            probability : "2_percent_winter_only"
+            location : "rare_in_rome_common_in_alps"
+            effects : {
+              construction : "completely_stopped"
+              roads : "impassable_until_melt"
+              heating : "increased_demand_for_firewood"
+              beauty : "snow_covered_city_beautiful"
+            }
+            historical : {
+              pliny : "Describes snow storage in ice houses (nevaria) for cooling drinks"
+              nero : "Had snow brought from mountains for banquets"
+            }
+          }
+
+          hail : {
+            probability : "3_percent_spring_summer"
+            effects : {
+              crops : "can_destroy_entire_harvest"
+              buildings : "damage_to_roofs_tiles"
+              citizens : "injuries_if_caught_outside"
+              economic : "severe_financial_impact"
+            }
+            historical : "Pliny records devastating hailstorms destroying crops"
+          }
+        }
+      }
+
+      wind : {
+        types : {
+          calm : {
+            speed : "0_to_10_kph"
+            effects : "normal_conditions"
+          }
+
+          breeze : {
+            speed : "10_to_30_kph"
+            effects : {
+              pleasant : "citizens_enjoy_outdoor_activities"
+              sailing : "good_for_trade_ships"
+            }
+          }
+
+          strong_wind : {
+            speed : "30_to_60_kph"
+            effects : {
+              construction : "crane_work_dangerous"
+              fire_risk : "spreads_fires_rapidly"
+              market_stalls : "blown_over"
+            }
+          }
+
+          gale : {
+            speed : "60_plus_kph"
+            effects : {
+              buildings : "damage_to_weak_structures"
+              trees : "uprooted"
+              shipping : "harbor_closed_ships_lost"
+              tiles : "roof_tiles_blown_off"
+            }
+          }
+        }
+
+        famous_winds : {
+          aquilo : {
+            name : "North wind"
+            season : "winter"
+            character : "cold_harsh_brings_storms"
+          }
+          auster : {
+            name : "South wind"
+            season : "summer"
+            character : "hot_dry_from_africa"
+          }
+          favonius : {
+            name : "West wind"
+            season : "spring"
+            character : "gentle_favorable_brings_warmth"
+          }
+          vulturnus : {
+            name : "East wind"
+            season : "autumn"
+            character : "variable_unpredictable"
+          }
+        }
+      }
+
+      humidity : {
+        range : "30_to_90_percent"
+        effects : {
+          high_humidity : {
+            summer : "oppressive_heat_morale_penalty"
+            winter : "feels_colder_than_actual_temperature"
+            health : "disease_spreads_faster"
+          }
+          low_humidity : {
+            summer : "more_bearable_heat"
+            fire_risk : "increased"
+            health : "dehydration_risk"
+          }
+        }
+      }
+    }
+
+    // Visual effects
+    weather_visuals : {
+      sky : {
+        clear : "bright_blue_mediterranean_sky"
+        partly_cloudy : "scattered_cumulus_clouds"
+        overcast : "grey_cloud_cover"
+        stormy : "dark_cumulonimbus_threatening"
+      }
+
+      precipitation_effects : {
+        rain : {
+          visual : "animated_rain_drops_puddles"
+          sound : "patter_on_roofs_splashing"
+          wetness : "wet_ground_reflections"
+        }
+        snow : {
+          visual : "falling_snowflakes_accumulation"
+          sound : "muffled_quiet_atmosphere"
+          coverage : "progressive_white_coverage"
+        }
+        hail : {
+          visual : "ice_pellets_bouncing"
+          sound : "loud_impacts_crashing"
+          damage : "visible_broken_tiles"
+        }
+      }
+
+      lighting : {
+        sunny : "bright_hard_shadows"
+        cloudy : "diffuse_soft_shadows"
+        golden_hour : "warm_sunset_sunrise_glow"
+        night : "moonlight_torches_oil_lamps"
+      }
+
+      citizen_reactions : {
+        rain : {
+          actions : ["seek_shelter", "use_cloaks", "run_home"]
+          indoor : "markets_move_inside_forums"
+        }
+        heat : {
+          actions : ["siesta_midday", "seek_shade", "visit_baths"]
+          clothing : "lighter_togas_tunics"
+        }
+        cold : {
+          actions : ["stay_indoors", "gather_around_braziers"]
+          clothing : "heavy_cloaks_woolen_layers"
+        }
+      }
+    }
+
+    // Agricultural impact
+    crop_effects : {
+      optimal_conditions : {
+        wheat : {
+          planting : "autumn_with_moderate_rain"
+          growing : "cool_wet_winter_spring"
+          harvest : "dry_summer"
+        }
+        grapes : {
+          growing : "warm_dry_summer"
+          harvest : "late_summer_autumn"
+          threat : "spring_frost_kills_vines"
+        }
+        olives : {
+          growing : "hot_dry_climate_drought_resistant"
+          harvest : "autumn_winter"
+          threat : "severe_frost_damages_trees"
+        }
+      }
+
+      weather_threats : {
+        drought : "crops_fail_famine_risk"
+        excessive_rain : "root_rot_mold_reduced_yields"
+        unseasonable_frost : "destroys_tender_crops"
+        hail : "total_crop_destruction_in_minutes"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // NATURAL DISASTERS
+  // ==========================================================================
+  // Catastrophic events that can devastate cities
+
+  disasters : {
+
+    // ========================================================================
+    // EARTHQUAKES - Common in Italy due to tectonic activity
+    // ========================================================================
+
+    earthquakes : {
+      frequency : {
+        minor_tremors : {
+          occurrence : "several_per_year"
+          magnitude : "1_to_3_richter"
+          effects : "barely_noticed_no_damage"
+        }
+
+        moderate : {
+          occurrence : "every_few_years"
+          magnitude : "4_to_5_richter"
+          effects : {
+            buildings : "cracks_in_walls_fallen_tiles"
+            citizens : "panic_flee_buildings"
+            casualties : "few_injuries_rare_deaths"
+          }
+        }
+
+        major : {
+          occurrence : "every_decade_or_two"
+          magnitude : "6_to_7_richter"
+          effects : {
+            buildings : {
+              poor_quality : "collapse_complete_destruction"
+              average_quality : "severe_damage_uninhabitable"
+              high_quality : "significant_damage_repairable"
+              monuments : "partial_collapse_expensive_repairs"
+            }
+            infrastructure : {
+              roads : "cracked_impassable"
+              aqueducts : "broken_water_supply_cut"
+              bridges : "collapsed_trade_disrupted"
+            }
+            casualties : {
+              immediate : "hundreds_to_thousands_crushed"
+              aftermath : "disease_exposure_starvation"
+            }
+            economic : "devastating_years_to_recover"
+          }
+        }
+
+        catastrophic : {
+          occurrence : "rare_generational"
+          magnitude : "7_plus_richter"
+          effects : {
+            city : "complete_destruction_total_rebuild_needed"
+            death_toll : "majority_of_population"
+            economic : "bankruptcy_decades_to_recover"
+          }
+        }
+      }
+
+      famous_historical_earthquakes : {
+        pompeii_62_ad : {
+          location : "Pompeii and region"
+          magnitude : "estimated_5_to_6"
+          damage : "Severe damage to Pompeii, still rebuilding when Vesuvius erupted in 79 AD"
+          description : "Seneca wrote about it in Natural Questions"
+        }
+
+        rome_tremors : {
+          frequency : "occasional_minor_earthquakes"
+          note : "Romans saw earthquakes as divine displeasure"
+          response : "Religious ceremonies to appease gods"
+        }
+      }
+
+      earthquake_mechanics : {
+        warning : {
+          none : "earthquakes_strike_without_warning"
+          animal_behavior : "dogs_bark_birds_flee_superstition"
+          minor_tremors : "small_quakes_may_precede_major_one"
+        }
+
+        aftershocks : {
+          occurrence : "hours_to_weeks_after_main_shock"
+          danger : "finish_off_damaged_buildings"
+          psychological : "terror_citizens_fear_sleeping_indoors"
+        }
+
+        secondary_effects : {
+          fires : "braziers_lamps_overturned_start_fires"
+          landslides : "in_mountainous_regions"
+          tsunamis : "if_epicenter_under_sea"
+          panic : "stampedes_looting_social_breakdown"
+        }
+      }
+
+      gameplay : {
+        random_occurrence : {
+          base_probability : "depends_on_region"
+          warning_time : "0_to_30_seconds_for_major_quake"
+          player_actions : "evacuate_buildings_prepare_for_fires"
+        }
+
+        building_resilience : {
+          roman_engineering : {
+            concrete : "flexible_absorbs_shocks_better"
+            arches : "distribute_forces_more_stable"
+            quality : "higher_quality_construction_survives_better"
+          }
+
+          building_codes : {
+            player_option : "invest_in_earthquake_resistant_construction"
+            cost : "20_percent_higher_building_costs"
+            benefit : "significantly_reduced_damage"
+          }
+        }
+
+        recovery : {
+          immediate : {
+            search_rescue : "find_survivors_in_rubble"
+            medical : "treat_injured"
+            temporary_shelter : "tents_for_homeless"
+          }
+
+          short_term : {
+            clear_rubble : "remove_debris_open_roads"
+            assess_damage : "structural_surveys"
+            emergency_repairs : "shore_up_dangerous_buildings"
+          }
+
+          long_term : {
+            rebuild : "reconstruct_destroyed_buildings"
+            upgrade : "opportunity_to_improve_construction"
+            psychological : "restore_citizen_confidence"
+          }
+        }
+      }
+    }
+
+    // ========================================================================
+    // FIRES - Devastating and frequent in ancient Rome
+    // ========================================================================
+
+    fires : {
+
+      danger_factors : {
+        construction : {
+          materials : {
+            insulae : {
+              description : "Multi-story apartment buildings"
+              material : "wood_and_wattle_daub_highly_flammable"
+              density : "packed_close_together"
+              danger : "fire_spreads_rapidly_between_buildings"
+            }
+
+            domus : {
+              description : "wealthy_townhouses"
+              material : "stone_and_tile_more_fire_resistant"
+              danger : "lower_but_not_immune"
+            }
+          }
+
+          heating_cooking : {
+            braziers : "charcoal_braziers_for_heating"
+            open_flames : "oil_lamps_cooking_fires"
+            risk : "easy_to_tip_over_or_spread"
+          }
+        }
+
+        weather_conditions : {
+          summer : "hot_dry_everything_tinder"
+          wind : "spreads_fire_jumps_streets"
+          drought : "water_scarce_hard_to_fight_fires"
+        }
+
+        density : "crowded_cities_fires_spread_building_to_building"
+      }
+
+      fire_types : {
+        domestic : {
+          cause : "cooking_accident_or_heating"
+          size : "single_building"
+          containable : "if_caught_early"
+        }
+
+        workshop : {
+          cause : "industrial_accidents_blacksmith_pottery_kiln"
+          size : "building_and_neighbors"
+          intensity : "very_hot_hard_to_extinguish"
+        }
+
+        conflagration : {
+          description : "massive_citywide_fire"
+          cause : "domestic_fire_spreads_out_of_control"
+          size : "entire_districts_destroyed"
+          casualties : "hundreds_to_thousands"
+          historical : "Great Fire of Rome 64 AD - destroyed 10 of 14 districts"
+        }
+
+        arson : {
+          cause : "deliberate_criminal_act_or_terrorism"
+          danger : "multiple_simultaneous_fires"
+          nero_accusation : "Nero accused of starting Great Fire (probably false)"
+        }
+      }
+
+      famous_fires : {
+        great_fire_of_rome_64_ad : {
+          date : "July 18-27, 64 AD"
+          duration : "9_days"
+          damage : {
+            districts : "10_of_14_districts_damaged_or_destroyed"
+            landmarks : "Many temples and public buildings destroyed"
+            homes : "hundreds_of_thousands_homeless"
+          }
+          casualties : "unknown_but_substantial"
+          response : {
+            nero : {
+              actions : "Opened public buildings and gardens for refugees, organized relief"
+              rumor : "Fiddled while Rome burned (false - he was in Antium)"
+              scapegoat : "Blamed Christians, led to persecutions"
+            }
+            rebuild : {
+              regulations : "New building codes: wider streets, height limits, fire breaks"
+              domus_aurea : "Nero built his Golden Palace on cleared land (very unpopular)"
+            }
+          }
+          historical_sources : "Tacitus (Annales), Suetonius, Dio Cassius"
+        }
+
+        other_major_fires : {
+          note : "Rome had frequent major fires throughout its history"
+          examples : "Fire of 80 AD under Titus, fire of 191 AD under Commodus"
+        }
+      }
+
+      fire_spread_mechanics : {
+        ignition : {
+          source : "brazier_lamp_lightning_strike_arson"
+          fuel : "wooden_buildings_furniture_stored_goods"
+        }
+
+        spread : {
+          same_building : {
+            time : "minutes_to_hours"
+            factors : "material_flammability_structure"
+          }
+
+          neighboring_buildings : {
+            contact : "shared_walls_touching_structures"
+            firebrands : "burning_embers_carried_by_wind"
+            radiant_heat : "intense_heat_ignites_nearby_buildings"
+          }
+
+          wind_effect : {
+            calm : "fire_spreads_slowly_predictably"
+            wind : "fire_leaps_streets_unpredictable_direction"
+            gale : "fire_storm_impossible_to_stop"
+          }
+        }
+
+        intensification : {
+          fuel_loading : "wooden_furniture_stored_grain_oil_accelerants"
+          confined_spaces : "narrow_streets_create_chimney_effect"
+          firestorm : "large_fires_create_own_weather_wind"
+        }
+      }
+
+      gameplay : {
+        fire_starts : {
+          random_events : {
+            probability : "modified_by_season_density_quality"
+            cooking_fire : "common_daily_risk"
+            lightning : "during_thunderstorms"
+            arson : "rare_criminal_or_enemy_sabotage"
+          }
+
+          player_notification : {
+            alarm : "fire_bell_visual_alert"
+            smoke : "visible_smoke_column"
+            urgency : "immediate_response_critical"
+          }
+        }
+
+        fire_fighting : {
+          vigiles : {
+            description : "Roman_fire_brigade_and_police"
+            details : "See emergency_services section below"
+          }
+
+          citizen_bucket_brigades : {
+            effectiveness : "minimal_only_for_small_fires"
+            organization : "spontaneous_or_organized_by_officials"
+          }
+
+          demolition : {
+            description : "destroy_buildings_to_create_firebreak"
+            effectiveness : "very_effective_if_done_quickly"
+            cost : "lose_buildings_but_save_city"
+            historical : "Romans used this extensively"
+          }
+        }
+
+        consequences : {
+          immediate : {
+            buildings_destroyed : "lost_forever_must_rebuild"
+            casualties : "deaths_from_burns_smoke_building_collapse"
+            economic : "goods_destroyed_businesses_ruined"
+            homelessness : "citizens_need_shelter"
+          }
+
+          long_term : {
+            population_loss : "citizens_leave_city_if_severe"
+            economic_depression : "takes_time_to_rebuild"
+            opportunity : "chance_to_redesign_city_layout"
+            regulations : "implement_building_codes"
+          }
+        }
+      }
+    }
+
+    // ========================================================================
+    // VOLCANIC ERUPTIONS - Mount Vesuvius
+    // ========================================================================
+
+    volcanic_eruptions : {
+
+      vesuvius : {
+        location : "Bay of Naples region"
+        famous_eruption : {
+          date : "August 24, 79 AD"
+          duration : "approximately_24_hours"
+
+          sequence_of_events : {
+            morning : {
+              time : "around_1_pm"
+              event : "Massive explosion, eruption column 15+ miles high"
+              effect : "Pumice begins falling on Pompeii"
+            }
+
+            afternoon_evening : {
+              pumice_fall : {
+                accumulation : "Several feet per hour"
+                weight : "roofs_collapse_from_weight"
+                citizens : "Most flee, some shelter in buildings"
+              }
+            }
+
+            midnight : {
+              pyroclastic_surges : {
+                description : "superheated_gas_and_rock_avalanche"
+                speed : "100_plus_mph"
+                temperature : "400_to_800_celsius" // 752-1472F
+                effect : "instant_death_for_anyone_caught"
+                reach : "Herculaneum_destroyed"
+              }
+            }
+
+            morning_next_day : {
+              final_surge : {
+                effect : "Pompeii_completely_buried"
+                depth : "13_to_20_feet_of_ash_and_pumice"
+              }
+            }
+          }
+
+          casualties : {
+            pompeii : {
+              population : "estimated_11000_to_20000"
+              found : "1150_bodies_found_to_date"
+              fate : "most_fled_some_stayed_and_died"
+            }
+
+            herculaneum : {
+              population : "estimated_4000_to_5000"
+              found : "300_bodies_in_boat_chambers"
+              fate : "Many fled to beach, killed by pyroclastic surge"
+            }
+
+            total : "estimated_16000_deaths_across_region"
+          }
+
+          famous_victim : {
+            pliny_the_elder : {
+              role : "admiral_and_naturalist"
+              death : "tried_to_rescue_friends_overcome_by_fumes"
+              account : "nephew_pliny_the_younger_wrote_eyewitness_letters"
+            }
+          }
+
+          archaeological_preservation : {
+            ash_seal : "airtight_burial_preserved_everything"
+            bodies : "ash_hardened_around_bodies_creating_molds"
+            plaster_casts : "archaeologists_pour_plaster_into_voids"
+            result : "snapshot_of_roman_life_frozen_in_time"
+
+            discoveries : {
+              streets : "complete_with_ruts_from_wagons"
+              houses : "furniture_food_frescoes_intact"
+              graffiti : "election_slogans_insults_love_notes"
+              bodies : "people_in_death_poses_children_pets"
+              brothel : "lupanar_with_erotic_frescoes_intact"
+            }
+          }
+        }
+
+        warning_signs : {
+          years_before : {
+            earthquake_62_ad : "major_earthquake_17_years_before"
+            tremors : "increased_seismic_activity"
+            ignored : "Romans_didn't_recognize_Vesuvius_as_volcano"
+          }
+
+          days_before : {
+            earthquakes : "small_tremors_considered_normal"
+            wells : "dried_up_or_water_became_hot"
+            animals : "birds_fled_dogs_agitated_folklore"
+          }
+
+          hours_before : {
+            rumbling : "ominous_sounds_from_mountain"
+            smell : "sulfur_smell_in_air"
+            anxiety : "general_unease_among_populace"
+          }
+        }
+
+        eruption_types : {
+          plinian : {
+            description : "Vesuvius_79_AD_style_eruption"
+            column : "volcanic_column_miles_high"
+            fallout : "pumice_and_ash_rain_down"
+            surge : "pyroclastic_density_currents"
+            deadliness : "extremely_lethal"
+          }
+
+          strombolian : {
+            description : "less_intense_lava_fountains"
+            frequency : "more_common"
+            danger : "lower_but_still_threatening"
+          }
+        }
+      }
+
+      other_volcanoes : {
+        mount_etna : {
+          location : "Sicily"
+          activity : "frequently_active"
+          eruptions : "lava_flows_destroy_settlements"
+          historical : "eruption_122_BC_described_by_Orosius"
+        }
+
+        campi_flegrei : {
+          location : "near_Naples"
+          type : "supervolcano_caldera"
+          activity : "periodic_uplift_and_subsidence"
+          danger : "potentially_catastrophic_if_erupts"
+        }
+      }
+
+      gameplay : {
+        campaign_scenario : {
+          pompeii_79_ad : {
+            objective : "save_as_many_citizens_as_possible"
+            time_limit : "24_hours_from_first_explosion"
+            challenges : {
+              panic : "citizens_panicking_roads_clogged"
+              decision : "stay_and_shelter_or_flee"
+              rescue : "help_elderly_injured_trapped"
+              resources : "limited_ships_carts_for_evacuation"
+            }
+
+            historical_accuracy : {
+              no_preventing : "cannot_stop_eruption"
+              goal : "minimize_casualties"
+              aftermath : "city_lost_forever"
+            }
+          }
+        }
+
+        volcanic_monitoring : {
+          signs : {
+            tremors : "seismograph_if_available_or_citizen_reports"
+            springs : "hot_springs_or_dried_wells"
+            gas : "sulfur_smell_reported"
+          }
+
+          warning_system : {
+            if_recognized : "early_warning_allows_evacuation"
+            if_ignored : "catastrophic_casualties"
+          }
+        }
+
+        eruption_effects : {
+          ashfall : {
+            accumulation : "inches_per_hour"
+            effects : {
+              roofs : "collapse_from_weight"
+              breathing : "ash_inhalation_suffocation"
+              visibility : "total_darkness_at_midday"
+              crops : "destroyed_for_years"
+            }
+          }
+
+          pyroclastic_flow : {
+            speed : "faster_than_running"
+            lethality : "100_percent_mortality"
+            range : "miles_from_volcano"
+            effect : "instant_death_entire_zones_annihilated"
+          }
+
+          lava_flows : {
+            speed : "slow_walking_pace_usually"
+            lethality : "avoidable_but_destroys_everything"
+            effect : "buildings_burned_and_buried"
+          }
+
+          lahars : {
+            description : "volcanic_mudflows"
+            cause : "ash_mixed_with_rain"
+            speed : "very_fast"
+            effect : "bury_settlements_downstream"
+          }
+        }
+
+        aftermath : {
+          city_buried : {
+            effect : "city_completely_lost"
+            option : "rebuild_elsewhere_or_abandon"
+          }
+
+          regional_impact : {
+            agriculture : "years_of_failed_harvests"
+            climate : "volcanic_winter_if_massive_eruption"
+            economy : "trade_disrupted"
+          }
+
+          archaeological_mode : {
+            future : "player_can_return_centuries_later"
+            excavation : "uncover_preserved_city"
+            museum : "artifacts_for_education"
+          }
+        }
+      }
+    }
+
+    // ========================================================================
+    // FLOODS - Tiber River flooding Rome
+    // ========================================================================
+
+    floods : {
+      tiber_river : {
+        geography : "Rome built on Tiber River banks"
+        risk : "regular_flooding_throughout_history"
+
+        causes : {
+          heavy_rain : "intense_winter_spring_storms"
+          snowmelt : "alpine_snow_melting_rapidly"
+          combination : "rain_plus_snowmelt_worst_case"
+        }
+
+        famous_floods : {
+          flood_of_414_bc : {
+            severity : "extremely_severe"
+            effect : "buildings_destroyed_famine"
+          }
+
+          flood_of_23_bc : {
+            severity : "major_flood"
+            response : "augustus_appointed_curatores_to_manage_river"
+          }
+
+          flood_of_5_ad : {
+            severity : "catastrophic"
+            casualties : "widespread_deaths"
+            buildings : "many_destroyed_or_damaged"
+          }
+
+          flood_of_69_ad : {
+            severity : "year_of_four_emperors"
+            damage : "added_to_civil_war_chaos"
+          }
+        }
+
+        frequency : "major_floods_every_few_decades_minor_flooding_more_common"
+      }
+
+      flood_mechanics : {
+        water_level_rise : {
+          minor : {
+            rise : "1_to_2_meters"
+            effect : "low_lying_areas_flooded"
+            damage : "minimal_mostly_inconvenience"
+          }
+
+          moderate : {
+            rise : "3_to_5_meters"
+            effect : "city_center_partially_flooded"
+            damage : "ground_floors_flooded_goods_damaged"
+          }
+
+          major : {
+            rise : "6_plus_meters"
+            effect : "large_parts_of_city_underwater"
+            damage : "buildings_collapse_mass_evacuations_deaths"
+          }
+        }
+
+        warning : {
+          upstream_reports : "messengers_from_upstream_towns"
+          warning_time : "hours_to_day_depending_on_distance"
+          river_gauges : "ancient_markers_show_water_level"
+        }
+
+        flood_stages : {
+          rising : {
+            duration : "hours_to_days"
+            effect : "water_slowly_creeps_up"
+            action : "evacuate_low_areas_move_goods"
+          }
+
+          peak : {
+            duration : "hours"
+            effect : "maximum_water_level"
+            action : "rescue_stranded_citizens"
+          }
+
+          receding : {
+            duration : "days_to_weeks"
+            effect : "water_slowly_drains"
+            action : "assess_damage_cleanup"
+          }
+        }
+      }
+
+      effects : {
+        buildings : {
+          flooding : "ground_floors_underwater"
+          structural : "water_weakens_foundations"
+          collapse : "weakened_buildings_may_collapse"
+          mold : "long_term_water_damage"
+        }
+
+        infrastructure : {
+          roads : "washed_out_impassable"
+          bridges : "at_risk_of_collapse_from_debris"
+          sewers : "backed_up_overflow"
+          aqueducts : "low_level_sections_damaged"
+        }
+
+        health : {
+          drowning : "primary_cause_of_death"
+          disease : "contaminated_water_causes_epidemics"
+          starvation : "food_supplies_destroyed"
+        }
+
+        economic : {
+          goods : "stored_grain_oil_destroyed"
+          trade : "river_transport_halted"
+          property : "buildings_require_expensive_repairs"
+        }
+      }
+
+      response : {
+        evacuation : {
+          warning : "if_sufficient_warning_evacuate_low_areas"
+          boats : "rescue_stranded_people_by_boat"
+          shelters : "temporary_housing_on_high_ground"
+        }
+
+        flood_control : {
+          levees : "embankments_to_contain_river"
+          diversions : "canals_to_redirect_water"
+          dredging : "keep_river_channel_deep"
+          limitations : "roman_technology_limited_effectiveness"
+        }
+
+        recovery : {
+          drainage : "pump_and_drain_flooded_areas"
+          cleanup : "remove_mud_debris"
+          repairs : "rebuild_damaged_infrastructure"
+          health : "prevent_disease_outbreaks"
+        }
+      }
+
+      gameplay : {
+        flood_warning : {
+          time : "hours_to_prepare"
+          player_actions : {
+            evacuate : "move_citizens_to_high_ground"
+            goods : "relocate_valuable_goods"
+            boats : "prepare_rescue_boats"
+            levees : "emergency_sandbagging"
+          }
+        }
+
+        during_flood : {
+          rescue : "save_stranded_citizens"
+          contain : "minimize_spread_of_flooding"
+          protect : "critical_infrastructure"
+        }
+
+        prevention : {
+          levees : {
+            cost : "expensive_construction"
+            effectiveness : "reduces_flood_risk_not_eliminates"
+          }
+
+          drainage : {
+            sewers : "improved_drainage_system"
+            channels : "flood_channels_to_divert_water"
+          }
+
+          zoning : {
+            restrictions : "prohibit_building_in_flood_zones"
+            resistance : "citizens_want_to_live_near_river"
+          }
+        }
+      }
+    }
+
+    // ========================================================================
+    // PLAGUE & EPIDEMICS - Covered in medicine_healthcare.model but ties into disasters
+    // ========================================================================
+
+    epidemics : {
+      note : "See medicine_healthcare.model for full disease system"
+
+      disaster_scale_plagues : {
+        antonine_plague : {
+          date : "165_to_180_ad"
+          disease : "possibly_smallpox_or_measles"
+          mortality : "estimated_5_million_deaths"
+          effect : "decimated_roman_army_and_population"
+        }
+
+        plague_of_cyprian : {
+          date : "249_to_262_ad"
+          mortality : "5000_per_day_in_rome_at_peak"
+          effect : "contributed_to_crisis_of_third_century"
+        }
+      }
+
+      disaster_mechanics : {
+        trigger : "trade_routes_armies_return_from_east"
+        spread : "city_to_city_exponential_growth"
+        mortality : "up_to_30_percent_of_population"
+        duration : "years_multiple_waves"
+        recovery : "decades_for_population_to_recover"
+      }
+    }
+
+    // ========================================================================
+    // DROUGHTS & FAMINES
+    // ========================================================================
+
+    droughts_famines : {
+      causes : {
+        drought : {
+          description : "prolonged_lack_of_rain"
+          duration : "months_to_years"
+          effect : "crop_failure"
+        }
+
+        crop_disease : {
+          description : "blight_or_pest_infestation"
+          effect : "harvest_destroyed"
+        }
+
+        war : {
+          description : "fields_burned_farmers_conscripted"
+          effect : "no_planting_or_harvest"
+        }
+
+        supply_disruption : {
+          description : "grain_ships_lost_or_trade_routes_cut"
+          effect : "city_starves_despite_distant_harvests"
+        }
+      }
+
+      famine_stages : {
+        food_scarcity : {
+          grain_price : "doubles_or_triples"
+          effect : "poor_struggle_to_afford_food"
+          unrest : "beginning_complaints"
+        }
+
+        shortage : {
+          grain_price : "5_to_10_times_normal"
+          effect : "widespread_hunger"
+          unrest : "protests_and_riots"
+        }
+
+        famine : {
+          grain_price : "if_available_at_any_price"
+          effect : "mass_starvation"
+          casualties : "deaths_from_hunger_and_disease"
+          unrest : "revolution_social_collapse"
+        }
+      }
+
+      historical_famines : {
+        frequent : "Rome_experienced_periodic_famines"
+        grain_dole : "free_grain_distribution_to_prevent_riots"
+        egypt : "Egypt_breadbasket_of_rome"
+      }
+
+      response : {
+        grain_reserves : {
+          storage : "public_granaries_stockpile"
+          duration : "months_of_supply"
+          cost : "expensive_to_maintain"
+        }
+
+        imports : {
+          emergency : "buy_grain_from_distant_markets"
+          cost : "extremely_expensive_during_shortage"
+          risk : "ships_may_be_lost_delayed"
+        }
+
+        rationing : {
+          distribution : "controlled_distribution"
+          fairness : "ensure_poor_get_share"
+          enforcement : "prevent_hoarding"
+        }
+
+        relief : {
+          public_feeding : "free_meals_for_destitute"
+          price_controls : "cap_grain_prices"
+          confiscation : "seize_hoarded_grain"
+        }
+      }
+
+      gameplay : {
+        monitoring : {
+          harvest_predictions : "forecast_based_on_weather"
+          stockpile_levels : "track_grain_reserves"
+          early_warning : "plan_ahead_for_shortages"
+        }
+
+        prevention : {
+          diversification : "multiple_food_sources"
+          storage : "build_granaries"
+          trade : "secure_reliable_grain_imports"
+        }
+
+        crisis_management : {
+          priority : "feed_population_or_face_revolution"
+          choices : "who_eats_army_citizens_slaves"
+          consequences : "starvation_causes_disease_unrest_death"
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // EMERGENCY SERVICES - VIGILES
+  // ==========================================================================
+  // Roman fire brigade and night watch police force
+
+  emergency_services : {
+
+    vigiles : {
+      history : {
+        established : "6_AD_by_emperor_Augustus"
+        reason : "response_to_frequent_devastating_fires"
+        predecessor : "previously_private_fire_brigades_ineffective"
+
+        crassus_scandal : {
+          date : "before_vigiles_established"
+          method : "Marcus Licinius Crassus ran private fire brigade"
+          tactic : "arrive_at_fire_offer_to_buy_burning_property_cheap"
+          coercion : "if_owner_refused_let_it_burn"
+          profit : "extinguish_after_buying_or_let_burn_then_buy_land"
+          result : "became_richest_man_in_rome_through_fire_profiteering"
+          why_vigiles_created : "augustus_created_public_force_to_end_this_corruption"
+        }
+      }
+
+      organization : {
+        structure : {
+          total_force : "approximately_7000_men"
+          cohorts : "7_cohorts_each_covering_2_city_districts"
+          each_cohort : "1000_men_led_by_tribune"
+          centuries : "each_cohort_divided_into_7_centuries_of_about_140_men"
+          command : "praefectus_vigilum_commander_of_entire_force"
+        }
+
+        recruitment : {
+          rank : "freedmen_not_citizens_or_slaves"
+          term : "6_years_of_service"
+          reward : "roman_citizenship_upon_completion"
+          training : "firefighting_and_policing_techniques"
+        }
+
+        stations : {
+          excubitoria : {
+            description : "fire_stations_watch_towers"
+            location : "strategically_placed_throughout_city"
+            function : "base_for_patrols_equipment_storage"
+            alert : "watch_towers_spot_fires_smoke"
+          }
+        }
+      }
+
+      equipment : {
+        firefighting : {
+          siphons : {
+            description : "manual_water_pumps"
+            operation : "hand_operated_piston_pumps"
+            effectiveness : "spray_water_on_fires"
+            range : "limited_range_and_pressure"
+          }
+
+          buckets : {
+            description : "leather_or_bronze_buckets"
+            use : "bucket_brigades_from_fountains_aqueducts"
+            effectiveness : "only_effective_for_small_fires"
+          }
+
+          axes : {
+            use : "break_down_doors_create_firebreaks"
+          }
+
+          hooks : {
+            description : "long_poles_with_hooks"
+            use : "pull_down_burning_structures_create_firebreaks"
+          }
+
+          blankets : {
+            description : "wet_blankets_or_hides"
+            use : "smother_small_fires_protect_from_heat"
+          }
+
+          vinegar : {
+            description : "sponges_soaked_in_vinegar"
+            use : "held_over_nose_and_mouth_filter_smoke"
+          }
+        }
+
+        policing : {
+          clubs : "for_subduing_criminals"
+          ropes : "restraining_suspects"
+          lanterns : "night_patrols_visibility"
+        }
+      }
+
+      tactics : {
+        firefighting_methods : {
+          direct_attack : {
+            description : "spray_water_on_flames"
+            effectiveness : "limited_by_water_supply_and_pump_power"
+            best_for : "small_to_medium_fires"
+          }
+
+          firebreaks : {
+            description : "demolish_buildings_to_stop_spread"
+            method : "pull_down_structures_in_fire_path"
+            effectiveness : "very_effective_if_done_quickly"
+            authority : "vigiles_had_legal_power_to_demolish"
+            compensation : "owners_compensated_by_state_usually"
+          }
+
+          salvage : {
+            description : "save_valuables_from_burning_buildings"
+            priority : "people_first_then_valuable_goods"
+            corruption : "temptation_to_loot"
+          }
+        }
+
+        fire_prevention : {
+          patrols : {
+            frequency : "regular_night_patrols"
+            inspection : "check_for_fire_hazards"
+            enforcement : "ensure_regulations_followed"
+          }
+
+          regulations : {
+            cooking_fires : "must_be_attended"
+            heating : "braziers_must_be_secured"
+            storage : "flammable_materials_restrictions"
+            penalties : "fines_or_punishment_for_violations"
+          }
+
+          public_education : {
+            announcements : "remind_citizens_of_fire_safety"
+            demonstrations : "show_proper_equipment_use"
+          }
+        }
+
+        police_duties : {
+          night_watch : {
+            patrols : "vigiles_patrolled_streets_at_night"
+            curfew : "enforce_nighttime_curfews"
+            lighting : "ensure_street_lights_maintained"
+          }
+
+          crime_prevention : {
+            burglary : "deter_thieves"
+            violence : "break_up_fights"
+            prostitution : "regulate_brothels"
+          }
+
+          arrests : {
+            authority : "apprehend_criminals"
+            detention : "hold_in_station_until_magistrate"
+            investigation : "basic_detective_work"
+          }
+        }
+      }
+
+      challenges : {
+        equipment_limits : {
+          water_supply : "limited_water_pressure_volume"
+          pumps : "manual_operation_tiring"
+          reach : "tall_buildings_difficult"
+        }
+
+        organizational : {
+          corruption : "temptation_to_extort_or_loot"
+          response_time : "may_arrive_too_late"
+          manpower : "not_enough_for_massive_fires"
+        }
+
+        legal : {
+          property_rights : "demolition_politically_sensitive"
+          compensation : "disputes_over_destroyed_property"
+        }
+      }
+
+      effectiveness : {
+        small_fires : "usually_successful"
+        medium_fires : "often_contained"
+        large_fires : "difficult_to_stop"
+        conflagrations : "focus_on_firebreaks_and_evacuation"
+      }
+
+      morale_and_image : {
+        public_perception : "generally_respected_and_appreciated"
+        dangerous_work : "high_casualties_burns_smoke_inhalation_collapses"
+        heroism : "vigiles_who_died_fighting_fires_honored"
+      }
+    }
+
+    gameplay_vigiles : {
+      building : {
+        excubitoria : {
+          cost : "moderate_public_building"
+          placement : "strategic_throughout_city"
+          capacity : "100_to_200_vigiles_per_station"
+          coverage : "radius_of_effectiveness"
+        }
+      }
+
+      recruitment : {
+        source : "freedmen_population"
+        cost : "salary_and_equipment"
+        training : "time_to_train_recruits"
+        citizenship_reward : "after_6_years_become_citizens"
+      }
+
+      equipment_upgrades : {
+        basic : "buckets_and_axes"
+        improved : "siphons_water_pumps"
+        advanced : "better_pumps_more_equipment"
+        cost : "investment_in_equipment"
+      }
+
+      operations : {
+        fire_response : {
+          alert : "fire_detected_vigiles_dispatched"
+          response_time : "depends_on_distance_and_readiness"
+          effectiveness : "depends_on_fire_size_equipment_training"
+
+          player_control : {
+            option : "direct_vigiles_strategy"
+            choices : ["save_building", "create_firebreak", "evacuate_citizens"]
+            risk_reward : "aggressive_tactics_risky_but_save_more"
+          }
+        }
+
+        patrols : {
+          frequency : "regular_patrols_reduce_fire_risk"
+          coverage : "more_vigiles_better_coverage"
+          prevention : "catch_hazards_before_fires_start"
+        }
+
+        policing : {
+          crime_reduction : "vigiles_reduce_crime_at_night"
+          public_order : "maintain_stability"
+        }
+      }
+
+      upgrades : {
+        training : {
+          basic : "adequate_firefighting"
+          advanced : "improved_effectiveness"
+          elite : "best_possible_firefighting"
+        }
+
+        equipment : {
+          budget : "invest_in_better_gear"
+          effectiveness : "better_equipment_saves_more_buildings"
+        }
+
+        expansion : {
+          more_stations : "reduce_response_time"
+          more_vigiles : "handle_multiple_fires_simultaneously"
+        }
+      }
+
+      management : {
+        readiness : {
+          alert_level : "keep_vigiles_ready_vs_cost"
+          drills : "regular_training_maintains_skill"
+        }
+
+        morale : {
+          pay : "adequate_pay_maintains_morale"
+          conditions : "dangerous_work_needs_support"
+          honors : "recognize_heroism"
+        }
+
+        corruption : {
+          risk : "vigiles_may_demand_bribes"
+          oversight : "inspections_reduce_corruption"
+          punishment : "discipline_corrupt_vigiles"
+        }
+      }
+
+      scenarios : {
+        small_fire : {
+          challenge : "routine_response"
+          outcome : "usually_successful"
+        }
+
+        major_fire : {
+          challenge : "requires_all_available_vigiles"
+          decisions : "firebreaks_evacuations_priorities"
+          outcome : "partial_success_some_buildings_lost"
+        }
+
+        conflagration : {
+          challenge : "uncontrollable_fire"
+          goal : "save_as_much_as_possible"
+          tactics : "massive_firebreaks_mass_evacuation"
+          outcome : "major_losses_but_prevented_total_destruction"
+        }
+
+        arson : {
+          challenge : "deliberate_multiple_fires"
+          investigation : "vigiles_hunt_arsonist"
+          prevention : "increased_patrols"
+        }
+      }
+    }
+
+    // Other emergency services
+    other_services : {
+
+      curatores : {
+        various_boards : {
+          curatores_aquarum : {
+            role : "maintain_aqueducts"
+            emergency : "repair_broken_aqueducts_after_disasters"
+          }
+
+          curatores_viarum : {
+            role : "maintain_roads"
+            emergency : "clear_roads_after_earthquakes_floods"
+          }
+
+          curatores_riparum : {
+            role : "manage_riverbanks_and_tiber"
+            emergency : "flood_control_and_response"
+          }
+        }
+      }
+
+      military : {
+        urban_cohorts : {
+          role : "riot_control_and_security"
+          emergency : "restore_order_after_disasters"
+        }
+
+        praetorian_guard : {
+          role : "emperor's_bodyguard"
+          emergency : "may_assist_in_major_crises"
+        }
+
+        legions : {
+          role : "if_garrisoned_nearby"
+          emergency : "massive_manpower_for_disaster_response"
+          engineering : "skilled_at_construction_and_demolition"
+        }
+      }
+
+      medical : {
+        medici : {
+          role : "physicians_treat_injured"
+          capacity : "limited_in_mass_casualty_events"
+        }
+
+        valetudinaria : {
+          role : "hospitals_for_treatment"
+          overwhelmed : "disasters_exceed_capacity"
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // DISASTER PREPAREDNESS & RESPONSE
+  // ==========================================================================
+
+  preparedness : {
+
+    infrastructure_resilience : {
+      building_codes : {
+        height_restrictions : {
+          purpose : "limit_building_height_for_safety"
+          regulation : "insulae_limited_to_certain_height"
+          enforcement : "variable_often_ignored"
+          benefit : "reduces_collapse_risk_fire_spread"
+        }
+
+        fire_resistant_materials : {
+          requirement : "use_stone_tile_over_wood"
+          cost : "more_expensive"
+          benefit : "significantly_reduces_fire_risk"
+        }
+
+        street_width : {
+          purpose : "wider_streets_prevent_fire_spread"
+          post_64_ad : "Nero_mandated_wider_streets_after_Great_Fire"
+          benefit : "firebreaks_easier_movement"
+        }
+      }
+
+      water_supply : {
+        aqueducts : {
+          redundancy : "multiple_aqueducts_reduce_vulnerability"
+          maintenance : "regular_inspection_and_repair"
+          emergency : "critical_for_firefighting"
+        }
+
+        fountains : {
+          placement : "throughout_city"
+          purpose : "water_source_for_bucket_brigades"
+        }
+
+        cisterns : {
+          storage : "reserve_water_supply"
+          emergency : "use_when_aqueducts_fail"
+        }
+      }
+
+      food_security : {
+        granaries : {
+          capacity : "months_of_grain_storage"
+          distribution : "multiple_locations_reduce_vulnerability"
+          protection : "fireproof_stone_construction"
+        }
+
+        trade_routes : {
+          diversification : "multiple_sources_of_grain"
+          navy : "protect_grain_ships_from_pirates"
+        }
+      }
+    }
+
+    planning : {
+      evacuation_routes : {
+        gates : "ensure_city_gates_accessible"
+        roads : "maintain_clear_evacuation_routes"
+        drills : "rare_but_could_practice"
+      }
+
+      shelters : {
+        public_buildings : "temples_baths_open_for_refugees"
+        camps : "temporary_camps_outside_city"
+      }
+
+      communication : {
+        messengers : "rapid_communication_system"
+        signals : "fire_beacons_smoke_signals"
+        announcements : "town_criers_spread_warnings"
+      }
+    }
+
+    emergency_powers : {
+      dictator : {
+        appointment : "in_extreme_crisis_dictator_appointed"
+        authority : "absolute_power_for_6_months"
+        purpose : "rapid_decision_making_in_emergency"
+        historical : "used_in_early_republic_not_late_empire"
+      }
+
+      magistrate_authority : {
+        emergency_measures : "consuls_praetors_can_act_decisively"
+        requisition : "seize_private_property_for_public_good"
+        conscription : "draft_citizens_for_emergency_labor"
+      }
+    }
+  }
+
+  response : {
+    immediate : {
+      search_and_rescue : {
+        priority : "save_lives_first"
+        methods : "dig_through_rubble_boats_in_floods"
+        vigiles : "trained_for_rescue_operations"
+        citizens : "spontaneous_volunteer_efforts"
+      }
+
+      medical_triage : {
+        wounded : "treat_injured_at_scene_and_hospitals"
+        overwhelmed : "disasters_exceed_medical_capacity"
+        priorities : "save_most_savable_first"
+      }
+
+      firefighting : {
+        vigiles_response : "immediately_dispatch_vigiles"
+        demolition : "create_firebreaks"
+        water : "bucket_brigades_and_pumps"
+      }
+
+      evacuation : {
+        threatened_areas : "move_citizens_to_safety"
+        orderly : "prevent_panic_stampedes"
+        vulnerable : "elderly_children_sick_first"
+      }
+    }
+
+    short_term : {
+      shelter : {
+        homeless : "provide_temporary_housing"
+        locations : "public_buildings_tents_camps"
+        duration : "days_to_weeks"
+      }
+
+      food_and_water : {
+        distribution : "emergency_rations"
+        free : "state_provides_to_destitute"
+        kitchens : "public_feeding_stations"
+      }
+
+      security : {
+        looting : "prevent_theft_from_damaged_areas"
+        patrols : "vigiles_and_military"
+        curfews : "nighttime_restrictions"
+      }
+
+      assess_damage : {
+        surveys : "inspect_buildings_infrastructure"
+        priorities : "identify_critical_repairs"
+        cost : "estimate_reconstruction_expenses"
+      }
+    }
+
+    long_term : {
+      reconstruction : {
+        debris_removal : "clear_rubble_and_ruins"
+        rebuilding : "reconstruct_destroyed_buildings"
+        improvement : "opportunity_to_build_better"
+        duration : "months_to_years"
+      }
+
+      economic_recovery : {
+        loans : "state_or_private_loans_for_rebuilding"
+        tax_relief : "suspend_taxes_for_affected_citizens"
+        trade : "restore_commerce"
+      }
+
+      population : {
+        return : "convince_citizens_to_return"
+        immigration : "attract_new_residents"
+        growth : "return_to_pre_disaster_population"
+      }
+
+      psychological : {
+        trauma : "citizens_suffer_from_disaster_trauma"
+        morale : "rebuild_confidence_in_city"
+        memorials : "honor_victims"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // GAMEPLAY INTEGRATION
+  // ==========================================================================
+
+  gameplay_integration : {
+
+    disaster_difficulty : {
+      settings : {
+        frequency : {
+          off : "no_random_disasters"
+          rare : "disasters_very_infrequent"
+          normal : "historically_accurate_frequency"
+          frequent : "challenging_regular_disasters"
+          constant : "extreme_difficulty_survival_mode"
+        }
+
+        severity : {
+          mild : "disasters_less_damaging"
+          normal : "realistic_damage"
+          catastrophic : "maximum_destruction"
+        }
+      }
+    }
+
+    early_warning : {
+      research : {
+        weather_prediction : {
+          unlock : "study_patterns_improve_forecasting"
+          benefit : "longer_warning_for_storms_floods"
+        }
+
+        seismology : {
+          unlock : "observe_earthquake_precursors"
+          benefit : "may_get_minutes_warning_for_quakes"
+          limitation : "ancient_science_very_limited"
+        }
+
+        volcanic_monitoring : {
+          unlock : "recognize_eruption_signs"
+          benefit : "hours_to_days_warning"
+        }
+      }
+    }
+
+    player_choices : {
+      prevention : {
+        invest_in_infrastructure : {
+          cost : "expensive_upfront"
+          benefit : "reduced_disaster_damage"
+          examples : "earthquake_resistant_buildings_levees_fire_resistant_materials"
+        }
+
+        emergency_services : {
+          vigiles : "invest_in_firefighting"
+          curatores : "invest_in_infrastructure_maintenance"
+          military : "garrison_for_emergency_response"
+        }
+
+        reserves : {
+          food : "stockpile_grain"
+          water : "build_cisterns"
+          funds : "emergency_budget"
+        }
+      }
+
+      response : {
+        prioritization : {
+          lives_vs_property : "save_people_or_buildings"
+          which_districts : "save_wealthy_areas_or_poor"
+          resources : "allocate_limited_resources"
+        }
+
+        demolition : {
+          firebreaks : "destroy_property_to_save_city"
+          compensation : "pay_owners_or_force_seizure"
+        }
+
+        evacuation : {
+          order : "when_to_call_evacuation"
+          enforcement : "forced_or_voluntary"
+        }
+      }
+
+      recovery : {
+        rebuild_priorities : {
+          infrastructure : "roads_aqueducts_first"
+          economy : "markets_workshops_first"
+          housing : "homes_for_citizens_first"
+        }
+
+        improvement : {
+          opportunity : "rebuild_better_than_before"
+          cost : "more_expensive_but_safer"
+        }
+
+        assistance : {
+          relief : "how_much_aid_to_provide"
+          fairness : "help_poor_or_let_market_decide"
+        }
+      }
+    }
+
+    consequences : {
+      success : {
+        lives_saved : "minimize_casualties"
+        property_saved : "minimize_economic_damage"
+        reputation : "citizens_grateful_career_advancement"
+      }
+
+      failure : {
+        deaths : "high_casualties"
+        destruction : "severe_economic_damage"
+        unrest : "citizens_blame_leadership"
+        removal : "may_be_fired_or_worse"
+      }
+    }
+
+    historical_scenarios : {
+      great_fire_64_ad : {
+        objective : "minimize_damage_and_casualties"
+        challenge : "limited_firefighting_capacity"
+        historical_outcome : "10_of_14_districts_damaged"
+      }
+
+      vesuvius_79_ad : {
+        objective : "evacuate_pompeii_and_herculaneum"
+        challenge : "limited_time_and_transport"
+        historical_outcome : "about_16000_deaths"
+      }
+
+      earthquake_scenario : {
+        objective : "respond_to_major_earthquake"
+        challenge : "multiple_simultaneous_crises"
+      }
+
+      flood_scenario : {
+        objective : "protect_rome_from_tiber_flooding"
+        challenge : "limited_flood_control_technology"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // VISUAL & AUDIO EFFECTS
+  // ==========================================================================
+
+  presentation : {
+    visual_effects : {
+      weather : {
+        rain : "animated_rain_dynamic_puddles"
+        snow : "falling_snow_accumulation"
+        storms : "lightning_flashes_dark_clouds"
+        wind : "trees_swaying_cloth_blowing"
+      }
+
+      disasters : {
+        fire : {
+          flames : "realistic_fire_simulation"
+          smoke : "volumetric_smoke_columns"
+          embers : "flying_sparks_and_embers"
+          heat_shimmer : "heat_distortion_effect"
+        }
+
+        earthquake : {
+          shaking : "camera_shake_buildings_sway"
+          collapse : "buildings_crumble_dust_clouds"
+          cracks : "ground_cracks_open"
+        }
+
+        volcano : {
+          eruption_column : "massive_ash_column"
+          pyroclastic_flow : "superheated_avalanche"
+          ashfall : "falling_ash_darkening_sky"
+          lava : "glowing_lava_flows"
+        }
+
+        flood : {
+          rising_water : "water_level_increases"
+          currents : "flowing_water_debris"
+          aftermath : "mud_and_watermarks"
+        }
+      }
+    }
+
+    audio_effects : {
+      weather : {
+        rain : "rain_patter_varying_intensity"
+        thunder : "rumbling_crashes"
+        wind : "howling_gusts"
+      }
+
+      disasters : {
+        fire : {
+          crackling : "flames_crackling_roaring"
+          collapse : "buildings_crashing_down"
+          screams : "citizens_in_danger"
+        }
+
+        earthquake : {
+          rumble : "deep_ominous_rumbling"
+          destruction : "cracking_crashing"
+          aftershock : "sudden_jolts"
+        }
+
+        volcano : {
+          explosion : "thunderous_detonation"
+          flow : "rushing_pyroclastic_surge"
+          impacts : "rocks_falling"
+        }
+      }
+
+      emergency : {
+        alarms : "fire_bells_warning_horns"
+        vigiles : "shouting_orders_coordinating"
+        crowd : "panic_crying_evacuation"
+      }
+    }
+
+    ui_elements : {
+      warnings : {
+        alerts : "clear_visual_and_audio_warnings"
+        countdown : "time_until_disaster_strikes"
+        radar : "disaster_location_and_spread"
+      }
+
+      status : {
+        casualties : "running_count_of_dead_injured"
+        damage : "economic_cost"
+        response : "vigiles_status_and_effectiveness"
+      }
+
+      controls : {
+        disaster_management : "interface_for_emergency_response"
+        resource_allocation : "assign_vigiles_resources"
+      }
+    }
+  }
+
+  // ==========================================================================
+  // HISTORICAL SOURCES & NOTES
+  // ==========================================================================
+
+  sources : {
+    ancient_texts : {
+      pliny_elder : {
+        natural_history : "weather_natural_disasters_vesuvius"
+        death : "died_in_vesuvius_eruption_trying_to_rescue_friends"
+      }
+
+      pliny_younger : {
+        letters : "eyewitness_account_of_vesuvius_eruption"
+      }
+
+      tacitus : {
+        annales : "great_fire_of_rome_64_ad_detailed_account"
+      }
+
+      suetonius : {
+        twelve_caesars : "nero_and_great_fire"
+      }
+
+      seneca : {
+        natural_questions : "earthquakes_and_natural_phenomena"
+      }
+
+      dio_cassius : {
+        roman_history : "various_disasters_throughout_roman_history"
+      }
+    }
+
+    archaeological : {
+      pompeii : "preserved_by_vesuvius_eruption"
+      herculaneum : "better_preserved_than_pompeii"
+      ostia : "ancient_port_insula_architecture"
+      rome : "archaeological_evidence_of_fires_and_rebuilding"
+    }
+
+    modern_scholarship : {
+      disaster_studies : "modern_analysis_of_ancient_disasters"
+      engineering : "roman_construction_techniques"
+      climate_science : "ancient_climate_and_weather_patterns"
+    }
+  }
+}
